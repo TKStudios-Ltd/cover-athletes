@@ -738,7 +738,7 @@ slideshow-component [data-placeholder='true'] * {
 }
 
 @font-face {
-  font-family: 'Monument Extended';
+  font-family: 'PP Monument Extended';
   src: url('{{ "monument-extended-2.woff2" | asset_url }}') format('woff2'),
       url('{{ "monument-extended-2.woff" | asset_url }}') format('woff');
   font-weight: 300;
