@@ -215,10 +215,12 @@
   }
 
   .email-signup__button {
-    transition: background ease .4s;
+    transition: all ease .4s;
   }
   .email-signup__button:hover {
     background: transparent;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   .email-signup__input:focus {
