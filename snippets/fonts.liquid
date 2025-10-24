@@ -10,6 +10,30 @@
   font-weight: 300;
   font-display: swap;
 }
+@font-face {
+          font-family: 'Graphik';
+          src: url('{{ "Graphik-Light.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Graphik-Light.woff" | asset_url }}') format('woff');
+          font-weight: 300;
+          font-style: normal;
+          font-display: swap;
+      }
+      @font-face {
+          font-family: 'Graphik';
+          src: url('{{ "Graphik-Regular.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Graphik-Regular.woff" | asset_url }}') format('woff');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+      }
+      @font-face {
+          font-family: 'Graphik';
+          src: url('{{ "Graphik-Semibold.woff2" | asset_url }}') format('woff2'),
+            url('{{ "Graphik-Semibold.woff" | asset_url }}') format('woff');
+          font-weight: 600;
+          font-style: normal;
+          font-display: swap;
+      }
 </style>
 
 {%- unless settings.type_body_font.system? -%}
