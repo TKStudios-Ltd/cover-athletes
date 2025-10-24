@@ -1,13 +1,15 @@
 {% # theme-check-disable %}
-<link rel="preload" as="font" href="{{ 'PPMonumentExtended-Light.woff2' | asset_url }}" type="font/woff2" crossorigin>
-
+<link rel="preload" as="font" href="{{ 'MonumentExtended-Regular.woff2' | asset_url }}" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="{{ 'Graphik-Light.woff2' | asset_url }}" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="{{ 'Graphik-Regular.woff2' | asset_url }}" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="{{ 'Graphik-Semibold.woff2' | asset_url }}" type="font/woff2" crossorigin>
 <style>
 @font-face {
-  font-family: 'PP Monument Extended';
-  src: url('{{ "PPMonumentExtended-Light.woff2" | asset_url }}') format('woff2'),
-       url('{{ "PPMonumentExtended-Light.woff"  | asset_url }}') format('woff');
+  font-family: 'Monument Extended';
+  src: url('{{ "MonumentExtended-Regular.woff2" | asset_url }}') format('woff2'),
+       url('{{ "MonumentExtended-Regular.woff"  | asset_url }}') format('woff');
   font-style: normal;
-  font-weight: 300;
+  font-weight: normal;
   font-display: swap;
 }
 @font-face {
@@ -18,6 +20,7 @@
           font-style: normal;
           font-display: swap;
       }
+      
       @font-face {
           font-family: 'Graphik';
           src: url('{{ "Graphik-Regular.woff2" | asset_url }}') format('woff2'),
@@ -45,7 +48,6 @@
     crossorigin
     fetchpriority="low"
   > {% endcomment %}
-  <link rel="preload" as="font" href="{{ 'Graphik-Regular.woff2' | asset_url }}" type="font/woff2" crossorigin>
 {%- endunless -%}
 {%- unless settings.type_subheading_font.system? -%}
   {% comment %} <link
