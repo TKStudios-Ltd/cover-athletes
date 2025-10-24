@@ -180,9 +180,28 @@
     width: 100%;
     border-width: var(--border-width);
     border-radius: var(--border-radius);
-    border-style: solid;
-    border-color: var(--color-input-border);
+    /* border-style: solid; */
+    /* border-color: var(--color-input-border); */
+    border: 1px solid transparent;
+    padding: 12px 14px;
+    background:
+      linear-gradient(0deg, rgba(255,255,255,0.06), rgba(255,255,255,0.06)) padding-box,
+      linear-gradient(108.74deg,
+        rgba(105,120,255,0.282) 0%,
+        rgba(255,255,255,0.54) 36.46%,
+        rgba(255,255,255,0.3) 73.96%,
+        rgba(13,220,170,0.246) 100%
+      ) border-box;
+
+    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(100px);
+    box-shadow: 0 0 50px -25px rgba(0,0,0,0.5);
+    outline: none;
   }
+  .email-signup__input:focus {
+    box-shadow: 0 0 50px -25px rgba(0,0,0,0.6);
+  }
+
 
   .email-signup__input.paragraph {
     color: var(--color-input-text);
