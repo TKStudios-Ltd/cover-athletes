@@ -813,9 +813,9 @@ h3,
 .h3,
 .h3.h3,
 .text-block.h3 > * {
-  font-family: 'PP Monument Extended', sans-serif;
+  font-family: 'PP Monument Extended', sans-serif !important;
   font-style: var(--font-h3--style);
-  font-weight: 300;
+  font-weight: 300 !important;
   font-size: var(--font-h3--size);
   line-height: var(--font-h3--line-height);
   letter-spacing: var(--font-h3--letter-spacing);
