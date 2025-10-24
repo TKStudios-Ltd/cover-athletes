@@ -191,10 +191,31 @@
     backdrop-filter: blur(100px);
     box-shadow: 0 0 50px -25px rgba(0, 0, 0, 0.5);
   }
-  .email-signup__input:focus {
-    box-shadow: 0 0 50px -25px rgba(0,0,0,0.6);
+  .email-signup__input::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      108.74deg,
+      rgba(105, 120, 255, 0.282) 0%,
+      rgba(255, 255, 255, 0.54) 36.46%,
+      rgba(255, 255, 255, 0.3) 73.96%,
+      rgba(13, 220, 170, 0.246) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
   }
-
+  .email-signup__input:focus {
+    box-shadow: 0 0 60px -20px rgba(0, 0, 0, 0.6);
+    outline: none;
+  }
 
   .email-signup__input.paragraph {
     color: var(--color-input-text);
