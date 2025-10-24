@@ -19,7 +19,7 @@
         style="--border-width: {{ block_settings.border_width }}px; --border-radius: {{ block_settings.border_radius }}px;"
       >
         <label for="NameInput-{{ block.id }}" class="visually-hidden">
-          {{ 'general.name' | t | default: 'Name' }}
+          Name
         </label>
         <input
           id="NameInput-{{ block.id }}"
@@ -39,7 +39,7 @@
         style="--border-width: {{ block_settings.border_width }}px; --border-radius: {{ block_settings.border_radius }}px;"
       >
         <label for="EmailInput-{{ block.id }}" class="visually-hidden">
-          {{ 'blocks.email_signup.label' | t }}
+          Email
         </label>
         <input
           id="EmailInput-{{ block.id }}"
