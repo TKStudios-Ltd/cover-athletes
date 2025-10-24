@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "section_Fh7TFQ": {
       "type": "section",
@@ -76,8 +77,9 @@
         "section_height": "medium",
         "section_height_custom": 50,
         "color_scheme": "scheme-3",
-        "background_media": "none",
+        "background_media": "image",
         "video_position": "cover",
+        "background_image": "shopify://shop_images/Cover_Heat_Still_008FRONT0071.jpg",
         "background_image_position": "cover",
         "border": "none",
         "border_width": 1,
@@ -161,6 +163,7 @@
       },
       "name": "Collection list: Grid",
       "settings": {
+        "collection_list": [],
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "columns": 6,
@@ -188,6 +191,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
+            "link": "",
             "video_loop": true,
             "video_autoplay": false,
             "image_position": "cover",
@@ -268,6 +272,7 @@
       },
       "name": "t:names.featured_product",
       "settings": {
+        "product": "",
         "layout": "media-left",
         "color_scheme": "scheme-4",
         "padding-block-start": 0,
@@ -421,6 +426,7 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
                 "open_in_new_tab": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -459,6 +465,7 @@
                     "overlay_color": "#00000026",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
+                    "link": "",
                     "open_in_new_tab": false,
                     "padding-block-start": 8,
                     "padding-block-end": 0,
@@ -636,6 +643,7 @@
       },
       "name": "Collection list: Carousel",
       "settings": {
+        "collection_list": [],
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "columns": 3,
