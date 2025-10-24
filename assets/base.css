@@ -805,7 +805,7 @@ body,
 h1,
 .h1.h1,
 .text-block.h1 > * {
-  font-family: 'Monument Extended';
+  font-family: 'PP Monument Extended';
   font-style: var(--font-h1--style);
   font-weight: 300;
   font-size: var(--font-h1--size);
@@ -826,9 +826,9 @@ h1,
 h2,
 .h2.h2,
 .text-block.h2 > * {
-  font-family: 'Monument Extended';
+  font-family: 'PP Monument Extended';
   font-style: var(--font-h2--style);
-  font-weight: inherit;
+  font-weight: 300;
   font-size: var(--font-h2--size);
   line-height: var(--font-h2--line-height);
   letter-spacing: var(--font-h2--letter-spacing);
@@ -848,9 +848,9 @@ h3,
 .h3,
 .h3.h3,
 .text-block.h3 > * {
-  font-family: 'Monument Extended';
+  font-family: 'PP Monument Extended';
   font-style: var(--font-h3--style);
-  font-weight: inherit;
+  font-weight: 300;
   font-size: var(--font-h3--size);
   line-height: var(--font-h3--line-height);
   letter-spacing: var(--font-h3--letter-spacing);
