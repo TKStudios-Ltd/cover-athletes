@@ -20,15 +20,14 @@
   >
 {%- endunless -%}
 {%- unless settings.type_heading_font.system? -%}
-  {% comment %} <link
+  <link
     rel="preload"
     as="font"
     href="{{ settings.type_heading_font | font_url }}"
     type="font/woff2"
     crossorigin
     fetchpriority="low"
-  > {% endcomment %}
-  <link rel="preload" as="font" href="{{ 'PPMonumentExtended-Light.woff2' | asset_url }}" type="font/woff2" crossorigin>
+  >
 {%- endunless -%}
 {%- unless settings.type_accent_font.system? -%}
   <link
