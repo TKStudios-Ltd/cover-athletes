@@ -828,7 +828,7 @@ h2,
 .text-block.h2 > * {
   font-family: 'Monument Extended';
   font-style: var(--font-h2--style);
-  font-weight: 400;
+  font-weight: inherit;
   font-size: var(--font-h2--size);
   line-height: var(--font-h2--line-height);
   letter-spacing: var(--font-h2--letter-spacing);
@@ -848,9 +848,9 @@ h3,
 .h3,
 .h3.h3,
 .text-block.h3 > * {
-  font-family: var(--font-h3--family);
+  font-family: 'Monument Extended';
   font-style: var(--font-h3--style);
-  font-weight: var(--font-h3--weight);
+  font-weight: inherit;
   font-size: var(--font-h3--size);
   line-height: var(--font-h3--line-height);
   letter-spacing: var(--font-h3--letter-spacing);
