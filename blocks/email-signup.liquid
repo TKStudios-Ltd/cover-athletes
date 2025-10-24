@@ -28,7 +28,7 @@
           name="contact[name]"
           autocapitalize="words"
           autocomplete="name"
-          placeholder="{{ 'general.name' | t | default: 'Name' }}"
+          placeholder="NAME"
           required
         >
       </div>
@@ -49,7 +49,7 @@
           autocorrect="off"
           autocapitalize="off"
           autocomplete="email"
-          placeholder="{{ 'blocks.email_signup.placeholder' | t }}"
+          placeholder="EMAIL"
           required
           {% if form.errors %}
             autofocus
