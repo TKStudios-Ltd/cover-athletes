@@ -740,7 +740,7 @@ slideshow-component [data-placeholder='true'] * {
 @font-face {
   font-family: 'PP Monument Extended';
   src: url('{{ "PPMonumentExtended-Light.woff2" | asset_url }}') format('woff2'),
-      url('{{ "PPMonumentExtended-Light.woff" | asset_url }}') format('woff');
+    url('{{ "PPMonumentExtended-Light.woff" | asset_url }}') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
