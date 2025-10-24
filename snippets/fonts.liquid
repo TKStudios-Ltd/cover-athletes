@@ -1,4 +1,17 @@
 {% # theme-check-disable %}
+<link rel="preload" as="font" href="{{ 'PPMonumentExtended-Light.woff2' | asset_url }}" type="font/woff2" crossorigin>
+
+<style>
+@font-face {
+  font-family: 'PP Monument Extended';
+  src: url('{{ "PPMonumentExtended-Light.woff2" | asset_url }}') format('woff2'),
+       url('{{ "PPMonumentExtended-Light.woff"  | asset_url }}') format('woff');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+</style>
+
 {%- unless settings.type_body_font.system? -%}
   {% comment %} <link
     rel="preload"
@@ -30,16 +43,15 @@
     crossorigin
     fetchpriority="low"
   > {% endcomment %}
-  <link rel="preload" as="font" href="{{ 'PPMonumentExtended-Light.woff2' | asset_url }}" type="font/woff2" crossorigin>
 {%- endunless -%}
 {%- unless settings.type_accent_font.system? -%}
-  <link
+  {% comment %} <link
     rel="preload"
     as="font"
     href="{{ settings.type_accent_font | font_url }}"
     type="font/woff2"
     crossorigin
     fetchpriority="low"
-  >
+  > {% endcomment %}
 {%- endunless -%}
 {% # theme-check-enable %}
