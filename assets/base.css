@@ -805,9 +805,9 @@ body,
 h1,
 .h1.h1,
 .text-block.h1 > * {
-  font-family: var(--font-h1--family);
+  font-family: 'Monument Extended';
   font-style: var(--font-h1--style);
-  font-weight: var(--font-h1--weight);
+  font-weight: 300;
   font-size: var(--font-h1--size);
   line-height: var(--font-h1--line-height);
   letter-spacing: var(--font-h1--letter-spacing);
