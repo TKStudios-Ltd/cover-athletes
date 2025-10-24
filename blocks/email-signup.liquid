@@ -21,6 +21,7 @@
         <label for="NameInput-{{ block.id }}" class="visually-hidden">
           Name
         </label>
+        <div class="email-signup__field-wrapper">
         <input
           id="NameInput-{{ block.id }}"
           class="email-signup__input email-signup__input--{{ block_settings.border_style }} {{ block_settings.input_type_preset }} {{ block_settings.border_variation }}"
@@ -31,6 +32,7 @@
           placeholder="NAME"
           required
         >
+        </div>
       </div>
 
       <!-- Email -->
@@ -41,6 +43,7 @@
         <label for="EmailInput-{{ block.id }}" class="visually-hidden">
           Email
         </label>
+        <div class="email-signup__field-wrapper">
         <input
           id="EmailInput-{{ block.id }}"
           class="email-signup__input email-signup__input--{{ block_settings.border_style }} {{ block_settings.input_type_preset }} {{ block_settings.border_variation }}"
@@ -59,6 +62,7 @@
             aria-describedby="Email-signup__message-success-{{ block.id }}"
           {% endif %}
         >
+        </div>
       </div>
 
       <!-- Submit button (separate row) -->
