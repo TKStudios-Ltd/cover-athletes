@@ -770,7 +770,7 @@ body,
 h1,
 .h1.h1,
 .text-block.h1 > * {
-  font-family: 'PP Monument Extended';
+  font-family: 'PP Monument Extended', sans-serif;
   font-style: var(--font-h1--style);
   font-weight: 300;
   font-size: var(--font-h1--size);
@@ -791,7 +791,7 @@ h1,
 h2,
 .h2.h2,
 .text-block.h2 > * {
-  font-family: 'PP Monument Extended';
+  font-family: 'PP Monument Extended', sans-serif;
   font-style: var(--font-h2--style);
   font-weight: 300;
   font-size: var(--font-h2--size);
@@ -813,7 +813,7 @@ h3,
 .h3,
 .h3.h3,
 .text-block.h3 > * {
-  font-family: 'PP Monument Extended';
+  font-family: 'PP Monument Extended', sans-serif;
   font-style: var(--font-h3--style);
   font-weight: 300;
   font-size: var(--font-h3--size);
