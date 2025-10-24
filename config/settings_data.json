@@ -288,7 +288,7 @@
           "primary_button_text": "#ffffff",
           "primary_button_border": "#ffffff",
           "primary_button_hover_background": "rgba(0,0,0,0)",
-          "primary_button_hover_text": "#000000",
+          "primary_button_hover_text": "#ffffff",
           "primary_button_hover_border": "rgba(0,0,0,0)",
           "secondary_button_background": "rgba(0,0,0,0)",
           "secondary_button_text": "#ffffff",
