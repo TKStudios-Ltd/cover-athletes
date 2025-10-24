@@ -741,7 +741,7 @@ slideshow-component [data-placeholder='true'] * {
 body,
 .paragraph:not(.button),
 .paragraph > * {
-  font-family: 'Graphik';
+  font-family: 'Graphik', sans-serif;
   font-style: var(--font-paragraph--style);
   font-weight: var(--font-paragraph--weight);
   font-size: var(--font-paragraph--size);
