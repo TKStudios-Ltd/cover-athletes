@@ -49,7 +49,7 @@
 {% stylesheet %}
   .account-button {
     background-color: rgba(25, 25, 25, 0.8);
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 80px;
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
@@ -57,8 +57,8 @@
     appearance: none;
     border: none;
     background: none;
-    height: var(--button-size);
-    width: var(--button-size);
+    height: inherit;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -68,6 +68,11 @@
   }
   .account-button .account-button__icon {
     display: none;
+  }
+  .account-button .account-button__text {
+    font-family: 'Graphik', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
   }
 
   .account-button__avatar {
