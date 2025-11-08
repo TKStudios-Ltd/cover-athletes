@@ -66,6 +66,9 @@
         "text_8dpxQ9",
         "image_gJEGzJ"
       ],
+      "custom_css": [
+        ".layout-panel-flex {min-height: calc(100vh - 80px);}"
+      ],
       "name": "Logo banner",
       "settings": {
         "content_direction": "column",
