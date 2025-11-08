@@ -14,9 +14,11 @@
   >
     {{ 'icon-cart.svg' | inline_asset_content }}
   </span>
-  <span>Cart ({{ cart.item_count }})</span>
   {% comment %} {% render 'cart-bubble', limit: 100, live_region: true, test_id: test_id %} {% endcomment %}
 </cart-icon>
+<cart-text>
+  <span class="header-actions__cart-text">Cart ({{ cart.item_count }})</span>
+</cart-text>
 
 {% stylesheet %}
   cart-icon:has(.cart-bubble__text-count:empty) {
