@@ -67,7 +67,7 @@
         "image_gJEGzJ"
       ],
       "custom_css": [
-        ".layout-panel-flex {min-height: calc(100vh - 80px);}"
+        ".layout-panel-flex {min-height: calc(100vh - 80px); justify-content: flex-end;}"
       ],
       "name": "Logo banner",
       "settings": {
