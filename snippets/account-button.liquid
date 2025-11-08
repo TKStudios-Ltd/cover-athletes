@@ -48,6 +48,11 @@
 
 {% stylesheet %}
   .account-button {
+    background-color: rgba(25, 25, 25, 0.8);
+    padding: 10px 20px;
+    border-radius: 80px;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     color: var(--color-foreground);
     appearance: none;
     border: none;
@@ -60,6 +65,9 @@
     align-content: center;
     transition: color var(--animation-speed) var(--animation-easing);
     anchor-name: --account-button-trigger;
+  }
+  .account-button .account-button__icon {
+    display: none;
   }
 
   .account-button__avatar {
