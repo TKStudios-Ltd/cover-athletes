@@ -67,7 +67,7 @@
         "image_gJEGzJ"
       ],
       "custom_css": [
-        ".layout-panel-flex {min-height: calc(100vh - 80px); justify-content: flex-end;}",
+        ".layout-panel-flex {min-height: calc(100vh - 80px); justify-content: flex-end; padding-left: 25px; padding-right: 25px;}",
         "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important;}",
         "h1 strong {font-weight: 300 !important; color: #3a3a3a;}"
       ],
