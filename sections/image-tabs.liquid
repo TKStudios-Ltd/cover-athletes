@@ -122,30 +122,32 @@
   <div class="section-padding">
     <div class="grid">
       <div class="image-tabs__tabs">
-        {% if section.settings.eyebrow != blank %}
-            <p class="eyebrow">
-                <img src="https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo.svg" height="100%" width="100%">
-                {{ section.settings.eyebrow }}
-            </p>
-        {% endif %}
-        {% if section.settings.heading != blank %}
-          <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
-        {% endif %}
+        <div class="image-tabs__tabs_inner">
+            {% if section.settings.eyebrow != blank %}
+                <p class="eyebrow">
+                    <img src="https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo.svg" height="100%" width="100%">
+                    {{ section.settings.eyebrow }}
+                </p>
+            {% endif %}
+            {% if section.settings.heading != blank %}
+                <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
+            {% endif %}
 
-        <div id="Tabs-{{ section.id }}" class="swiper tabs"
-             data-autoplay="{{ section.settings.autoplay }}"
-             data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
-             data-loop="{{ section.settings.loop }}">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <div class="swiper-slide tab" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
-                <span class="pill" aria-hidden="true"></span>
-                <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ block.settings.button_link }}" {% endif %} class="h3 title">
-                  {{ block.settings.title }}
-                </a>
-              </div>
-            {% endfor %}
-          </div>
+            <div id="Tabs-{{ section.id }}" class="swiper tabs"
+                data-autoplay="{{ section.settings.autoplay }}"
+                data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+                data-loop="{{ section.settings.loop }}">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                    <div class="swiper-slide tab" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
+                        <span class="pill" aria-hidden="true"></span>
+                        <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ block.settings.button_link }}" {% endif %} class="h3 title">
+                        {{ block.settings.title }}
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
 
         {% if section.settings.below_text != blank %}
