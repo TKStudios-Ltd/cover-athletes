@@ -11,6 +11,7 @@
 }
 @media (min-width: 990px) {
   .image-tabs-{{ section.id }} .grid .image-tabs__tabs { padding-top: 100px; display: flex; flex-direction: column; justify-content: space-between; }
+  .image-tabs-{{ section.id }} .grid .image-tabs__image { overflow: hidden; }
   .image-tabs-{{ section.id }} .grid .image-tabs__tabs,
   .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
   .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
@@ -59,9 +60,13 @@
 }
 .image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
 
-/* Image pane: fixed 1:1 aspect, clipped */
 .image-tabs-{{ section.id }} .image-pane {
-  position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1;
+    position: relative; border-radius: 16px; 
+    overflow: visible; 
+    /* aspect-ratio: 1 / 1; */
+}
+.image-tabs-{{ section.id }} .image-pane .swiper-slide {
+    aspect-ratio: 1 / 1;
 }
 
 /* Make swiper take full pane size */
