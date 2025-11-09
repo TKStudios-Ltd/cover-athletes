@@ -76,8 +76,8 @@
 
 /* Overlay text (per-image) */
 .image-tabs-{{ section.id }} .img-overlay {
-  position: absolute; z-index: 2; top: 20px; left: 24px; margin: 0; padding: 0;
-  font-family: var(--font-heading-family, inherit); font-size: clamp(14px, 2vw, 16px);
+  position: absolute; z-index: 2; top: 20px; left: 20px; margin: 0; padding: 0;
+  font-size: 16px; max-width: 300px; line-height: 1.1;
 }
 
 /* Pagination bullets: vertical top-right desktop, centered row mobile */
@@ -163,9 +163,9 @@
                   {% endif %}
 
                   {% if block.settings.overlay_text != blank %}
-                    <span class="img-overlay"{% if block.settings.overlay_color != blank %} style="color: {{ block.settings.overlay_color }}"{% endif %}>
+                    <p class="img-overlay"{% if block.settings.overlay_color != blank %} style="color: {{ block.settings.overlay_color }}"{% endif %}>
                       {{ block.settings.overlay_text | escape }}
-                    </span>
+                    </p>
                   {% endif %}
 
                   {% if block.settings.button_label != blank %}
