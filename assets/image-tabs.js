@@ -1,37 +1,43 @@
-/* assets/image-tabs.js
-   Image Tabs — vertical image stack with 1.2 slides, 20px gap, tab sync
-   Expects loadSwiper(cb) to exist (from your swiper-loader.js)
-*/
+/* image-tabs.js — vertical images with 20px gap + no offset drift */
 (() => {
   const SELECTOR = '[data-component="image-tabs"]';
-  const DESKTOP_MQ = '(min-width: 990px)';
 
-  const real = (sw) =>
-    typeof sw?.realIndex === 'number' ? sw.realIndex : sw?.activeIndex ?? 0;
+  function real(sw) {
+    return typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex;
+  }
 
-  function init(root) {
-    if (!root || root.__imageTabsInit) return;
-    root.__imageTabsInit = true;
+  // compute and lock slide height to a 1:1 of pane width (prevents creep)
+  function lockPaneSize(pane) {
+    if (!pane) return;
+    const w = pane.clientWidth || 0;
+    // lock a CSS var used by slides for height
+    pane.style.setProperty('--pane-size', `${w}px`);
+  }
 
-    const id     = root.getAttribute('data-section-id');
-    const tabsEl = root.querySelector('#Tabs-' + id);
-    const imgsEl = root.querySelector('#Images-' + id);
+  function initSection(root) {
+    if (!root || root.__tabsInit) return;
+    root.__tabsInit = true;
 
-    if (!tabsEl || !imgsEl) {
-      console.warn('[image-tabs] missing containers', { id, tabsEl, imgsEl });
+    const id      = root.getAttribute('data-section-id');
+    const tabsEl  = root.querySelector('#Tabs-' + id);
+    const imgsEl  = root.querySelector('#Images-' + id);
+    if (!tabsEl || !imgsEl) return console.warn('[image-tabs] missing containers', { id });
+
+    // ensure Swiper is ready
+    if (!window.Swiper) {
+      console.warn('[image-tabs] Swiper not loaded');
+      root.__tabsInit = false;
       return;
     }
 
     const autoplay = tabsEl.getAttribute('data-autoplay') === 'true';
     const delay    = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
-    const loop     = tabsEl.getAttribute('data-loop') === 'true'; // we’ll keep images non-looping on vertical to avoid offset creep
-    const gap      = parseInt(imgsEl.getAttribute('data-space') || '20', 10);
+    const loop     = tabsEl.getAttribute('data-loop') === 'true';
     const slides   = Array.from(tabsEl.querySelectorAll('.tab'));
-    const mq       = window.matchMedia(DESKTOP_MQ);
 
-    console.log('[image-tabs] init', { id, autoplay, delay, loop, gap, tabs: slides.length });
+    console.log('[image-tabs] init', { id, autoplay, delay, loop, slides: slides.length });
 
-    // TABS: vertical list, no autoplay/loop, no drag
+    // 1) TABS: static vertical list (no auto-scroll)
     const tabs = new Swiper(tabsEl, {
       direction: 'vertical',
       slidesPerView: 'auto',
@@ -40,139 +46,81 @@
       speed: 0
     });
 
-    let images = null;
-
-    function createImagesSwiper(isDesktop) {
-      // Clean before (guard against editor reloads/breakpoint flips)
-      if (images) {
-        try { images.destroy(true, true); } catch (e) {}
-        images = null;
+    // 2) IMAGES: true vertical slider, 1.2 slides with 20px gap; no “fade”
+    lockPaneSize(imgsEl);
+    const images = new Swiper(imgsEl, {
+      direction: 'vertical',
+      slidesPerView: 1.2,
+      spaceBetween: 20,              // <-- EXACT 20PX GAP
+      loop,
+      centeredSlides: false,
+      autoHeight: false,
+      watchSlidesProgress: true,
+      normalizeSlideIndex: true,
+      pagination: { el: imgsEl.querySelector('.swiper-pagination'), clickable: true },
+      autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      on: {
+        // re-lock size when Swiper measures (prevents drift on first/toggles)
+        beforeInit() { lockPaneSize(imgsEl); },
+        resize()     { lockPaneSize(imgsEl); }
       }
+    });
 
-      // Desktop: vertical stack, 1.2 in view with gap
-      // Mobile: horizontal 1.0 (safe default)
-      const config = isDesktop
-        ? {
-            direction: 'vertical',
-            slidesPerView: 1.2,
-            spaceBetween: gap,
-            centeredSlides: false,
-            autoHeight: false,
-            loop: false, // IMPORTANT: avoid visual drift when a partial slide is visible
-            speed: 600,
-            pagination: {
-              el: imgsEl.querySelector('.swiper-pagination'),
-              clickable: true
-            },
-            autoplay: autoplay
-              ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true }
-              : false,
-            // Helps Swiper recalc sizes when fonts/layout settle
-            observer: true,
-            observeParents: true,
-            on: {
-              afterInit(sw) {
-                // Force a pass to compute sizes with CSS aspect-ratio
-                setTimeout(() => sw.update(), 0);
-              }
-            }
-          }
-        : {
-            direction: 'horizontal',
-            slidesPerView: 1,
-            spaceBetween: gap,
-            centeredSlides: false,
-            autoHeight: false,
-            loop: false,
-            speed: 600,
-            pagination: {
-              el: imgsEl.querySelector('.swiper-pagination'),
-              clickable: true
-            },
-            autoplay: autoplay
-              ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true }
-              : false,
-            observer: true,
-            observeParents: true,
-            on: {
-              afterInit(sw) {
-                setTimeout(() => sw.update(), 0);
-              }
-            }
-          };
-
-      images = new Swiper(imgsEl, config);
-
-      // Sync active state to tabs
-      images.on('slideChange', () => {
-        const idx = real(images);
-        setActive(idx);
-        // Keep tabs position in view without jumping the page
-        tabs.slideTo(idx, 0, false);
-        console.log('[image-tabs] images -> slideChange', { idx });
-      });
-
-      // Initial active state
-      setActive(real(images));
-      tabs.slideTo(real(images), 0, false);
-
-      console.log('[image-tabs] images created', {
-        direction: config.direction,
-        slidesPerView: config.slidesPerView,
-        spaceBetween: config.spaceBetween
-      });
-    }
-
+    // Active-state helper
     function setActive(i) {
-      slides.forEach((el, idx) => el.classList.toggle('is-active', idx === i));
+      slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
     }
 
     function goTo(i) {
-      if (!images) return;
-      images.slideTo(i, 600, false); // no loop — index is direct
-      console.log('[image-tabs] goTo', { i });
+      if (typeof images.slideToLoop === 'function') images.slideToLoop(i);
+      else images.slideTo(i);
+
+      // keep tab list snapped without scrolling page
+      tabs.slideTo(i, 0, false);
+      const el = slides[i];
+      if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+
+      console.log('[image-tabs] goTo', { target: i });
     }
 
-    // Hover & click on tabs drive images
-    tabsEl.addEventListener(
-      'mouseenter',
-      (e) => {
-        const row = e.target.closest('.tab');
-        if (!row) return;
-        const idx = +row.dataset.index;
-        if (Number.isNaN(idx)) return;
-        goTo(idx);
-      },
-      true
-    );
+    // Sync from images -> tabs
+    images.on('slideChange', () => {
+      const idx = real(images);
+      setActive(idx);
+      tabs.slideTo(idx, 0, false);
+      console.log('[image-tabs] images -> slideChange', { idx });
+    });
+
+    // Hover / click tabs -> images
+    tabsEl.addEventListener('mouseenter', (e) => {
+      const row = e.target.closest('.tab'); if (!row) return;
+      const idx = +row.dataset.index; if (Number.isNaN(idx)) return;
+      goTo(idx);
+    }, true);
 
     tabsEl.addEventListener('click', (e) => {
-      const row = e.target.closest('.tab');
-      if (!row || e.target.closest('a')) return;
+      const row = e.target.closest('.tab'); if (!row || e.target.closest('a')) return;
       e.preventDefault();
-      const idx = +row.dataset.index;
-      if (Number.isNaN(idx)) return;
+      const idx = +row.dataset.index; if (Number.isNaN(idx)) return;
       goTo(idx);
     });
 
-    // Build images swiper for the current breakpoint
-    createImagesSwiper(mq.matches);
+    // Initial state
+    setActive(real(images));
+    tabs.slideTo(real(images), 0, false);
 
-    // Rebuild on breakpoint change (ensures vertical on desktop, horizontal on mobile)
-    const mqHandler = (ev) => {
-      console.log('[image-tabs] breakpoint change', { matches: ev.matches });
-      createImagesSwiper(ev.matches);
-    };
-    if (mq.addEventListener) mq.addEventListener('change', mqHandler);
-    else mq.addListener(mqHandler); // Safari < 14
+    // Resize observer to keep 1:1 + gap stable across resizes
+    const ro = new ResizeObserver(() => {
+      lockPaneSize(imgsEl);
+      images.update();         // re-measure track; keeps gaps exact
+    });
+    ro.observe(imgsEl);
 
-    // Expose teardown for the theme editor
-    root.__imageTabsDestroy = () => {
-      try { tabs.destroy(true, true); } catch (e) {}
-      try { images?.destroy(true, true); } catch (e) {}
-      if (mq.removeEventListener) mq.removeEventListener('change', mqHandler);
-      else mq.removeListener(mqHandler);
-      root.__imageTabsInit = false;
+    root.__tabsDestroy = () => {
+      try { ro.disconnect(); } catch(e){}
+      try { tabs.destroy(true, true); } catch(e){}
+      try { images.destroy(true, true); } catch(e){}
+      root.__tabsInit = false;
       console.log('[image-tabs] destroyed', { id });
     };
   }
@@ -180,13 +128,14 @@
   function boot(ctx) {
     const roots = (ctx || document).querySelectorAll(SELECTOR);
     if (!roots.length) return;
-    loadSwiper(() => roots.forEach(init));
+    // If you use a loader elsewhere, call it here. Otherwise, assume Swiper is global.
+    roots.forEach(initSection);
   }
 
-  document.addEventListener('shopify:section:load', (e) => boot(e.target));
-  document.addEventListener('shopify:section:unload', (e) => {
+  document.addEventListener('shopify:section:load', e => boot(e.target));
+  document.addEventListener('shopify:section:unload', e => {
     const root = e.target && e.target.querySelector(SELECTOR);
-    if (root && root.__imageTabsDestroy) root.__imageTabsDestroy();
+    if (root && root.__tabsDestroy) root.__tabsDestroy();
   });
   document.addEventListener('DOMContentLoaded', () => boot());
 })();
