@@ -1,116 +1,102 @@
-{% comment %} Image Tabs (Swiper-synced) — clean liquid, JS lives in assets/image-tabs.js {% endcomment %}
+{% comment %} Image Tabs (Swiper-synced) — clean liquid, JS in assets/image-tabs.js {% endcomment %}
 
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  
 .image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; }
 
+/* Grid: 50/50 on desktop */
 .image-tabs-{{ section.id }} .grid {
-    display: flex; gap: var(--gap);
-    flex-wrap: wrap;
-    flex-direction: row;
+  display: flex; gap: var(--gap); flex-wrap: wrap; flex-direction: row;
 }
 @media (min-width: 990px) {
-    .image-tabs-{{ section.id }} .grid .image-tabs__tabs { padding-top: 100px; display: flex; flex-direction: column; justify-content: space-between; }
-    .image-tabs-{{ section.id }} .grid .image-tabs__tabs,
-    .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
-    .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
-}
-.image-tabs-{{ section.id }} .section-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-}
-@media (min-width: 750px) {
-    .image-tabs-{{ section.id }} .section-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
+  .image-tabs-{{ section.id }} .grid .image-tabs__tabs { padding-top: 100px; display: flex; flex-direction: column; justify-content: space-between; }
+  .image-tabs-{{ section.id }} .grid .image-tabs__tabs,
+  .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
+  .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
 }
 
+/* Section padding */
+.image-tabs-{{ section.id }} .section-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+@media (min-width: 750px) {
+  .image-tabs-{{ section.id }} .section-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+
+/* Eyebrow + below text */
 .image-tabs-{{ section.id }} .eyebrow {
-    display: flex; gap: 12px; justify-content: flex-start;
-    flex-direction: row; align-items: center;
-    font-size: 14px; font-weight: 300; margin-bottom: 35px;
+  display: flex; gap: 12px; justify-content: flex-start; align-items: center;
+  font-size: 14px; font-weight: 300; margin-bottom: 35px;
 }
-.image-tabs-{{ section.id }} .eyebrow img {
-    height: 14px;
-    width: auto;
-}
+.image-tabs-{{ section.id }} .eyebrow img { height: 14px; width: auto; }
 .image-tabs-{{ section.id }} .below-text { margin-top: 35px; max-width: 600px; }
 .image-tabs-{{ section.id }} .below-text p { font-size: 20px; font-weight: 300; }
 .image-tabs-{{ section.id }} .below-text p strong { font-family: 'Monument Extended', sans-serif !important; text-transform: uppercase; font-size: 18px; font-weight: 400 !important; }
 
-/* .image-tabs-{{ section.id }} .tabs {
-    border-top: 1px solid rgba(255,255,255,.15);
-    border-bottom: 1px solid rgba(255,255,255,.15);
-} */
-.image-tabs-{{ section.id }} .tabs .swiper-wrapper {
-    display: flex; flex-direction: column; height: auto;
-}
+/* Tabs list */
+.image-tabs-{{ section.id }} .tabs .swiper-wrapper { display: flex; flex-direction: column; height: auto; }
 .image-tabs-{{ section.id }} .tab {
-    display: grid; grid-template-columns: auto 1fr; gap: 0; align-items: center;
-    padding-block: 4px;
-    cursor: pointer; user-select: none;
+  display: grid; grid-template-columns: auto 1fr; gap: 0; align-items: center;
+  padding-block: 4px; cursor: pointer; user-select: none;
 }
 .image-tabs-{{ section.id }} .tab:last-child { border-bottom: 0; }
+
 .image-tabs-{{ section.id }} .pill {
-    height: 28px; width: 0; border-radius: 999px; background: var(--pill);
-    transition: width .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1), margin .25s ease;
-    transform-origin: left; margin-right: 0;
+  height: 28px; width: 0; border-radius: 999px; background: var(--pill);
+  transition: width .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1), margin .25s ease;
+  transform-origin: left; margin-right: 0;
 }
 .image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); margin-right: 12px; }
+
 .image-tabs-{{ section.id }} .title {
-    font-size: 28px !important;
-    line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padding-top: 4px;
-    opacity: .25; transition: opacity .25s ease;
+  font-size: 28px !important; line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padding-top: 4px;
+  opacity: .25; transition: opacity .25s ease;
 }
 .image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
 
-  /* Image pane: fixed 1:1 aspect, clipped */
-  .image-tabs-{{ section.id }} .image-pane {
-    position: relative; border-radius: 16px; overflow: hidden;
-    /* 1:1 aspect ratio; height derives from width, stays in container */
-    aspect-ratio: 1 / 1;
-  }
-  /* Make swiper take full pane size */
-  .image-tabs-{{ section.id }} .image-pane .swiper,
-  .image-tabs-{{ section.id }} .image-pane .swiper-wrapper,
-  .image-tabs-{{ section.id }} .image-pane .swiper-slide {
-    width: 100% !important; height: 100%;
-  }
-  .image-tabs-{{ section.id }} .image-slide .media { position: relative; width:100%; height:100%; }
-  .image-tabs-{{ section.id }} .image-slide img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center center; display:block;
-  }
-
-.image-tabs-{{ section.id }} .image-pagination {
-    position: absolute; 
-    right: 20px;
-    top: 20px;
-    bottom: auto;
-    left: auto;
-    z-index: 3;
-    display: flex; flex-direction: column; gap: 8px; width: 10px !important;
+/* Image pane: fixed 1:1 aspect, clipped */
+.image-tabs-{{ section.id }} .image-pane {
+  position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1;
 }
-  .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet {
-    width: 10px; height: 10px; border-radius: 10px; opacity: .4; background: #fff !important;
-    transition: height .2s ease, opacity .2s ease;
-  }
-  .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet-active {
-    opacity: 1; background: var(--pill) !important;
-  }
-  @media (max-width: 989px) {
-    .image-tabs-{{ section.id }} .image-pagination {
-      left: 0; right: 0; bottom: 10px; flex-direction: row; justify-content: center; width: auto !important;
-    }
-  }
+
+/* Make swiper take full pane size */
+.image-tabs-{{ section.id }} .image-pane .swiper,
+.image-tabs-{{ section.id }} .image-pane .swiper-wrapper,
+.image-tabs-{{ section.id }} .image-pane .swiper-slide { width: 100% !important; height: 100%; }
+
+.image-tabs-{{ section.id }} .image-slide .media { position: relative; width:100%; height:100%; }
+.image-tabs-{{ section.id }} .image-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display:block; }
+
+/* Overlay text (per-image) */
+.image-tabs-{{ section.id }} .img-overlay {
+  position: absolute; z-index: 2; top: 20px; left: 24px; margin: 0; padding: 0;
+  font-family: var(--font-heading-family, inherit); font-size: clamp(14px, 2vw, 16px);
+}
+
+/* Pagination bullets: vertical top-right desktop, centered row mobile */
+.image-tabs-{{ section.id }} .image-pagination {
+  position: absolute; right: 20px; top: 20px; bottom: auto; left: auto; z-index: 3;
+  display: flex; flex-direction: column; gap: 8px; width: 10px !important;
+}
+.image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet {
+  width: 10px; height: 10px; border-radius: 10px; opacity: .4; background: #fff !important;
+  transition: height .2s ease, opacity .2s ease;
+}
+.image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet-active { opacity: 1; background: var(--pill) !important; }
+@media (max-width: 989px) {
+  .image-tabs-{{ section.id }} .image-pagination { left: 0; right: 0; bottom: 10px; flex-direction: row; justify-content: center; width: auto !important; }
+}
 {%- endstyle -%}
 
 {% if section.index == 1 %}
-    {% assign fetch_priority = "high" %}
-  {% else %}
-    {% assign fetch_priority = "auto" %}
+  {% assign fetch_priority = "high" %}
+{% else %}
+  {% assign fetch_priority = "auto" %}
 {% endif %}
 
 <section
@@ -120,33 +106,38 @@
 >
   <div class="section-padding">
     <div class="grid">
+
+      <!-- LEFT: tabs -->
       <div class="image-tabs__tabs">
         <div class="image-tabs__tabs_inner">
-            {% if section.settings.eyebrow != blank %}
-                <p class="eyebrow">
-                    <img src="https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo.svg" height="100%" width="100%">
-                    {{ section.settings.eyebrow }}
-                </p>
-            {% endif %}
-            {% if section.settings.heading != blank %}
-                <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
-            {% endif %}
+          {% if section.settings.eyebrow != blank %}
+            <p class="eyebrow">
+              {% if section.settings.eyebrow_icon != blank %}
+                {{ section.settings.eyebrow_icon | image_url: width: 40 | image_tag: loading: 'lazy' }}
+              {% endif %}
+              {{ section.settings.eyebrow }}
+            </p>
+          {% endif %}
 
-            <div id="Tabs-{{ section.id }}" class="swiper tabs"
-                data-autoplay="{{ section.settings.autoplay }}"
-                data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
-                data-loop="{{ section.settings.loop }}">
-                <div class="swiper-wrapper">
-                    {% for block in section.blocks %}
-                    <div class="swiper-slide tab" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
-                        <span class="pill" aria-hidden="true"></span>
-                        <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ block.settings.button_link }}" {% endif %} class="h3 title">
-                        {{ block.settings.title }}
-                        </a>
-                    </div>
-                    {% endfor %}
+          {% if section.settings.heading != blank %}
+            <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
+          {% endif %}
+
+          <div id="Tabs-{{ section.id }}" class="swiper tabs"
+               data-autoplay="{{ section.settings.autoplay }}"
+               data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+               data-loop="{{ section.settings.loop }}">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+                <div class="swiper-slide tab" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
+                  <span class="pill" aria-hidden="true"></span>
+                  <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ block.settings.button_link }}"{% endif %} class="h3 title">
+                    {{ block.settings.title }}
+                  </a>
                 </div>
+              {% endfor %}
             </div>
+          </div>
         </div>
 
         {% if section.settings.below_text != blank %}
@@ -154,6 +145,7 @@
         {% endif %}
       </div>
 
+      <!-- RIGHT: images -->
       <div class="image-tabs__image">
         <div id="Images-{{ section.id }}" class="swiper image-pane" data-space="{{ section.settings.image_gap }}">
           <div class="swiper-wrapper">
@@ -166,6 +158,17 @@
                     {{ block.settings.image | image_url: width: 2000 | image_tag: widths: widths, sizes: sizes, fetchpriority: fetch_priority }}
                   {% else %}
                     {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+
+                  {% if block.settings.overlay_text != blank %}
+                    <span class="img-overlay"{% if block.settings.overlay_color != blank %} style="color: {{ block.settings.overlay_color }}"{% endif %}>
+                      {{ block.settings.overlay_text | escape }}
+                    </span>
+                  {% endif %}
+
+                  {% if block.settings.button_label != blank %}
+                    <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ block.settings.button_link }}"{% endif %}
+                       class="button button--primary button--small img-btn">{{ block.settings.button_label | escape }}</a>
                   {% endif %}
                 </div>
               </div>
@@ -186,6 +189,7 @@
   "class": "section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
+    { "type": "image_picker", "id": "eyebrow_icon", "label": "Eyebrow icon" },
     { "type": "text", "id": "eyebrow", "label": "Subheading (eyebrow)", "default": "A new era of sports protection" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Iconic design" },
     { "type": "select", "id": "heading_size", "label": "Heading size", "default": "h2", "options": [
@@ -213,7 +217,9 @@
         { "type": "text", "id": "title", "label": "Title", "default": "Iconic Design" },
         { "type": "text", "id": "button_label", "label": "Button label" },
         { "type": "url",  "id": "button_link", "label": "Button link" },
-        { "type": "image_picker", "id": "image", "label": "Image" }
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "overlay_text", "label": "Overlay text" },
+        { "type": "color", "id": "overlay_color", "label": "Overlay text color" }
       ]
     }
   ],
