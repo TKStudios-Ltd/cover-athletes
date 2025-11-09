@@ -3,13 +3,8 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; }
-  .image-tabs-{{ section.id }} .container {
-    /* use theme container if the theme wraps automatically; this stays harmless */
-    max-width: var(--page-width, {{ settings.page_width | default: 1200 }}px);
-    margin-inline: auto;
-    padding-inline: 24px;
-  }
+  
+.image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; }
 
 .image-tabs-{{ section.id }} .grid {
     display: flex; gap: var(--gap);
@@ -21,18 +16,16 @@
     .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
     .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
 }
-
-  /* Section padding */
-  .image-tabs-{{ section.id }} .pad {
+.image-tabs-{{ section.id }} .section-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-  @media (min-width: 750px) {
-    .image-tabs-{{ section.id }} .pad {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media (min-width: 750px) {
+    .image-tabs-{{ section.id }} .section-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-  }
+}
 
   /* Eyebrow + copy */
   .image-tabs-{{ section.id }} .eyebrow {
@@ -117,7 +110,7 @@
   data-component="image-tabs"
   data-section-id="{{ section.id }}"
 >
-  <div class="container pad">
+  <div class="section-padding">
     <div class="grid">
       <div class="image-tabs__tabs">
         {% if section.settings.eyebrow != blank %}
