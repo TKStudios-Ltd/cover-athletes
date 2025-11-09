@@ -80,11 +80,15 @@
     width: 100%; height: 100%; object-fit: cover; object-position: center center; display:block;
   }
 
-  /* Pagination dots (vertical on desktop, centered row on mobile) */
-  .image-tabs-{{ section.id }} .image-pagination {
-    position: absolute; right: 12px; bottom: 16px; z-index: 3;
+.image-tabs-{{ section.id }} .image-pagination {
+    position: absolute; 
+    right: 20px;
+    top: 20px;
+    bottom: auto;
+    left: auto;
+    z-index: 3;
     display: flex; flex-direction: column; gap: 8px; width: 10px !important;
-  }
+}
   .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet {
     width: 10px; height: 10px; border-radius: 10px; opacity: .4; background: #fff !important;
     transition: height .2s ease, opacity .2s ease;
