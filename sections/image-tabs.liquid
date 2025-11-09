@@ -30,7 +30,8 @@
 
   /* Eyebrow + copy */
   .image-tabs-{{ section.id }} .eyebrow {
-    font-size: 12px; letter-spacing: .22em; text-transform: uppercase; opacity: .7; margin: 0 0 16px;
+    display: flex; gap: 12px;
+    font-size: 14px; margin: 0 0 20px;
   }
   .image-tabs-{{ section.id }} .below-text { margin-top: 20px; opacity:.8; }
 
@@ -118,7 +119,10 @@
     <div class="grid">
       <div class="image-tabs__tabs">
         {% if section.settings.eyebrow != blank %}
-          <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+            <p class="eyebrow">
+                <img src="https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo.svg" height="14" width="100%">
+                {{ section.settings.eyebrow }}
+            </p>
         {% endif %}
         {% if section.settings.heading != blank %}
           <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
