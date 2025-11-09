@@ -29,11 +29,13 @@
 }
 
 .image-tabs-{{ section.id }} .eyebrow {
-    display: flex; gap: 12px;
+    display: flex; gap: 12px; justify-content: flex-start;
+    flex-direction: row; align-items: center;
     font-size: 14px; margin: 0 0 20px;
 }
 .image-tabs-{{ section.id }} .eyebrow img {
     height: 14px;
+    width: auto;
 }
   .image-tabs-{{ section.id }} .below-text { margin-top: 20px; opacity:.8; }
 
