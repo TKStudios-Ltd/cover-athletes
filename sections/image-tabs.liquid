@@ -18,7 +18,7 @@
 }
 @media (min-width: 990px) {
     .image-tabs-{{ section.id }} .grid .image-tabs__tabs,
-    .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - var(--gap)); }
+    .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
     .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
 }
 
