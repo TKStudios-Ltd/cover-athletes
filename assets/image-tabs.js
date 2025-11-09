@@ -1,4 +1,4 @@
-/* image-tabs.js — stable sync, no vertical auto-scroll on tabs */
+/* image-tabs.js — vertical 1.2 slides on desktop, 1.0 on mobile; synced with tabs; no list auto-scroll */
 (() => {
   const SELECTOR = '[data-component="image-tabs"]';
 
@@ -18,55 +18,52 @@
     const autoplay = tabsEl.getAttribute('data-autoplay') === 'true';
     const delay    = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
     const loop     = tabsEl.getAttribute('data-loop') === 'true';
+    const space    = parseInt(imgsEl.getAttribute('data-space') || '16', 10);
     const slides   = Array.from(tabsEl.querySelectorAll('.tab'));
 
-    console.log('[image-tabs] init', { id, autoplay, delay, loop, slides: slides.length });
+    console.log('[image-tabs] init', { id, autoplay, delay, loop, space, slides: slides.length });
 
-    // Tabs list: NO autoplay, NO loop — keep list steady
+    // Tabs list: keep steady (no autoplay/loop)
     const tabs = new Swiper(tabsEl, {
       direction: 'vertical',
       slidesPerView: 'auto',
       allowTouchMove: false,
       loop: false,
-      speed: 0 // instant changes so the list does not visibly scroll
+      speed: 0
     });
 
-    const space = parseInt(imgsEl.getAttribute('data-space') || '16', 10);
-
+    // Images: vertical on desktop with 1.2 slides, horizontal 1.0 on mobile
     const images = new Swiper(imgsEl, {
-      // vertical stack so the previous slide peeks from the TOP
-      direction: 'vertical',
       loop,
       speed: 600,
       spaceBetween: space,
       pagination: { el: imgsEl.querySelector('.swiper-pagination'), clickable: true },
       autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      // Use breakpoints to control layout
+      direction: 'horizontal',
+      slidesPerView: 1,
+      centeredSlides: false,
       breakpoints: {
-        0:   { slidesPerView: 1 },    // mobile: single
-        990: { slidesPerView: 1.2 }   // desktop: 1.2 (peek)
+        990: {
+          direction: 'vertical',
+          slidesPerView: 1.2,
+          centeredSlides: false
+        }
       }
     });
 
-    function setActive(i) {
-      slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
-    }
+    function setActive(i) { slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i)); }
 
     function goTo(i) {
-      // Drive the image swiper (handles loop clones safely)
       if (typeof images.slideToLoop === 'function') images.slideToLoop(i);
       else images.slideTo(i);
-
-      // Snap tabs silently without animation
       tabs.slideTo(i, 0, false);
-
-      // Ensure the active tab is visible but do not jump the page
       const el = slides[i];
       if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
-
-      console.log('[image-tabs] goTo', { target: i });
+      console.log('[image-tabs] goTo', { i });
     }
 
-    // Sync active state from images (single source of truth)
+    // Sync from images
     images.on('slideChange', () => {
       const idx = real(images);
       setActive(idx);
@@ -74,7 +71,7 @@
       console.log('[image-tabs] images -> slideChange', { idx });
     });
 
-    // Hover / focus / click on a tab drives images (and thus active state)
+    // Hover / click on tabs → drive images
     tabsEl.addEventListener('mouseenter', (e) => {
       const row = e.target.closest('.tab'); if (!row) return;
       const idx = +row.dataset.index; if (Number.isNaN(idx)) return;
@@ -92,7 +89,7 @@
     setActive(real(images));
     tabs.slideTo(real(images), 0, false);
 
-    // Expose destroy for editor
+    // Editor destroy hook
     root.__tabsDestroy = () => {
       try { tabs.destroy(true, true); } catch(e){}
       try { images.destroy(true, true); } catch(e){}
