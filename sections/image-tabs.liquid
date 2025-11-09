@@ -1,213 +1,208 @@
-{% comment %} Image Tabs (Swiper-synced) — clean liquid, JS lives in assets/image-tabs.js {% endcomment %}
+{% comment %}
+  Image Tabs — Ritual-compatible
+  IMPORTANT:
+  - No outer section/container wrappers (Ritual handles this)
+  - All content must flow INSIDE the layout-panel-flex wrapper provided by section.liquid
+{% endcomment %}
 
-{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{% liquid
+  if section.index == 1
+    assign fetch_priority = 'high'
+  else
+    assign fetch_priority = 'auto'
+  endif
+%}
 
 {%- style -%}
-  .image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; }
-  .image-tabs-{{ section.id }} .container {
-    /* use theme container if the theme wraps automatically; this stays harmless */
-    max-width: var(--page-width, {{ settings.page_width | default: 1200 }}px);
-    margin-inline: auto;
-    padding-inline: 24px;
-  }
 
-  /* Grid 50/50 on desktop */
-  .image-tabs-{{ section.id }} .grid {
-    display: grid; gap: var(--gap);
-    grid-template-columns: 1fr; align-items: stretch;
-  }
-  @media (min-width: 990px) {
-    .image-tabs-{{ section.id }} .grid { grid-template-columns: 1fr 1fr; }
-    .image-tabs-{{ section.id }}.reverse .grid { grid-template-columns: 1fr 1fr; direction: rtl; }
-    .image-tabs-{{ section.id }}.reverse .grid > * { direction: ltr; }
-  }
+/* GRID: 50/50 on desktop, 1 column on mobile */
+.image-tabs--{{ section.id }} {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
 
-  /* Section padding */
-  .image-tabs-{{ section.id }} .pad {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+@media (min-width: 990px) {
+  .image-tabs--{{ section.id }} {
+    grid-template-columns: 1fr 1fr; /* 50/50 split */
   }
-  @media (min-width: 750px) {
-    .image-tabs-{{ section.id }} .pad {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
+}
 
-  /* Eyebrow + copy */
-  .image-tabs-{{ section.id }} .eyebrow {
-    font-size: 12px; letter-spacing: .22em; text-transform: uppercase; opacity: .7; margin: 0 0 16px;
-  }
-  .image-tabs-{{ section.id }} .below-text { margin-top: 20px; opacity:.8; }
+/* LEFT COLUMN --------------------------------------------- */
+.image-tabs--{{ section.id }} .tabs-heading {
+  margin-bottom: 20px;
+}
 
-  /* Tabs column */
-  .image-tabs-{{ section.id }} .tabs {
-    border-top: 1px solid rgba(255,255,255,.15);
-    border-bottom: 1px solid rgba(255,255,255,.15);
-  }
-  .image-tabs-{{ section.id }} .tabs .swiper-wrapper {
-    display: flex; flex-direction: column; height: auto;
-  }
-  .image-tabs-{{ section.id }} .tab {
-    display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center;
-    padding-block: 14px; border-bottom: 1px solid rgba(255,255,255,.15);
-    cursor: pointer; user-select: none;
-  }
-  .image-tabs-{{ section.id }} .tab:last-child { border-bottom: 0; }
+.image-tabs--{{ section.id }} [data-tabs-list] {
+  border-top: 1px solid rgba(0,0,0,.12);
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
 
-  /* Green pill that expands and pushes text */
-  .image-tabs-{{ section.id }} .pill {
-    height: 28px; width: 0; border-radius: 999px; background: var(--pill);
-    transition: width .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1);
-    transform-origin: left;
-  }
-  .image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); }
+.image-tabs--{{ section.id }} [data-tab-row] {
+  position: relative;
+  padding: 14px 0;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
 
-  .image-tabs-{{ section.id }} .title {
-    font-family: var(--font-heading-family, inherit);
-    text-transform: uppercase; letter-spacing: .08em;
-    line-height: 1; text-decoration: none; color: rgb(var(--color-foreground));
-    font-size: clamp(28px, 5vw, 44px);
-    opacity: .25; transition: opacity .25s ease;
-  }
-  .image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
+.image-tabs--{{ section.id }} [data-tab-row]:last-child {
+  border-bottom: 0;
+}
 
-  /* Image pane: fixed 1:1 aspect, clipped */
-  .image-tabs-{{ section.id }} .image-pane {
-    position: relative; border-radius: 16px; overflow: hidden;
-    /* 1:1 aspect ratio; height derives from width, stays in container */
-    aspect-ratio: 1 / 1;
-  }
-  /* Make swiper take full pane size */
-  .image-tabs-{{ section.id }} .image-pane .swiper,
-  .image-tabs-{{ section.id }} .image-pane .swiper-wrapper,
-  .image-tabs-{{ section.id }} .image-pane .swiper-slide {
-    width: 100%; height: 100%;
-  }
-  .image-tabs-{{ section.id }} .image-slide .media { position: relative; width:100%; height:100%; }
-  .image-tabs-{{ section.id }} .image-slide img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center center; display:block;
-  }
+/* GREEN PILL (active indicator) ------------------------------------ */
+.image-tabs--{{ section.id }} .tab-label {
+  position: relative;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 600;
+  display: inline-block;
+  z-index: 2;
+}
 
-  /* Pagination dots (vertical on desktop, centered row on mobile) */
-  .image-tabs-{{ section.id }} .image-pagination {
-    position: absolute; right: 12px; bottom: 16px; z-index: 3;
-    display: flex; flex-direction: column; gap: 8px; width: 10px !important;
-  }
-  .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet {
-    width: 10px; height: 10px; border-radius: 10px; opacity: .4; background: #fff !important;
-    transition: height .2s ease, opacity .2s ease;
-  }
-  .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet-active {
-    opacity: 1; height: 46px;
-  }
-  @media (max-width: 989px) {
-    .image-tabs-{{ section.id }} .image-pagination {
-      left: 0; right: 0; bottom: 10px; flex-direction: row; justify-content: center; width: auto !important;
-    }
-  }
+.image-tabs--{{ section.id }} .tab-label::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 28px;
+  border-radius: 1000px;
+  background: {{ section.settings.pill_color }};
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+  z-index: -1;
+}
+
+.image-tabs--{{ section.id }} [data-tab-row].is-active .tab-label::before {
+  transform: scaleX(1);
+}
+
+/* RIGHT COLUMN — IMAGE SWIPER ----------------------------- */
+.image-tabs--{{ section.id }} .img-swiper {
+  position: relative;
+  width: 100%;
+}
+
+.image-tabs--{{ section.id }} .swiper-slide {
+  width: 100%;
+}
+
+.image-tabs--{{ section.id }} .slide-square {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* ✅ Forces perfect square */
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.image-tabs--{{ section.id }} .slide-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ Fits inside Ritual max-width */
+  object-position: center;
+  display: block;
+}
+
+/* Pagination */
+.image-tabs--{{ section.id }} .swiper-pagination {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  left: auto;
+}
+
 {%- endstyle -%}
 
-{% if section.index == 1 %}
-    {% assign fetch_priority = "high" %}
-  {% else %}
-    {% assign fetch_priority = "auto" %}
-{% endif %}
 
-<section
-  class="image-tabs-{{ section.id }} color-{{ section.settings.section_color_scheme }}{% if section.settings.layout == 'image_left' %} reverse{% endif %}"
-  data-component="image-tabs"
-  data-section-id="{{ section.id }}"
->
-  <div class="container pad">
-    <div class="grid">
-      <div>
-        {% if section.settings.eyebrow != blank %}
-          <p class="eyebrow">{{ section.settings.eyebrow }}</p>
-        {% endif %}
-        {% if section.settings.heading != blank %}
-          <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
-        {% endif %}
-        <div id="Tabs-{{ section.id }}" class="swiper tabs"
-             data-autoplay="{{ section.settings.autoplay }}"
-             data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
-             data-loop="{{ section.settings.loop }}">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <div class="swiper-slide tab" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
-                <span class="pill" aria-hidden="true"></span>
-                <a {% if block.settings.button_link == blank %} role="link" aria-disabled="true" {% else %} href="{{ block.settings.button_link }}" {% endif %} class="title">
-                  {{ block.settings.title }}
-                </a>
-              </div>
-            {% endfor %}
-          </div>
+<div class="image-tabs--{{ section.id }}" data-component="image-tabs" data-section-id="{{ section.id }}">
+
+  <!-- LEFT COLUMN -->
+  <div>
+    {% if section.settings.eyebrow %}
+      <p class="tabs-heading">{{ section.settings.eyebrow }}</p>
+    {% endif %}
+
+    {% if section.settings.heading %}
+      <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.settings.intro_text %}
+      <div class="rte" style="margin-bottom:20px;">{{ section.settings.intro_text }}</div>
+    {% endif %}
+
+    <div data-tabs-list>
+      {% for block in section.blocks %}
+        <div data-tab-row data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+          <span class="tab-label">{{ block.settings.title }}</span>
         </div>
-        {% if section.settings.below_text != blank %}
-          <div class="below-text rte">{{ section.settings.below_text }}</div>
-        {% endif %}
-      </div>
-      <div>
-        <div id="Images-{{ section.id }}" class="swiper image-pane" data-space="{{ section.settings.image_gap }}">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <div class="swiper-slide image-slide">
-                <div class="media">
-                  {% if block.settings.image != blank %}
-                    {% assign widths = '600, 900, 1200, 1600, 2000' %}
-                    {% capture sizes %}(min-width: 1200px) 50vw, (min-width: 750px) 50vw, 100vw{% endcapture %}
-                    {{ block.settings.image | image_url: width: 2000 | image_tag: widths: widths, sizes: sizes, fetchpriority: fetch_priority }}
-                  {% else %}
-                    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                  {% endif %}
-                </div>
-              </div>
-            {% endfor %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.bottom_text %}
+      <div class="rte" style="margin-top:20px;">{{ section.settings.bottom_text }}</div>
+    {% endif %}
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div>
+    <div id="Images-{{ section.id }}"
+         class="swiper img-swiper"
+         data-autoplay="{{ section.settings.autoplay }}"
+         data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+    >
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="slide-square">
+              {% if block.settings.image %}
+                {% assign widths = "600,900,1200,1600,2000" %}
+                {% capture sizes %}(min-width:990px) 50vw, 100vw{% endcapture %}
+                {{ block.settings.image | image_url: width: 2000 | image_tag: widths: widths, sizes: sizes, fetchpriority: fetch_priority }}
+              {% else %}
+                {{ 'lifestyle-1' | placeholder_svg_tag }}
+              {% endif %}
+            </div>
           </div>
-          <div class="swiper-pagination image-pagination"></div>
-        </div>
+        {% endfor %}
       </div>
+
+      <div class="swiper-pagination"></div>
     </div>
   </div>
-</section>
+
+</div>
+
+{{ 'image-tabs.js' | asset_url | script_tag }}
 
 {% schema %}
 {
   "name": "Image Tabs",
-  "class": "section",
-  "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Subheading (eyebrow)", "default": "A new era of sports protection" },
-    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Iconic design" },
+    { "type": "text", "id": "eyebrow", "label": "Subheading" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading" },
     { "type": "select", "id": "heading_size", "label": "Heading size", "default": "h2", "options": [
-      { "value": "h2", "label": "H2" }, { "value": "h1", "label": "H1" }, { "value": "h0", "label": "H0" }
+      { "value": "h1", "label": "H1" },
+      { "value": "h2", "label": "H2" },
+      { "value": "h0", "label": "H0" }
     ]},
-    { "type": "richtext", "id": "below_text", "label": "Text below tabs", "default": "<p>We exist to revolutionise protective sports equipment &amp; keep you playing the sport you love. Longer.</p>" },
-    { "type": "select", "id": "layout", "label": "Layout (desktop)", "default": "image_right", "options": [
-      { "value": "image_right", "label": "Image right" },
-      { "value": "image_left",  "label": "Image left" }
-    ]},
-    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": true },
-    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (seconds)", "min": 2, "max": 15, "step": 1, "default": 5 },
-    { "type": "checkbox", "id": "loop", "label": "Loop slides", "default": true },
-    { "type": "range", "id": "image_gap", "label": "Image stack gap (px)", "min": 0, "max": 40, "step": 2, "default": 16 },
-    { "type": "color", "id": "pill_color", "label": "Active pill color", "default": "#0FE694" },
-    { "type": "color_scheme", "id": "section_color_scheme", "label": "Section color scheme", "default": "scheme-1" },
-    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Top padding", "default": 40 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Bottom padding", "default": 40 }
+    { "type": "richtext", "id": "intro_text", "label": "Intro text" },
+    { "type": "richtext", "id": "bottom_text", "label": "Text under tabs" },
+
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay images", "default": true },
+    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (seconds)", "min": 2, "max": 15, "default": 5 },
+
+    { "type": "color", "id": "pill_color", "label": "Active pill color", "default": "#0FE694" }
   ],
   "blocks": [
     {
       "type": "tab",
       "name": "Tab",
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Iconic Design" },
-        { "type": "text", "id": "button_label", "label": "Button label" },
-        { "type": "url",  "id": "button_link", "label": "Button link" },
+        { "type": "text", "id": "title", "label": "Title" },
         { "type": "image_picker", "id": "image", "label": "Image" }
       ]
     }
   ],
-  "presets": [{ "name": "Image Tabs", "blocks": [{ "type": "tab" }, { "type": "tab" }, { "type": "tab" }] }]
+  "presets": [
+    { "name": "Image Tabs" }
+  ]
 }
 {% endschema %}
