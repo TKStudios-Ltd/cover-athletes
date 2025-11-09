@@ -11,7 +11,7 @@
 }
 @media (min-width: 990px) {
   .image-tabs-{{ section.id }} .grid .image-tabs__tabs { padding-top: 100px; display: flex; flex-direction: column; justify-content: space-between; }
-  .image-tabs-{{ section.id }} .grid .image-tabs__image { overflow: hidden; }
+  .image-tabs-{{ section.id }} .grid .image-tabs__image { max-height: calc(100vh - 80px); overflow: hidden; }
   .image-tabs-{{ section.id }} .grid .image-tabs__tabs,
   .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
   .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
