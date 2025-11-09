@@ -1,10 +1,8 @@
-/* image-tabs.js — stable sync, no vertical auto-scroll on tabs */
+/* image-tabs.js — 1.2 slides visible (desktop), no page scroll on hover */
 (() => {
   const SELECTOR = '[data-component="image-tabs"]';
 
-  function real(sw) {
-    return typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex;
-  }
+  const real = (sw) => (typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex);
 
   function initSection(root) {
     if (!root || root.__tabsInit) return;
@@ -13,38 +11,42 @@
     const id      = root.getAttribute('data-section-id');
     const tabsEl  = root.querySelector('#Tabs-' + id);
     const imgsEl  = root.querySelector('#Images-' + id);
-    if (!tabsEl || !imgsEl) return console.warn('[image-tabs] missing containers', { id });
+    if (!tabsEl || !imgsEl) {
+      console.warn('[image-tabs] missing containers', { id });
+      return;
+    }
 
     const autoplay = tabsEl.getAttribute('data-autoplay') === 'true';
     const delay    = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
     const loop     = tabsEl.getAttribute('data-loop') === 'true';
+    const space    = parseInt(imgsEl.getAttribute('data-space') || '16', 10);
     const slides   = Array.from(tabsEl.querySelectorAll('.tab'));
 
-    console.log('[image-tabs] init', { id, autoplay, delay, loop, slides: slides.length });
+    console.log('[image-tabs] init', { id, autoplay, delay, loop, space, slides: slides.length });
 
-    // Tabs list: NO autoplay, NO loop — keep list steady
+    // Tabs list: static (no autoplay, no loop)
     const tabs = new Swiper(tabsEl, {
       direction: 'vertical',
       slidesPerView: 'auto',
       allowTouchMove: false,
       loop: false,
-      speed: 0 // instant changes so the list does not visibly scroll
+      speed: 0
     });
 
-    const space = parseInt(imgsEl.getAttribute('data-space') || '16', 10);
-
+    // Images: vertical stack; 1.2 slides on desktop so next image peeks in
     const images = new Swiper(imgsEl, {
-      // vertical stack so the previous slide peeks from the TOP
       direction: 'vertical',
       loop,
-      speed: 600,
+      allowTouchMove: false,
       spaceBetween: space,
-      pagination: { el: imgsEl.querySelector('.swiper-pagination'), clickable: true },
-      autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      centeredSlides: false,
+      slidesPerView: 1.05, // mobile default (slight peek)
       breakpoints: {
-        0:   { slidesPerView: 1 },    // mobile: single
-        990: { slidesPerView: 1.2 }   // desktop: 1.2 (peek)
-      }
+        990: { slidesPerView: 1.2 } // desktop peek
+      },
+      speed: 500,
+      autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      pagination: { el: imgsEl.querySelector('.swiper-pagination'), clickable: true }
     });
 
     function setActive(i) {
@@ -52,21 +54,17 @@
     }
 
     function goTo(i) {
-      // Drive the image swiper (handles loop clones safely)
       if (typeof images.slideToLoop === 'function') images.slideToLoop(i);
       else images.slideTo(i);
 
-      // Snap tabs silently without animation
+      // Snap tabs silently without page scrolling
       tabs.slideTo(i, 0, false);
-
-      // Ensure the active tab is visible but do not jump the page
-      const el = slides[i];
-      if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+      // ❌ removed scrollIntoView — this was causing the page to jump on hover
 
       console.log('[image-tabs] goTo', { target: i });
     }
 
-    // Sync active state from images (single source of truth)
+    // Sync active state from images
     images.on('slideChange', () => {
       const idx = real(images);
       setActive(idx);
@@ -74,7 +72,7 @@
       console.log('[image-tabs] images -> slideChange', { idx });
     });
 
-    // Hover / focus / click on a tab drives images (and thus active state)
+    // Hover / click drives images
     tabsEl.addEventListener('mouseenter', (e) => {
       const row = e.target.closest('.tab'); if (!row) return;
       const idx = +row.dataset.index; if (Number.isNaN(idx)) return;
