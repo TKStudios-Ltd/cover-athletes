@@ -1,8 +1,10 @@
-/* image-tabs.js — vertical 1.2 slides on desktop, dots, stable tabs list */
+/* image-tabs.js — stable sync, no vertical auto-scroll on tabs */
 (() => {
   const SELECTOR = '[data-component="image-tabs"]';
 
-  function real(sw) { return typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex; }
+  function real(sw) {
+    return typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex;
+  }
 
   function initSection(root) {
     if (!root || root.__tabsInit) return;
@@ -11,56 +13,60 @@
     const id      = root.getAttribute('data-section-id');
     const tabsEl  = root.querySelector('#Tabs-' + id);
     const imgsEl  = root.querySelector('#Images-' + id);
-    if (!tabsEl || !imgsEl) { console.warn('[image-tabs] missing containers', { id }); return; }
+    if (!tabsEl || !imgsEl) return console.warn('[image-tabs] missing containers', { id });
 
-    const autoplay = imgsEl.getAttribute('data-autoplay') === 'true';
-    const delay    = parseInt(imgsEl.getAttribute('data-delay') || '5000', 10);
-    const loop     = imgsEl.getAttribute('data-loop') === 'true';
-    const gap      = parseInt(imgsEl.getAttribute('data-gap') || '16', 10);
+    const autoplay = tabsEl.getAttribute('data-autoplay') === 'true';
+    const delay    = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
+    const loop     = tabsEl.getAttribute('data-loop') === 'true';
     const slides   = Array.from(tabsEl.querySelectorAll('.tab'));
 
-    console.log('[image-tabs] init', { id, autoplay, delay, loop, gap, slides: slides.length });
+    console.log('[image-tabs] init', { id, autoplay, delay, loop, slides: slides.length });
 
-    // Tabs list: static (no auto / no loop / no animation)
+    // Tabs list: NO autoplay, NO loop — keep list steady
     const tabs = new Swiper(tabsEl, {
       direction: 'vertical',
       slidesPerView: 'auto',
       allowTouchMove: false,
       loop: false,
-      speed: 0
+      speed: 0 // instant changes so the list does not visibly scroll
     });
 
-    // Images: vertical 1.2 slides on desktop, horizontal 1 on mobile
+    const space = parseInt(imgsEl.getAttribute('data-space') || '16', 10);
+
     const images = new Swiper(imgsEl, {
+      // vertical stack so the previous slide peeks from the TOP
+      direction: 'vertical',
       loop,
       speed: 600,
-      spaceBetween: gap,
+      spaceBetween: space,
       pagination: { el: imgsEl.querySelector('.swiper-pagination'), clickable: true },
       autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-      // Default (mobile):
-      direction: 'horizontal',
-      slidesPerView: 1,
-      centeredSlides: false,
       breakpoints: {
-        990: {
-          direction: 'vertical',
-          slidesPerView: 1.2,        // <- peek previous/next vertically
-          centeredSlides: false,
-          spaceBetween: gap
-        }
+        0:   { slidesPerView: 1 },    // mobile: single
+        990: { slidesPerView: 1.2 }   // desktop: 1.2 (peek)
       }
     });
 
-    function setActive(i) { slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i)); }
-
-    function goTo(i) {
-      if (typeof images.slideToLoop === 'function') images.slideToLoop(i);
-      else images.slideTo(i);
-      tabs.slideTo(i, 0, false);
-      console.log('[image-tabs] goTo', { i });
+    function setActive(i) {
+      slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
     }
 
-    // Sync from images (source of truth)
+    function goTo(i) {
+      // Drive the image swiper (handles loop clones safely)
+      if (typeof images.slideToLoop === 'function') images.slideToLoop(i);
+      else images.slideTo(i);
+
+      // Snap tabs silently without animation
+      tabs.slideTo(i, 0, false);
+
+      // Ensure the active tab is visible but do not jump the page
+      const el = slides[i];
+      if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+
+      console.log('[image-tabs] goTo', { target: i });
+    }
+
+    // Sync active state from images (single source of truth)
     images.on('slideChange', () => {
       const idx = real(images);
       setActive(idx);
@@ -68,7 +74,7 @@
       console.log('[image-tabs] images -> slideChange', { idx });
     });
 
-    // Interactions on tabs -> drive images
+    // Hover / focus / click on a tab drives images (and thus active state)
     tabsEl.addEventListener('mouseenter', (e) => {
       const row = e.target.closest('.tab'); if (!row) return;
       const idx = +row.dataset.index; if (Number.isNaN(idx)) return;
@@ -98,7 +104,6 @@
   function boot(ctx) {
     const roots = (ctx || document).querySelectorAll(SELECTOR);
     if (!roots.length) return;
-    if (typeof loadSwiper !== 'function') { console.error('[image-tabs] loadSwiper missing — include swiper-loader.js'); return; }
     loadSwiper(() => roots.forEach(initSection));
   }
 
