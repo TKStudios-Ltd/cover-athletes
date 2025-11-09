@@ -118,6 +118,76 @@
         "padding-block-end": 40
       }
     },
+    "image_tabs_FnFLrf": {
+      "type": "image-tabs",
+      "blocks": {
+        "tab_rrcP43": {
+          "type": "tab",
+          "settings": {
+            "title": "Engineering Excellence",
+            "button_label": "Learn more",
+            "button_link": "",
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "image_text": "",
+            "image_text_color": ""
+          }
+        },
+        "tab_XQLG7e": {
+          "type": "tab",
+          "settings": {
+            "title": "Iconic Design",
+            "button_label": "Learn more",
+            "button_link": "",
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "image_text": "",
+            "image_text_color": ""
+          }
+        },
+        "tab_drQeXx": {
+          "type": "tab",
+          "settings": {
+            "title": "Built to last",
+            "button_label": "Learn more",
+            "button_link": "",
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "image_text": "",
+            "image_text_color": ""
+          }
+        },
+        "tab_CdhRRr": {
+          "type": "tab",
+          "settings": {
+            "title": "Designed By Athletes",
+            "button_label": "Learn more",
+            "button_link": "",
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "image_text": "",
+            "image_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_rrcP43",
+        "tab_XQLG7e",
+        "tab_drQeXx",
+        "tab_CdhRRr"
+      ],
+      "name": "Image Tabs",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "layout": "image_right",
+        "left_col_width": 1,
+        "right_col_width": 2,
+        "autoplay": true,
+        "autoplay_delay": 5,
+        "loop": true,
+        "section_color_scheme": "",
+        "pill_color": "#0FE694",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "section_hThtAw": {
       "type": "section",
       "blocks": {
@@ -477,6 +547,7 @@
   "order": [
     "section_Fh7TFQ",
     "divider_WzRxcE",
+    "image_tabs_FnFLrf",
     "section_hThtAw",
     "media_with_content_NEtbwm"
   ]
