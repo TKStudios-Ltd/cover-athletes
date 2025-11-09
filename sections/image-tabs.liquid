@@ -63,14 +63,12 @@
   }
   .image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); }
 
-  .image-tabs-{{ section.id }} .title {
-    font-family: var(--font-heading-family, inherit);
-    text-transform: uppercase; letter-spacing: .08em;
+.image-tabs-{{ section.id }} .title {
+    font-size: clamp(28px, 5vw, 44px) !important;
     line-height: 1; text-decoration: none; color: rgb(var(--color-foreground));
-    font-size: clamp(28px, 5vw, 44px);
     opacity: .25; transition: opacity .25s ease;
-  }
-  .image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
+}
+.image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
 
   /* Image pane: fixed 1:1 aspect, clipped */
   .image-tabs-{{ section.id }} .image-pane {
