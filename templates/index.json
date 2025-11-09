@@ -127,7 +127,9 @@
             "title": "Engineering Excellence",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "overlay_text": "",
+            "overlay_color": ""
           }
         },
         "tab_XQLG7e": {
@@ -136,7 +138,9 @@
             "title": "Iconic Design",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "overlay_text": "",
+            "overlay_color": ""
           }
         },
         "tab_drQeXx": {
@@ -145,7 +149,9 @@
             "title": "Built to last",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "overlay_text": "",
+            "overlay_color": ""
           }
         },
         "tab_CdhRRr": {
@@ -154,7 +160,9 @@
             "title": "Designed By Athletes",
             "button_label": "",
             "button_link": "",
-            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
+            "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png",
+            "overlay_text": "",
+            "overlay_color": ""
           }
         }
       },
@@ -166,6 +174,7 @@
       ],
       "name": "Image Tabs",
       "settings": {
+        "eyebrow_icon": "shopify://shop_images/Cover_sm-white-logo.svg",
         "eyebrow": "A new era of sports protection",
         "heading": "",
         "heading_size": "h2",
