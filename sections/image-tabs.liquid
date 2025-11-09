@@ -1,0 +1,313 @@
+{% comment %}
+  Image Tabs — Swiper-synced
+  JS handled externally (image-tabs.js + swiper-loader.js)
+{% endcomment %}
+
+{%- style -%}
+  .image-tabs-{{ section.id }} { --pad-x: 24px; }
+  .image-tabs-{{ section.id }} .section-inner {
+    max-width: var(--page-width, 1200px);
+    margin-inline: auto;
+    padding-inline: var(--pad-x);
+  }
+
+  .image-tabs-{{ section.id }} .grid {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 990px) {
+    .image-tabs-{{ section.id }} .grid {
+      grid-template-columns: minmax(0, {{ section.settings.left_col_width }}fr) minmax(0, {{ section.settings.right_col_width }}fr);
+    }
+    .image-tabs-{{ section.id }}.image-left .grid {
+      grid-template-columns: minmax(0, {{ section.settings.right_col_width }}fr) minmax(0, {{ section.settings.left_col_width }}fr);
+    }
+  }
+
+  /* Tabs */
+  .image-tabs-{{ section.id }} .tabs {
+    border-top: 1px solid rgba(255,255,255,.15);
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+  .image-tabs-{{ section.id }} .tabs .swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-tabs-{{ section.id }} .tab {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-block: 14px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    cursor: pointer;
+  }
+
+  .image-tabs-{{ section.id }} .tab:last-child { border-bottom: 0; }
+
+  .image-tabs-{{ section.id }} .pill {
+    width: 56px;
+    height: 28px;
+    border-radius: 999px;
+    background: {{ section.settings.pill_color }};
+    opacity: 0;
+    transform: scale(.9);
+    transition: opacity .28s ease, transform .28s ease;
+  }
+  .image-tabs-{{ section.id }} .tab.is-active .pill {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .image-tabs-{{ section.id }} .title {
+    font-family: var(--font-heading-family, inherit);
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: clamp(28px, 5vw, 44px);
+    opacity: .25;
+    color: rgb(var(--color-foreground));
+    transition: opacity .25s ease;
+  }
+  .image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
+
+  /* Images */
+  .image-tabs-{{ section.id }} .image-pane {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .image-tabs-{{ section.id }} .image-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-tabs-{{ section.id }} .img-text {
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(14px, 2vw, 16px);
+  }
+
+  .image-tabs-{{ section.id }} .img-btn {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    z-index: 2;
+  }
+
+  /* Pagination */
+  .image-tabs-{{ section.id }} .image-pagination {
+    position: absolute;
+    right: 16px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 10px !important;
+    z-index: 3;
+  }
+
+  .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: white !important;
+    opacity: .4;
+    border-radius: 10px;
+  }
+
+  .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+    height: 46px;
+  }
+
+  @media (max-width: 989px) {
+    .image-tabs-{{ section.id }} .image-pagination {
+      left: 0;
+      right: 0;
+      bottom: 12px;
+      flex-direction: row;
+      justify-content: center;
+      width: auto !important;
+    }
+    .image-tabs-{{ section.id }} .title {
+      font-size: clamp(22px, 6vw, 36px);
+    }
+  }
+
+  .image-tabs-{{ section.id }} .pad {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<section
+  class="image-tabs-{{ section.id }} color-{{ section.settings.section_color_scheme }} {% if section.settings.layout == 'image_left' %}image-left{% endif %}"
+  data-component="image-tabs"
+  data-section-id="{{ section.id }}"
+>
+  <div class="section-inner pad">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="grid">
+
+      <!-- LEFT -->
+      <div>
+        <div
+          id="Tabs-{{ section.id }}"
+          class="swiper tabs"
+          data-autoplay="{{ section.settings.autoplay }}"
+          data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+          data-loop="{{ section.settings.loop }}"
+        >
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              <div class="swiper-slide tab"
+                   {{ block.shopify_attributes }}
+                   data-index="{{ forloop.index0 }}"
+                   tabindex="0"
+              >
+                <span class="pill"></span>
+                <span class="title">{{ block.settings.title }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="small-hide medium-hide">
+        <div id="Images-{{ section.id }}" class="swiper image-pane">
+          <div class="swiper-wrapper">
+
+            {% liquid
+              if section.index == 1
+                assign fetch_priority = 'high'
+              else
+                assign fetch_priority = 'auto'
+              endif
+            %}
+
+            {% for block in section.blocks %}
+              <div class="swiper-slide image-slide">
+                <div class="media">
+                  {% if block.settings.image != blank %}
+                    {% assign widths = '600, 900, 1200, 1600, 2000' %}
+                    {% capture sizes %}
+                      (min-width: 1200px) 900px,
+                      (min-width: 750px) calc(100vw - 420px),
+                      100vw
+                    {% endcapture %}
+                    {{
+                      block.settings.image
+                      | image_url: width: 2000
+                      | image_tag: widths: widths, sizes: sizes, fetchpriority: fetch_priority
+                    }}
+                  {% endif %}
+                </div>
+
+                {% if block.settings.image_text != blank %}
+                  <p class="img-text" {% if block.settings.image_text_color != blank %}style="color: {{ block.settings.image_text_color }}"{% endif %}>
+                    {{ block.settings.image_text }}
+                  </p>
+                {% endif %}
+
+                {% if block.settings.button_label != blank %}
+                  <a {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %}
+                     class="button button--primary button--small img-btn">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+              </div>
+            {% endfor %}
+
+          </div>
+
+          <div class="swiper-pagination image-pagination"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image Tabs",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "label": "Heading" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "default": "h2",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" },
+        { "value": "h0", "label": "H0" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "image_right",
+      "options": [
+        { "value": "image_right", "label": "Image right" },
+        { "value": "image_left", "label": "Image left" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "left_col_width",
+      "label": "Left column width",
+      "min": 1, "max": 3, "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "right_col_width",
+      "label": "Right column width",
+      "min": 1, "max": 3, "step": 1,
+      "default": 2
+    },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": true },
+    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (seconds)", "min": 2, "max": 15, "step": 1, "default": 5 },
+    { "type": "checkbox", "id": "loop", "label": "Loop slides", "default": true },
+    { "type": "color_scheme", "id": "section_color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "color", "id": "pill_color", "label": "Active pill color", "default": "#0FE694" },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 120, "step": 4, "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 120, "step": 4, "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Iconic Design" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Learn more" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_text", "label": "Overlay text" },
+        { "type": "color", "id": "image_text_color", "label": "Overlay text color" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Image Tabs", "blocks": [{ "type": "tab" }, { "type": "tab" }, { "type": "tab" }] }
+  ]
+}
+{% endschema %}
