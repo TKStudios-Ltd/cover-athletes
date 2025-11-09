@@ -169,7 +169,7 @@
         "heading": "dsvdsbbdsbfbdsbdbdgsb",
         "heading_size": "h2",
         "layout": "image_right",
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_delay": 5,
         "loop": false,
         "section_color_scheme": "scheme-5",
