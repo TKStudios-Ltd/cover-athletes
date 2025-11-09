@@ -169,11 +169,11 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>Our signature product</h2>",
+                "text": "<p>Lorem Ipsum Lorem</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h3",
+                "type_preset": "h6",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -191,18 +191,19 @@
               },
               "blocks": {}
             },
-            "text_QjXf7j": {
+            "text_APeDwe": {
               "type": "text",
+              "name": "t:names.heading",
               "settings": {
-                "text": "<p>Made with care and unconditionally loved by our customers, this signature bestseller exceeds all expectations.</p>",
+                "text": "<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero</h4>",
                 "width": "fit-content",
-                "max_width": "narrow",
+                "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
+                "font_size": "2.5rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
                 "case": "none",
                 "wrap": "pretty",
                 "color": "var(--color-foreground)",
@@ -233,7 +234,7 @@
           },
           "block_order": [
             "text_pmbfXP",
-            "text_QjXf7j",
+            "text_APeDwe",
             "button_JRX9Er"
           ]
         }
@@ -241,6 +242,9 @@
       "block_order": [
         "image_MkcYqE",
         "group_jidMrT"
+      ],
+      "custom_css": [
+        "h4 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important;}"
       ],
       "name": "t:names.image_with_text",
       "settings": {
