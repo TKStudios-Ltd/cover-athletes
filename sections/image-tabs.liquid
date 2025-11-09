@@ -28,11 +28,13 @@
     }
 }
 
-  /* Eyebrow + copy */
-  .image-tabs-{{ section.id }} .eyebrow {
+.image-tabs-{{ section.id }} .eyebrow {
     display: flex; gap: 12px;
     font-size: 14px; margin: 0 0 20px;
-  }
+}
+.image-tabs-{{ section.id }} .eyebrow img {
+    height: 14px;
+}
   .image-tabs-{{ section.id }} .below-text { margin-top: 20px; opacity:.8; }
 
 /* .image-tabs-{{ section.id }} .tabs {
@@ -120,7 +122,7 @@
       <div class="image-tabs__tabs">
         {% if section.settings.eyebrow != blank %}
             <p class="eyebrow">
-                <img src="https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo.svg" height="14" width="100%">
+                <img src="https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo.svg" height="100%" width="100%">
                 {{ section.settings.eyebrow }}
             </p>
         {% endif %}
