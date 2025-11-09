@@ -125,6 +125,8 @@
           "type": "tab",
           "settings": {
             "title": "Engineering Excellence",
+            "button_label": "",
+            "button_link": "",
             "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
           }
         },
@@ -132,6 +134,8 @@
           "type": "tab",
           "settings": {
             "title": "Iconic Design",
+            "button_label": "",
+            "button_link": "",
             "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
           }
         },
@@ -139,6 +143,8 @@
           "type": "tab",
           "settings": {
             "title": "Built to last",
+            "button_label": "",
+            "button_link": "",
             "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
           }
         },
@@ -146,6 +152,8 @@
           "type": "tab",
           "settings": {
             "title": "Designed By Athletes",
+            "button_label": "",
+            "button_link": "",
             "image": "shopify://shop_images/7257809576c129a83da3b9735a505af0f44dae69.png"
           }
         }
@@ -161,11 +169,16 @@
         "eyebrow": "A new era of sports protection",
         "heading": "",
         "heading_size": "h2",
-        "intro_text": "",
-        "bottom_text": "<p>sgbrgdbrgsdbrdb</p>",
-        "autoplay": true,
+        "below_text": "<p>We exist to revolutionise protective sports equipment & keep you playing the sport you love. Longer.</p>",
+        "layout": "image_right",
+        "autoplay": false,
         "autoplay_delay": 5,
-        "pill_color": "#0fe694"
+        "loop": false,
+        "image_gap": 16,
+        "pill_color": "#0fe694",
+        "section_color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "section_hThtAw": {
