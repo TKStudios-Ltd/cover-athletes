@@ -173,7 +173,7 @@
         "layout": "image_right",
         "autoplay": true,
         "autoplay_delay": 5,
-        "loop": false,
+        "loop": true,
         "section_color_scheme": "scheme-5",
         "pill_color": "#0fe694",
         "padding_top": 0,
