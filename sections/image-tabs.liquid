@@ -121,8 +121,6 @@
 >
   <div class="container pad">
     <div class="grid">
-
-      {# LEFT: Tabs list #}
       <div>
         {% if section.settings.eyebrow != blank %}
           <p class="eyebrow">{{ section.settings.eyebrow }}</p>
@@ -130,7 +128,6 @@
         {% if section.settings.heading != blank %}
           <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
         {% endif %}
-
         <div id="Tabs-{{ section.id }}" class="swiper tabs"
              data-autoplay="{{ section.settings.autoplay }}"
              data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
@@ -146,13 +143,10 @@
             {% endfor %}
           </div>
         </div>
-
         {% if section.settings.below_text != blank %}
           <div class="below-text rte">{{ section.settings.below_text }}</div>
         {% endif %}
       </div>
-
-      {# RIGHT: Image pane with 1:1 and peek #}
       <div>
         <div id="Images-{{ section.id }}" class="swiper image-pane" data-space="{{ section.settings.image_gap }}">
           <div class="swiper-wrapper">
@@ -170,11 +164,9 @@
               </div>
             {% endfor %}
           </div>
-
           <div class="swiper-pagination image-pagination"></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
