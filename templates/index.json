@@ -103,6 +103,9 @@
     },
     "divider_WzRxcE": {
       "type": "divider",
+      "custom_css": [
+        ".divider__line {display: none;}"
+      ],
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "scheme-5",
