@@ -11,16 +11,16 @@
     padding-inline: 24px;
   }
 
-  /* Grid 50/50 on desktop */
-  .image-tabs-{{ section.id }} .grid {
-    display: grid; gap: var(--gap);
-    grid-template-columns: 1fr; align-items: stretch;
-  }
-  @media (min-width: 990px) {
-    .image-tabs-{{ section.id }} .grid { grid-template-columns: 1fr 1fr; }
-    .image-tabs-{{ section.id }}.reverse .grid { grid-template-columns: 1fr 1fr; direction: rtl; }
-    .image-tabs-{{ section.id }}.reverse .grid > * { direction: ltr; }
-  }
+.image-tabs-{{ section.id }} .grid {
+    display: flex; gap: var(--gap);
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+@media (min-width: 990px) {
+    .image-tabs-{{ section.id }} .grid .image-tabs__tabs,
+    .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 50%; }
+    .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
+}
 
   /* Section padding */
   .image-tabs-{{ section.id }} .pad {
@@ -121,7 +121,7 @@
 >
   <div class="container pad">
     <div class="grid">
-      <div>
+      <div class="image-tabs_tabs">
         {% if section.settings.eyebrow != blank %}
           <p class="eyebrow">{{ section.settings.eyebrow }}</p>
         {% endif %}
@@ -150,7 +150,7 @@
         {% endif %}
       </div>
 
-      <div>
+      <div class="image-tabs__image">
         <div id="Images-{{ section.id }}" class="swiper image-pane" data-space="{{ section.settings.image_gap }}">
           <div class="swiper-wrapper">
             {% for block in section.blocks %}
