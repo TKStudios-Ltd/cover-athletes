@@ -19,7 +19,7 @@
     const autoplay = tabsEl.getAttribute('data-autoplay') === 'true';
     const delay    = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
     const loop     = tabsEl.getAttribute('data-loop') === 'true';
-    const space    = parseInt(imgsEl.getAttribute('data-space') || '16', 10);
+    const space    = parseInt(imgsEl.getAttribute('data-space') || '20', 10);
     const slides   = Array.from(tabsEl.querySelectorAll('.tab'));
 
     console.log('[image-tabs] init', { id, autoplay, delay, loop, space, slides: slides.length });
