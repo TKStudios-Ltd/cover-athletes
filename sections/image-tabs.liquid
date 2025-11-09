@@ -42,7 +42,7 @@
     display: flex; flex-direction: column; height: auto;
 }
 .image-tabs-{{ section.id }} .tab {
-    display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center;
+    display: grid; grid-template-columns: auto 1fr; gap: 0; align-items: center;
     padding-block: 4px;
     cursor: pointer; user-select: none;
 }
@@ -52,7 +52,7 @@
   .image-tabs-{{ section.id }} .pill {
     height: 28px; width: 0; border-radius: 999px; background: var(--pill);
     transition: width .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1);
-    transform-origin: left;
+    transform-origin: left; padding-right: 12px;
   }
   .image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); }
 
