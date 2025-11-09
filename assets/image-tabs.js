@@ -31,14 +31,20 @@
       speed: 0 // instant changes so the list does not visibly scroll
     });
 
-    // Images: autoplay/loop here only
+    const space = parseInt(imgsEl.getAttribute('data-space') || '16', 10);
+
     const images = new Swiper(imgsEl, {
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
+      // vertical stack so the previous slide peeks from the TOP
+      direction: 'vertical',
       loop,
       speed: 600,
+      spaceBetween: space,
       pagination: { el: imgsEl.querySelector('.swiper-pagination'), clickable: true },
-      autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
+      autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
+      breakpoints: {
+        0:   { slidesPerView: 1 },    // mobile: single
+        990: { slidesPerView: 1.2 }   // desktop: 1.2 (peek)
+      }
     });
 
     function setActive(i) {
