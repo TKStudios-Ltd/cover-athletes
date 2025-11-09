@@ -1,110 +1,107 @@
-/* image-tabs.js — stable sync, no vertical auto-scroll on tabs */
-(() => {
-  const SELECTOR = '[data-component="image-tabs"]';
+/* Image Tabs — component JS (uses global loadSwiper from swiper-loader.js)
+   - One Swiper only: the image column.
+   - Tabs list is static; we sync on hover/click.
+   - Pagination bullets, vertical, 1.2 slides per view (previous image peeks).
+*/
 
-  function real(sw) {
+(() => {
+  const SEL = '[data-component="image-tabs"]';
+
+  function realIndex(sw) {
     return typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex;
   }
 
   function initSection(root) {
-    if (!root || root.__tabsInit) return;
-    root.__tabsInit = true;
+    if (!root || root.__imageTabsInit) return;
+    root.__imageTabsInit = true;
 
-    const id      = root.getAttribute('data-section-id');
-    const tabsEl  = root.querySelector('#Tabs-' + id);
-    const imgsEl  = root.querySelector('#Images-' + id);
-    if (!tabsEl || !imgsEl) return console.warn('[image-tabs] missing containers', { id });
+    const id       = root.getAttribute('data-section-id');
+    const imagesEl = root.querySelector('#Images-' + id);
+    const tabsEl   = root.querySelector('[data-role="tabs-list"]');
+    const rows     = [...root.querySelectorAll('[data-role="tab-row"]')];
 
-    const autoplay = tabsEl.getAttribute('data-autoplay') === 'true';
-    const delay    = parseInt(tabsEl.getAttribute('data-delay') || '5000', 10);
-    const loop     = tabsEl.getAttribute('data-loop') === 'true';
-    const slides   = Array.from(tabsEl.querySelectorAll('.tab'));
-
-    console.log('[image-tabs] init', { id, autoplay, delay, loop, slides: slides.length });
-
-    // Tabs list: NO autoplay, NO loop — keep list steady
-    const tabs = new Swiper(tabsEl, {
-      direction: 'vertical',
-      slidesPerView: 'auto',
-      allowTouchMove: false,
-      loop: false,
-      speed: 0 // instant changes so the list does not visibly scroll
-    });
-
-    // Images: autoplay/loop here only
-    const images = new Swiper(imgsEl, {
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
-      loop,
-      speed: 600,
-      pagination: { el: imgsEl.querySelector('.swiper-pagination'), clickable: true },
-      autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false
-    });
-
-    function setActive(i) {
-      slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
+    if (!imagesEl || !tabsEl || rows.length === 0) {
+      console.log('[image-tabs] Missing elements, abort init', { imagesEl: !!imagesEl, tabsEl: !!tabsEl, rows: rows.length });
+      return;
     }
 
-    function goTo(i) {
-      // Drive the image swiper (handles loop clones safely)
-      if (typeof images.slideToLoop === 'function') images.slideToLoop(i);
-      else images.slideTo(i);
+    const autoplay = imagesEl.getAttribute('data-autoplay') === 'true';
+    const delay    = parseInt(imagesEl.getAttribute('data-delay') || '5000', 10);
 
-      // Snap tabs silently without animation
-      tabs.slideTo(i, 0, false);
+    loadSwiper(() => {
+      console.log('[image-tabs] Swiper ready — initializing image swiper for section', id);
 
-      // Ensure the active tab is visible but do not jump the page
-      const el = slides[i];
-      if (el) el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+      const images = new Swiper(imagesEl, {
+        direction: 'vertical',
+        slidesPerView: 1.2,         // shows a bit of previous slide at top
+        spaceBetween: 12,
+        loop: false,                // keeps indices stable
+        speed: 600,
+        allowTouchMove: false,      // UX is via tabs; change to true if you want drag
+        pagination: {
+          el: imagesEl.querySelector('.swiper-pagination'),
+          clickable: true
+        },
+        autoplay: autoplay ? {
+          delay,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        } : false
+      });
 
-      console.log('[image-tabs] goTo', { target: i });
-    }
+      function setActive(i) {
+        rows.forEach((r, idx) => r.classList.toggle('is-active', idx === i));
+      }
 
-    // Sync active state from images (single source of truth)
-    images.on('slideChange', () => {
-      const idx = real(images);
-      setActive(idx);
-      tabs.slideTo(idx, 0, false);
-      console.log('[image-tabs] images -> slideChange', { idx });
+      images.on('slideChange', () => {
+        const i = realIndex(images);
+        setActive(i);
+        console.log('[image-tabs] slideChange →', i);
+      });
+
+      // Hover / click sync
+      const go = (i) => {
+        if (Number.isNaN(i)) return;
+        images.slideTo(i);
+      };
+
+      tabsEl.addEventListener('mouseenter', (e) => {
+        const row = e.target.closest('[data-role="tab-row"]');
+        if (!row) return;
+        const i = +row.dataset.index;
+        go(i);
+      }, true);
+
+      tabsEl.addEventListener('click', (e) => {
+        const row = e.target.closest('[data-role="tab-row"]');
+        if (!row) return;
+        e.preventDefault();
+        const i = +row.dataset.index;
+        go(i);
+      });
+
+      // Initial state
+      setActive(realIndex(images));
+
+      // Expose destroy for editor
+      root.__imageTabsDestroy = () => {
+        try { images.destroy(true, true); } catch(e){}
+        root.__imageTabsInit = false;
+      };
     });
-
-    // Hover / focus / click on a tab drives images (and thus active state)
-    tabsEl.addEventListener('mouseenter', (e) => {
-      const row = e.target.closest('.tab'); if (!row) return;
-      const idx = +row.dataset.index; if (Number.isNaN(idx)) return;
-      goTo(idx);
-    }, true);
-
-    tabsEl.addEventListener('click', (e) => {
-      const row = e.target.closest('.tab'); if (!row || e.target.closest('a')) return;
-      e.preventDefault();
-      const idx = +row.dataset.index; if (Number.isNaN(idx)) return;
-      goTo(idx);
-    });
-
-    // Initial state
-    setActive(real(images));
-    tabs.slideTo(real(images), 0, false);
-
-    // Expose destroy for editor
-    root.__tabsDestroy = () => {
-      try { tabs.destroy(true, true); } catch(e){}
-      try { images.destroy(true, true); } catch(e){}
-      root.__tabsInit = false;
-      console.log('[image-tabs] destroyed', { id });
-    };
   }
 
   function boot(ctx) {
-    const roots = (ctx || document).querySelectorAll(SELECTOR);
-    if (!roots.length) return;
-    loadSwiper(() => roots.forEach(initSection));
+    (ctx || document).querySelectorAll(SEL).forEach(initSection);
   }
 
-  document.addEventListener('shopify:section:load', e => boot(e.target));
-  document.addEventListener('shopify:section:unload', e => {
-    const root = e.target && e.target.querySelector(SELECTOR);
-    if (root && root.__tabsDestroy) root.__tabsDestroy();
+  // Theme editor hooks
+  document.addEventListener('shopify:section:load', (e) => boot(e.target));
+  document.addEventListener('shopify:section:unload', (e) => {
+    const root = e.target && e.target.querySelector(SEL);
+    if (root && root.__imageTabsDestroy) root.__imageTabsDestroy();
   });
+
+  // Front-end
   document.addEventListener('DOMContentLoaded', () => boot());
 })();
