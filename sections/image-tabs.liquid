@@ -1,9 +1,9 @@
-{% comment %} Image Tabs (Swiper) — JS lives in assets/image-tabs.js {% endcomment %}
+{% comment %} Image Tabs (Swiper-synced) — clean liquid, JS in assets/image-tabs.js {% endcomment %}
 
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-.image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; }
+.image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; width: calc(100vw - 11px); }
 
 /* Grid: 50/50 on desktop */
 .image-tabs-{{ section.id }} .grid {
@@ -11,7 +11,7 @@
 }
 @media (min-width: 990px) {
   .image-tabs-{{ section.id }} .grid .image-tabs__tabs { padding-top: 100px; display: flex; flex-direction: column; justify-content: space-between; }
-  .image-tabs-{{ section.id }} .grid .image-tabs__image { max-height: calc(100vh - 80px); }
+  .image-tabs-{{ section.id }} .grid .image-tabs__image { max-height: calc(100vh - 80px); overflow: hidden; }
   .image-tabs-{{ section.id }} .grid .image-tabs__tabs,
   .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
   .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
@@ -39,40 +39,43 @@
 .image-tabs-{{ section.id }} .below-text p { font-size: 20px; font-weight: 300; }
 .image-tabs-{{ section.id }} .below-text p strong { font-family: 'Monument Extended', sans-serif !important; text-transform: uppercase; font-size: 18px; font-weight: 400 !important; }
 
-/* Tabs list (static; not a swiper instance) */
-.image-tabs-{{ section.id }} .tabs .swiper-wrapper { display: flex; flex-direction: column; gap: 0; }
+/* Tabs list */
+.image-tabs-{{ section.id }} .tabs .swiper-wrapper { display: flex; flex-direction: column; height: auto; }
 .image-tabs-{{ section.id }} .tab {
   display: grid; grid-template-columns: auto 1fr; gap: 0; align-items: center;
   padding-block: 4px; cursor: pointer; user-select: none;
 }
+.image-tabs-{{ section.id }} .tab:last-child { border-bottom: 0; }
+
 .image-tabs-{{ section.id }} .pill {
   height: 28px; width: 0; border-radius: 999px; background: var(--pill);
   transition: width .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1), margin .25s ease;
   transform-origin: left; margin-right: 0;
 }
 .image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); margin-right: 12px; }
+
 .image-tabs-{{ section.id }} .title {
   font-size: 28px !important; line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padding-top: 4px;
   opacity: .25; transition: opacity .25s ease;
 }
 .image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
 
-/* Image pane */
 .image-tabs-{{ section.id }} .image-pane {
-  position: relative; border-radius: 16px;
-  overflow: visible; /* allow the "0.2" of the next slide to peek in */
+    position: relative; border-radius: 16px; 
+    overflow: visible; 
+    /* aspect-ratio: 1 / 1; */
 }
-.image-tabs-{{ section.id }} .image-pane .swiper { width: 100%; }
-.image-tabs-{{ section.id }} .image-pane .swiper-wrapper { align-items: stretch; }
 .image-tabs-{{ section.id }} .image-pane .swiper-slide {
-  height: auto;
+    height: auto !important;
 }
-.image-tabs-{{ section.id }} .image-slide .media {
-  position: relative; width: 100%; height: auto; aspect-ratio: 1/1; /* square */
-}
-.image-tabs-{{ section.id }} .image-slide img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center center; display:block;
-}
+
+/* Make swiper take full pane size */
+.image-tabs-{{ section.id }} .image-pane .swiper,
+.image-tabs-{{ section.id }} .image-pane .swiper-wrapper,
+.image-tabs-{{ section.id }} .image-pane .swiper-slide { width: 100% !important; height: 100%; }
+
+.image-tabs-{{ section.id }} .image-slide .media { position: relative; width:100%; height:100%; aspect-ratio: 1 / 1; }
+.image-tabs-{{ section.id }} .image-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display:block; }
 
 /* Overlay text (per-image) */
 .image-tabs-{{ section.id }} .img-overlay {
@@ -80,7 +83,7 @@
   font-family: var(--font-heading-family, inherit); font-size: clamp(14px, 2vw, 16px);
 }
 
-/* Pagination bullets: top-right desktop, centered row mobile */
+/* Pagination bullets: vertical top-right desktop, centered row mobile */
 .image-tabs-{{ section.id }} .image-pagination {
   position: absolute; right: 20px; top: 20px; bottom: auto; left: auto; z-index: 3;
   display: flex; flex-direction: column; gap: 8px; width: 10px !important;
@@ -91,7 +94,7 @@
 }
 .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet-active { opacity: 1; background: var(--pill) !important; }
 @media (max-width: 989px) {
-  .image-tabs-{{ section.id }} .image-pagination { left: 0; right: 0; bottom: 10px; flex-direction: row; justify-content: center; width: auto !important; top: auto; }
+  .image-tabs-{{ section.id }} .image-pagination { left: 0; right: 0; bottom: 10px; flex-direction: row; justify-content: center; width: auto !important; }
 }
 {%- endstyle -%}
 
@@ -125,7 +128,10 @@
             <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
           {% endif %}
 
-          <div id="Tabs-{{ section.id }}" class="tabs">
+          <div id="Tabs-{{ section.id }}" class="swiper tabs"
+               data-autoplay="{{ section.settings.autoplay }}"
+               data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+               data-loop="{{ section.settings.loop }}">
             <div class="swiper-wrapper">
               {% for block in section.blocks %}
                 <div class="swiper-slide tab" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}" tabindex="0" role="button" aria-label="{{ block.settings.title | escape }}">
@@ -146,17 +152,7 @@
 
       <!-- RIGHT: images -->
       <div class="image-tabs__image">
-        <div
-          id="Images-{{ section.id }}"
-          class="swiper image-pane"
-          data-space="{{ section.settings.image_gap }}"
-          data-psv-mobile="1"
-          data-psv-desktop="1.2"
-          data-centered="true"
-          data-loop="{{ section.settings.loop }}"
-          data-autoplay="{{ section.settings.autoplay }}"
-          data-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
-        >
+        <div id="Images-{{ section.id }}" class="swiper image-pane" data-space="{{ section.settings.image_gap }}">
           <div class="swiper-wrapper">
             {% for block in section.blocks %}
               <div class="swiper-slide image-slide">
