@@ -54,15 +54,12 @@
     cursor: pointer; user-select: none;
 }
 .image-tabs-{{ section.id }} .tab:last-child { border-bottom: 0; }
-
-  /* Green pill that expands and pushes text */
-  .image-tabs-{{ section.id }} .pill {
+.image-tabs-{{ section.id }} .pill {
     height: 28px; width: 0; border-radius: 999px; background: var(--pill);
     transition: width .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1), margin .25s ease;
     transform-origin: left; margin-right: 0;
-  }
-  .image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); margin-right: 12px; }
-
+}
+.image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); margin-right: 12px; }
 .image-tabs-{{ section.id }} .title {
     font-size: 28px !important;
     line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padding-top: 4px;
