@@ -190,6 +190,52 @@
         "padding_bottom": 40
       }
     },
+    "rd_tabs_C43kNh": {
+      "type": "rd-tabs",
+      "blocks": {
+        "tab_LUejiy": {
+          "type": "tab",
+          "settings": {
+            "title": "The Science",
+            "caption_title": "The Science",
+            "caption": "<p>Lorem ipsum dolor sit amet…</p>",
+            "default_active": false
+          }
+        },
+        "tab_WVFnk7": {
+          "type": "tab",
+          "settings": {
+            "title": "The Science",
+            "caption_title": "The Science",
+            "caption": "<p>Lorem ipsum dolor sit amet…</p>",
+            "default_active": false
+          }
+        },
+        "tab_czGTTj": {
+          "type": "tab",
+          "settings": {
+            "title": "The Science",
+            "caption_title": "The Science",
+            "caption": "<p>Lorem ipsum dolor sit amet…</p>",
+            "default_active": false
+          }
+        }
+      },
+      "block_order": [
+        "tab_LUejiy",
+        "tab_WVFnk7",
+        "tab_czGTTj"
+      ],
+      "name": "R+D Tabs",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Research ⊕ Development",
+        "heading_size": "h3",
+        "bg_image": "shopify://shop_images/Group_775.jpg",
+        "pill_color": "#0FE694",
+        "color_scheme": "scheme-5"
+      }
+    },
     "section_hThtAw": {
       "type": "section",
       "blocks": {
@@ -550,6 +596,7 @@
     "section_Fh7TFQ",
     "divider_WzRxcE",
     "image_tabs_FnFLrf",
+    "rd_tabs_C43kNh",
     "section_hThtAw",
     "media_with_content_NEtbwm"
   ]
