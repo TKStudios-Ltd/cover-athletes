@@ -34,18 +34,21 @@
     outline: none;
     justify-content: space-between;
 }
-.rd-tabs-{{ section.id }} .pill-btn{
+.rd-tabs-{{ section.id }} .pill-bt {
   position: relative; border: 0; background: transparent; color: inherit;
   padding: 8px 16px; border-radius: 999px; cursor: pointer; font: inherit;
     font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
+    width: calc(33.3333% - 8px) !important;
 }
 .rd-tabs-{{ section.id }} .pill-btn.is-active{ color: #000; }
 .rd-tabs-{{ section.id }} .pill-fill{
   position: absolute; inset: 4px auto 4px 4px; height: calc(100% - 8px);
-  width: 0; border-radius: 999px; background: var(--pill);
+  width: 0; 
+  width: calc(33.3333% - 8px) !important;
+  border-radius: 999px; background: var(--pill);
   transition: transform .35s cubic-bezier(.22,.61,.36,1), width .35s cubic-bezier(.22,.61,.36,1), left .35s cubic-bezier(.22,.61,.36,1);
   z-index: -1;
 }
