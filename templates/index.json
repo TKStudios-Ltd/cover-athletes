@@ -282,7 +282,7 @@
         "title": "Real Athletes Real Stories",
         "title_size": "h2",
         "ken_burns": true,
-        "effect": "slide",
+        "effect": "fade",
         "autoplay": false,
         "delay": 8,
         "loop": false,
