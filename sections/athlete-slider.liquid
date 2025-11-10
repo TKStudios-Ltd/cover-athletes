@@ -16,6 +16,16 @@
 .athlete-{{ section.id }} .bg-swiper .swiper-slide {
   width: 100%; height: 100%;
 }
+.athlete-{{ section.id }} .copy-swiper .swiper-wrapper { position: relative; }
+.athlete-{{ section.id }} .copy-swiper .swiper-slide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+.athlete-{{ section.id }} .copy-swiper .swiper-slide.swiper-slide-active {
+  opacity: 1;
+  pointer-events: auto;
+}
 .athlete-{{ section.id }} .bg-swiper { position: absolute; inset: 0; z-index: 1; }
 .athlete-{{ section.id }} .bg-media { position: absolute; inset: 0; }
 .athlete-{{ section.id }} .bg-media img,
