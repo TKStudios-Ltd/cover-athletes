@@ -255,7 +255,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
-            "quote": "<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
+            "quote": "<p>\"Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.\"</p>",
             "person_name": "Athlete Two",
             "person_title": "NZ International Cricketer"
           }
@@ -264,7 +264,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
-            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "quote": "<p>\"Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.\"</p>",
             "person_name": "Athlete Three",
             "person_title": "NZ International Cricketer"
           }
