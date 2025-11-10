@@ -33,20 +33,18 @@
     const delay    = parseInt(shell?.getAttribute('data-delay') || '6000', 10);
     const loop     = shell?.getAttribute('data-loop') === 'true';
 
-    // BG Swiper (drives everything)
+    // BG Swiper (drives everything) — pagination disabled (no bullets)
     const bg = new Swiper(bgEl, {
       effect,
       speed: 800,
       loop,
       allowTouchMove: false,
-      // bullets were requested off; keep pagination node harmlessly disabled
-      pagination: { el: bgEl.querySelector('.swiper-pagination'), clickable: false, enabled: false },
+      pagination: { enabled: false },
       autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-      // nicer cross-fade if using fade
       ...(effect === 'fade' ? { fadeEffect: { crossFade: true } } : {})
     });
 
-    // Copy swiper (text), follow BG index exactly
+    // Copy swiper follows BG index
     const copy = new Swiper(copyEl, {
       effect: 'fade',
       fadeEffect: { crossFade: true },
@@ -60,14 +58,12 @@
       else copy.slideTo(i, 0, false);
     }
 
-    function restartKenBurns(idx){
+    function restartKenBurns(){
       const wrapper = root.querySelector('.slider-shell');
       if (!wrapper || !wrapper.classList.contains('kenburns')) return;
-      // restart animation only on the active slide media
       bg.slides.forEach(slide => {
         slide.querySelectorAll('.bg-media img, .bg-media video').forEach(el => {
           el.style.animation = 'none';
-          // force reflow
           void el.offsetWidth;
           el.style.animation = '';
         });
@@ -80,32 +76,22 @@
       }
     }
 
-    bg.on('init', () => {
-      syncCopy(realIndex(bg));
-      restartKenBurns(realIndex(bg));
-    });
+    bg.on('init', () => { syncCopy(realIndex(bg)); restartKenBurns(); });
+    bg.on('slideChange', () => { syncCopy(realIndex(bg)); restartKenBurns(); });
 
-    bg.on('slideChange', () => {
-      const idx = realIndex(bg);
-      syncCopy(idx);
-      restartKenBurns(idx);
-    });
-
-    // Arrow controls
     if (prevBtn) prevBtn.addEventListener('click', () => bg.slidePrev());
     if (nextBtn) nextBtn.addEventListener('click', () => bg.slideNext());
 
-    // keep shell at least as tall as the content on resize
+    // Keep shell at least as tall as the content on resize
     const content = root.querySelector('.content');
     function resize(){
       if (!shell || !content) return;
-      const h = Math.max( content.offsetHeight, 420 );
+      const h = Math.max(content.offsetHeight, 420);
       shell.style.minHeight = h + 'px';
     }
     window.addEventListener('resize', resize);
     setTimeout(resize, 0);
 
-    // Expose destroy for theme editor
     root.__athleteDestroy = () => {
       try{ bg.destroy(true,true); }catch(e){}
       try{ copy.destroy(true,true); }catch(e){}

@@ -3,13 +3,14 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+/* Shell */
 .athlete-{{ section.id }} { position: relative; width: calc(100vw - 11px) !important; }
 .athlete-{{ section.id }} .slider-shell {
   position: relative; border-radius: 16px; overflow: hidden;
-  isolation: isolate; /* keep overlay stacking sane */
+  isolation: isolate;
 }
 
-/* Background slides (full cover) */
+/* Background swiper */
 .athlete-{{ section.id }} .bg-swiper,
 .athlete-{{ section.id }} .bg-swiper .swiper-wrapper,
 .athlete-{{ section.id }} .bg-swiper .swiper-slide {
@@ -25,10 +26,7 @@
 }
 .athlete-{{ section.id }} .kenburns .bg-media img,
 .athlete-{{ section.id }} .kenburns .bg-media video { animation: kb-{{ section.id }} 10s ease forwards; }
-@keyframes kb-{{ section.id }} {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.06); }
-}
+@keyframes kb-{{ section.id }} { 0% { transform: scale(1); } 100% { transform: scale(1.06); } }
 
 /* Overlay gradient so text stays readable */
 .athlete-{{ section.id }} .overlay {
@@ -37,64 +35,46 @@
   pointer-events: none;
 }
 
-/* Foreground content */
+/* Foreground content — FLEX, stacked left */
 .athlete-{{ section.id }} .content {
   position: relative; z-index: 3; color: #fff;
-  display: grid; grid-template-columns: 1fr; gap: 20px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
   min-height: clamp(420px, 62vw, 720px);
   padding: clamp(20px, 4vw, 40px);
-}
-@media (min-width: 990px) {
-  .athlete-{{ section.id }} .content { grid-template-columns: 1.1fr 1fr; gap: 32px; }
+  max-width: 900px; /* keeps text readable on large screens */
 }
 
-/* Fixed left header block */
-.athlete-{{ section.id }} .left {
-  display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
-}
+/* Header bits */
 .athlete-{{ section.id }} .left-top { display:flex; align-items:center; gap:12px; opacity:.95; }
 .athlete-{{ section.id }} .left-top img { height: 22px; width:auto; }
 .athlete-{{ section.id }} .eyebrow { font-size: 14px; letter-spacing:.4px; opacity:.9; }
 
 .athlete-{{ section.id }} .title {
-  margin: 10px 0 0 0;
+  margin: 8px 0 0 0;
   font-size: clamp(28px, 4.5vw, 54px);
   line-height: .95;
   text-transform: uppercase;
 }
 
-/* Quote / person block (changes per slide) */
-.athlete-{{ section.id }} .slide-content {
-  align-self: end; max-width: 640px;
-  background: rgba(0,0,0,.35);
-  border-radius: 12px;
-  padding: clamp(14px, 2vw, 18px) clamp(16px, 2.4vw, 22px);
-  backdrop-filter: blur(6px);
-}
-.athlete-{{ section.id }} .quote { font-size: clamp(14px, 1.3vw, 16px); line-height: 1.5; opacity:.95; }
-.athlete-{{ section.id }} .person { margin-top: 14px; font-size: 14px; opacity:.85; }
-
-/* Arrows */
+/* Arrows — sit ABOVE the content swiper */
 .athlete-{{ section.id }} .nav {
-  display: flex; gap: 10px; margin-top: 16px;
+  display: flex; gap: 10px; margin-top: 6px;
 }
 .athlete-{{ section.id }} .nav .btn {
   width: 34px; height: 34px; display:grid; place-items:center; border-radius: 999px;
-  background: rgba(255,255,255,.12); backdrop-filter: blur(8px);
+  background: rgba(255,255,255,.12);
   border: 1px solid rgba(255,255,255,.18);
   transition: background .2s ease, transform .2s ease;
   cursor: pointer;
+  backdrop-filter: blur(8px);
 }
 .athlete-{{ section.id }} .nav .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
 .athlete-{{ section.id }} .nav svg { width: 14px; height: 14px; }
 
-/* Position arrows as in comp: under title on the left column */
-.athlete-{{ section.id }} .left-bottom { margin-top: 12px; }
-
-/* Hide default bullets on desktop; show subtle bullets on mobile if desired */
-.athlete-{{ section.id }} .bullets { position:absolute; left: 16px; bottom: 16px; z-index: 3; }
-.athlete-{{ section.id }} .swiper-pagination-bullet { background:#fff; opacity:.35; }
-.athlete-{{ section.id }} .swiper-pagination-bullet-active { opacity: 1; background: var(--pill, #0FE694); }
+/* Per-slide copy — no background */
+.athlete-{{ section.id }} .slide-content { max-width: 720px; padding: 0; background: transparent; backdrop-filter: none; }
+.athlete-{{ section.id }} .quote { font-size: clamp(14px, 1.3vw, 18px); line-height: 1.55; opacity:.98; }
+.athlete-{{ section.id }} .person { margin-top: 12px; font-size: 14px; opacity:.9; }
 
 /* Make the section span full wrapper width cleanly in Ritual */
 .section .athlete-{{ section.id }} { width: 100%; }
@@ -134,76 +114,66 @@
           {% endif %}
         {% endfor %}
       </div>
-
-      <!-- optional mobile bullets -->
-      <div class="swiper-pagination bullets"></div>
+      {# bullets removed entirely #}
     </div>
 
     <!-- Dark overlay for readability -->
     <div class="overlay"></div>
 
-    <!-- Foreground content -->
+    <!-- Foreground content (stacked left) -->
     <div class="content">
-      <!-- LEFT fixed header -->
-      <div class="left">
-        <div>
-          {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
-            <div class="left-top">
-              {% if section.settings.label_icon != blank %}
-                {{ section.settings.label_icon | image_url: width: 120 | image_tag: loading: 'lazy' }}
-              {% endif %}
-              {% if section.settings.eyebrow != blank %}
-                <div class="eyebrow">{{ section.settings.eyebrow }}</div>
-              {% endif %}
-            </div>
+      {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
+        <div class="left-top">
+          {% if section.settings.label_icon != blank %}
+            {{ section.settings.label_icon | image_url: width: 120 | image_tag: loading: 'lazy' }}
           {% endif %}
-          {% if section.settings.title != blank %}
-            <h2 class="title inline-richtext {{ section.settings.title_size }}">{{ section.settings.title }}</h2>
+          {% if section.settings.eyebrow != blank %}
+            <div class="eyebrow">{{ section.settings.eyebrow }}</div>
           {% endif %}
         </div>
+      {% endif %}
 
-        <div class="left-bottom">
-          <div class="nav">
-            <button class="btn prev" aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <button class="btn next" aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
-        </div>
+      {% if section.settings.title != blank %}
+        <h2 class="title inline-richtext {{ section.settings.title_size }}">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      <!-- Arrows ABOVE the copy -->
+      <div class="nav">
+        <button class="btn prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
 
-      <!-- RIGHT dynamic per-slide content -->
-      <div class="right">
-        <div id="AthleteCopy-{{ section.id }}" class="swiper copy-swiper">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              {% if block.type == 'slide' %}
-                <div class="swiper-slide">
-                  <div class="slide-content">
-                    {% if block.settings.quote != blank %}
-                      <div class="quote rte">{{ block.settings.quote }}</div>
-                    {% endif %}
-                    {% if block.settings.person_name != blank or block.settings.person_title != blank %}
-                      <div class="person">
-                        {% if block.settings.person_name != blank %}
-                          <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
-                        {% endif %}
-                        {% if block.settings.person_title != blank %}
-                          <span>{{ block.settings.person_title }}</span>
-                        {% endif %}
-                      </div>
-                    {% endif %}
-                  </div>
+      <!-- Copy swiper (per-slide content) -->
+      <div id="AthleteCopy-{{ section.id }}" class="swiper copy-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'slide' %}
+              <div class="swiper-slide">
+                <div class="slide-content">
+                  {% if block.settings.quote != blank %}
+                    <div class="quote rte">{{ block.settings.quote }}</div>
+                  {% endif %}
+                  {% if block.settings.person_name != blank or block.settings.person_title != blank %}
+                    <div class="person">
+                      {% if block.settings.person_name != blank %}
+                        <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
+                      {% endif %}
+                      {% if block.settings.person_title != blank %}
+                        <span>{{ block.settings.person_title }}</span>
+                      {% endif %}
+                    </div>
+                  {% endif %}
                 </div>
-              {% endif %}
-            {% endfor %}
-          </div>
+              </div>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
