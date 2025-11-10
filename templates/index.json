@@ -196,8 +196,8 @@
         "tab_LUejiy": {
           "type": "tab",
           "settings": {
-            "title": "The Science",
-            "caption_title": "The Science",
+            "title": "The Problem",
+            "caption_title": "The Problem",
             "caption": "<p>Lorem ipsum dolor sit amet…</p>",
             "default_active": false
           }
@@ -214,8 +214,8 @@
         "tab_czGTTj": {
           "type": "tab",
           "settings": {
-            "title": "The Science",
-            "caption_title": "The Science",
+            "title": "The Solution",
+            "caption_title": "The Solution",
             "caption": "<p>Lorem ipsum dolor sit amet…</p>",
             "default_active": false
           }
@@ -232,7 +232,7 @@
         "heading": "Research ⊕ Development",
         "heading_size": "h3",
         "bg_image": "shopify://shop_images/Group_775.jpg",
-        "pill_color": "#0FE694",
+        "pill_color": "#0fe694",
         "color_scheme": "scheme-5"
       }
     },
