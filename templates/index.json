@@ -284,7 +284,7 @@
         "ken_burns": true,
         "effect": "fade",
         "autoplay": true,
-        "delay": 6,
+        "delay": 8,
         "loop": true,
         "color_scheme": "scheme-5"
       }
