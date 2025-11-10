@@ -111,9 +111,7 @@ line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padd
   transition: height .2s ease, opacity .2s ease;
 }
 .image-tabs-{{ section.id }} .image-pagination .swiper-pagination-bullet-active { opacity: 1; background: var(--pill) !important; }
-@media (max-width: 989px) {
-  .image-tabs-{{ section.id }} .image-pagination { left: 0; right: 0; bottom: 10px; flex-direction: row; justify-content: center; width: auto !important; }
-}
+
 {%- endstyle -%}
 
 {% if section.index == 1 %}
