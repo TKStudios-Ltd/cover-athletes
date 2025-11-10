@@ -54,7 +54,7 @@
 }
 
 /* ===== Arrows (above copy) ===== */
-.athlete-{{ section.id }} .nav { display:flex; gap:10px; margin-top: 6px; }
+.athlete-{{ section.id }} .nav { display:flex; gap:10px; margin-top: 6px; position: relative; z-index: 5; }
 .athlete-{{ section.id }} .nav .btn {
   width: 34px; height: 34px; display:grid; place-items:center; border-radius:999px;
   background: rgba(255,255,255,.12);
@@ -67,8 +67,7 @@
 
 /* ===== Copy items container (fixed position, stable height) ===== */
 .athlete-{{ section.id }} .copy-items {
-  position: relative; width: 100%;
-  /* JS sets --copy-h to active item height so layout is stable */
+  position: relative; width: 100%; z-index: 4;
   min-height: var(--copy-h, 0px);
 }
 .athlete-{{ section.id }} .copy-items .item {
@@ -81,19 +80,10 @@
 
 /* ===== Text motion (slide up) ===== */
 .athlete-{{ section.id }} .slide-content { max-width: 760px; }
-.athlete-{{ section.id }} .quote, .athlete-{{ section.id }} .person {
-  opacity: 0; transform: translateY(10px);
-}
-.athlete-{{ section.id }} .copy-items .item.is-active .quote {
-  animation: copyIn-{{ section.id }} .45s ease forwards;
-}
-.athlete-{{ section.id }} .copy-items .item.is-active .person {
-  animation: copyIn-{{ section.id }} .45s ease .14s forwards;
-}
-@keyframes copyIn-{{ section.id }} {
-  from { opacity:0; transform: translateY(10px); }
-  to   { opacity:1; transform: translateY(0); }
-}
+.athlete-{{ section.id }} .quote, .athlete-{{ section.id }} .person { opacity: 0; transform: translateY(10px); }
+.athlete-{{ section.id }} .copy-items .item.is-active .quote { animation: copyIn-{{ section.id }} .45s ease forwards; }
+.athlete-{{ section.id }} .copy-items .item.is-active .person { animation: copyIn-{{ section.id }} .45s ease .14s forwards; }
+@keyframes copyIn-{{ section.id }} { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
 
 .athlete-{{ section.id }} .quote { font-size: clamp(14px, 1.3vw, 18px); line-height: 1.55; opacity:.98; }
 .athlete-{{ section.id }} .person { margin-top: 12px; font-size: 14px; opacity:.9; }
@@ -211,9 +201,9 @@
     ]},
 
     { "type": "checkbox", "id": "ken_burns", "label": "Subtle Ken Burns zoom", "default": true },
-    { "type": "select", "id": "effect", "label": "Transition effect", "default": "fade", "options": [
-      { "value": "fade", "label": "Fade (modern)" },
-      { "value": "slide", "label": "Slide" }
+    { "type": "select", "id": "effect", "label": "Transition effect", "default": "slide", "options": [
+      { "value": "slide", "label": "Slide" },
+      { "value": "fade", "label": "Fade" }
     ]},
     { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": true },
     { "type": "range", "id": "delay", "label": "Autoplay delay (sec)", "min": 3, "max": 15, "step": 1, "default": 6 },
