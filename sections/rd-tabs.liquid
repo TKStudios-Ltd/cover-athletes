@@ -49,12 +49,13 @@
   -webkit-backdrop-filter: blur(40px); backdrop-filter: blur(40px);
   color:#fff; outline:0;
 }
-.rd-tabs-{{ section.id }} .pill-btn{
+.rd-tabs-{{ section.id }} .pill-btn {
   flex:1; text-align:center; cursor:pointer; border:0; border-radius:999px;
   font: inherit; font-size: 11px; letter-spacing:1px; text-transform:uppercase;
   padding:8px 10px; color:#000; background:#fff; transition: background .25s ease, opacity .25s ease;
-  opacity:.8;
+  opacity:.9;
 }
+.rd-tabs-{{ section.id }} .pill-btn:hover { opacity: 1; }
 .rd-tabs-{{ section.id }} .pill-btn.is-active{ background: var(--pill); opacity:1; }
 
 /* Media area */
