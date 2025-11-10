@@ -134,20 +134,21 @@
 
     <!-- Foreground content -->
     <div class="content">
-      {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
-        <div class="left-top">
-          {% if section.settings.label_icon != blank %}
-            {{ section.settings.label_icon | image_url: width: 120 | image_tag: loading: 'lazy' }}
-          {% endif %}
-          {% if section.settings.eyebrow != blank %}
-            <div class="eyebrow">{{ section.settings.eyebrow }}</div>
-          {% endif %}
+        <div class="slider-fixed-tl">
+            {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
+                <div class="left-top">
+                {% if section.settings.label_icon != blank %}
+                    {{ section.settings.label_icon | image_url: width: 120 | image_tag: loading: 'lazy' }}
+                {% endif %}
+                {% if section.settings.eyebrow != blank %}
+                    <div class="eyebrow">{{ section.settings.eyebrow }}</div>
+                {% endif %}
+                </div>
+            {% endif %}
+            {% if section.settings.title != blank %}
+                <h2 class="title inline-richtext {{ section.settings.title_size }}">{{ section.settings.title }}</h2>
+            {% endif %}
         </div>
-      {% endif %}
-
-      {% if section.settings.title != blank %}
-        <h2 class="title inline-richtext {{ section.settings.title_size }}">{{ section.settings.title }}</h2>
-      {% endif %}
 
       <!-- Arrows ABOVE copy -->
       <div class="nav">
