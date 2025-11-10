@@ -1,91 +1,75 @@
-/* athlete-slider.js — keeps left header fixed; syncs background + copy swipers */
+/* athlete-slider.js — BG fade w/ synced text; arrows above; autoplay + loop; console logs */
 (() => {
   const SEL = '[data-component="athlete-slider"]';
 
-  function real(sw) {
-    return typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex;
-  }
-
   function init(root) {
-    if (!root || root.__athleteInit) return;
-    root.__athleteInit = true;
+    if (!root || root.__athInit) return;
+    root.__athInit = true;
 
     const id = root.getAttribute('data-section-id');
-    const bgEl = root.querySelector('#AthleteBg-' + id);
-    const copyEl = root.querySelector('#AthleteCopy-' + id);
-    const prevBtn = root.querySelector('.nav .prev');
-    const nextBtn = root.querySelector('.nav .next');
+    const bgEl = root.querySelector('#AthleteBG-' + id);
+    const txtEl = root.querySelector('#AthleteTXT-' + id);
+    const prev = root.querySelector('.nav-btn.prev');
+    const next = root.querySelector('.nav-btn.next');
 
-    if (!bgEl || !copyEl) {
-      console.warn('[athlete-slider] missing containers', { id });
+    if (!bgEl || !txtEl) {
+      console.warn('[athlete-slider] containers missing', { id });
       return;
     }
 
-    const effect = (root.querySelector('.slider-shell')?.dataset.effect || 'fade');
-    const autoplay = root.querySelector('.slider-shell')?.dataset.autoplay === 'true';
-    const delay = parseInt(root.querySelector('.slider-shell')?.dataset.delay || '6000', 10);
-    const loop = root.querySelector('.slider-shell')?.dataset.loop === 'true';
+    const autoplay = bgEl.getAttribute('data-autoplay') === 'true';
+    const delay = parseInt(bgEl.getAttribute('data-delay') || '6000', 10);
+    const loop = bgEl.getAttribute('data-loop') === 'true';
 
-    // Background swiper (image/video)
+    console.log('[athlete-slider] init', { id, autoplay, delay, loop });
+
+    // Background: fade
     const bg = new Swiper(bgEl, {
-      effect: effect,
+      effect: 'fade',
       fadeEffect: { crossFade: true },
       speed: 700,
       loop,
-      autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-      allowTouchMove: true, // swipe on mobile
-      pagination: { el: bgEl.querySelector('.swiper-pagination'), clickable: true },
-      navigation: { prevEl: prevBtn, nextEl: nextBtn }
+      allowTouchMove: false,
+      autoplay: autoplay ? { delay, disableOnInteraction: false } : false
     });
 
-    // Copy swiper (no touch, synced to bg)
-    const copy = new Swiper(copyEl, {
+    // Text: fade, no touch, synced
+    const txt = new Swiper(txtEl, {
       effect: 'fade',
       fadeEffect: { crossFade: true },
-      speed: 500,
+      speed: 450,
       loop,
       allowTouchMove: false
     });
 
-    // Sync both ways with guards
-    let isSyncing = false;
-
+    // Sync
     bg.on('slideChange', () => {
-      if (isSyncing) return;
-      isSyncing = true;
-      const i = real(bg);
-      copy.slideToLoop ? copy.slideToLoop(i, 500) : copy.slideTo(i, 500);
-      isSyncing = false;
+      const i = typeof bg.realIndex === 'number' ? bg.realIndex : bg.activeIndex;
+      txt.slideToLoop ? txt.slideToLoop(i) : txt.slideTo(i);
+      console.log('[athlete-slider] bg ->', i);
     });
 
-    copy.on('slideChange', () => {
-      if (isSyncing) return;
-      isSyncing = true;
-      const i = real(copy);
-      bg.slideToLoop ? bg.slideToLoop(i, 700) : bg.slideTo(i, 700);
-      isSyncing = false;
-    });
+    // Arrows
+    if (prev) prev.addEventListener('click', () => { bg.slidePrev(); console.log('[athlete-slider] prev'); });
+    if (next) next.addEventListener('click', () => { bg.slideNext(); console.log('[athlete-slider] next'); });
 
     // Expose destroy for editor
-    root.__athleteDestroy = () => {
+    root.__athDestroy = () => {
       try { bg.destroy(true, true); } catch(e){}
-      try { copy.destroy(true, true); } catch(e){}
-      root.__athleteInit = false;
+      try { txt.destroy(true, true); } catch(e){}
+      root.__athInit = false;
       console.log('[athlete-slider] destroyed', { id });
     };
-
-    console.log('[athlete-slider] init', { id, effect, autoplay, delay, loop });
   }
 
   function boot(ctx) {
     (ctx || document).querySelectorAll(SEL).forEach(init);
   }
 
+  document.addEventListener('DOMContentLoaded', () => boot());
   document.addEventListener('shopify:section:load', e => boot(e.target));
   document.addEventListener('shopify:section:unload', e => {
     const root = e.target && e.target.querySelector(SEL);
-    if (root && root.__athleteDestroy) root.__athleteDestroy();
+    if (root && root.__athDestroy) root.__athDestroy();
   });
-  document.addEventListener('DOMContentLoaded', () => boot());
 })();
-
