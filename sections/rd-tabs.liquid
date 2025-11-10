@@ -5,71 +5,85 @@
 {%- style -%}
 .rd-tabs-{{ section.id }}{
   --pill: {{ section.settings.pill_color }};
-  width: calc(100vw - 11px) !important;
+  width: 100%;
 }
-.rd-tabs-{{ section.id }} .rd-bg {
-  position: relative; overflow: hidden;
-  background: #000;
-  {% if section.settings.bg_image %}
+.rd-tabs-{{ section.id }} .rd-bg{
+  position: relative;
+  overflow: hidden;
+  {% if section.settings.bg_image != blank %}
     background-image: url({{ section.settings.bg_image | image_url: width: 2400 }});
-    background-size: cover; background-position: 50% 50%;
+    background-size: cover;
+    background-position: 50% 50%;
+  {% else %}
+    background: #000;
   {% endif %}
 }
-.rd-tabs-{{ section.id }} .inner {
-  max-width: 1200px; margin: 0 auto; padding: 80px 0 120px;;
+.rd-tabs-{{ section.id }} .inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 16px 120px;
 }
-.rd-tabs-{{ section.id }} .heading {
-  font-size: 28px; text-align: center; margin: 0 0 80px;
+
+.rd-tabs-{{ section.id }} .eyebrow{
+  text-align:center;
+  opacity:.9;
+  margin-bottom:10px;
+  font-size:14px;
 }
-.rd-tabs-{{ section.id }} .pills {
-  display: inline-flex; gap: 15px; border-radius: 999px;
-  margin: 0 auto; position: relative;
-    border: none; width: 476px;
-    border-width: 2px;
-    padding: 6px;
-    background: linear-gradient(135deg, #444, #252525);
-    -webkit-backdrop-filter: blur(40px);
-    backdrop-filter: blur(40px);
-    color: #fff;
-    outline: none;
-    justify-content: space-between;
+.rd-tabs-{{ section.id }} .heading{
+  font-size: 28px;
+  text-align: center;
+  margin: 0 0 36px;
 }
-.rd-tabs-{{ section.id }} .pill-btn {
-  position: relative; border: 0; background: white; color: #000;
-  padding: 8px; border-radius: 999px; cursor: pointer; font: inherit;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    flex: 1;
-    text-align: center;
-    transition: background ease .25s;
+
+/* Pills */
+.rd-tabs-{{ section.id }} .pills--outer{ width:100%; display:flex; justify-content:center; }
+.rd-tabs-{{ section.id }} .pills--outline{
+  position:relative; padding:2px; border-radius:999px; width: min(480px, 92vw);
+  background: linear-gradient(108.74deg, #6978ff48, #ffffff8a 36.46%, #ffffff4d 73.96%, #0ddcaa3f);
+  box-shadow: 0 0 50px -25px #00000080;
 }
-.rd-tabs-{{ section.id }} .pill-btn.is-active{ background: var(--pill) }
-.rd-tabs-{{ section.id }} .pills--outer {
-    width: 100%; display: flex; justify-content: center;
+.rd-tabs-{{ section.id }} .pills{
+  display:flex; gap:12px; border-radius:999px; padding:6px; width:100%;
+  background: linear-gradient(135deg, #444, #252525);
+  -webkit-backdrop-filter: blur(40px); backdrop-filter: blur(40px);
+  color:#fff; outline:0;
 }
-.rd-tabs-{{ section.id }} .pills--outline {     
-    position: relative; padding: 2px; border-radius: 999px; width: 480px;
-    background: linear-gradient(108.74deg, #6978ff48, #ffffff8a 36.46%, #ffffff4d 73.96%, #0ddcaa3f);
-    box-shadow: 0 0 50px -25px #00000080; 
+.rd-tabs-{{ section.id }} .pill-btn{
+  flex:1; text-align:center; cursor:pointer; border:0; border-radius:999px;
+  font: inherit; font-size:12px; letter-spacing:1px; text-transform:uppercase;
+  padding:8px 10px; color:#000; background:#fff; transition: background .25s ease, opacity .25s ease;
+  opacity:.8;
 }
-.rd-tabs-{{ section.id }} .pills .rail{ position:absolute; inset:0; z-index:-2; border-radius:999px; }
+.rd-tabs-{{ section.id }} .pill-btn.is-active{ background: var(--pill); opacity:1; }
+
+/* Media area */
 .rd-tabs-{{ section.id }} .media-wrap{
-  width: 100%; aspect-ratio: 16 / 9; background:#0b0b0b; border-radius: 16px; overflow:hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0b0b0b;
+  border-radius: 16px;
+  overflow: hidden;
   position: relative;
+  margin-top: 22px;
 }
-.rd-tabs-{{ section.id }} .media-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
+.rd-tabs-{{ section.id }} .panel{
+  position:absolute; inset:0; opacity:0; visibility:hidden; transition: opacity .35s ease;
+}
+.rd-tabs-{{ section.id }} .panel.is-active{ position:absolute; inset:0; opacity:1; visibility:visible; }
+
+.rd-tabs-{{ section.id }} .panel img{ width:100%; height:100%; object-fit:cover; display:block; }
+.rd-tabs-{{ section.id }} .panel video{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Caption */
 .rd-tabs-{{ section.id }} .caption{
   margin: 14px auto 0; max-width: 760px;
   background: rgba(0,0,0,.55); border-radius: 12px; padding: 14px 16px;
   color: #fff; line-height: 1.35;
 }
-.rd-tabs-{{ section.id }} .eyebrow{
-  text-align:center; opacity:.9; margin-bottom:10px; font-size:14px;
-}
+.rd-tabs-{{ section.id }} .caption[hidden]{ display:none !important; }
 
-/* page-width compatibility w/ Ritual wrapper */
+/* Make sure this section respects the theme’s wrapper */
 .section .rd-tabs-{{ section.id }}{ width:100%; }
 {%- endstyle -%}
 
@@ -87,33 +101,37 @@
         <h2 class="heading inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
       {% endif %}
 
+      {%- comment -%} Determine default active tab index {%- endcomment -%}
       {%- assign active_index = 0 -%}
       {%- for b in section.blocks -%}
-        {%- if b.type == 'tab' and b.settings.default_active -%}{% assign active_index = forloop.index0 %}{%- endif -%}
+        {%- if b.type == 'tab' and b.settings.default_active -%}
+          {%- assign active_index = forloop.index0 -%}
+        {%- endif -%}
       {%- endfor -%}
 
       <!-- Pills -->
       <div class="pills--outer">
         <div class="pills--outline">
-            <div class="pills"
-                role="tablist"
-                aria-label="{{ section.settings.heading | default: 'R&D tabs' | escape }}"
-                data-active="{{ active_index }}">
-                {% for block in section.blocks %}
-                {% if block.type == 'tab' %}
-                    <button
-                    class="pill-btn{% if forloop.index0 == active_index %} is-active{% endif %}"
-                    data-idx="{{ forloop.index0 }}"
-                    role="tab"
-                    aria-selected="{% if forloop.index0 == active_index %}true{% else %}false{% endif %}"
-                    aria-controls="rd-panel-{{ section.id }}-{{ forloop.index0 }}"
-                    {{ block.shopify_attributes }}
-                    >
-                    {{ block.settings.title | escape }}
-                    </button>
-                {% endif %}
-                {% endfor %}
-            </div>
+          <div class="pills"
+               role="tablist"
+               aria-label="{{ section.settings.heading | default: 'R&D tabs' | escape }}"
+               data-active="{{ active_index }}">
+            {% for block in section.blocks %}
+              {% if block.type == 'tab' %}
+                <button
+                  class="pill-btn{% if forloop.index0 == active_index %} is-active{% endif %}"
+                  data-idx="{{ forloop.index0 }}"
+                  role="tab"
+                  aria-selected="{% if forloop.index0 == active_index %}true{% else %}false{% endif %}"
+                  aria-controls="rd-panel-{{ section.id }}-{{ forloop.index0 }}"
+                  id="rd-tab-{{ section.id }}-{{ forloop.index0 }}"
+                  {{ block.shopify_attributes }}
+                >
+                  {{ block.settings.title | escape }}
+                </button>
+              {% endif %}
+            {% endfor %}
+          </div>
         </div>
       </div>
 
@@ -123,18 +141,21 @@
           {% if block.type == 'tab' %}
             {%- assign widths = '900, 1200, 1600, 2000, 2400' -%}
             {%- capture sizes -%}(min-width: 1200px) 1000px, 100vw{%- endcapture -%}
-            {%- comment -%} compute fetchpriority safely {%- endcomment -%}
             {%- if forloop.index0 == active_index and section.index == 1 -%}
               {%- assign fetch_priority = 'high' -%}
             {%- else -%}
               {%- assign fetch_priority = 'auto' -%}
             {%- endif -%}
 
-            <div class="panel" id="rd-panel-{{ section.id }}-{{ forloop.index0 }}"
-                 role="tabpanel"
-                 aria-labelledby="rd-tab-{{ section.id }}-{{ forloop.index0 }}"
-                 style="{% if forloop.index0 == active_index %}opacity:1; visibility:visible;{% else %}opacity:0; visibility:hidden; position:absolute; inset:0;{% endif %} transition:opacity .35s ease;">
-              {% if block.settings.image %}
+            <div
+              class="panel{% if forloop.index0 == active_index %} is-active{% endif %}"
+              id="rd-panel-{{ section.id }}-{{ forloop.index0 }}"
+              role="tabpanel"
+              aria-labelledby="rd-tab-{{ section.id }}-{{ forloop.index0 }}"
+            >
+              {% if block.settings.video != blank %}
+                {{ block.settings.video | video_tag: muted: true, autoplay: true, loop: true, controls: false, playsinline: true }}
+              {% elsif block.settings.image != blank %}
                 {{ block.settings.image | image_url: width: 2400 | image_tag: widths: widths, sizes: sizes, fetchpriority: fetch_priority }}
               {% else %}
                 {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -144,12 +165,12 @@
         {% endfor %}
       </div>
 
-      <!-- Caption -->
+      <!-- Captions -->
       {% for block in section.blocks %}
         {% if block.type == 'tab' %}
           <div class="caption"
                data-caption="{{ forloop.index0 }}"
-               style="{% if forloop.index0 == active_index %}display:block{% else %}display:none{% endif %}">
+               {% unless forloop.index0 == active_index %}hidden{% endunless %}>
             {% if block.settings.caption_title != blank %}
               <strong>• {{ block.settings.caption_title | escape }}</strong><br>
             {% endif %}
@@ -166,12 +187,18 @@
 {
   "name": "R+D Tabs",
   "class": "section",
-  "disabled_on": { "groups": ["header","footer"] },
+  "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow text", "default": "RESEARCH & DEVELOPMENT" },
     { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Research ⊕ Development" },
-    { "type": "select", "id": "heading_size", "label": "Heading size", "default": "h2",
-      "options": [{ "value":"h3","label":"H3"},{ "value":"h2","label":"H2"},{ "value":"h1","label":"H1"},{ "value":"h0","label":"H0"}]
+    {
+      "type": "select", "id": "heading_size", "label": "Heading size", "default": "h2",
+      "options": [
+        { "value":"h3","label":"H3" },
+        { "value":"h2","label":"H2" },
+        { "value":"h1","label":"H1" },
+        { "value":"h0","label":"H0" }
+      ]
     },
     { "type": "image_picker", "id": "bg_image", "label": "Background image" },
     { "type": "color", "id": "pill_color", "label": "Pill color", "default": "#0FE694" },
@@ -184,6 +211,7 @@
       "settings": [
         { "type": "text", "id": "title", "label": "Tab title", "default": "The Science" },
         { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "video", "id": "video", "label": "Video" },
         { "type": "text", "id": "caption_title", "label": "Caption title", "default": "The Science" },
         { "type": "richtext", "id": "caption", "label": "Caption text", "default": "<p>Lorem ipsum dolor sit amet…</p>" },
         { "type": "checkbox", "id": "default_active", "label": "Start as active", "default": false }
@@ -191,7 +219,7 @@
     }
   ],
   "presets": [
-    { "name": "R+D Tabs", "blocks": [{ "type":"tab" }, { "type":"tab" }, { "type":"tab" }] }
+    { "name": "R+D Tabs", "blocks": [ { "type":"tab" }, { "type":"tab" }, { "type":"tab" } ] }
   ]
 }
 {% endschema %}

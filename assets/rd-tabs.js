@@ -1,61 +1,65 @@
-/* rd-tabs.js — pill tabs, fades panels; no inline JS */
+/* rd-tabs.js — pill tabs w/ image or video panels, no inline JS */
 (() => {
-  const Q = '[data-component="rd-tabs"]';
+  const SELECTOR = '[data-component="rd-tabs"]';
 
-  function init(root){
+  function setActive(root, nextIdx) {
+    const pills = root.querySelectorAll('.pill-btn');
+    const panels = root.querySelectorAll('.panel');
+    const captions = root.querySelectorAll('.caption');
+
+    pills.forEach((btn, i) => {
+      const active = i === nextIdx;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach((p, i) => {
+      const active = i === nextIdx;
+      p.classList.toggle('is-active', active);
+      // Pause other videos, play active (if any)
+      const vid = p.querySelector('video');
+      if (vid) {
+        if (active) { try { vid.play(); } catch(e){} }
+        else { try { vid.pause(); } catch(e){} }
+      }
+    });
+
+    captions.forEach((c, i) => {
+      if (parseInt(c.dataset.caption, 10) === nextIdx) c.removeAttribute('hidden');
+      else c.setAttribute('hidden', '');
+    });
+  }
+
+  function init(root) {
     if (!root || root.__rdInit) return;
     root.__rdInit = true;
 
-    const pills = root.querySelector('.pills');
-    const buttons = Array.from(root.querySelectorAll('.pill-btn'));
-    const panels  = Array.from(root.querySelectorAll('.media-wrap .panel'));
-    const captions= Array.from(root.querySelectorAll('.caption'));
-    const fill    = root.querySelector('.pill-fill');
+    const id = root.getAttribute('data-section-id');
+    const pillsWrap = root.querySelector('.pills');
+    if (!pillsWrap) return;
 
-    function layoutFill(idx){
-      const btn = buttons[idx];
-      if (!btn || !fill) return;
-      const r = btn.getBoundingClientRect();
-      const pr = pills.getBoundingClientRect();
-      fill.style.left = (r.left - pr.left + 4) + 'px';
-      fill.style.width = (r.width - 8) + 'px';
-    }
+    const start = parseInt(pillsWrap.getAttribute('data-active') || '0', 10) || 0;
+    setActive(root, start);
 
-    function activate(idx){
-      buttons.forEach((b,i)=>{
-        b.classList.toggle('is-active', i===idx);
-        b.setAttribute('aria-selected', i===idx ? 'true' : 'false');
-      });
-      panels.forEach((p,i)=>{
-        if (i===idx){ p.style.position=''; p.style.opacity='1'; p.style.visibility='visible'; }
-        else { p.style.position='absolute'; p.style.opacity='0'; p.style.visibility='hidden'; }
-      });
-      captions.forEach(c => c.style.display = (+c.dataset.caption===idx) ? 'block' : 'none');
-      layoutFill(idx);
-    }
-
-    pills.addEventListener('click', e=>{
+    pillsWrap.addEventListener('click', (e) => {
       const btn = e.target.closest('.pill-btn');
       if (!btn) return;
-      activate(+btn.dataset.idx);
+      const idx = parseInt(btn.dataset.idx, 10);
+      if (Number.isNaN(idx)) return;
+      setActive(root, idx);
     });
 
-    window.addEventListener('resize', ()=>layoutFill(buttons.findIndex(b=>b.classList.contains('is-active'))));
-
-    // initial
-    const start = Math.max(0, parseInt(pills.getAttribute('data-active')||'0',10));
-    requestAnimationFrame(()=>activate(start));
-    console.log('[rd-tabs] init', { count: buttons.length, start });
+    document.addEventListener('shopify:section:unload', (ev) => {
+      if (root.contains(ev.target)) {
+        root.__rdInit = false;
+      }
+    });
   }
 
-  function boot(ctx){
-    (ctx||document).querySelectorAll(Q).forEach(init);
+  function boot(ctx) {
+    (ctx || document).querySelectorAll(SELECTOR).forEach(init);
   }
 
-  document.addEventListener('shopify:section:load', e => boot(e.target));
-  document.addEventListener('shopify:section:unload', e => {
-    const root = e.target && e.target.querySelector(Q);
-    if (root) root.__rdInit = false;
-  });
-  document.addEventListener('DOMContentLoaded', ()=>boot());
+  document.addEventListener('DOMContentLoaded', () => boot());
+  document.addEventListener('shopify:section:load', (e) => boot(e.target));
 })();
