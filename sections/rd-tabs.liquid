@@ -85,10 +85,10 @@
     color: #fff; line-height: 1.35;
 }
 .rd-tabs-{{ section.id }} .caption[hidden]{ display:none !important; }
-.rd-tabs-{{ section.id }} .caption .subtitle-dot { font-size: 14px; font-weight: 400; position: relative; }
+.rd-tabs-{{ section.id }} .caption .subtitle-dot { font-size: 14px; font-weight: 400; position: relative; padding-left: 1rem; }
 .rd-tabs-{{ section.id }} .caption .subtitle-dot::before { 
-    content: ""; position: absolute; 
-    background: white; width: 4px; height: 4px; border-radius: 4px; }
+    content: ""; position: absolute; left: 0; top: 6px;
+    background: white; width: 6px; height: 6px; border-radius: 6px; }
 /* Make sure this section respects the theme’s wrapper */
 .section .rd-tabs-{{ section.id }}{ width:100%; }
 {%- endstyle -%}
