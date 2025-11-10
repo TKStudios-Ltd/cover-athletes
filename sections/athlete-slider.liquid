@@ -23,7 +23,7 @@
   transform: scale(1); transition: transform 1.2s ease;
 }
 .athlete-{{ section.id }} .kenburns .bg-media img,
-.athlete-{{ section.id }} .kenburns .bg-media video { animation: kb-{{ section.id }} 10s ease forwards; }
+.athlete-{{ section.id }} .kenburns .bg-media video { animation: kb-{{ section.id }} 10s ease forwards; overflow: hidden; }
 @keyframes kb-{{ section.id }} { 0% { transform: scale(1); } 100% { transform: scale(1.06); } }
 
 /* ===== Overlay for contrast ===== */
