@@ -245,6 +245,7 @@
         "slide_rwRFFC": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Cover_Athlete-Cane.jpg",
             "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
             "person_name": "Kane Williamson",
             "person_title": "NZ International Cricketer"
@@ -253,16 +254,18 @@
         "slide_aHYJNT": {
           "type": "slide",
           "settings": {
-            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
-            "person_name": "Kane Williamson",
+            "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
+            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
+            "person_name": "Athlete Two",
             "person_title": "NZ International Cricketer"
           }
         },
         "slide_PH8rKe": {
           "type": "slide",
           "settings": {
-            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
-            "person_name": "Kane Williamson",
+            "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
+            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
+            "person_name": "Athlete Three",
             "person_title": "NZ International Cricketer"
           }
         }
@@ -274,15 +277,16 @@
       ],
       "name": "Athlete Slider",
       "settings": {
+        "label_icon": "shopify://shop_images/Cover_sm-white-logo.svg",
         "eyebrow": "Cover Athletes",
         "title": "Real Athletes Real Stories",
         "title_size": "h1",
-        "ken_burns": true,
-        "effect": "fade",
-        "autoplay": true,
+        "ken_burns": false,
+        "effect": "slide",
+        "autoplay": false,
         "delay": 6,
-        "loop": true,
-        "color_scheme": ""
+        "loop": false,
+        "color_scheme": "scheme-5"
       }
     },
     "section_hThtAw": {
