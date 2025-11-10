@@ -215,6 +215,7 @@
           "type": "tab",
           "settings": {
             "title": "The Solution",
+            "image": "shopify://shop_images/5af6aaddef8632d08733c14df78ecf4af8afdac5.png",
             "caption_title": "The Solution",
             "caption": "<p>Lorem ipsum dolor sit amet…</p>",
             "default_active": false
