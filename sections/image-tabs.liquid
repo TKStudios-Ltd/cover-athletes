@@ -16,6 +16,7 @@
   .image-tabs-{{ section.id }} .grid .image-tabs__image { flex: 0 0 calc(50% - (var(--gap) / 2)); }
   .image-tabs-{{ section.id }} .image-slide .media { aspect-ratio: 1 / 1; }
   .image-tabs-{{ section.id }}.reverse .grid { flex-direction: row-reverse; }
+  .image-tabs-{{ section.id }} .title { font-size: 28px !important; }
 }
 @media (max-width: 989px) {
     .image-tabs-{{ section.id }} .grid {
@@ -68,7 +69,7 @@
 .image-tabs-{{ section.id }} .tab.is-active .pill { width: 56px; transform: scaleX(1); margin-right: 12px; }
 
 .image-tabs-{{ section.id }} .title {
-  font-size: 28px !important; line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padding-top: 4px;
+line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padding-top: 4px;
   opacity: .25; transition: opacity .25s ease;
 }
 .image-tabs-{{ section.id }} .tab.is-active .title { opacity: 1; }
