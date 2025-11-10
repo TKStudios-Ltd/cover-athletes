@@ -176,7 +176,7 @@
                data-caption="{{ forloop.index0 }}"
                {% unless forloop.index0 == active_index %}hidden{% endunless %}>
             {% if block.settings.caption_title != blank %}
-              <p class="subtitle-dot">{{ block.settings.caption_title | escape }}</p>
+              <ul class="subtitle-dot"><li>{{ block.settings.caption_title | escape }}</li></ul>
             {% endif %}
             <span>{{ block.settings.caption | default: '' }}</span>
           </div>
