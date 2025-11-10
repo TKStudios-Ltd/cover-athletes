@@ -256,7 +256,7 @@
           "settings": {
             "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
             "quote": "<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
-            "person_name": "Kane Williamson",
+            "person_name": "Athlete Two",
             "person_title": "NZ International Cricketer"
           }
         },
@@ -265,7 +265,7 @@
           "settings": {
             "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
             "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
-            "person_name": "Kane Williamson",
+            "person_name": "Athlete Three",
             "person_title": "NZ International Cricketer"
           }
         }
