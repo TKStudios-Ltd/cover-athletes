@@ -245,28 +245,31 @@
         "slide_rwRFFC": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Cover_Athlete-Cane.jpg",
+            "bg_image": "shopify://shop_images/Cover_Athlete-Cane.jpg",
+            "kicker": "",
             "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
-            "person_name": "Kane Williamson",
-            "person_title": "NZ International Cricketer"
+            "person": "Kane Williamson",
+            "role": "NZ International Cricketer"
           }
         },
         "slide_aHYJNT": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
-            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
-            "person_name": "Athlete Two",
-            "person_title": "NZ International Cricketer"
+            "bg_image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
+            "kicker": "",
+            "quote": "<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
+            "person": "Athlete Two",
+            "role": "NZ International Cricketer"
           }
         },
         "slide_PH8rKe": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
-            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
-            "person_name": "Athlete Three",
-            "person_title": "NZ International Cricketer"
+            "bg_image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
+            "kicker": "",
+            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "person": "Athlete Three",
+            "role": "NZ International Cricketer"
           }
         }
       },
@@ -277,14 +280,12 @@
       ],
       "name": "Athlete Slider",
       "settings": {
-        "label_icon": "shopify://shop_images/Cover_sm-white-logo1.svg",
-        "eyebrow": "Cover Athletes",
-        "title": "Real Athletes Real Stories",
-        "title_size": "h2",
-        "ken_burns": true,
-        "effect": "fade",
+        "eyebrow_icon": "shopify://shop_images/Cover_sm-white-logo1.svg",
+        "eyebrow_text": "Cover Athletes",
+        "heading": "Real Athletes Real Stories",
+        "heading_size": "h1",
         "autoplay": false,
-        "delay": 6,
+        "autoplay_delay": 6,
         "loop": false,
         "color_scheme": "scheme-5"
       }
