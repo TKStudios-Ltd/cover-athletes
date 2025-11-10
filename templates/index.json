@@ -197,6 +197,7 @@
           "type": "tab",
           "settings": {
             "title": "The Problem",
+            "video": "shopify://files/videos/2539558-hd_1920_1080_24fps.mp4",
             "caption_title": "The Problem",
             "caption": "<p>Lorem ipsum dolor sit amet…</p>",
             "default_active": false
@@ -206,6 +207,7 @@
           "type": "tab",
           "settings": {
             "title": "The Science",
+            "video": "shopify://files/videos/2558470-hd_1920_1080_25fps.mp4",
             "caption_title": "The Science",
             "caption": "<p>Lorem ipsum dolor sit amet…</p>",
             "default_active": false
