@@ -13,9 +13,7 @@
 /* ===== Background Swiper ===== */
 .athlete-{{ section.id }} .bg-swiper,
 .athlete-{{ section.id }} .bg-swiper .swiper-wrapper,
-.athlete-{{ section.id }} .bg-swiper .swiper-slide {
-  width: 100%; height: 100%;
-}
+.athlete-{{ section.id }} .bg-swiper .swiper-slide { width: 100%; height: 100%; }
 .athlete-{{ section.id }} .bg-swiper { position: absolute; inset: 0; z-index: 1; }
 .athlete-{{ section.id }} .bg-media { position: absolute; inset: 0; }
 .athlete-{{ section.id }} .bg-media img,
@@ -67,21 +65,24 @@
 .athlete-{{ section.id }} .nav .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
 .athlete-{{ section.id }} .nav svg { width: 14px; height: 14px; }
 
-/* ===== Copy items (NOT a swiper) ===== */
-.athlete-{{ section.id }} .copy-items { position: relative; }
-.athlete-{{ section.id }} .copy-items .item { 
+/* ===== Copy items container (fixed position, stable height) ===== */
+.athlete-{{ section.id }} .copy-items {
+  position: relative; width: 100%;
+  /* JS sets --copy-h to active item height so layout is stable */
+  min-height: var(--copy-h, 0px);
+}
+.athlete-{{ section.id }} .copy-items .item {
+  position: absolute; inset: 0;
   opacity: 0; pointer-events: none;
 }
 .athlete-{{ section.id }} .copy-items .item.is-active {
   opacity: 1; pointer-events: auto;
 }
 
-/* Motion (slide up) */
+/* ===== Text motion (slide up) ===== */
 .athlete-{{ section.id }} .slide-content { max-width: 760px; }
-.athlete-{{ section.id }} .quote,
-.athlete-{{ section.id }} .person {
-  opacity: 0;
-  transform: translateY(10px);
+.athlete-{{ section.id }} .quote, .athlete-{{ section.id }} .person {
+  opacity: 0; transform: translateY(10px);
 }
 .athlete-{{ section.id }} .copy-items .item.is-active .quote {
   animation: copyIn-{{ section.id }} .45s ease forwards;
@@ -97,7 +98,7 @@
 .athlete-{{ section.id }} .quote { font-size: clamp(14px, 1.3vw, 18px); line-height: 1.55; opacity:.98; }
 .athlete-{{ section.id }} .person { margin-top: 12px; font-size: 14px; opacity:.9; }
 
-/* Make the section span full wrapper width cleanly in Ritual */
+/* Full width inside section wrappers */
 .section .athlete-{{ section.id }} { width: 100%; }
 {%- endstyle -%}
 
@@ -135,7 +136,7 @@
           {% endif %}
         {% endfor %}
       </div>
-      {# pagination bullets intentionally removed #}
+      {# bullets intentionally removed #}
     </div>
 
     <!-- Overlay -->
@@ -168,11 +169,11 @@
         </button>
       </div>
 
-      <!-- Copy items (simple list, toggled by JS) -->
+      <!-- Copy items (simple list, first is active in HTML) -->
       <div id="AthleteCopy-{{ section.id }}" class="copy-items">
         {% for block in section.blocks %}
           {% if block.type == 'slide' %}
-            <div class="item" data-slide="{{ forloop.index0 }}">
+            <div class="item{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">
               <div class="slide-content">
                 {% if block.settings.quote != blank %}
                   <div class="quote rte">{{ block.settings.quote }}</div>
