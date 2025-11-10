@@ -137,7 +137,7 @@
 
     <!-- Foreground content -->
     <div class="content">
-        <div class="slider-fixed-tl">
+        <div class="slider-top">
             {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
                 <div class="left-top">
                 {% if section.settings.label_icon != blank %}
@@ -153,40 +153,43 @@
             {% endif %}
         </div>
 
-      <!-- Arrows ABOVE copy -->
-      <div class="nav">
-        <button class="btn prev" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="btn next" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
-
-      <!-- Copy items (simple list, first is active in HTML) -->
-      <div id="AthleteCopy-{{ section.id }}" class="copy-items">
-        {% for block in section.blocks %}
-          {% if block.type == 'slide' %}
-            <div class="item{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">
-              <div class="slide-content">
-                {% if block.settings.quote != blank %}
-                  <div class="quote rte">{{ block.settings.quote }}</div>
-                {% endif %}
-                {% if block.settings.person_name != blank or block.settings.person_title != blank %}
-                  <div class="person">
-                    {% if block.settings.person_name != blank %}
-                      <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
-                    {% endif %}
-                    {% if block.settings.person_title != blank %}
-                      <span>{{ block.settings.person_title }}</span>
-                    {% endif %}
-                  </div>
-                {% endif %}
-              </div>
+        <div class="slider-bottom">
+            <!-- Arrows ABOVE copy -->
+            <div class="nav">
+                <button class="btn prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="btn next" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
             </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+
+            <!-- Copy items (simple list, first is active in HTML) -->
+            <div id="AthleteCopy-{{ section.id }}" class="copy-items">
+                {% for block in section.blocks %}
+                {% if block.type == 'slide' %}
+                    <div class="item{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">
+                    <div class="slide-content">
+                        {% if block.settings.quote != blank %}
+                        <div class="quote rte">{{ block.settings.quote }}</div>
+                        {% endif %}
+                        {% if block.settings.person_name != blank or block.settings.person_title != blank %}
+                        <div class="person">
+                            {% if block.settings.person_name != blank %}
+                            <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
+                            {% endif %}
+                            {% if block.settings.person_title != blank %}
+                            <span>{{ block.settings.person_title }}</span>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
   </div>
 </section>
