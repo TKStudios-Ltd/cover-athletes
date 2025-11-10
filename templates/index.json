@@ -239,6 +239,52 @@
         "color_scheme": "scheme-5"
       }
     },
+    "athlete_slider_heEMhB": {
+      "type": "athlete-slider",
+      "blocks": {
+        "slide_rwRFFC": {
+          "type": "slide",
+          "settings": {
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
+            "person_name": "Kane Williamson",
+            "person_title": "NZ International Cricketer"
+          }
+        },
+        "slide_aHYJNT": {
+          "type": "slide",
+          "settings": {
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
+            "person_name": "Kane Williamson",
+            "person_title": "NZ International Cricketer"
+          }
+        },
+        "slide_PH8rKe": {
+          "type": "slide",
+          "settings": {
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
+            "person_name": "Kane Williamson",
+            "person_title": "NZ International Cricketer"
+          }
+        }
+      },
+      "block_order": [
+        "slide_rwRFFC",
+        "slide_aHYJNT",
+        "slide_PH8rKe"
+      ],
+      "name": "Athlete Slider",
+      "settings": {
+        "eyebrow": "Cover Athletes",
+        "title": "Real Athletes Real Stories",
+        "title_size": "h1",
+        "ken_burns": true,
+        "effect": "fade",
+        "autoplay": true,
+        "delay": 6,
+        "loop": true,
+        "color_scheme": ""
+      }
+    },
     "section_hThtAw": {
       "type": "section",
       "blocks": {
@@ -600,6 +646,7 @@
     "divider_WzRxcE",
     "image_tabs_FnFLrf",
     "rd_tabs_C43kNh",
+    "athlete_slider_heEMhB",
     "section_hThtAw",
     "media_with_content_NEtbwm"
   ]
