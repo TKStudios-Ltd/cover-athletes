@@ -46,11 +46,13 @@
 
     // Copy swiper follows BG index
     const copy = new Swiper(copyEl, {
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
-      speed: 0,
-      loop,
-      allowTouchMove: false
+        speed: 0,
+        loop,
+        allowTouchMove: false,
+        autoHeight: true,
+        observer: true,
+        observeParents: true,
+        loopAdditionalSlides: 1
     });
 
     function syncCopy(i){
