@@ -84,25 +84,27 @@
       {%- endfor -%}
 
       <!-- Pills -->
-      <div class="pills"
-           role="tablist"
-           aria-label="{{ section.settings.heading | default: 'R&D tabs' | escape }}"
-           data-active="{{ active_index }}">
-        <div class="pill-fill" aria-hidden="true"></div>
-        {% for block in section.blocks %}
-          {% if block.type == 'tab' %}
-            <button
-              class="pill-btn{% if forloop.index0 == active_index %} is-active{% endif %}"
-              data-idx="{{ forloop.index0 }}"
-              role="tab"
-              aria-selected="{% if forloop.index0 == active_index %}true{% else %}false{% endif %}"
-              aria-controls="rd-panel-{{ section.id }}-{{ forloop.index0 }}"
-              {{ block.shopify_attributes }}
-            >
-              {{ block.settings.title | escape }}
-            </button>
-          {% endif %}
-        {% endfor %}
+      <div class="pills--outer">
+        <div class="pills"
+            role="tablist"
+            aria-label="{{ section.settings.heading | default: 'R&D tabs' | escape }}"
+            data-active="{{ active_index }}">
+            <div class="pill-fill" aria-hidden="true"></div>
+            {% for block in section.blocks %}
+            {% if block.type == 'tab' %}
+                <button
+                class="pill-btn{% if forloop.index0 == active_index %} is-active{% endif %}"
+                data-idx="{{ forloop.index0 }}"
+                role="tab"
+                aria-selected="{% if forloop.index0 == active_index %}true{% else %}false{% endif %}"
+                aria-controls="rd-panel-{{ section.id }}-{{ forloop.index0 }}"
+                {{ block.shopify_attributes }}
+                >
+                {{ block.settings.title | escape }}
+                </button>
+            {% endif %}
+            {% endfor %}
+        </div>
       </div>
 
       <!-- Media -->
