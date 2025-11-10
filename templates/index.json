@@ -245,19 +245,28 @@
         "slide_rwRFFC": {
           "type": "slide",
           "settings": {
-            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>"
+            "image": "shopify://shop_images/Cover_Athlete-Cane.jpg",
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
+            "person_name": "Kane Williamson",
+            "person_title": "NZ International Cricketer"
           }
         },
         "slide_aHYJNT": {
           "type": "slide",
           "settings": {
-            "quote": "<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>"
+            "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
+            "quote": "<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
+            "person_name": "Kane Williamson",
+            "person_title": "NZ International Cricketer"
           }
         },
         "slide_PH8rKe": {
           "type": "slide",
           "settings": {
-            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+            "image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
+            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+            "person_name": "Kane Williamson",
+            "person_title": "NZ International Cricketer"
           }
         }
       },
@@ -268,8 +277,15 @@
       ],
       "name": "Athlete Slider",
       "settings": {
-        "autoplay": false,
-        "loop": false,
+        "label_icon": "shopify://shop_images/Cover_sm-white-logo1.svg",
+        "eyebrow": "Cover Athletes",
+        "title": "Real Athletes Real Stories",
+        "title_size": "h2",
+        "ken_burns": true,
+        "effect": "fade",
+        "autoplay": true,
+        "delay": 6,
+        "loop": true,
         "color_scheme": "scheme-5"
       }
     },
