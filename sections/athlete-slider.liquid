@@ -51,7 +51,7 @@
   display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
   min-height: clamp(420px, 62vw, 720px);
   padding: clamp(20px, 4vw, 40px);
-  max-width: 900px; /* keeps text readable on large screens */
+  max-width: 900px; justify-content: space-between;
 }
 
 /* Header bits */
@@ -157,32 +157,31 @@
         </button>
       </div>
 
-      <!-- Copy swiper (per-slide content) -->
-      <div id="AthleteCopy-{{ section.id }}" class="swiper copy-swiper">
-        <div class="swiper-wrapper">
-          {% for block in section.blocks %}
+        <!-- Copy swiper (per-slide content) -->
+        <div id="AthleteCopy-{{ section.id }}" class="copy-items">
+        {% for block in section.blocks %}
             {% if block.type == 'slide' %}
-              <div class="swiper-slide">
+            <div class="item" data-slide="{{ forloop.index0 }}">
                 <div class="slide-content">
-                  {% if block.settings.quote != blank %}
+                {% if block.settings.quote != blank %}
                     <div class="quote rte">{{ block.settings.quote }}</div>
-                  {% endif %}
-                  {% if block.settings.person_name != blank or block.settings.person_title != blank %}
+                {% endif %}
+                {% if block.settings.person_name != blank or block.settings.person_title != blank %}
                     <div class="person">
-                      {% if block.settings.person_name != blank %}
+                    {% if block.settings.person_name != blank %}
                         <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
-                      {% endif %}
-                      {% if block.settings.person_title != blank %}
+                    {% endif %}
+                    {% if block.settings.person_title != blank %}
                         <span>{{ block.settings.person_title }}</span>
-                      {% endif %}
+                    {% endif %}
                     </div>
-                  {% endif %}
+                {% endif %}
                 </div>
-              </div>
+            </div>
             {% endif %}
-          {% endfor %}
+        {% endfor %}
         </div>
-      </div>
+
     </div>
   </div>
 </section>
