@@ -232,7 +232,7 @@
       "name": "R+D Tabs",
       "settings": {
         "eyebrow": "",
-        "heading": "Research ⊕ Development",
+        "heading": "Research <strong>⊕</strong> Development",
         "heading_size": "h2",
         "bg_image": "shopify://shop_images/Group_775.jpg",
         "pill_color": "#0fe694",
