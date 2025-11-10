@@ -199,7 +199,7 @@
             "title": "The Problem",
             "video": "shopify://files/videos/2539558-hd_1920_1080_24fps.mp4",
             "caption_title": "The Problem",
-            "caption": "<p>Lorem ipsum dolor sit amet…</p>",
+            "caption": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
             "default_active": false
           }
         },
@@ -209,7 +209,7 @@
             "title": "The Science",
             "video": "shopify://files/videos/2558470-hd_1920_1080_25fps.mp4",
             "caption_title": "The Science",
-            "caption": "<p>Lorem ipsum dolor sit amet…</p>",
+            "caption": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
             "default_active": false
           }
         },
@@ -219,7 +219,7 @@
             "title": "The Solution",
             "image": "shopify://shop_images/5af6aaddef8632d08733c14df78ecf4af8afdac5.png",
             "caption_title": "The Solution",
-            "caption": "<p>Lorem ipsum dolor sit amet…</p>",
+            "caption": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
             "default_active": false
           }
         }
