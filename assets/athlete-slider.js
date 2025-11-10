@@ -78,8 +78,17 @@
       }
     }
 
-    bg.on('init', () => { syncCopy(realIndex(bg)); restartKenBurns(); });
-    bg.on('slideChange', () => { syncCopy(realIndex(bg)); restartKenBurns(); });
+    bg.on('init', () => {
+        const idx = realIndex(bg);
+        syncCopy(idx);
+        restartKenBurns(idx);
+    });
+
+    bg.on('slideChangeTransitionEnd', () => {
+        const idx = realIndex(bg);
+        syncCopy(idx);
+        restartKenBurns(idx);
+    });
 
     if (prevBtn) prevBtn.addEventListener('click', () => bg.slidePrev());
     if (nextBtn) nextBtn.addEventListener('click', () => bg.slideNext());
