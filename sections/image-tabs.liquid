@@ -7,7 +7,7 @@
 
 /* Grid: 50/50 on desktop */
 .image-tabs-{{ section.id }} .grid {
-  display: flex; gap: var(--gap); flex-wrap: wrap;
+  display: flex; gap: var(--gap); flex-wrap: wrap; flex-direction: row;
 }
 @media (min-width: 990px) {
   .image-tabs-{{ section.id }} .grid .image-tabs__tabs { padding-top: 100px; display: flex; flex-direction: column; justify-content: space-between; }
