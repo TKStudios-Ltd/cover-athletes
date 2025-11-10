@@ -85,8 +85,10 @@
     color: #fff; line-height: 1.35;
 }
 .rd-tabs-{{ section.id }} .caption[hidden]{ display:none !important; }
-.rd-tabs-{{ section.id }} .caption .subtitle-dot { list-style: disc; }
-.rd-tabs-{{ section.id }} .caption .subtitle-dot li { font-size: 14px; font-weight: 400; }
+.rd-tabs-{{ section.id }} .caption .subtitle-dot { font-size: 14px; font-weight: 400; position: relative; }
+.rd-tabs-{{ section.id }} .caption .subtitle-dot::before { 
+    content: ""; position: absolute; 
+    background: white; width: 4px; height: 4px; border-radius: 4px; }
 /* Make sure this section respects the theme’s wrapper */
 .section .rd-tabs-{{ section.id }}{ width:100%; }
 {%- endstyle -%}
@@ -176,7 +178,7 @@
                data-caption="{{ forloop.index0 }}"
                {% unless forloop.index0 == active_index %}hidden{% endunless %}>
             {% if block.settings.caption_title != blank %}
-              <ul class="subtitle-dot"><li>{{ block.settings.caption_title | escape }}</li></ul>
+              <p class="subtitle-dot">{{ block.settings.caption_title | escape }}</p>
             {% endif %}
             <span>{{ block.settings.caption | default: '' }}</span>
           </div>
