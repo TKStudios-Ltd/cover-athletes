@@ -109,7 +109,6 @@
                 role="tablist"
                 aria-label="{{ section.settings.heading | default: 'R&D tabs' | escape }}"
                 data-active="{{ active_index }}">
-                <div class="pill-fill" aria-hidden="true"></div>
                 {% for block in section.blocks %}
                 {% if block.type == 'tab' %}
                     <button
