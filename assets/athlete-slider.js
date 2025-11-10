@@ -1,4 +1,4 @@
-/* athlete-slider.js — BG + copy swipers, effect + ken burns, arrows, autoplay, loop */
+/* athlete-slider.js — Single BG swiper (fade/slide) + class-toggled copy items */
 (() => {
   const ROOT_SEL = '[data-component="athlete-slider"]';
 
@@ -10,7 +10,7 @@
     }, 50);
   }
 
-  function realIndex(sw){ return typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex; }
+  const realIndex = (sw) => (typeof sw.realIndex === 'number' ? sw.realIndex : sw.activeIndex);
 
   function init(root){
     if (!root || root.__athleteInit) return;
@@ -19,47 +19,49 @@
     const id        = root.getAttribute('data-section-id');
     const shell     = root.querySelector('.slider-shell');
     const bgEl      = root.querySelector('#AthleteBg-' + id);
-    const copyEl    = root.querySelector('#AthleteCopy-' + id);
     const prevBtn   = root.querySelector('.nav .prev');
     const nextBtn   = root.querySelector('.nav .next');
+    const copyItems = Array.from(root.querySelectorAll('#AthleteCopy-' + id + ' .item'));
 
-    // Ensure container has height for absolutely-positioned BG swiper
-    if (shell && getComputedStyle(shell).minHeight === '0px') {
-      shell.style.minHeight = '480px';
-    }
+    // Maintain height so absolutely positioned BG has space
+    if (shell && getComputedStyle(shell).minHeight === '0px') shell.style.minHeight = '480px';
 
     const effect   = (shell?.getAttribute('data-effect') || 'fade').trim(); // 'fade' | 'slide'
     const autoplay = shell?.getAttribute('data-autoplay') === 'true';
     const delay    = parseInt(shell?.getAttribute('data-delay') || '6000', 10);
     const loop     = shell?.getAttribute('data-loop') === 'true';
 
-    // BG Swiper (drives everything) — pagination disabled (no bullets)
+    // Background Swiper (the only swiper)
     const bg = new Swiper(bgEl, {
       effect,
       speed: 800,
       loop,
       allowTouchMove: false,
+      // no bullets
       pagination: { enabled: false },
       autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
       ...(effect === 'fade' ? { fadeEffect: { crossFade: true } } : {})
     });
 
-    // Copy swiper follows BG index
-    const copy = new Swiper(copyEl, {
-        speed: 0,
-        loop,
-        allowTouchMove: false,
-        autoHeight: true,
-        observer: true,
-        observeParents: true,
-        loopAdditionalSlides: 1
-    });
-
-    function syncCopy(i){
-      if (typeof copy.slideToLoop === 'function') copy.slideToLoop(i, 0, false);
-      else copy.slideTo(i, 0, false);
+    // Helper: toggle active copy item and restart its CSS keyframes
+    function setActive(i){
+      copyItems.forEach((el, idx) => {
+        const on = idx === i;
+        el.classList.toggle('is-active', on);
+        if (on) {
+          // restart nested keyframes so they play every time
+          el.querySelectorAll('.quote, .person').forEach(n => {
+            n.style.animation = 'none';  // reset
+            // force reflow
+            // eslint-disable-next-line no-unused-expressions
+            n.offsetHeight;
+            n.style.animation = '';
+          });
+        }
+      });
     }
 
+    // Ken Burns restart so the active media animates each time
     function restartKenBurns(){
       const wrapper = root.querySelector('.slider-shell');
       if (!wrapper || !wrapper.classList.contains('kenburns')) return;
@@ -78,22 +80,27 @@
       }
     }
 
+    // Init + sync
     bg.on('init', () => {
-        const idx = realIndex(bg);
-        syncCopy(idx);
-        restartKenBurns(idx);
+      const idx = realIndex(bg);
+      setActive(idx);
+      restartKenBurns();
+      resize();
     });
 
+    // Sync after the visual transition completes to avoid ghosting
     bg.on('slideChangeTransitionEnd', () => {
-        const idx = realIndex(bg);
-        syncCopy(idx);
-        restartKenBurns(idx);
+      const idx = realIndex(bg);
+      setActive(idx);
+      restartKenBurns();
+      resize();
     });
 
-    if (prevBtn) prevBtn.addEventListener('click', () => bg.slidePrev());
-    if (nextBtn) nextBtn.addEventListener('click', () => bg.slideNext());
+    // Arrows
+    prevBtn?.addEventListener('click', () => bg.slidePrev());
+    nextBtn?.addEventListener('click', () => bg.slideNext());
 
-    // Keep shell at least as tall as the content on resize
+    // Keep shell tall enough for whatever text is active
     const content = root.querySelector('.content');
     function resize(){
       if (!shell || !content) return;
@@ -103,9 +110,9 @@
     window.addEventListener('resize', resize);
     setTimeout(resize, 0);
 
+    // Expose destroy for editor
     root.__athleteDestroy = () => {
-      try{ bg.destroy(true,true); }catch(e){}
-      try{ copy.destroy(true,true); }catch(e){}
+      try{ bg.destroy(true, true); }catch(e){}
       window.removeEventListener('resize', resize);
       root.__athleteInit = false;
     };
