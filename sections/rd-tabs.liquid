@@ -5,7 +5,7 @@
 {%- style -%}
 .rd-tabs-{{ section.id }}{
   --pill: {{ section.settings.pill_color }};
-  width: 100vw;
+  width: calc(100vw - 11px) !important;
 }
 .rd-tabs-{{ section.id }} .rd-bg{
   position: relative;
@@ -21,7 +21,7 @@
 .rd-tabs-{{ section.id }} .inner{
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 16px 120px;
+  padding: 80px 25px 120px;
 }
 
 .rd-tabs-{{ section.id }} .eyebrow{
@@ -33,7 +33,7 @@
 .rd-tabs-{{ section.id }} .heading{
   font-size: 28px;
   text-align: center;
-  margin: 0 0 36px;
+  margin: 0 0 80px;
 }
 
 /* Pills */
