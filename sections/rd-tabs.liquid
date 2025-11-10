@@ -26,7 +26,7 @@
   margin: 0 auto; position: relative;
     border: none;
     border-width: 2px;
-    padding: 6pxx;
+    padding: 6px;
     background: linear-gradient(135deg, #444, #252525);
     -webkit-backdrop-filter: blur(40px);
     backdrop-filter: blur(40px);
@@ -44,7 +44,12 @@
   transition: transform .35s cubic-bezier(.22,.61,.36,1), width .35s cubic-bezier(.22,.61,.36,1), left .35s cubic-bezier(.22,.61,.36,1);
   z-index: -1;
 }
-.rd-tabs-{{ section.id }} .pills{ position: relative; }
+.rd-tabs-{{ section.id }} .pills--outer {     
+    position: relative; padding: 2px; border-radius: 999px;
+    background: linear-gradient(108.74deg, #6978ff48, #ffffff8a 36.46%, #ffffff4d 73.96%, #0ddcaa3f);
+    box-shadow: 0 0 50px -25px #00000080; 
+}
+.rd-tabs-{{ section.id }} .pills { position: relative; }
 .rd-tabs-{{ section.id }} .pills .rail{ position:absolute; inset:0; z-index:-2; border-radius:999px; }
 .rd-tabs-{{ section.id }} .media-wrap{
   width: 100%; aspect-ratio: 16 / 9; background:#0b0b0b; border-radius: 16px; overflow:hidden;
