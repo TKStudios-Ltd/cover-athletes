@@ -245,31 +245,19 @@
         "slide_rwRFFC": {
           "type": "slide",
           "settings": {
-            "bg_image": "shopify://shop_images/Cover_Athlete-Cane.jpg",
-            "kicker": "",
-            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>",
-            "person": "Kane Williamson",
-            "role": "NZ International Cricketer"
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice—because I trust what’s protecting me.</p>"
           }
         },
         "slide_aHYJNT": {
           "type": "slide",
           "settings": {
-            "bg_image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
-            "kicker": "",
-            "quote": "<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
-            "person": "Athlete Two",
-            "role": "Sport Two"
+            "quote": "<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>"
           }
         },
         "slide_PH8rKe": {
           "type": "slide",
           "settings": {
-            "bg_image": "shopify://shop_images/Cover_Athlete-Placeholder.jpg",
-            "kicker": "",
-            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
-            "person": "Athlete Three",
-            "role": "Sport Three"
+            "quote": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
           }
         }
       },
@@ -280,12 +268,7 @@
       ],
       "name": "Athlete Slider",
       "settings": {
-        "eyebrow_icon": "shopify://shop_images/Cover_sm-white-logo1.svg",
-        "eyebrow_text": "Cover Athletes",
-        "heading": "Real Athletes Real Stories",
-        "heading_size": "h1",
         "autoplay": false,
-        "autoplay_delay": 6,
         "loop": false,
         "color_scheme": "scheme-5"
       }
