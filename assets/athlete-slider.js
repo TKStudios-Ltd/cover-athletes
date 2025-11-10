@@ -1,4 +1,4 @@
-/* athlete-slider.js — Single BG swiper (fade/slide) + absolutely-positioned copy items */
+/* athlete-slider.js — Single BG swiper (SLIDE) + absolutely-positioned copy items */
 (() => {
   const ROOT_SEL = '[data-component="athlete-slider"]';
 
@@ -23,11 +23,14 @@
     const nextBtn   = root.querySelector('.nav .next');
     const copyWrap  = root.querySelector('#AthleteCopy-' + id);
     const copyItems = Array.from(root.querySelectorAll('#AthleteCopy-' + id + ' .item'));
+    const content   = root.querySelector('.content');
 
     // Maintain height so absolutely positioned BG has space
     if (shell && getComputedStyle(shell).minHeight === '0px') shell.style.minHeight = '480px';
 
-    const effect   = (shell?.getAttribute('data-effect') || 'fade').trim(); // 'fade' | 'slide'
+    // Read settings but FORCE slide (user asked for slide)
+    const effectSetting = (shell?.getAttribute('data-effect') || 'slide').trim();
+    const effect   = 'slide';
     const autoplay = shell?.getAttribute('data-autoplay') === 'true';
     const delay    = parseInt(shell?.getAttribute('data-delay') || '6000', 10);
     const loop     = shell?.getAttribute('data-loop') === 'true';
@@ -39,7 +42,6 @@
         const on = idx === clamped;
         el.classList.toggle('is-active', on);
         if (on) {
-          // restart nested keyframes so they play every time (unless instant)
           el.querySelectorAll('.quote, .person').forEach(n => {
             n.style.animation = 'none';
             // force reflow
@@ -47,28 +49,46 @@
             n.offsetHeight;
             n.style.animation = instant ? 'none' : '';
           });
-          // lock container height to active content
           const h = el.offsetHeight || el.scrollHeight || 0;
           if (copyWrap) copyWrap.style.setProperty('--copy-h', h + 'px');
         }
       });
-      // update shell min-height to cover content block
       resize();
     }
 
-    // Create the only swiper (background)
+    // Background Swiper (the only swiper)
     const bg = new Swiper(bgEl, {
       effect,
-      speed: 800,
+      speed: 700,
       loop,
-      allowTouchMove: false,
+      allowTouchMove: true,
+      // no bullets
       pagination: { enabled: false },
       autoplay: autoplay ? { delay, disableOnInteraction: false, pauseOnMouseEnter: true } : false,
-      ...(effect === 'fade' ? { fadeEffect: { crossFade: true } } : {}),
       observer: true,
       observeParents: true,
       initialSlide: 0
     });
+
+    // Ensure first slide shows immediately (even before Swiper fires)
+    setActive(0, true);
+
+    // Init + sync
+    bg.on('init', () => {
+      setActive(realIndex(bg), true);
+      restartKenBurns();
+      resize();
+    });
+
+    // Sync on slide change (slide effect → we can switch immediately)
+    bg.on('slideChange', () => {
+      setActive(realIndex(bg), false);
+      restartKenBurns();
+    });
+
+    // Arrows
+    prevBtn?.addEventListener('click', (e) => { e.preventDefault(); bg.slidePrev(); });
+    nextBtn?.addEventListener('click', (e) => { e.preventDefault(); bg.slideNext(); });
 
     // Ken Burns restart so the active media animates each time
     function restartKenBurns(){
@@ -89,27 +109,7 @@
       }
     }
 
-    // Ensure first slide is visible even if Swiper init timing changes
-    setActive(0, /*instant*/ true);
-
-    bg.on('init', () => {
-      setActive(realIndex(bg), true);
-      restartKenBurns();
-      resize();
-    });
-
-    // Sync after the visual transition completes (prevents ghost/double)
-    bg.on('slideChangeTransitionEnd', () => {
-      setActive(realIndex(bg), false);
-      restartKenBurns();
-    });
-
-    // Arrows
-    prevBtn?.addEventListener('click', () => bg.slidePrev());
-    nextBtn?.addEventListener('click', () => bg.slideNext());
-
     // Keep shell tall enough for active content
-    const content = root.querySelector('.content');
     function resize(){
       if (!shell || !content) return;
       const h = Math.max(content.offsetHeight, 420);
