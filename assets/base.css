@@ -4378,10 +4378,10 @@ text-component {
 }
 
 .resource-list__arrows__group {
-  display: flex; gap: 12px;
+  display: flex; gap: 16px;
 }
 .resource-list__arrows__group slideshow-arrows {
-  position: relative; align-items: center; pointer-events: all;
+  position: relative; align-items: center; pointer-events: all; gap: 8px;
 }
 .resource-list__arrows .arrow-button {
   padding: 12px !important;
