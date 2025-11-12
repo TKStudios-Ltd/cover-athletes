@@ -4365,3 +4365,9 @@ text-component {
   height: 10px;
   border-radius: 10px;
 }
+
+#shopify-section-template--20582040010995__image_tabs_FnFLrf,
+#shopify-section-template--20582040010995__rd_tabs_C43kNh,
+#shopify-section-template--20582040010995__athlete_slider_heEMhB {
+  --full-page-grid-margin: 0 !important;
+}
