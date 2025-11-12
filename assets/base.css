@@ -3387,9 +3387,9 @@ slideshow-slides[gutters*='start'] {
   scroll-padding-inline-start: var(--gutter-slide-width, 0);
 }
 
-slideshow-slides[gutters*='end'] {
+/* slideshow-slides[gutters*='end'] {
   padding-inline-end: var(--gutter-slide-width, 0);
-}
+} */
 
 slideshow-component[dragging] {
   --cursor: grabbing;
