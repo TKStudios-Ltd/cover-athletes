@@ -1351,6 +1351,8 @@ button.shopify-payment-button__button--unbranded {
 .button:hover {
   transition: background ease .5s;
   background: linear-gradient(135deg, rgba(68,68,68,0.5) 0%, rgba(37,37,37,0.5) 100%);
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
 }
 
 .button:not(.button-secondary, .button-unstyled) {
