@@ -149,7 +149,7 @@ select {
     transition: none;
   }
 
-  .card-hover-effect-subtle-zoom .product-card:hover .card-gallery,
+  .card-hover-effect-subtle-zoom .product-card:hover .card-gallery img,
   .card-hover-effect-subtle-zoom .collection-card:hover .collection-card__image,
   .card-hover-effect-subtle-zoom .product-card:hover .product-card__image,
   .card-hover-effect-subtle-zoom .resource-card:hover .resource-card__image,
