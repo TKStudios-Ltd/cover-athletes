@@ -4377,12 +4377,12 @@ text-component {
   --full-page-grid-margin: 0 !important;
 }
 
-.resource-list__arrow .btn {
+.resource-list__arrows .btn {
   width: 34px; height: 34px; display:grid; place-items:center; border-radius:999px;
   background: rgba(255,255,255,.12);
   border: 1px solid rgba(255,255,255,.18);
   transition: background .2s ease, transform .2s ease;
   cursor: pointer; backdrop-filter: blur(8px);
 }
-.resource-list__arrow .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
-.resource-list__arrow svg { width: 14px; height: 14px; }
+.resource-list__arrows .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+.resource-list__arrows svg { width: 14px; height: 14px; }
