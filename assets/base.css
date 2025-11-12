@@ -363,7 +363,7 @@ p:empty {
     var(--page-width) - var(--page-margin) * 2,
     calc(100% - var(--page-margin) * 2)
   );
-  /* --full-page-grid-margin: minmax(var(--page-margin), 1fr); */
+  --full-page-grid-margin: minmax(var(--page-margin), 1fr);
   --full-page-grid-with-margins: var(--full-page-grid-margin) var(--full-page-grid-central-column-width)
     var(--full-page-grid-margin);
 
