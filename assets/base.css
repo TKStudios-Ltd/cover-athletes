@@ -1305,8 +1305,8 @@ results-list[initialized] {
   background: linear-gradient(
       108.74deg,
       rgba(105, 120, 255, 0.282) 0%,
-      rgba(0, 0, 0, 0.54) 36.46%,
-      rgba(0, 0, 0, 0.3) 73.96%,
+      rgba(0, 0, 0, 0.28) 36.46%,
+      rgba(0, 0, 0, 0.1) 73.96%,
       rgba(13, 220, 170, 0.246) 100%
   );
 }
