@@ -4377,6 +4377,9 @@ text-component {
   --full-page-grid-margin: 0 !important;
 }
 
+.resource-list__arrows__group {
+  display: flex;
+}
 .resource-list__arrows .btn {
   width: 34px; height: 34px; display:grid; place-items:center; border-radius:999px;
   background: rgba(255,255,255,.12);
