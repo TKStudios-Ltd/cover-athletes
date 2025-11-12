@@ -4381,7 +4381,7 @@ text-component {
   display: flex; 
 }
 .resource-list__arrows__group slideshow-arrows {
-  position: relative; align-items: center;
+  position: relative; align-items: center; pointer-events: all;
 }
 .resource-list__arrows .btn {
   width: 34px; height: 34px; display:grid; place-items:center; border-radius:999px;
