@@ -57,7 +57,7 @@
 
 /* ===== Arrows (above copy) ===== */
 .athlete-{{ section.id }} .nav { display:flex; gap:10px; margin-bottom: 25px; position: relative; z-index: 5; }
-.athlete-{{ section.id }} .nav .btn {
+.athlete-{{ section.id }} .nav .button {
   width: 34px; height: 34px; 
   padding: 6px !important;
   display:grid; place-items:center; border-radius:999px;
@@ -66,7 +66,7 @@
   transition: background .2s ease, transform .2s ease; */
   cursor: pointer;
 }
-.athlete-{{ section.id }} .nav svg { width: 18px; height: 18px; }
+.athlete-{{ section.id }} .nav .button svg { width: 18px; height: 18px; }
 
 /* ===== Copy items container (fixed position, stable height) ===== */
 .athlete-{{ section.id }} .copy-items {
@@ -156,12 +156,12 @@
         <div class="slider-bottom">
             <!-- Arrows ABOVE copy -->
             <div class="nav">
-                <div class="button-wrapper button-wrapper--button-primary">
+                <div class="button-wrapper button-wrapper--button">
                   <button class="arrow-button button prev" aria-label="Previous">
                     <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </button>
                 </div>
-                <div class="button-wrapper button-wrapper--button-primary">
+                <div class="button-wrapper button-wrapper--button">
                   <button class="arrow-button button next" aria-label="Next">
                     <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </button>
