@@ -6,9 +6,10 @@
 {% comment %} {% if button_collection.products_count > section.settings.max_products %} {% endcomment %}
   
 <div>
-  
+
   {% render 'button', link: button_url %}
 
+  {% if button_collection.products_count > section.settings.max_products %}
   <slideshow-arrows class="resource-list__arrows" data-controls="resourceListCarousel">
     <button class="btn prev" aria-label="Previous slide" on:click="/previous" ref="previous">
       <svg viewBox="0 0 24 24" fill="none">
@@ -29,6 +30,7 @@
       </svg>
     </button>
   </slideshow-arrows>
+  {% endif %}
 
 </div>
 
