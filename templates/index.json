@@ -617,7 +617,7 @@
           "type": "custom-liquid",
           "name": "t:names.custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"athlete-template--20582040010995__athlete_slider_heEMhB\"><div class=\"left-top\"><img src=\"//coverathletes.com/cdn/shop/files/Cover_sm-black-logo.svg;width=120\" alt=\"\" srcset=\"//coverathletes.com/cdn/shop/files/Cover_sm-black-logo.svg;width=120 120w\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\">Our Products</div></div></div>"
+            "custom_liquid": "<div class=\"athlete-template--20582040010995__athlete_slider_heEMhB\"><div class=\"left-top\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\">Our Products</div></div></div>"
           },
           "blocks": {}
         },
