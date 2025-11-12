@@ -10,6 +10,7 @@
 
 {% assign block_settings = block.settings %}
 
+<div class="button--wrapper">
 <a
   {% if link == blank %}
     role="link"
@@ -31,6 +32,7 @@
 >
   {{ block_settings.label }}
 </a>
+</div>
 
 {% stylesheet %}
   .link {
