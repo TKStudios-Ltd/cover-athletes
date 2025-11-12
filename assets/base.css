@@ -4289,3 +4289,17 @@ text-component {
   }
 }
 
+.subtitle-dot {
+  position: relative;
+  padding-left: 1rem;
+}
+.subtitle-dot::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  background: inherit;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+}
