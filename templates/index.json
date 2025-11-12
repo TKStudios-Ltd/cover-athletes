@@ -566,7 +566,8 @@
         "button_Jr78Yy"
       ],
       "custom_css": [
-        ".hero {margin: auto 60px; width: calc(100% - 120px);}"
+        ".hero {margin: auto 60px; width: calc(100% - 120px); border-radius: 20px;}",
+        ".hero__container {border-radius: 20px;}"
       ],
       "name": "t:names.hero",
       "settings": {
