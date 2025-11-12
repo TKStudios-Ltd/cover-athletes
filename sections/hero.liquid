@@ -350,15 +350,14 @@
     overflow: hidden;
     position: relative;
     z-index: var(--layer-base);
-    animation: kenburn-fast 6s ease forwards; 
   }
-  @keyframes kenburn-fast { 
-    0% { 
-      transform: scale(1); 
-    } 
-    100% { 
-      transform: scale(1.075); 
-    } 
+  .hero__kenburn-active {
+    animation: kenburn-fast 6s ease forwards;
+  }
+
+  @keyframes kenburn-fast {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.075); }
   }
 
   .hero__video-wrapper {
