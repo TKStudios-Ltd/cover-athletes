@@ -1290,6 +1290,9 @@ results-list[initialized] {
   position: relative;
   border-radius: 40px;
   padding: 2px;
+  box-shadow: 0 0 50px -25px rgba(0, 0, 0, 0.5);
+}
+.button-wrapper--button {
   background: linear-gradient(
       108.74deg,
       rgba(105, 120, 255, 0.282) 0%,
@@ -1297,7 +1300,15 @@ results-list[initialized] {
       rgba(255, 255, 255, 0.3) 73.96%,
       rgba(13, 220, 170, 0.246) 100%
   );
-  box-shadow: 0 0 50px -25px rgba(0, 0, 0, 0.5);
+}
+.button-wrapper--button-secondary {
+  background: linear-gradient(
+      108.74deg,
+      rgba(105, 120, 255, 0.282) 0%,
+      rgba(0, 0, 0, 0) 36.46%,
+      rgba(0, 0, 0, 0.06) 73.96%,
+      rgba(13, 220, 170, 0.246) 100%
+  );
 }
 
 .button,
