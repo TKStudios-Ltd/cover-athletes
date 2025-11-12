@@ -4383,7 +4383,7 @@ text-component {
 .resource-list__arrows__group slideshow-arrows {
   position: relative; align-items: center; pointer-events: all; gap: 8px;
 }
-/* .resource-list__arrows .arrow-button {
+.resource-list__arrows .arrow-button {
   padding: 10px !important;
-} */
+}
 .resource-list__arrows .arrow-button svg { width: 14px; height: 14px; }
