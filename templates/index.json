@@ -575,10 +575,9 @@
         "button_Jr78Yy"
       ],
       "custom_css": [
-        "@media (min-width: 1200px) {.hero {margin: auto 60px; }}",
+        "@media (min-width: 1200px) {.hero {margin: auto 60px; } .section-content-wrapper {padding: 20px; }}",
         ".hero {margin: auto 25px;}",
         ".hero,.hero__container {border-radius: 20px;}",
-        ".section-content-wrapper {padding: 20px;}",
         ".button {color: #000; text-transform: capitalize !important; font-size: 16px !important; letter-spacing: 0; font-weight: 500; padding: 15px 48px 14px; background: rgba(56, 248, 168, 1);}",
         ".button:hover {background: rgba(56, 248, 168, 0.75);}"
       ],
@@ -607,7 +606,7 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 25,
+        "padding-block-start": 50,
         "padding-block-end": 50
       }
     },
