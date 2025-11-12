@@ -1285,6 +1285,21 @@ results-list[initialized] {
 }
 
 /* Buttons */
+
+.button--wrapper {
+  position: relative;
+  border-radius: 40px;
+  padding: 2px;
+  background: linear-gradient(
+      108.74deg,
+      rgba(105, 120, 255, 0.282) 0%,
+      rgba(255, 255, 255, 0.54) 36.46%,
+      rgba(255, 255, 255, 0.3) 73.96%,
+      rgba(13, 220, 170, 0.246) 100%
+  );
+  box-shadow: 0 0 50px -25px rgba(0, 0, 0, 0.5);
+}
+
 .button,
 .button-secondary,
 button.shopify-payment-button__button--unbranded {
