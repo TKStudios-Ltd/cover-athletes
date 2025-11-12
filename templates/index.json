@@ -785,10 +785,10 @@
       },
       "name": "t:names.products_carousel",
       "settings": {
-        "collection": "frontpage",
+        "collection": "best-sellers",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
-        "max_products": 8,
+        "max_products": 6,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
@@ -798,7 +798,7 @@
         "icons_shape": "circle",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
-        "gap": 100,
+        "gap": 20,
         "color_scheme": "scheme-1",
         "padding-block-start": 100,
         "padding-block-end": 100
