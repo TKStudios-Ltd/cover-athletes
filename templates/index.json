@@ -567,7 +567,8 @@
       ],
       "custom_css": [
         ".hero {margin: auto 60px; width: calc(100% - 120px); border-radius: 20px;}",
-        ".hero__container {border-radius: 20px;}"
+        ".hero__container {border-radius: 20px;}",
+        ".section-content-wrapper {padding: 50px;}"
       ],
       "name": "t:names.hero",
       "settings": {
@@ -594,8 +595,8 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 60,
-        "padding-block-end": 60
+        "padding-block-start": 0,
+        "padding-block-end": 20
       }
     },
     "media_with_content_NEtbwm": {
