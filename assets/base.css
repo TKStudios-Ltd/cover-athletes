@@ -4378,7 +4378,10 @@ text-component {
 }
 
 .resource-list__arrows__group {
-  display: flex;
+  display: flex; 
+}
+.resource-list__arrows__group slideshow-arrows {
+  position: relative; align-items: center;
 }
 .resource-list__arrows .btn {
   width: 34px; height: 34px; display:grid; place-items:center; border-radius:999px;
