@@ -3393,7 +3393,6 @@ slideshow-slides[gutters*='end'] {
 
 .resource-list__carousel .product-media {
   background: #C4C4C4;
-  border-radius: 12px;
 }
 
 slideshow-component[dragging] {
