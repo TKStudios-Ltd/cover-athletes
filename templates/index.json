@@ -653,7 +653,8 @@
         "text_zihKh6"
       ],
       "custom_css": [
-        "@media (min-width: 1200px) {.section-content-wrapper {padding: 100px 35px 50px; }}"
+        "@media (min-width: 1200px) {.section-content-wrapper {padding: 100px 35px 50px; }}",
+        ".h4 {max-width: 300px;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
