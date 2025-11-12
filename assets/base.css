@@ -4290,16 +4290,17 @@ text-component {
 }
 
 .subtitle-dot {
+  font-size: 18px;
   position: relative;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
 }
 .subtitle-dot::before {
   content: "";
   position: absolute;
   left: 0;
   top: 6px;
-  background: inherit;
-  width: 6px;
-  height: 6px;
-  border-radius: 6px;
+  background: black;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
 }
