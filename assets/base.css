@@ -3391,6 +3391,11 @@ slideshow-slides[gutters*='end'] {
   padding-inline-end: var(--gutter-slide-width, 0);
 }
 
+.resource-list__carousel .product-media {
+  background: #C4C4C4;
+  border-radius: 12px;
+}
+
 slideshow-component[dragging] {
   --cursor: grabbing;
 
