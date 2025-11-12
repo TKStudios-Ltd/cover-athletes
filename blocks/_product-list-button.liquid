@@ -4,6 +4,9 @@
 {% assign button_url = button_collection.url %}
 
 {% comment %} {% if button_collection.products_count > section.settings.max_products %} {% endcomment %}
+  
+<div>
+  
   {% render 'button', link: button_url %}
 
   <slideshow-arrows class="resource-list__arrows" data-controls="resourceListCarousel">
@@ -26,7 +29,9 @@
       </svg>
     </button>
   </slideshow-arrows>
-  
+
+</div>
+
 {% comment %} {% endif %} {% endcomment %}
 
 {% schema %}
