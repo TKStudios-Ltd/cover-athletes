@@ -3,7 +3,7 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-.image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; width: calc(100vw - 11px); }
+.image-tabs-{{ section.id }} { --gap: 32px; --pill: {{ section.settings.pill_color }}; width: 100vw; }
 
 /* Grid: 50/50 on desktop */
 .image-tabs-{{ section.id }} .grid {
