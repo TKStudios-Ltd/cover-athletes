@@ -698,7 +698,7 @@
           "name": "t:names.product_card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
+            "product_card_gap": 0,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -745,7 +745,7 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 10,
+                "padding-block-start": 20,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -784,7 +784,8 @@
         }
       },
       "custom_css": [
-        "@media (min-width: 1200px) {.section-resource-list__header, .resource-list {padding-left: 35px; padding-right: 35px; }}"
+        "@media (min-width: 1200px) {.section-resource-list__header, .resource-list {padding-left: 35px; padding-right: 35px; }}",
+        ".user-select-text p {font-weight: 600;}"
       ],
       "name": "t:names.products_carousel",
       "settings": {
