@@ -4042,8 +4042,8 @@ slideshow-arrows .slideshow-control.slideshow-control--style-none {
 @container resource-list-carousel (min-width: 750px) {
   .resource-list__carousel .resource-list__slide {
     --section-slide-width: calc(
-      (100% - (var(--resource-list-column-gap) * (var(--column-count) - 1)) - var(--peek-next-slide-size)) /
-        var(--column-count)
+      (100% - (var(--resource-list-column-gap) * (var(--column-count) - 1))) /
+      var(--column-count)
     );
     --fallback-slide-width: clamp(150px, var(--mobile-card-size, 60cqw), var(--slide-width-max));
     --slide-width: var(--section-slide-width, var(--fallback-slide-width));
