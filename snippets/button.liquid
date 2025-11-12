@@ -10,7 +10,7 @@
 
 {% assign block_settings = block.settings %}
 
-<div class="button--wrapper">
+<div class="button-wrapper button-wrapper--{{ block_settings.style_class }}">
 <a
   {% if link == blank %}
     role="link"
