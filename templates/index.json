@@ -653,7 +653,7 @@
         "text_zihKh6"
       ],
       "custom_css": [
-        "@media (min-width: 1200px) {.section-content-wrapper {max-width: 1200px; margin: auto; padding: 140px 25px; gap: 100px; }}"
+        "@media (min-width: 1200px) {.section-content-wrapper {max-width: 1200px; margin: auto; padding: 100px 30px 50px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
