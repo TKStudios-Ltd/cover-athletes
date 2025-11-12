@@ -565,6 +565,9 @@
         "group_Bftj48",
         "button_Jr78Yy"
       ],
+      "custom_css": [
+        ".hero {margin: auto 60px; width: calc(100% - 120px);}"
+      ],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
