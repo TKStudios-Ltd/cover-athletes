@@ -1362,13 +1362,13 @@ button.shopify-payment-button__button--unbranded {
 
 .button-secondary {
   color: #000;
-  background: linear-gradient(108.74deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background: linear-gradient(108.74deg, rgba(228, 228, 228, 1) 0%, rgba(248, 248, 248, 1) 100%);
   /* font-family: var(--button-font-family-secondary);
   text-transform: var(--button-text-case-secondary);
   border-radius: var(--style-border-radius-buttons-secondary); */
 }
 .button-secondary:hover {
-  background: linear-gradient(108.74deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 100%);
+  background: linear-gradient(108.74deg, rgba(228, 228, 228, 0.5) 0%, rgba(248, 248, 248, 1) 100%);
 }
 
 button.shopify-payment-button__button--unbranded {
