@@ -489,6 +489,14 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "custom_liquid_bDiDqT": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<div class=\"athlete-template--20582040010995__athlete_slider_heEMhB\"><div class=\"left-top\"><img src=\"//coverathletes.com/cdn/shop/files/Cover_sm-white-logo1.svg?v=1762765885&amp;width=120\" alt=\"\" srcset=\"//coverathletes.com/cdn/shop/files/Cover_sm-white-logo1.svg?v=1762765885&amp;width=120 120w\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\">Featured Product</div></div></div>"
+              },
+              "blocks": {}
+            },
             "text_c4przm": {
               "type": "text",
               "settings": {
@@ -508,7 +516,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 10,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -533,7 +541,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 32,
+                "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -541,6 +549,7 @@
             }
           },
           "block_order": [
+            "custom_liquid_bDiDqT",
             "text_c4przm",
             "text_tBh6Jw"
           ]
