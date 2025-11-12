@@ -1406,12 +1406,12 @@ button.shopify-payment-button__button--unbranded {
   --button-border-width: var(--style-border-width-primary);
 }
 
-.button:hover,
+/* .button:hover,
 button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-color: var(--color-primary-button-hover-text);
   --button-background-color: var(--color-primary-button-hover-background);
   --button-border-color: var(--color-primary-button-hover-border);
-}
+} */
 
 .button-secondary {
   --button-color: var(--color-secondary-button-text);
