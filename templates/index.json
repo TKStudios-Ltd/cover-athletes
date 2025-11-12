@@ -784,7 +784,7 @@
         }
       },
       "custom_css": [
-        ".section-resource-list__header,.resource-list {padding-left: 35px; padding-right: 35px;}"
+        "@media (min-width: 1200px) {.section-resource-list__header,.resource-list {padding-left: 35px; padding-right: 35px;}}"
       ],
       "name": "t:names.products_carousel",
       "settings": {
