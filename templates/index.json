@@ -575,7 +575,7 @@
         "button_Jr78Yy"
       ],
       "custom_css": [
-        "@media (min-width: 1200px) {.hero {margin: auto 60px; } .section-content-wrapper {padding: 20px; }}",
+        "@media (min-width: 1200px) {.hero {margin: auto 60px !important; } .section-content-wrapper {padding: 50px 20px !important; }}",
         ".hero {margin: auto 25px;}",
         ".hero,.hero__container {border-radius: 20px;}",
         ".button {color: #000; text-transform: capitalize !important; font-size: 16px !important; letter-spacing: 0; font-weight: 500; padding: 15px 48px 14px; background: rgba(56, 248, 168, 1);}",
