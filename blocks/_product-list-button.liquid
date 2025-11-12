@@ -10,24 +10,28 @@
 
   {% if button_collection.products_count > 4 %}
     <slideshow-arrows class="resource-list__arrows" data-controls="product-collection-slideshow">
-      <button class="btn prev" aria-label="Previous slide">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M15 6l-6 6 6 6"
-            stroke="#fff"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </button>
-      <button class="btn next" aria-label="Next slide">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M9 18l6-6-6-6"
-            stroke="#fff"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </button>
+      <span button-wrapper button-wrapper--button-secondary">
+        <button class="button button--secondary prev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M15 6l-6 6 6 6"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </span>
+      <span button-wrapper button-wrapper--button-secondary">
+        <button class="button button--secondary next" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6"
+              stroke="#fff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </span>
     </slideshow-arrows>
   {% endif %}
 </div>
