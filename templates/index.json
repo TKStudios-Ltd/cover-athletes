@@ -577,7 +577,8 @@
       "custom_css": [
         ".hero {margin: auto 60px; width: calc(100% - 120px); border-radius: 20px;}",
         ".hero__container {border-radius: 20px;}",
-        ".section-content-wrapper {padding: 50px;}"
+        ".section-content-wrapper {padding: 50px;}",
+        ".button-secondary {background: rgba(56, 248, 168, 1) !important;}"
       ],
       "name": "t:names.hero",
       "settings": {
