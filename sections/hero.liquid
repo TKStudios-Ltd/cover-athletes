@@ -326,6 +326,15 @@
   .hero--auto .hero__image,
   .hero--auto .hero__video {
     aspect-ratio: var(--hero-media-aspect-ratio);
+    animation: kenburn 10s ease forwards; 
+  }
+  @keyframes kenburn { 
+    0% { 
+      transform: scale(1); 
+    } 
+    100% { 
+      transform: scale(1.04); 
+    } 
   }
 
   .hero--no-blocks-auto-height {
