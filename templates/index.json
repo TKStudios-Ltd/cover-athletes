@@ -283,9 +283,9 @@
         "title_size": "h2",
         "ken_burns": true,
         "effect": "slide",
-        "autoplay": false,
+        "autoplay": true,
         "delay": 3,
-        "loop": false,
+        "loop": true,
         "color_scheme": "scheme-5"
       }
     },
