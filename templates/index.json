@@ -578,8 +578,8 @@
         ".hero {margin: auto 60px; width: calc(100% - 120px); border-radius: 20px;}",
         ".hero__container {border-radius: 20px;}",
         ".section-content-wrapper {padding: 50px;}",
-        ".button {color: #000; background: rgba(56, 248, 168, 1);}",
-        ".button:hover {background: rgba(56, 248, 168, 0.5);}"
+        ".button {color: #000; text-transform: capitalize !important; font-size: 18px !important; letter-spacing: 0; font-weight: 500; padding: 14px 44px 13px; background: rgba(56, 248, 168, 1);}",
+        ".button:hover {background: rgba(56, 248, 168, 0.75);}"
       ],
       "name": "t:names.hero",
       "settings": {
