@@ -4384,6 +4384,7 @@ text-component {
   position: relative; align-items: center; pointer-events: all; gap: 8px;
 }
 .resource-list__arrows .arrow-button {
+  background: linear-gradient(108.74deg, #e4e4e4, #f8f8f8);
   padding: 10px !important;
 }
 .resource-list__arrows .arrow-button svg { width: 14px; height: 14px; }
