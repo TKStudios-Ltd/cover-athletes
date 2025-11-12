@@ -3391,9 +3391,8 @@ slideshow-slides[gutters*='end'] {
   padding-inline-end: var(--gutter-slide-width, 0);
 }
 
-.resource-list__carousel .product-media {
+.resource-list__carousel .product-media-container--image {
   background: #C4C4C4;
-  overflow: hidden;
 }
 
 slideshow-component[dragging] {
