@@ -4378,17 +4378,12 @@ text-component {
 }
 
 .resource-list__arrows__group {
-  display: flex; 
+  display: flex; gap: 12px;
 }
 .resource-list__arrows__group slideshow-arrows {
   position: relative; align-items: center; pointer-events: all;
 }
-.resource-list__arrows .btn {
-  width: 34px; height: 34px; display:grid; place-items:center; border-radius:999px;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-  transition: background .2s ease, transform .2s ease;
-  cursor: pointer; backdrop-filter: blur(8px);
+.resource-list__arrows .arrow-button {
+  padding: 12px !important;
 }
-.resource-list__arrows .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
-.resource-list__arrows svg { width: 14px; height: 14px; }
+.resource-list__arrows .arrow-button svg { width: 14px; height: 14px; }
