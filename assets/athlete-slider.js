@@ -139,3 +139,25 @@
   });
   document.addEventListener('DOMContentLoaded', () => boot());
 })();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const heroEls = document.querySelectorAll('.hero__image, .hero__video, .hero__video-poster');
+
+  if (!heroEls.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('hero__kenburn-active');
+      } else {
+        // optional: remove to replay each time it re-enters
+        entry.target.classList.remove('hero__kenburn-active');
+      }
+    });
+  }, {
+    threshold: 0.3 // trigger when ~30% visible
+  });
+
+  heroEls.forEach(el => observer.observe(el));
+});
