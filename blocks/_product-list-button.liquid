@@ -8,7 +8,7 @@
 <div class="resource-list__arrows__group">
   {% render 'button', link: button_url %}
 
-  {% if button_collection.products_count > section.settings.max_products %}
+  {% if button_collection.products_count > 4 %}
     <slideshow-arrows class="resource-list__arrows" data-controls="product-collection-slideshow">
       <button class="btn prev" aria-label="Previous slide">
         <svg viewBox="0 0 24 24" fill="none">
