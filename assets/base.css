@@ -1286,7 +1286,7 @@ results-list[initialized] {
 
 /* Buttons */
 
-.button--wrapper {
+.button-wrapper {
   position: relative;
   border-radius: 40px;
   padding: 2px;
