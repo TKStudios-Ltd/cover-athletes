@@ -58,14 +58,15 @@
 /* ===== Arrows (above copy) ===== */
 .athlete-{{ section.id }} .nav { display:flex; gap:10px; margin-bottom: 25px; position: relative; z-index: 5; }
 .athlete-{{ section.id }} .nav .btn {
-  width: 34px; height: 34px; display:grid; place-items:center; border-radius:999px;
-  background: rgba(255,255,255,.12);
+  width: 34px; height: 34px; 
+  padding: 6px !important;
+  display:grid; place-items:center; border-radius:999px;
+  /* background: rgba(255,255,255,.12);
   border: 1px solid rgba(255,255,255,.18);
-  transition: background .2s ease, transform .2s ease;
-  cursor: pointer; backdrop-filter: blur(8px);
+  transition: background .2s ease, transform .2s ease; */
+  cursor: pointer;
 }
-.athlete-{{ section.id }} .nav .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
-.athlete-{{ section.id }} .nav svg { width: 14px; height: 14px; }
+.athlete-{{ section.id }} .nav svg { width: 18px; height: 18px; }
 
 /* ===== Copy items container (fixed position, stable height) ===== */
 .athlete-{{ section.id }} .copy-items {
