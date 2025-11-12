@@ -1344,9 +1344,10 @@ button.shopify-payment-button__button--unbranded {
 }
 
 .button {
-  font-family: var(--button-font-family-primary);
+  background: linear-gradient(135deg, rgba(68,68,68,1) 0%, rgba(37,37,37,1) 100%);
+  /* font-family: var(--button-font-family-primary);
   text-transform: var(--button-text-case-primary);
-  border-radius: var(--style-border-radius-buttons-primary);
+  border-radius: var(--style-border-radius-buttons-primary); */
 }
 .button:hover {
   transition: background ease .5s;
@@ -1398,13 +1399,13 @@ input:not(:placeholder-shown)::placeholder {
   cursor: not-allowed;
 }
 
-.button,
+/* .button,
 button.shopify-payment-button__button--unbranded {
   --button-color: var(--color-primary-button-text);
   --button-background-color: var(--color-primary-button-background);
   --button-border-color: var(--color-primary-button-border);
   --button-border-width: var(--style-border-width-primary);
-}
+} */
 
 /* .button:hover,
 button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
@@ -1413,7 +1414,7 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-border-color: var(--color-primary-button-hover-border);
 } */
 
-.button-secondary {
+/* .button-secondary {
   --button-color: var(--color-secondary-button-text);
   --button-background-color: var(--color-secondary-button-background);
   --button-border-color: var(--color-secondary-button-border);
@@ -1424,7 +1425,7 @@ button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
   --button-color: var(--color-secondary-button-hover-text);
   --button-background-color: var(--color-secondary-button-hover-background);
   --button-border-color: var(--color-secondary-button-hover-border);
-}
+} */
 
 /* Needed to override the default Shopify styles */
 button.shopify-payment-button__button--unbranded:hover:not([disabled]) {
