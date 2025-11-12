@@ -654,7 +654,7 @@
       ],
       "custom_css": [
         "@media (min-width: 1200px) {.section-content-wrapper {padding: 100px 35px 50px; }}",
-        ".h4 {max-width: 300px; line-height: 1.2;}"
+        "h3 {max-width: 300px; line-height: 1.2;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
