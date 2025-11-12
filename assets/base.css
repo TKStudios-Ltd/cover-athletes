@@ -663,7 +663,7 @@ p:empty {
 }
 @keyframes kenburn-slow { 
   0% { 
-    transform: scale(15); 
+    transform: scale(1); 
   } 
   100% { 
     transform: scale(1.05); 
