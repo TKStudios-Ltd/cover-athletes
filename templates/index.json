@@ -625,11 +625,11 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>New arrivals</h2>",
+            "text": "<h3>Protecting The Sport You Love</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "rte",
+            "type_preset": "h4",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -653,7 +653,7 @@
         "text_zihKh6"
       ],
       "custom_css": [
-        "@media (min-width: 1200px) {.section-content-wrapper {max-width: 1200px; margin: auto; padding: 100px 30px 50px; }}"
+        "@media (min-width: 1200px) {.section-content-wrapper {padding: 100px 35px 50px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -681,7 +681,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 100,
-        "padding-block-end": 50
+        "padding-block-end": 0
       }
     },
     "product_list_pXTn7y": {
