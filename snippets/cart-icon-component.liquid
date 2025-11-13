@@ -14,7 +14,7 @@
   >
     {{ 'icon-cart.svg' | inline_asset_content }}
   </span>
-  {% comment %} {% render 'cart-bubble', limit: 100, live_region: true, test_id: test_id %} {% endcomment %}
+  {% render 'cart-bubble', limit: 100, live_region: true, test_id: test_id %}
 </cart-icon>
 <cart-text>
   <span class="header-actions__cart-text">Cart ({{ cart.item_count }})</span>
