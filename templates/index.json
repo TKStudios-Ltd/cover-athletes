@@ -1364,7 +1364,7 @@
         "group_bKG6AH"
       ],
       "custom_css": [
-        ".group-block--width-fit-content {max-width: 960px; margin: 60px auto;}"
+        ".group-block--width-fit-content {max-width: 975px; margin: 60px auto;}"
       ],
       "name": "t:names.custom_section",
       "settings": {
