@@ -849,12 +849,21 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "custom_liquid_M8idUi": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "{%- assign p = product | default: card_product | default: item -%}\n{%- assign v = p.selected_or_first_available_variant -%}\n\n<div class=\"product-card-specs\">\n  {%- if p.metafields.custom.impact_resistance != blank -%}\n    <div class=\"spec\">\n      <span class=\"spec__label\">Impact resistance</span>\n      <span class=\"spec__value\">{{ p.metafields.custom.impact_resistance }}</span>\n    </div>\n  {%- endif -%}\n\n  {%- if v and v.weight > 0 -%}\n    <div class=\"spec\">\n      <span class=\"spec__label\">Weight</span>\n      <span class=\"spec__value\">{{ v.weight | weight_with_unit }}</span>\n    </div>\n  {%- endif -%}\n</div>"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "product_card_gallery_6JMMWL",
             "product_title_BjNDam",
-            "price_hpiy3d"
+            "price_hpiy3d",
+            "custom_liquid_M8idUi"
           ]
         }
       },
