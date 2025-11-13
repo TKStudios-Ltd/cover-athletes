@@ -4391,4 +4391,5 @@ text-component {
 footer .menu__heading__default {
   font-size: 11px;
   color: #B6B6B6;
+  letter-spacing: 0.25px;
 }
