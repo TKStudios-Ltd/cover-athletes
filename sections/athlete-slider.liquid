@@ -95,10 +95,15 @@
 .athlete-{{ section.id }} .quote { 
   font-size: 22px; line-height: 1.35; opacity:1; 
   @media (max-width: 749px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
-.athlete-{{ section.id }} .person { margin-top: 30px; font-size: 18px; opacity:1; }
+.athlete-{{ section.id }} .person { 
+  margin-top: 30px; font-size: 18px; opacity:1; 
+  @media (max-width: 749px) {
+    font-size: 16px;
+  }
+}
 
 /* Full width inside section wrappers */
 .section .athlete-{{ section.id }} { width: 100%; }
