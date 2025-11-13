@@ -29,7 +29,7 @@
           name="contact[name]"
           autocapitalize="words"
           autocomplete="name"
-          placeholder="NAME"
+          placeholder="Name"
           required
         >
         </div>
@@ -41,7 +41,7 @@
         style="--border-width: {{ block_settings.border_width }}px; --border-radius: {{ block_settings.border_radius }}px;"
       >
         <label for="EmailInput-{{ block.id }}" class="visually-hidden">
-          Email Address*
+          Email
         </label>
         <div class="email-signup__field-wrapper">
         <input
@@ -52,7 +52,7 @@
           autocorrect="off"
           autocapitalize="off"
           autocomplete="email"
-          placeholder="EMAIL"
+          placeholder="Email Address*"
           required
           {% if form.errors %}
             autofocus
