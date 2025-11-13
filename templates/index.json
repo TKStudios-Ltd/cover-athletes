@@ -1311,7 +1311,7 @@
                       "settings": {
                         "label": "Submit",
                         "style_class": "button-secondary",
-                        "width": "custom",
+                        "width": "fit-content",
                         "custom_width": 100,
                         "width_mobile": "fit-content",
                         "custom_width_mobile": 100
