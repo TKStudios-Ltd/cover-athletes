@@ -78,15 +78,7 @@
           {% if block_settings.display_type == 'text' %}
             {{ block_settings.label }}
           {% else %}
-            <svg
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              focusable="false"
-              aria-hidden="true"
-              class="email-signup__button-icon"
-            >
-              {% render 'icon', icon: 'arrow' %}
-            </svg>
+            <svg viewBox="0 0 24 24" class="email-signup__button-icon" fill="none"><path d="M9 18l6-6-6-6" stroke="#FFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
           {% endif %}
         </button>
         </div>
