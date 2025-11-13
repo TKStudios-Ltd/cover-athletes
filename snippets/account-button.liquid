@@ -48,7 +48,6 @@
 
 {% stylesheet %}
   .account-button {
-    padding: 12px 20px;
     color: var(--color-foreground);
     appearance: none;
     border: none;
@@ -60,9 +59,14 @@
     align-content: center;
     transition: color var(--animation-speed) var(--animation-easing);
     anchor-name: --account-button-trigger;
+    @media screen and (min-width: 750px) {
+      padding: 12px 20px;
+    }
   }
   .account-button .account-button__icon {
-    display: none;
+    @media screen and (min-width: 750px) {
+      display: none;
+    }
   }
   .account-button .account-button__text {
     font-family: 'Graphik', sans-serif;
