@@ -4389,11 +4389,12 @@ text-component {
 .resource-list__arrows .arrow-button svg { width: 18px; height: 18px; }
 
 footer .menu__heading__default,
-footer .email-signup__heading {
+footer .email-signup__heading.paragraph {
   font-size: 11px;
   color: #B6B6B6;
   letter-spacing: 0.25px;
 }
-footer .menu__item.paragraph a {
+footer .menu__item.paragraph a,
+footer .menu__item.paragraph {
   font-size: 13px;
 }
