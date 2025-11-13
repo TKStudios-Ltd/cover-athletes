@@ -126,7 +126,7 @@
                         id="HeaderDrawer-{{ link.handle }}"
                         class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset"
                       >
-                        <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+                        <span class="menu-drawer__menu-item-text wrap-text h2">{{ link.title | escape }}</span>
                         <span class="svg-wrapper icon-plus">
                           {{- 'icon-plus.svg' | inline_asset_content -}}
                         </span>
@@ -167,7 +167,7 @@
                                   sizes: 'auto, 400px'
                                 %}
                               {% endif %}
-                              <span class="menu-drawer__menu-item-text wrap-text">{{ childlink.title | escape }}</span>
+                              <span class="menu-drawer__menu-item-text wrap-text h2">{{ childlink.title | escape }}</span>
                             </a>
                           </li>
                         {%- endfor -%}
@@ -220,7 +220,7 @@
                               sizes: 'auto, 400px'
                             %}
                           {% endif %}
-                          <span class="menu-drawer__menu-item-text wrap-text">{{ childlink.title | escape }}</span>
+                          <span class="menu-drawer__menu-item-text wrap-text h2">{{ childlink.title | escape }}</span>
                         </a>
                       </li>
                     {%- endfor -%}
@@ -237,7 +237,7 @@
                       aria-current="page"
                     {% endif %}
                   >
-                    <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+                    <span class="menu-drawer__menu-item-text wrap-text h2">{{ link.title | escape }}</span>
                   </a>
                 {% endif %}
               </li>
@@ -266,7 +266,7 @@
                       class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
                       on:click="header-drawer/open"
                     >
-                      <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+                      <span class="menu-drawer__menu-item-text wrap-text h2">{{ link.title | escape }}</span>
                       <span class="svg-wrapper icon-caret icon-caret--forward">
                         {{- 'icon-caret.svg' | inline_asset_content -}}
                       </span>
@@ -288,7 +288,7 @@
                             <span class="svg-wrapper icon-caret icon-caret--backward">
                               {{- 'icon-caret.svg' | inline_asset_content -}}
                             </span>
-                            <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+                            <span class="menu-drawer__menu-item-text wrap-text h2">{{ link.title | escape }}</span>
                           </button>
                           <button
                             class="button close-button menu-drawer__close-button"
@@ -348,7 +348,7 @@
                                       sizes: 'auto, 400px'
                                     %}
                                   {% endif %}
-                                  <span class="menu-drawer__menu-item-text wrap-text">
+                                  <span class="menu-drawer__menu-item-text wrap-text h2">
                                     {{- childlink.title | escape -}}
                                   </span>
                                 </a>
@@ -372,7 +372,7 @@
                                         id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                         class="menu-drawer__menu-item menu-drawer__menu-item--parent focus-inset"
                                       >
-                                        <span class="menu-drawer__menu-item-text wrap-text">
+                                        <span class="menu-drawer__menu-item-text wrap-text h2">
                                           {{- childlink.title | escape -}}
                                         </span>
                                         <span class="svg-wrapper icon-plus">
@@ -415,7 +415,7 @@
                                                   sizes: 'auto, 400px'
                                                 %}
                                               {% endif %}
-                                              <span class="menu-drawer__menu-item-text wrap-text">
+                                              <span class="menu-drawer__menu-item-text wrap-text h2">
                                                 {{- grandchildlink.title | escape -}}
                                               </span>
                                             </a>
@@ -433,7 +433,7 @@
                                     href="{{ childlink.url }}"
                                     class="menu-drawer__menu-item menu-drawer__menu-item--parent focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
                                   >
-                                    <span class="menu-drawer__menu-item-text wrap-text">
+                                    <span class="menu-drawer__menu-item-text wrap-text h2">
                                       {{- childlink.title | escape -}}
                                     </span>
                                   </a>
@@ -473,7 +473,7 @@
                                               sizes: 'auto, 400px'
                                             %}
                                           {% endif %}
-                                          <span class="menu-drawer__menu-item-text wrap-text">
+                                          <span class="menu-drawer__menu-item-text wrap-text h2">
                                             {{- grandchildlink.title | escape -}}
                                           </span>
                                         </a>
@@ -551,7 +551,7 @@
                       aria-current="page"
                     {% endif %}
                   >
-                    <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+                    <span class="menu-drawer__menu-item-text wrap-text h2">{{ link.title | escape }}</span>
                   </a>
                 {%- endif -%}
               </li>
