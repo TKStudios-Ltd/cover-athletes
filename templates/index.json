@@ -1369,8 +1369,7 @@
       ],
       "custom_css": [
         "@media (min-width: 750px) {.group-block--width-fit-content {max-width: 960px; margin: 60px auto; }}",
-        ".section-content-wrapper {padding-left: 25px; padding-right: 25px;}",
-        "@media (max-width: 749px) {.mobile-column .text-block p {font-size: 24px; }}"
+        ".section-content-wrapper {padding-left: 25px; padding-right: 25px;}"
       ],
       "name": "t:names.custom_section",
       "settings": {
