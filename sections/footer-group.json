@@ -267,6 +267,9 @@
         "email_signup_tBDzRh",
         "group_zFr6Y4"
       ],
+      "custom_css": [
+        "@media (max-width: 749px) {.mobile-column {gap: 0; }}"
+      ],
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
