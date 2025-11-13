@@ -126,7 +126,7 @@
                   "settings": {
                     "menu": "footer-shop",
                     "heading": "Shop",
-                    "menu_spacing": 4,
+                    "menu_spacing": 2,
                     "show_as_accordion": true,
                     "accordion_icon": "caret",
                     "accordion_dividers": true,
@@ -147,7 +147,7 @@
                   "settings": {
                     "menu": "footer-support-hub",
                     "heading": "Support Hub",
-                    "menu_spacing": 4,
+                    "menu_spacing": 2,
                     "show_as_accordion": true,
                     "accordion_icon": "caret",
                     "accordion_dividers": true,
@@ -214,7 +214,7 @@
                   "settings": {
                     "menu": "footer-follow-us",
                     "heading": "Follow Us",
-                    "menu_spacing": 4,
+                    "menu_spacing": 2,
                     "show_as_accordion": true,
                     "accordion_icon": "caret",
                     "accordion_dividers": true,
