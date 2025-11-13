@@ -566,7 +566,7 @@
         "group_HCi8Gp"
       ],
       "custom_css": [
-        "@media (max-width: 749px) {.layout-panel-flex--row .layout-panel-flex--row {flex-direction: row; display: flex; flex-wrap: wrap; } p {font-size: 8px; }}"
+        "@media (max-width: 749px) {.layout-panel-flex--row .layout-panel-flex--row {flex-direction: row; } p {font-size: 8px; } .icon-block img {width: 28px !important; }}"
       ],
       "name": "t:names.multicolumn",
       "settings": {
