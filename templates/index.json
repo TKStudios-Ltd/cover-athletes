@@ -1312,7 +1312,7 @@
                         "label": "Submit",
                         "style_class": "button-secondary",
                         "width": "custom",
-                        "custom_width": 50,
+                        "custom_width": 100,
                         "width_mobile": "fit-content",
                         "custom_width_mobile": 100
                       },
