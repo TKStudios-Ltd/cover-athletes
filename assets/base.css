@@ -4387,3 +4387,8 @@ text-component {
   padding: 8px !important;
 }
 .resource-list__arrows .arrow-button svg { width: 18px; height: 18px; }
+
+footer .menu__heading__default {
+  font-size: 11px;
+  color: #B6B6B6;
+}
