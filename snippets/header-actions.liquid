@@ -200,7 +200,9 @@
   }
 
   .header__column--right header-actions {
-    gap: var(--gap-md);
+    @media screen and (min-width: 750px) {
+      gap: var(--gap-md);
+    }
     /* margin-inline-start: calc(var(--gap-md) * -1); */
   }
 
