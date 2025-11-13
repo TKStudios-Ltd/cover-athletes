@@ -28,7 +28,7 @@
             "border_width": 1,
             "border_radius": 0,
             "input_type_preset": "paragraph",
-            "style_class": "button-secondary",
+            "style_class": "button",
             "display_type": "arrow",
             "label": "OK",
             "integrated_button": true,
