@@ -40,6 +40,9 @@
     min-height: 100vh; justify-content: space-between;
     padding: 25px;
     max-width: 680px;
+    @media (max-width: 749px) {
+      min-height: 600px;
+    }
 }
 @media (min-width: 1200px) { .athlete-{{ section.id }} .content { padding: 60px !important; } }
 .athlete-{{ section.id }} .slider-bottom { width: 100%; }
