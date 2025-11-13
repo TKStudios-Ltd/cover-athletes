@@ -41,7 +41,7 @@
 .rd-tabs-{{ section.id }} .heading strong { 
   font-size: 38px; font-weight: 400; 
   @media (max-width: 749px) {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 
@@ -76,6 +76,9 @@
   overflow: hidden;
   position: relative;
   margin-top: -25px;
+  @media (max-width: 749px) {
+    aspect-ratio: 1 / 1;
+  }
 }
 .rd-tabs-{{ section.id }} .panel{
   position:absolute; inset:0; opacity:0; visibility:hidden; transition: opacity .35s ease;
