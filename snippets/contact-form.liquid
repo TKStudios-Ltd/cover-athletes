@@ -24,103 +24,132 @@
 
   {%- form 'contact', id: form_id, class: 'contact-form__form' -%}
     {%- if form.errors -%}
-      <div
-        class="contact-form__error"
-        tabindex="-1"
-        autofocus
-      >
+      <div class="contact-form__error" tabindex="-1" autofocus>
         {{- 'icon-error.svg' | inline_asset_content -}}
-
-        {{- form.errors.translated_fields.email | capitalize }}
-        {{ form.errors.messages.email -}}
+        {{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}
       </div>
     {%- endif -%}
 
     {%- if form.posted_successfully? -%}
-      <div
-        class="contact-form__success"
-        tabindex="-1"
-        autofocus
-      >
+      <div class="contact-form__success" tabindex="-1" autofocus>
         {{- 'icon-checkmark.svg' | inline_asset_content -}}
         {{- 'blocks.contact_form.post_success' | t -}}
       </div>
     {%- endif -%}
 
-    <div class="contact-form__form-row">
-      <label
-        class="visually-hidden"
-        for="ContactForm-name"
-      >
-        {{- 'blocks.contact_form.name' | t -}}
-      </label>
-      <input
-        type="text"
-        id="ContactForm-name"
-        class="contact-form__input"
-        autocomplete="name"
-        name="contact[name]"
-        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-        placeholder="{{ 'blocks.contact_form.name' | t }}"
-      >
+    <div class="contact-form__grid">
+      <!-- Full Name -->
+      <div class="field">
+        <label class="visually-hidden" for="{{ form_id }}-full-name">Full Name</label>
+        <input
+          type="text"
+          id="{{ form_id }}-full-name"
+          class="contact-form__input"
+          name="contact[Full Name]"
+          autocomplete="name"
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+          placeholder="Full Name"
+        >
+      </div>
 
-      <label
-        class="visually-hidden"
-        for="ContactForm-email"
-      >
-        {{- 'blocks.contact_form.email' | t -}}
-        <span aria-hidden="true">*</span></label
-      >
-      <input
-        type="email"
-        id="ContactForm-email"
-        class="contact-form__input"
-        autocomplete="email"
-        name="contact[email]"
-        spellcheck="false"
-        autocapitalize="off"
-        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-        aria-required="true"
+      <!-- Email (required) -->
+      <div class="field">
+        <label class="visually-hidden" for="{{ form_id }}-email">Email</label>
+        <input
+          type="email"
+          id="{{ form_id }}-email"
+          class="contact-form__input"
+          name="contact[email]"
+          autocomplete="email"
+          spellcheck="false"
+          autocapitalize="off"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          aria-required="true"
+          {% if form.errors contains 'email' %}aria-invalid="true" aria-describedby="{{ form_id }}-email-error"{% endif %}
+          placeholder="Email"
+          required
+        >
         {% if form.errors contains 'email' %}
-          aria-invalid="true"
-          aria-describedby="ContactForm-email-error"
+          <small id="{{ form_id }}-email-error" class="contact-form__error-text">Please enter a valid email.</small>
         {% endif %}
-        placeholder="{{ 'blocks.contact_form.email' | t }}"
-      >
+      </div>
+
+      <!-- Role -->
+      <div class="field">
+        <label class="visually-hidden" for="{{ form_id }}-role">Role</label>
+        <input
+          type="text"
+          id="{{ form_id }}-role"
+          class="contact-form__input"
+          name="contact[Role]"
+          placeholder="Role"
+        >
+      </div>
+
+      <!-- Two-up row: Type of Player + Quantity -->
+      <div class="field field--two">
+        <div class="field__half">
+          <label class="visually-hidden" for="{{ form_id }}-player-type">Type of Player</label>
+          <input
+            type="text"
+            id="{{ form_id }}-player-type"
+            class="contact-form__input"
+            name="contact[Type of Player]"
+            placeholder="Type of Player"
+          >
+        </div>
+        <div class="field__half">
+          <label class="visually-hidden" for="{{ form_id }}-quantity">Quantity</label>
+          <input
+            type="number"
+            id="{{ form_id }}-quantity"
+            class="contact-form__input"
+            name="contact[Quantity]"
+            inputmode="numeric"
+            min="1"
+            step="1"
+            placeholder="Quantity"
+          >
+        </div>
+      </div>
+
+      <!-- Mobile Ph Number -->
+      <div class="field">
+        <label class="visually-hidden" for="{{ form_id }}-mobile">Mobile Ph Number</label>
+        <input
+          type="tel"
+          id="{{ form_id }}-mobile"
+          class="contact-form__input"
+          name="contact[Mobile Ph Number]"
+          autocomplete="tel"
+          placeholder="Mobile Ph Number"
+        >
+      </div>
+
+      <!-- Country -->
+      <div class="field">
+        <label class="visually-hidden" for="{{ form_id }}-country">Country</label>
+        <input
+          type="text"
+          id="{{ form_id }}-country"
+          class="contact-form__input"
+          name="contact[Country]"
+          placeholder="Country"
+        >
+      </div>
+
+      <!-- How did you hear about us -->
+      <div class="field">
+        <label class="visually-hidden" for="{{ form_id }}-referrer">How did you hear about us</label>
+        <input
+          type="text"
+          id="{{ form_id }}-referrer"
+          class="contact-form__input"
+          name="contact[How did you hear about us]"
+          placeholder="How did you hear about us"
+        >
+      </div>
     </div>
-
-    <label
-      class="visually-hidden"
-      for="ContactForm-phone"
-    >
-      {{- 'blocks.contact_form.phone' | t -}}
-    </label>
-    <input
-      type="tel"
-      id="ContactForm-phone"
-      class="contact-form__input"
-      autocomplete="tel"
-      name="contact[phone]"
-      pattern="[0-9\-]*"
-      value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-      placeholder="{{ 'blocks.contact_form.phone' | t }}"
-    >
-
-    <label
-      class="visually-hidden"
-      for="ContactForm-body"
-    >
-      {{- 'blocks.contact_form.comment' | t -}}
-    </label>
-    <textarea
-      rows="10"
-      id="ContactForm-body"
-      class="contact-form__input contact-form__input--textarea"
-      name="contact[body]"
-      placeholder="{{ 'blocks.contact_form.comment' | t }}"
-    >
-      {{- form.body -}}
-    </textarea>
 
     {{ submit_button }}
   {%- endform -%}
