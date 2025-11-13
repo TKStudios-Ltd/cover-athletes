@@ -1094,7 +1094,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
+            "gap": 39,
             "width": "custom",
             "custom_width": 80,
             "width_mobile": "fill",
@@ -1215,11 +1215,38 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "text_4YAjQe": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<p>The future of sports is here </p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-body--family)",
+                    "font_size": "2.5rem",
+                    "line_height": "tight",
+                    "letter_spacing": "tight",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-primary)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_wyD4K9",
-                "text_TJkVCP"
+                "text_TJkVCP",
+                "text_4YAjQe"
               ]
             },
             "group_xFkkAi": {
