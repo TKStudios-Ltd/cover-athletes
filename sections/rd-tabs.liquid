@@ -38,7 +38,12 @@
     font-size: 20px;
   }
 }
-.rd-tabs-{{ section.id }} .heading strong { font-size: 38px; font-weight: 400; }
+.rd-tabs-{{ section.id }} .heading strong { 
+  font-size: 38px; font-weight: 400; 
+  @media (max-width: 749px) {
+    font-size: 24px;
+  }
+}
 
 /* Pills */
 .rd-tabs-{{ section.id }} .pills--outer{ position: relative; z-index: 2; width:100%; display:flex; justify-content:center; }
