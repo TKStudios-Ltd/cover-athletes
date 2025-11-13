@@ -4401,9 +4401,9 @@ footer .menu__item.paragraph {
 }
 
 @media (max-width: 749px) {
-  .text-block--AQWUzQVNpVTRsRHBue__text_wyD4K9 .text-block p,
-  .text-block--AOWowc1ZLK2MrcXdCR__text_TJkVCP .text-block p,
-  .text-block--AK3NFSUFlY3R6Z2lSM__text_4YAjQe .text-block p {
+  .text-block--AQWUzQVNpVTRsRHBue__text_wyD4K9 p,
+  .text-block--AOWowc1ZLK2MrcXdCR__text_TJkVCP p,
+  .text-block--AK3NFSUFlY3R6Z2lSM__text_4YAjQe p {
     font-size: 24px;
   }
 }
