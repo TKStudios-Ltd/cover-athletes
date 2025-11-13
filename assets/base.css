@@ -848,9 +848,9 @@ h3,
 h4,
 .h4.h4,
 .text-block.h4 > * {
-  font-family: var(--font-h4--family);
-  font-style: var(--font-h4--style);
-  font-weight: var(--font-h4--weight);
+  font-family: 'Monument Extended', sans-serif !important;
+  font-style: var(--font-h3--style);
+  font-weight: 400 !important;
   font-size: var(--font-h4--size);
   line-height: var(--font-h4--line-height);
   letter-spacing: var(--font-h4--letter-spacing);
