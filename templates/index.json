@@ -1056,7 +1056,8 @@
       },
       "custom_css": [
         "@media (min-width: 1200px) {.section-resource-list__header, .resource-list {padding-left: 35px; padding-right: 35px; }}",
-        ".user-select-text p {font-weight: 600;}"
+        ".user-select-text p {font-weight: 600;}",
+        ".product-card__content .group-block {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
       ],
       "name": "t:names.products_carousel",
       "settings": {
