@@ -3389,7 +3389,7 @@ slideshow-slides[gutters*='start'] {
 }
 
 slideshow-slides[gutters*='end'] {
-  padding-inline-end: var(--gutter-slide-width, 0);
+  padding-inline-end: calc(var(--gutter-slide-width, 0) - 5px);
 }
 
 .resource-list__carousel .product-media-container--image img {
