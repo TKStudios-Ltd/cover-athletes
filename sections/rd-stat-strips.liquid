@@ -2,62 +2,50 @@
 
 <section
   id="rd-stat-strips-{{ section.id }}"
-  class="rd-stat-strips color-{{ section.settings.color_scheme }}{% if section.settings.full_width %} rd-stat-strips--full{% else %} rd-stat-strips--page{% endif %}"
+  class="rd-stat-strips color-{{ section.settings.color_scheme }}"
   data-component="rd-stat-strips"
   data-section-id="{{ section.id }}"
 >
-
   <div class="rd-stat-strips__inner">
+
     <div class="rd-stat-strips__rows">
 
       {% for block in section.blocks %}
         {% if block.type == 'row' %}
-          {% liquid
-            assign b = block.settings
-          %}
+          {% assign b = block.settings %}
 
           <article
             class="rd-row rd-row--{{ b.direction }}"
             {{ block.shopify_attributes }}
           >
 
-            <!-- Left text -->
-            {% if b.left_text != blank %}
-              <div class="rd-row__text-left">
-                {{ b.left_text }}
-              </div>
-            {% endif %}
-
-            <!-- Middle image -->
-            <div class="rd-row__image">
-              {% if b.image != blank %}
+            <!-- Background pill image (fills entire row) -->
+            {% if b.image != blank %}
+              <div class="rd-row__img-wrap">
                 {{ b.image
                   | image_url: width: 2000
                   | image_tag:
                       loading: 'lazy',
-                      class: 'rd-row__img',
-                      sizes: '(min-width: 990px) 70vw, 100vw',
-                      widths: '600, 900, 1200, 1600, 2000'
+                      class: 'rd-row__img'
                 }}
-              {% endif %}
-            </div>
-
-            <!-- Right text -->
-            {% if b.right_text != blank %}
-              <div class="rd-row__text-right">
-                {{ b.right_text }}
               </div>
             {% endif %}
 
-          </article>
+            <!-- Left + Right text ON TOP -->
+            <div class="rd-row__content">
+              <span class="rd-row__text-left">{{ b.left_text }}</span>
+              <span class="rd-row__text-right">{{ b.right_text }}</span>
+            </div>
 
+          </article>
         {% endif %}
       {% endfor %}
 
     </div>
-  </div>
 
+  </div>
 </section>
+
 
 
 <style>
