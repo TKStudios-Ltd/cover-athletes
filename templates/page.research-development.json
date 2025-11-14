@@ -170,7 +170,7 @@
             "trailing_text": "4500 HOURS",
             "image": "shopify://shop_images/Cover_FRow_1.png",
             "direction": "rtl",
-            "compact": false
+            "compact": true
           }
         },
         "row_WGAbpa": {
@@ -180,7 +180,7 @@
             "trailing_text": "300KM FAST BALLS",
             "image": "shopify://shop_images/Cover_FRow_2.png",
             "direction": "ltr",
-            "compact": false
+            "compact": true
           }
         }
       },
