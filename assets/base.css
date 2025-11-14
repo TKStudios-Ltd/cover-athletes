@@ -4407,3 +4407,10 @@ footer .menu__item.paragraph {
     font-size: 24px;
   }
 }
+
+.icon-text-inline {
+  display: flex;
+}
+.icon-text-inline img {
+  height: 14px;
+}
