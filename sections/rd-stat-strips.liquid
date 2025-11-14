@@ -12,36 +12,38 @@
 
       <div class="rd-row rd-row--{{ b.direction }}" {{ block.shopify_attributes }}>
 
-        {% if b.left_text != blank %}
-          <div class="rd-row__left">
-            {{ b.left_text }}
+        {% if b.direction == 'rtl' %}
+          <!-- RTL: TEXT GROUP → IMAGE -->
+          <div class="rd-row__textgroup">
+            <span class="rd-row__green">{{ b.green_text }}</span>
+            <span class="rd-row__black">{{ b.black_text }}</span>
           </div>
-        {% endif %}
 
-        <div class="rd-row__pill">
-          <div class="rd-row__pill-inner">
-            {% if b.image %}
-              {{ b.image
-                | image_url: width: 1600
-                | image_tag: class: 'rd-row__image'
-              }}
-            {% endif %}
+          <div class="rd-row__pill">
+            <div class="rd-row__pill-inner">
+              {{ b.image | image_url: width: 1600 | image_tag: class:'rd-row__image' }}
+            </div>
           </div>
-        </div>
 
-        {% if b.right_text != blank %}
-          <div class="rd-row__right">
-            {{ b.right_text }}
+        {% else %}
+          <!-- LTR: IMAGE → TEXT GROUP -->
+          <div class="rd-row__pill">
+            <div class="rd-row__pill-inner">
+              {{ b.image | image_url: width: 1600 | image_tag: class:'rd-row__image' }}
+            </div>
+          </div>
+
+          <div class="rd-row__textgroup">
+            <span class="rd-row__green">{{ b.green_text }}</span>
+            <span class="rd-row__black">{{ b.black_text }}</span>
           </div>
         {% endif %}
 
       </div>
-
     {% endfor %}
 
   </div>
 </section>
-
 
 
 <style>
@@ -130,9 +132,9 @@
       "label": "Color scheme",
       "default": "background-1",
       "options": [
-        { "value": "background-1", "label": "Default" },
-        { "value": "background-2", "label": "Inverse" },
-        { "value": "background-3", "label": "Soft" },
+        { "value": "background-1", "label": "Background 1" },
+        { "value": "background-2", "label": "Background 2" },
+        { "value": "background-3", "label": "Background 3" },
         { "value": "accent-1", "label": "Accent 1" },
         { "value": "accent-2", "label": "Accent 2" }
       ]
@@ -145,14 +147,14 @@
       "settings": [
         {
           "type": "text",
-          "id": "left_text",
-          "label": "Left text",
+          "id": "green_text",
+          "label": "Green text",
           "default": "6 YEARS"
         },
         {
           "type": "text",
-          "id": "right_text",
-          "label": "Right text",
+          "id": "black_text",
+          "label": "Black text",
           "default": "4500 HOURS"
         },
         {
@@ -164,16 +166,15 @@
           "type": "select",
           "id": "direction",
           "label": "Wipe direction",
-          "default": "ltr",
+          "default": "rtl",
           "options": [
-            { "value": "ltr", "label": "Left to right" },
-            { "value": "rtl", "label": "Right to left" }
+            { "value": "rtl", "label": "Text left → image right" },
+            { "value": "ltr", "label": "Image left → text right" }
           ]
         }
       ]
     }
   ],
-  "max_blocks": 6,
   "presets": [
     {
       "name": "Stat Strips",
@@ -181,17 +182,17 @@
         {
           "type": "row",
           "settings": {
-            "left_text": "6 YEARS",
-            "right_text": "4500 HOURS",
-            "direction": "ltr"
+            "green_text": "6 YEARS",
+            "black_text": "4500 HOURS",
+            "direction": "rtl"
           }
         },
         {
           "type": "row",
           "settings": {
-            "left_text": "42 PROTOTYPES",
-            "right_text": "300KM FAST BALLS",
-            "direction": "rtl"
+            "green_text": "42 PROTOTYPES",
+            "black_text": "300KM FAST BALLS",
+            "direction": "ltr"
           }
         }
       ]
