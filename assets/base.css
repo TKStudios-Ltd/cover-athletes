@@ -4410,6 +4410,8 @@ footer .menu__item.paragraph {
 
 .icon-text-inline {
   display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .icon-text-inline .h4 {
   font-size: 14px;
