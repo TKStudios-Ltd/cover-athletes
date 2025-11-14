@@ -160,6 +160,42 @@
         "padding-block-end": 40
       }
     },
+    "rd_stat_strips_CqF3Nt": {
+      "type": "rd-stat-strips",
+      "blocks": {
+        "row_YzQ3Bf": {
+          "type": "row",
+          "settings": {
+            "leading_text": "6 YEARS",
+            "trailing_text": "4500 HOURS",
+            "image": "shopify://shop_images/Cover_FRow_1.png",
+            "direction": "rtl",
+            "compact": false
+          }
+        },
+        "row_WGAbpa": {
+          "type": "row",
+          "settings": {
+            "leading_text": "42 PROTOTYPES",
+            "trailing_text": "300KM FAST BALLS",
+            "image": "shopify://shop_images/Cover_FRow_2.png",
+            "direction": "ltr",
+            "compact": false
+          }
+        }
+      },
+      "block_order": [
+        "row_YzQ3Bf",
+        "row_WGAbpa"
+      ],
+      "name": "Stat Strips",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "full_width": true,
+        "color_scheme": "background-1"
+      }
+    },
     "section_dVccD7": {
       "type": "section",
       "blocks": {
@@ -481,6 +517,7 @@
   "order": [
     "main",
     "section_pRGNhL",
+    "rd_stat_strips_CqF3Nt",
     "section_dVccD7"
   ]
 }
