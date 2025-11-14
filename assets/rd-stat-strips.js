@@ -1,46 +1,36 @@
 (() => {
-  const SELECTOR = '[data-component="rd-stat-strips"]';
-
-  function animateSection(section) {
-    const rows = section.querySelectorAll('.rd-row');
-    rows.forEach((row, i) => {
-      setTimeout(() => {
-        row.classList.add('is-visible');
-      }, i * 180); // slight stagger
-    });
-  }
+  const SEL = '[data-component="rd-stat-strips"]';
 
   function init(section) {
-    if (!section || section.__ready) return;
-    section.__ready = true;
+    if (!section || section.__done) return;
+    section.__done = true;
 
-    const observer = new IntersectionObserver(
+    const rows = section.querySelectorAll('.rd-row');
+
+    const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
 
-          animateSection(section);
-          observer.disconnect();
+          rows.forEach((row, i) => {
+            setTimeout(() => row.classList.add('is-visible'), i * 150);
+          });
+
+          obs.disconnect();
         });
       },
-      {
-        threshold: 0.35,  // section must be 35% in view
-      }
+      { threshold: 0.3 }
     );
 
-    observer.observe(section);
-
-    section.__cleanup = () => observer.disconnect();
+    obs.observe(section);
   }
 
-  function boot(ctx) {
-    (ctx || document).querySelectorAll(SELECTOR).forEach(init);
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll(SEL).forEach(init);
+  });
 
-  document.addEventListener("DOMContentLoaded", () => boot());
-  document.addEventListener("shopify:section:load", (e) => boot(e.target));
-  document.addEventListener("shopify:section:unload", (e) => {
-    const s = e.target.querySelector(SELECTOR);
-    if (s && s.__cleanup) s.__cleanup();
+  document.addEventListener('shopify:section:load', (e) => {
+    const sec = e.target.querySelector(SEL);
+    if (sec) init(sec);
   });
 })();
