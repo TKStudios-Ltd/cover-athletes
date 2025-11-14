@@ -4422,9 +4422,9 @@ footer .menu__item.paragraph {
 }
 @media (max-width: 499px) {
   .icon-text-inline img {
-    height: 2vw;
+    height: 2.5vw !important;
   }
   .icon-text-inline .h4 {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 }
