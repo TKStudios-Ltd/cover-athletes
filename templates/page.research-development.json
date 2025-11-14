@@ -124,11 +124,11 @@
         "video_maeKNF"
       ],
       "custom_css": [
-        "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important;}",
+        "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important; padding: 20px 0;}",
         "h1 strong {font-weight: 300 !important; color: #939393;}",
         ".icon-text-inline {display: flex;}",
         ".icon-text-inline img {height: 14px;}",
-        "@media (max-width: 749px) {h1 {font-size: 36px; }}"
+        "@media (max-width: 749px) {h1 {font-size: 36px; padding: 0; }}"
       ],
       "name": "t:names.video_section",
       "settings": {
