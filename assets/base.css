@@ -4420,7 +4420,7 @@ footer .menu__item.paragraph {
   height: 14px;
   width: auto;
 }
-@media (max-width: 749px) {
+@media (max-width: 499px) {
   .icon-text-inline img {
     height: 2vw;
   }
