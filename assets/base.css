@@ -4413,4 +4413,5 @@ footer .menu__item.paragraph {
 }
 .icon-text-inline img {
   height: 14px;
+  width: auto;
 }
