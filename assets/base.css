@@ -4420,3 +4420,11 @@ footer .menu__item.paragraph {
   height: 14px;
   width: auto;
 }
+@media (max-width: 749px) {
+  .icon-text-inline img {
+    height: 2vw;
+  }
+  .icon-text-inline .h4 {
+    font-size: 2vw;
+  }
+}
