@@ -125,24 +125,6 @@
   "class": "section rd-stat-strips-section",
   "settings": [
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Relentless testing"
-    },
-    {
-      "type": "richtext",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "<p>Add a short line about the years of R&D behind the product.</p>"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Full width",
-      "default": true
-    },
-    {
       "type": "select",
       "id": "color_scheme",
       "label": "Color scheme",
@@ -163,20 +145,20 @@
       "settings": [
         {
           "type": "text",
-          "id": "leading_text",
-          "label": "Leading stat (green)",
+          "id": "left_text",
+          "label": "Left text",
           "default": "6 YEARS"
         },
         {
           "type": "text",
-          "id": "trailing_text",
-          "label": "Trailing stat (black)",
+          "id": "right_text",
+          "label": "Right text",
           "default": "4500 HOURS"
         },
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Background image"
+          "label": "Image"
         },
         {
           "type": "select",
@@ -187,12 +169,6 @@
             { "value": "ltr", "label": "Left to right" },
             { "value": "rtl", "label": "Right to left" }
           ]
-        },
-        {
-          "type": "checkbox",
-          "id": "compact",
-          "label": "Compact height",
-          "default": false
         }
       ]
     }
@@ -205,16 +181,16 @@
         {
           "type": "row",
           "settings": {
-            "leading_text": "6 YEARS",
-            "trailing_text": "4500 HOURS",
+            "left_text": "6 YEARS",
+            "right_text": "4500 HOURS",
             "direction": "ltr"
           }
         },
         {
           "type": "row",
           "settings": {
-            "leading_text": "42 PROTOTYPES",
-            "trailing_text": "300KM FAST BALLS",
+            "left_text": "42 PROTOTYPES",
+            "right_text": "300KM FAST BALLS",
             "direction": "rtl"
           }
         }
