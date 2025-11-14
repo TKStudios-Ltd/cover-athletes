@@ -87,8 +87,8 @@
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
-            "padding-block-start": 20,
-            "padding-block-end": 20,
+            "padding-block-start": 5,
+            "padding-block-end": 5,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -100,6 +100,7 @@
           "settings": {
             "source": "uploaded",
             "video": "shopify://files/videos/2539558-hd_1920_1080_24fps.mp4",
+            "video_url": "",
             "video_autoplay": true,
             "video_loop": true,
             "alt": "",
@@ -124,7 +125,7 @@
         "video_maeKNF"
       ],
       "custom_css": [
-        "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important; padding: 15px 0;}",
+        "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important; padding: 20px 0;}",
         "h1 strong {font-weight: 300 !important; color: #939393;}",
         ".icon-text-inline {display: flex;}",
         ".icon-text-inline img {height: 14px;}",
@@ -139,7 +140,7 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
+        "gap": 20,
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
