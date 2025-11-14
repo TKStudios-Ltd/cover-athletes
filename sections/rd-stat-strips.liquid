@@ -4,44 +4,40 @@
   id="rd-stat-strips-{{ section.id }}"
   class="rd-stat-strips color-{{ section.settings.color_scheme }}"
   data-component="rd-stat-strips"
-  data-section-id="{{ section.id }}"
 >
   <div class="rd-stat-strips__inner">
 
-    <div class="rd-stat-strips__rows">
+    {% for block in section.blocks %}
+      {% assign b = block.settings %}
 
-      {% for block in section.blocks %}
-        {% if block.type == 'row' %}
-          {% assign b = block.settings %}
+      <div class="rd-row rd-row--{{ b.direction }}" {{ block.shopify_attributes }}>
 
-          <article
-            class="rd-row rd-row--{{ b.direction }}"
-            {{ block.shopify_attributes }}
-          >
-
-            <!-- Background pill image (fills entire row) -->
-            {% if b.image != blank %}
-              <div class="rd-row__img-wrap">
-                {{ b.image
-                  | image_url: width: 2000
-                  | image_tag:
-                      loading: 'lazy',
-                      class: 'rd-row__img'
-                }}
-              </div>
-            {% endif %}
-
-            <!-- Left + Right text ON TOP -->
-            <div class="rd-row__content">
-              <span class="rd-row__text-left">{{ b.left_text }}</span>
-              <span class="rd-row__text-right">{{ b.right_text }}</span>
-            </div>
-
-          </article>
+        {% if b.left_text != blank %}
+          <div class="rd-row__left">
+            {{ b.left_text }}
+          </div>
         {% endif %}
-      {% endfor %}
 
-    </div>
+        <div class="rd-row__pill">
+          <div class="rd-row__pill-inner">
+            {% if b.image %}
+              {{ b.image
+                | image_url: width: 1600
+                | image_tag: class: 'rd-row__image'
+              }}
+            {% endif %}
+          </div>
+        </div>
+
+        {% if b.right_text != blank %}
+          <div class="rd-row__right">
+            {{ b.right_text }}
+          </div>
+        {% endif %}
+
+      </div>
+
+    {% endfor %}
 
   </div>
 </section>
