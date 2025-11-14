@@ -166,6 +166,8 @@
         "row_YzQ3Bf": {
           "type": "row",
           "settings": {
+            "green_text": "6",
+            "black_text": "Years",
             "image": "shopify://shop_images/Cover_FRow_1.png",
             "direction": "rtl"
           }
@@ -173,14 +175,36 @@
         "row_WGAbpa": {
           "type": "row",
           "settings": {
+            "green_text": "4500",
+            "black_text": "Hours",
             "image": "shopify://shop_images/Cover_FRow_2.png",
+            "direction": "ltr"
+          }
+        },
+        "row_7dn3Br": {
+          "type": "row",
+          "settings": {
+            "green_text": "42",
+            "black_text": "Prototypes",
+            "image": "shopify://shop_images/Cover_FRow_3.png",
+            "direction": "rtl"
+          }
+        },
+        "row_jGwAwL": {
+          "type": "row",
+          "settings": {
+            "green_text": "300km",
+            "black_text": "Fast Balls",
+            "image": "shopify://shop_images/Cover_FRow_4.png",
             "direction": "ltr"
           }
         }
       },
       "block_order": [
         "row_YzQ3Bf",
-        "row_WGAbpa"
+        "row_WGAbpa",
+        "row_7dn3Br",
+        "row_jGwAwL"
       ],
       "name": "Stat Strips",
       "settings": {
