@@ -411,7 +411,11 @@
     /* will default to bg from its color scheme unless --header-bg-color is transparent */
     background-color: var(--header-bg-color, var(--color-background));
     @media screen and (max-width: 749px) {
-      padding: 0 10px;
+      margin: 10px 15px;
+      padding: 5px;
+      width: calc(100% - 30px);
+      background-color: rgba(25, 25, 25, 0.8);
+      border-radius: 99px;
     } 
   }
 
