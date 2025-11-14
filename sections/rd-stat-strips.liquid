@@ -6,65 +6,59 @@
   data-component="rd-stat-strips"
   data-section-id="{{ section.id }}"
 >
-  <div class="rd-stat-strips__inner">
-    {% if section.settings.heading != blank or section.settings.subheading != blank %}
-      <header class="rd-stat-strips__header">
-        {% if section.settings.heading != blank %}
-          <h2 class="rd-stat-strips__heading">
-            {{ section.settings.heading | escape }}
-          </h2>
-        {% endif %}
-        {% if section.settings.subheading != blank %}
-          <p class="rd-stat-strips__subheading">
-            {{ section.settings.subheading }}
-          </p>
-        {% endif %}
-      </header>
-    {% endif %}
 
+  <div class="rd-stat-strips__inner">
     <div class="rd-stat-strips__rows">
+
       {% for block in section.blocks %}
         {% if block.type == 'row' %}
-          {% assign b = block.settings %}
+          {% liquid
+            assign b = block.settings
+          %}
 
           <article
-            class="rd-row rd-row--{{ b.direction }}{% if b.compact %} rd-row--compact{% endif %}"
-            data-row
+            class="rd-row rd-row--{{ b.direction }}"
             {{ block.shopify_attributes }}
           >
-            <div class="rd-row__base-pill"></div>
 
-            {% if b.image != blank %}
-              <div class="rd-row__media">
-                {{ b.image | image_url: width: 1600 | image_tag:
-                  loading: 'lazy',
-                  sizes: '(min-width: 990px) 50vw, 100vw',
-                  widths: '400, 800, 1200, 1600',
-                  class: 'rd-row__image'
-                }}
+            <!-- Left text -->
+            {% if b.left_text != blank %}
+              <div class="rd-row__text-left">
+                {{ b.left_text }}
               </div>
             {% endif %}
 
-            <div class="rd-row__wipe"></div>
-
-            <div class="rd-row__content">
-              {% if b.leading_text != blank %}
-                <span class="rd-row__stat rd-row__stat--accent">
-                  {{ b.leading_text }}
-                </span>
-              {% endif %}
-              {% if b.trailing_text != blank %}
-                <span class="rd-row__stat rd-row__stat--main">
-                  {{ b.trailing_text }}
-                </span>
+            <!-- Middle image -->
+            <div class="rd-row__image">
+              {% if b.image != blank %}
+                {{ b.image
+                  | image_url: width: 2000
+                  | image_tag:
+                      loading: 'lazy',
+                      class: 'rd-row__img',
+                      sizes: '(min-width: 990px) 70vw, 100vw',
+                      widths: '600, 900, 1200, 1600, 2000'
+                }}
               {% endif %}
             </div>
+
+            <!-- Right text -->
+            {% if b.right_text != blank %}
+              <div class="rd-row__text-right">
+                {{ b.right_text }}
+              </div>
+            {% endif %}
+
           </article>
+
         {% endif %}
       {% endfor %}
+
     </div>
   </div>
+
 </section>
+
 
 <style>
 /* Root wrapper */
