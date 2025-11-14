@@ -4411,6 +4411,9 @@ footer .menu__item.paragraph {
 .icon-text-inline {
   display: flex;
 }
+.icon-text-inline .h4 {
+  font-size: 14px;
+}
 .icon-text-inline img {
   height: 14px;
   width: auto;
