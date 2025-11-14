@@ -166,21 +166,15 @@
         "row_YzQ3Bf": {
           "type": "row",
           "settings": {
-            "leading_text": "6 YEARS",
-            "trailing_text": "4500 HOURS",
             "image": "shopify://shop_images/Cover_FRow_1.png",
-            "direction": "rtl",
-            "compact": true
+            "direction": "rtl"
           }
         },
         "row_WGAbpa": {
           "type": "row",
           "settings": {
-            "leading_text": "42 PROTOTYPES",
-            "trailing_text": "300KM FAST BALLS",
             "image": "shopify://shop_images/Cover_FRow_2.png",
-            "direction": "ltr",
-            "compact": true
+            "direction": "ltr"
           }
         }
       },
@@ -190,9 +184,6 @@
       ],
       "name": "Stat Strips",
       "settings": {
-        "heading": "",
-        "subheading": "",
-        "full_width": true,
         "color_scheme": "background-1"
       }
     },
