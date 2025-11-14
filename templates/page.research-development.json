@@ -514,6 +514,9 @@
         "group_hDnhNx",
         "group_GxFbxD"
       ],
+      "custom_css": [
+        "p {font-weight: 300;}"
+      ],
       "name": "t:names.multicolumn",
       "settings": {
         "content_direction": "row",
