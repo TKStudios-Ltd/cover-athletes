@@ -1,46 +1,36 @@
 (() => {
   const SELECTOR = '[data-component="rd-stat-strips"]';
 
-  function init(root) {
-    if (!root || root.__rdInit) return;
-    root.__rdInit = true;
+  function animateSection(section) {
+    const rows = section.querySelectorAll('.rd-row');
+    rows.forEach((row, i) => {
+      setTimeout(() => {
+        row.classList.add('is-visible');
+      }, i * 180); // slight stagger
+    });
+  }
 
-    const rows = root.querySelectorAll('[data-row]');
-    if (!rows.length) return;
-
-    if (!("IntersectionObserver" in window)) {
-      rows.forEach((row) => row.classList.add("is-visible"));
-      return;
-    }
+  function init(section) {
+    if (!section || section.__ready) return;
+    section.__ready = true;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+
+          animateSection(section);
+          observer.disconnect();
         });
       },
       {
-        root: null,
-        rootMargin: "0px 0px -20% 0px",
-        threshold: 0.4,
+        threshold: 0.35,  // section must be 35% in view
       }
     );
 
-    rows.forEach((row) => observer.observe(row));
+    observer.observe(section);
 
-    root.__rdCleanup = () => {
-      observer.disconnect();
-    };
-  }
-
-  function destroy(root) {
-    if (!root || !root.__rdInit) return;
-    if (typeof root.__rdCleanup === "function") {
-      root.__rdCleanup();
-    }
-    root.__rdInit = false;
+    section.__cleanup = () => observer.disconnect();
   }
 
   function boot(ctx) {
@@ -48,11 +38,9 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => boot());
-  document.addEventListener("shopify:section:load", (event) => {
-    boot(event.target);
-  });
-  document.addEventListener("shopify:section:unload", (event) => {
-    const root = event.target.querySelector(SELECTOR);
-    if (root) destroy(root);
+  document.addEventListener("shopify:section:load", (e) => boot(e.target));
+  document.addEventListener("shopify:section:unload", (e) => {
+    const s = e.target.querySelector(SELECTOR);
+    if (s && s.__cleanup) s.__cleanup();
   });
 })();
