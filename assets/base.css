@@ -4433,3 +4433,9 @@ footer .menu__item.paragraph {
 .group-block.color-scheme-6 {
   backdrop-filter: none !important;
 }
+
+@media (min-width: 1200px) {
+  #shopify-section-template--20767609553139__section_mL9bM7 .layout-panel-flex {
+    margin: auto 60px !important;
+  }
+}
