@@ -4441,6 +4441,7 @@ footer .menu__item.paragraph {
 }
 #shopify-section-template--20767609553139__section_mL9bM7 .group-block.color-scheme-11 {
   background: transparent !important;
+  backdrop-filter: none !important;
 }
 
 #shopify-section-template--20767609553139__section_mL9bM7 .group-block--width-fill {
