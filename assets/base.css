@@ -4437,6 +4437,17 @@ footer .menu__item.paragraph {
   }
 }
 
+#shopify-section-template--20767609553139__section_mL9bM7 .group-block--width-fill {
+  backdrop-filter: blur(10px);
+  @media (max-width: 749px) {
+    height: 200px;
+  }
+  @media (min-width: 750px) {
+    flex: 0 0 calc(33.3333% - 13.6666px);
+    height: 280px;
+  }
+}
+
 @media (min-width: 1200px) {
   #shopify-section-template--20767609553139__section_mL9bM7 .section-content-wrapper {
     padding-left: 35px;
