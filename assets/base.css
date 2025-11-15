@@ -4433,11 +4433,14 @@ footer .menu__item.paragraph {
   }
 }
 
-.group-block.color-scheme-6 {
+#shopify-section-template--20767609553139__section_mL9bM7 .group-block.color-scheme-6 {
   backdrop-filter: none !important;
   @media (max-width: 749px) {
     display: none !important;
   }
+}
+#shopify-section-template--20767609553139__section_mL9bM7 .group-block.color-scheme-11 {
+  background: transparent !important;
 }
 
 #shopify-section-template--20767609553139__section_mL9bM7 .group-block--width-fill {
