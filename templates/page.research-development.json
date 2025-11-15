@@ -258,7 +258,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Evidence-driven</h3>",
+                "text": "<h4>Evidence-driven</h4>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -356,7 +356,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Athlete-centric</h3>",
+                "text": "<h4>Athlete-centric</h4>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -454,7 +454,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Future-focused</h3>",
+                "text": "<h4>Future-focused</h4>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -552,7 +552,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Lorem ipsum dolor</h3>",
+                "text": "<h4>Lorem ipsum dolor</h4>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -614,7 +614,8 @@
         "group_4Y6KmQ"
       ],
       "custom_css": [
-        "p {font-weight: 300;}"
+        "p {font-weight: 300;}",
+        "h4 {font-size: 18px !important;}"
       ],
       "name": "t:names.multicolumn",
       "settings": {
