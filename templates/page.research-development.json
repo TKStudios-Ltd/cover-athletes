@@ -732,7 +732,7 @@
             "icon_UHmVzV"
           ]
         },
-        "group_cEqH4D": {
+        "group_BEXVQa": {
           "type": "group",
           "name": "Column",
           "settings": {
@@ -742,7 +742,7 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
             "gap": 8,
             "width": "fill",
             "custom_width": 100,
@@ -772,11 +772,11 @@
             "padding-inline-end": 20
           },
           "blocks": {
-            "text_HWVHT4": {
+            "text_LqhB6B": {
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<p>20+ industry<br/>recognized <br/>awards</p>",
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -798,7 +798,7 @@
               },
               "blocks": {}
             },
-            "icon_HFd66j": {
+            "icon_aDfhrE": {
               "type": "icon",
               "name": "t:names.icon",
               "settings": {
@@ -812,11 +812,11 @@
             }
           },
           "block_order": [
-            "text_HWVHT4",
-            "icon_HFd66j"
+            "text_LqhB6B",
+            "icon_aDfhrE"
           ]
         },
-        "group_KJxRi9": {
+        "group_e3qw78": {
           "type": "group",
           "name": "Column",
           "settings": {
@@ -826,7 +826,7 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
             "gap": 8,
             "width": "fill",
             "custom_width": 100,
@@ -856,11 +856,11 @@
             "padding-inline-end": 20
           },
           "blocks": {
-            "text_bjkGTC": {
+            "text_XF8Vb8": {
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<p>20+ industry<br/>recognized <br/>awards</p>",
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -882,7 +882,7 @@
               },
               "blocks": {}
             },
-            "icon_PwVxd6": {
+            "icon_qpwTp9": {
               "type": "icon",
               "name": "t:names.icon",
               "settings": {
@@ -896,11 +896,11 @@
             }
           },
           "block_order": [
-            "text_bjkGTC",
-            "icon_PwVxd6"
+            "text_XF8Vb8",
+            "icon_qpwTp9"
           ]
         },
-        "group_AdeR6r": {
+        "group_YRyQqb": {
           "type": "group",
           "name": "Column",
           "settings": {
@@ -910,7 +910,7 @@
             "vertical_alignment": "center",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
             "gap": 8,
             "width": "fill",
             "custom_width": 100,
@@ -940,11 +940,11 @@
             "padding-inline-end": 20
           },
           "blocks": {
-            "text_8eDnmK": {
+            "text_3tJYbW": {
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<p>20+ industry<br/>recognized <br/>awards</p>",
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -966,7 +966,7 @@
               },
               "blocks": {}
             },
-            "icon_NRdj7D": {
+            "icon_LwezUt": {
               "type": "icon",
               "name": "t:names.icon",
               "settings": {
@@ -980,16 +980,441 @@
             }
           },
           "block_order": [
-            "text_8eDnmK",
-            "icon_NRdj7D"
+            "text_3tJYbW",
+            "icon_LwezUt"
+          ]
+        },
+        "group_C7aidW": {
+          "type": "group",
+          "name": "Column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
+          },
+          "blocks": {
+            "text_xWfGgw": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "icon_jymWGk": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_xWfGgw",
+            "icon_jymWGk"
+          ]
+        },
+        "group_BUdkgy": {
+          "type": "group",
+          "name": "Column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
+          },
+          "blocks": {
+            "text_TRHAzD": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "icon_HLBJaL": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_TRHAzD",
+            "icon_HLBJaL"
+          ]
+        },
+        "group_F39jkU": {
+          "type": "group",
+          "name": "Column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
+          },
+          "blocks": {
+            "text_XwVjdd": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "icon_KXGNzq": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_XwVjdd",
+            "icon_KXGNzq"
+          ]
+        },
+        "group_zFV8CW": {
+          "type": "group",
+          "name": "Column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
+          },
+          "blocks": {
+            "text_nbxqAR": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "icon_haTwmc": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_nbxqAR",
+            "icon_haTwmc"
+          ]
+        },
+        "group_PmqHXx": {
+          "type": "group",
+          "name": "Column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "space-between",
+            "gap": 8,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fill",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 10,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
+          },
+          "blocks": {
+            "text_dh4GCt": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "icon_XWeNbN": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_dh4GCt",
+            "icon_XWeNbN"
           ]
         }
       },
       "block_order": [
         "group_e7CgiR",
-        "group_cEqH4D",
-        "group_KJxRi9",
-        "group_AdeR6r"
+        "group_BEXVQa",
+        "group_e3qw78",
+        "group_YRyQqb",
+        "group_C7aidW",
+        "group_BUdkgy",
+        "group_F39jkU",
+        "group_zFV8CW",
+        "group_PmqHXx"
       ],
       "custom_css": [
         "@media (min-width: 750px) {.layout-panel-flex {flex-wrap: wrap; } .group-block--width-fill {flex: 0 0 calc(33.3333% - 14px); height: 280px; }}",
