@@ -258,7 +258,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Intentional design</h3>",
+                "text": "<h3>Evidence-driven</h3>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -356,7 +356,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Quality first</h3>",
+                "text": "<h3>Athlete-centric</h3>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -454,7 +454,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Customer care</h3>",
+                "text": "<h3>Future-focused</h3>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -552,7 +552,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h3>Customer care</h3>",
+                "text": "<h3>Lorem ipsum dolor</h3>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
