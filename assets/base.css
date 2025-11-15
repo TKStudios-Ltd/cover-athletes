@@ -869,7 +869,7 @@ h4,
 h5,
 .h5.h5,
 .text-block.h5 > * {
-  font-family: 'Graphik', sans-serif;
+  font-family: 'Graphik', sans-serif !important;
   font-style: var(--font-h5--style);
   font-weight: var(--font-h5--weight);
   font-size: var(--font-h5--size);
