@@ -4442,10 +4442,12 @@ footer .menu__item.paragraph {
 #shopify-section-template--20767609553139__section_mL9bM7 .group-block .group-block {
   background: transparent !important;
   backdrop-filter: none !important;
+  height: auto;
 }
 
 #shopify-section-template--20767609553139__section_mL9bM7 .group-block .group-block h5 {
   font-size: 48px;
+  font-weight: 200;
   @media (max-width: 749px) {
     font-size: 28px;
   }
