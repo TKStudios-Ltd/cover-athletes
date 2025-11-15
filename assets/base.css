@@ -4429,3 +4429,7 @@ footer .menu__item.paragraph {
     font-size: 2.5vw;
   }
 }
+
+.group-block.color-scheme-6 {
+  backdrop-filter: none !important;
+}
