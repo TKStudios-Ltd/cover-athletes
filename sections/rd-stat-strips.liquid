@@ -49,9 +49,9 @@
 <style>
 
 .rd-stat-strips__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .rd-row {
   display: flex;
@@ -111,7 +111,12 @@
   transform: translateX(0);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 750px) {
+    .rd-stat-strips__inner {
+        margin-bottom: 80px;
+    }
+}
+@media (max-width: 749px) {
   .rd-row {
     flex-direction: column;
     align-items: stretch;
