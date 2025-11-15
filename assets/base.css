@@ -4432,6 +4432,9 @@ footer .menu__item.paragraph {
 
 .group-block.color-scheme-6 {
   backdrop-filter: none !important;
+  @media (max-width: 749px) {
+    display: none !important;
+  }
 }
 
 @media (min-width: 1200px) {
