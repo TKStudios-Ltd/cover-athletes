@@ -4449,7 +4449,7 @@ footer .menu__item.paragraph {
   font-size: 48px;
   font-weight: 200;
   @media (max-width: 749px) {
-    font-size: 28px;
+    font-size: 28px !important;
   }
 }
 
