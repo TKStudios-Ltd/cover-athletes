@@ -4444,6 +4444,13 @@ footer .menu__item.paragraph {
   backdrop-filter: none !important;
 }
 
+#shopify-section-template--20767609553139__section_mL9bM7 .group-block .group-block h5 {
+  font-size: 48px;
+  @media (max-width: 749px) {
+    font-size: 28px;
+  }
+}
+
 #shopify-section-template--20767609553139__section_mL9bM7 .group-block--width-fill {
   backdrop-filter: blur(10px);
   @media (max-width: 749px) {
