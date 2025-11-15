@@ -4428,6 +4428,9 @@ footer .menu__item.paragraph {
   .icon-text-inline .h4 {
     font-size: 2.5vw;
   }
+  #shopify-section-template--20767609553139__section_mL9bM7 h5 {
+    font-size: 20px !important;
+  }
 }
 
 .group-block.color-scheme-6 {
@@ -4452,5 +4455,8 @@ footer .menu__item.paragraph {
   #shopify-section-template--20767609553139__section_mL9bM7 .section-content-wrapper {
     padding-left: 35px;
     padding-right: 35px;
+  }
+  #shopify-section-template--20767609553139__section_mL9bM7 h5 {
+    font-size: 28px !important;
   }
 }
