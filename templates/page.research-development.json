@@ -692,7 +692,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<p>20+ industry<br/>recognized <br/>awards</p>",
+                "text": "<h5>20+ industry<br/>recognized <br/>awards</h5>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
