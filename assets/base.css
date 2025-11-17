@@ -4489,6 +4489,7 @@ footer .menu__item.paragraph {
 }
 .link .arrow-wrapper {
   display: flex;
+  align-items: center;
   height: 12px;
   width: 12px;
 }
