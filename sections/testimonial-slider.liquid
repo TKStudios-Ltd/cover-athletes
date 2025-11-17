@@ -38,6 +38,10 @@
     align-items: flex-end;
     justify-content: flex-end;
     padding: 25px;
+    min-height: 100vh;
+    @media (max-width: 749px) {
+      min-height: calc(100vh - 80px);
+    }
 }
 .testimonial-{{ section.id }} .left-top { display:flex; align-items:center; gap:12px; }
 .testimonial-{{ section.id }} .left-top img { height: 18px; width:auto; }
