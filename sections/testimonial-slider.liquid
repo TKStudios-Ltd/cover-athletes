@@ -41,16 +41,6 @@
 .testimonial-{{ section.id }} .eyebrow { font-size:14px; opacity:.95; }
 .testimonial-{{ section.id }} .title { margin:28px 0 0; font-size: clamp(22px, 2.8vw, 28px); line-height:1.2; text-transform:uppercase; max-width: 480px; }
 
-/* ===== Arrows ===== */
-.testimonial-{{ section.id }} .nav { display:flex; gap:10px; z-index:5; }
-.testimonial-{{ section.id }} .nav .btn {
-  width:36px; height:36px; display:grid; place-items:center; border-radius:999px;
-  background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
-  cursor:pointer; transition:background .2s ease, transform .2s ease;
-}
-.testimonial-{{ section.id }} .nav .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
-.testimonial-{{ section.id }} .nav svg { width:16px; height:16px; }
-
 /* ===== Copy items (absolute stack with slide-up) ===== */
 .testimonial-{{ section.id }} .copy-items { position:relative; width:100%; min-height: var(--copy-h, 0px); }
 .testimonial-{{ section.id }} .copy-items .item { position:absolute; inset:0; opacity:0; pointer-events:none; }
@@ -67,18 +57,34 @@
 .testimonial-{{ section.id }} .pager {
   display:flex; gap:26px; align-items:flex-start; margin-top:28px; flex-wrap:wrap;
 }
-.testimonial-{{ section.id }} .pager__item { cursor:pointer; min-width: 160px; }
+.testimonial-{{ section.id }} .pager__item {
+  cursor:pointer;
+  min-width: 160px;
+  background:none;
+  border:none;
+  padding:0;
+  text-align:left;
+  color:inherit;
+}
 .testimonial-{{ section.id }} .pager__bar {
   position:relative; height:2px; width:100%;
   background: rgba(255,255,255,.25); border-radius:2px; overflow:hidden;
 }
 .testimonial-{{ section.id }} .pager__bar::after {
   content:''; position:absolute; inset:0 100% 0 0; background:#fff; opacity:.95;
-  transform: translateX(0); /* start empty */
 }
+
+/* Name and role under line */
 .testimonial-{{ section.id }} .pager__label {
-  margin-top:8px; font-size:12px; letter-spacing:.3px; opacity:.7;
+  margin-top:10px;
+  font-size:11px;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+  opacity:.75;
 }
+.testimonial-{{ section.id }} .pager__name { display:block; font-weight:600; }
+.testimonial-{{ section.id }} .pager__role { display:block; opacity:.8; margin-top:2px; }
+
 .testimonial-{{ section.id }} .pager__item.is-active .pager__label { opacity:1; }
 
 /* keyframes controlled by inline var(--delay-ms) */
@@ -146,15 +152,6 @@
         {% endif %}
       </div>
 
-      <div class="nav">
-        <button class="btn prev" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="btn next" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
-
       <!-- Copy -->
       <div id="TestimonialCopy-{{ section.id }}" class="copy-items">
         {% for block in section.blocks %}
@@ -180,17 +177,20 @@
         {% endfor %}
       </div>
 
-      <!-- Pager with progress + labels -->
+      <!-- Pager with progress + Name/Role -->
       <div class="pager" id="TestimonialPager-{{ section.id }}" style="--delay-ms: {{ section.settings.delay | times: 1000 }}ms">
         {% for block in section.blocks %}
         {% if block.type == 'slide' %}
           <button class="pager__item{% if forloop.first %} is-active{% endif %}" data-idx="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             <div class="pager__bar"></div>
-            {% if block.settings.pager_label != blank %}
-              <div class="pager__label">{{ block.settings.pager_label }}</div>
-            {% else %}
-              <div class="pager__label">{{ block.settings.person_name | default: 'Slide ' | append: forloop.index }}</div>
-            {% endif %}
+            <div class="pager__label">
+              {% if block.settings.person_name != blank %}
+                <span class="pager__name">{{ block.settings.person_name }}</span>
+              {% endif %}
+              {% if block.settings.person_title != blank %}
+                <span class="pager__role">{{ block.settings.person_title }}</span>
+              {% endif %}
+            </div>
           </button>
         {% endif %}
         {% endfor %}
@@ -230,10 +230,9 @@
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Background image" },
         { "type": "video", "id": "video", "label": "Background video (optional)" },
-        { "type": "richtext", "id": "quote", "label": "Quote/content", "default": "<p>I’ve faced 150kph bouncers and never thought twice because I trust what’s protecting me.</p>" },
+        { "type": "richtext", "id": "quote", "label": "Quote/content", "default": "<p>I have faced 150kph bouncers and never thought twice because I trust what is protecting me.</p>" },
         { "type": "text", "id": "person_name", "label": "Name", "default": "Glenn Phillips" },
-        { "type": "text", "id": "person_title", "label": "Role", "default": "New Zealand Cricketer" },
-        { "type": "text", "id": "pager_label", "label": "Pager label (underline text)", "default": "Glenn Phillips" }
+        { "type": "text", "id": "person_title", "label": "Role", "default": "New Zealand Cricketer" }
       ]
     }
   ],
