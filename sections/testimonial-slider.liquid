@@ -37,7 +37,7 @@
     height: 100%;
     align-items: flex-end;
     justify-content: flex-end;
-    padding: 25px 25px 50px;
+    padding: 25px 25px 80px;
     min-height: 100vh;
     @media (max-width: 749px) {
       min-height: calc(100vh - 80px);
@@ -72,7 +72,11 @@
 
 /* ===== Pager with progress ===== */
 .testimonial-{{ section.id }} .pager {
-  display:flex; gap:26px; align-items:flex-start; margin-top:28px; flex-wrap:wrap;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 50px;
+    flex-wrap: wrap;
 }
 .testimonial-{{ section.id }} .pager__item {
   cursor:pointer;
@@ -98,8 +102,8 @@
   letter-spacing: -0.2px;
   opacity: 0.6;
 }
-.testimonial-{{ section.id }} .pager__name { display:block; font-weight: 600; }
-.testimonial-{{ section.id }} .pager__role { display:block; opacity: 1; font-weigbt: 400; margin-top: 2px; }
+.testimonial-{{ section.id }} .pager__name { display:block; opacity: 1; font-weight: 600; }
+.testimonial-{{ section.id }} .pager__role { display:block; opacity: 1; font-weight: 400; margin-top: 2px; }
 
 .testimonial-{{ section.id }} .pager__item.is-active .pager__label { opacity:1; }
 
