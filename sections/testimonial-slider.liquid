@@ -1,0 +1,244 @@
+{% comment %} Testimonial Slider — JS in assets/testimonial-slider.js {% endcomment %}
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+/* ===== Shell ===== */
+.testimonial-{{ section.id }} { position: relative; width: 100%; }
+.testimonial-{{ section.id }} .slider-shell { position: relative; overflow: hidden; isolation: isolate; }
+
+/* ===== BG Swiper ===== */
+.testimonial-{{ section.id }} .bg-swiper,
+.testimonial-{{ section.id }} .bg-swiper .swiper-wrapper,
+.testimonial-{{ section.id }} .bg-swiper .swiper-slide { width:100%; height:100%; }
+.testimonial-{{ section.id }} .bg-swiper { position:absolute; inset:0; z-index:1; }
+.testimonial-{{ section.id }} .bg-media { position:absolute; inset:0; overflow:hidden; }
+.testimonial-{{ section.id }} .bg-media img,
+.testimonial-{{ section.id }} .bg-media video {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+  transform:scale(1); transition:transform 1.2s ease;
+}
+.testimonial-{{ section.id }} .kenburns .bg-media img,
+.testimonial-{{ section.id }} .kenburns .bg-media video { animation: kb-{{ section.id }} 10s ease forwards; }
+@keyframes kb-{{ section.id }} { 0%{transform:scale(1)} 100%{transform:scale(1.05)} }
+
+/* ===== Overlay ===== */
+.testimonial-{{ section.id }} .overlay {
+  position:absolute; inset:0; z-index:2;
+  background: linear-gradient(90deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,.15) 64%, rgba(0,0,0,0) 100%);
+  pointer-events:none;
+}
+
+/* ===== Foreground content (left stack) ===== */
+.testimonial-{{ section.id }} .content {
+  position:relative; z-index:3; color:#fff;
+  display:flex; flex-direction:column; gap:48px; align-items:flex-start; justify-content:space-between;
+  min-height: min(100vh, 900px);
+  padding: clamp(20px, 3vw, 60px);
+  max-width: 820px;
+}
+.testimonial-{{ section.id }} .left-top { display:flex; align-items:center; gap:12px; }
+.testimonial-{{ section.id }} .left-top img { height: 18px; width:auto; }
+.testimonial-{{ section.id }} .eyebrow { font-size:14px; opacity:.95; }
+.testimonial-{{ section.id }} .title { margin:28px 0 0; font-size: clamp(22px, 2.8vw, 28px); line-height:1.2; text-transform:uppercase; max-width: 480px; }
+
+/* ===== Arrows ===== */
+.testimonial-{{ section.id }} .nav { display:flex; gap:10px; z-index:5; }
+.testimonial-{{ section.id }} .nav .btn {
+  width:36px; height:36px; display:grid; place-items:center; border-radius:999px;
+  background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
+  cursor:pointer; transition:background .2s ease, transform .2s ease;
+}
+.testimonial-{{ section.id }} .nav .btn:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
+.testimonial-{{ section.id }} .nav svg { width:16px; height:16px; }
+
+/* ===== Copy items (absolute stack with slide-up) ===== */
+.testimonial-{{ section.id }} .copy-items { position:relative; width:100%; min-height: var(--copy-h, 0px); }
+.testimonial-{{ section.id }} .copy-items .item { position:absolute; inset:0; opacity:0; pointer-events:none; }
+.testimonial-{{ section.id }} .copy-items .item.is-active { opacity:1; pointer-events:auto; }
+.testimonial-{{ section.id }} .slide-content { max-width:760px; }
+.testimonial-{{ section.id }} .quote, .testimonial-{{ section.id }} .person { opacity:0; transform:translateY(10px); }
+.testimonial-{{ section.id }} .copy-items .item.is-active .quote { animation: copyIn-{{ section.id }} .45s ease forwards; }
+.testimonial-{{ section.id }} .copy-items .item.is-active .person { animation: copyIn-{{ section.id }} .45s ease .14s forwards; }
+@keyframes copyIn-{{ section.id }} { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
+.testimonial-{{ section.id }} .quote { font-size: clamp(18px, 2.2vw, 28px); line-height:1.35; }
+.testimonial-{{ section.id }} .person { margin-top:22px; font-size: clamp(14px, 1.8vw, 16px); opacity:.9; }
+
+/* ===== Pager with progress ===== */
+.testimonial-{{ section.id }} .pager {
+  display:flex; gap:26px; align-items:flex-start; margin-top:28px; flex-wrap:wrap;
+}
+.testimonial-{{ section.id }} .pager__item { cursor:pointer; min-width: 160px; }
+.testimonial-{{ section.id }} .pager__bar {
+  position:relative; height:2px; width:100%;
+  background: rgba(255,255,255,.25); border-radius:2px; overflow:hidden;
+}
+.testimonial-{{ section.id }} .pager__bar::after {
+  content:''; position:absolute; inset:0 100% 0 0; background:#fff; opacity:.95;
+  transform: translateX(0); /* start empty */
+}
+.testimonial-{{ section.id }} .pager__label {
+  margin-top:8px; font-size:12px; letter-spacing:.3px; opacity:.7;
+}
+.testimonial-{{ section.id }} .pager__item.is-active .pager__label { opacity:1; }
+
+/* keyframes controlled by inline var(--delay-ms) */
+@keyframes tl-fill-{{ section.id }} { from { inset:0 100% 0 0; } to { inset:0 0 0 0; } }
+.testimonial-{{ section.id }} .pager__item.is-anim .pager__bar::after {
+  animation: tl-fill-{{ section.id }} var(--delay-ms, 5000ms) linear forwards;
+}
+
+/* Full width inside section wrappers */
+.section .testimonial-{{ section.id }} { width:100%; }
+{%- endstyle -%}
+
+<section
+  class="testimonial-{{ section.id }} color-{{ section.settings.color_scheme }}"
+  data-component="testimonial-slider"
+  data-section-id="{{ section.id }}"
+>
+  <div
+    class="slider-shell{% if section.settings.ken_burns %} kenburns{% endif %}"
+    data-effect="{{ section.settings.effect }}"
+    data-autoplay="{{ section.settings.autoplay }}"
+    data-delay="{{ section.settings.delay | times: 1000 }}"
+    data-loop="{{ section.settings.loop }}"
+  >
+    <!-- BG Swiper -->
+    <div id="TestimonialBg-{{ section.id }}" class="swiper bg-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'slide' %}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="bg-media">
+              {% if block.settings.video != blank %}
+                {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+              {% elsif block.settings.image != blank %}
+                {% assign widths = '1200,1600,2000,2400,3000' %}
+                {% capture sizes %}100vw{% endcapture %}
+                {{ block.settings.image | image_url: width: 3000 | image_tag: widths: widths, sizes: sizes, loading: 'lazy' }}
+              {% else %}
+                {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <!-- Foreground -->
+    <div class="content">
+      <div class="slider-top">
+        {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
+          <div class="left-top">
+            {% if section.settings.label_icon != blank %}
+              {{ section.settings.label_icon | image_url: width: 140 | image_tag: loading: 'lazy' }}
+            {% endif %}
+            {% if section.settings.eyebrow != blank %}
+              <div class="eyebrow">{{ section.settings.eyebrow }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+        {% if section.settings.title != blank %}
+          <h2 class="title inline-richtext {{ section.settings.title_size }}">{{ section.settings.title }}</h2>
+        {% endif %}
+      </div>
+
+      <div class="nav">
+        <button class="btn prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Copy -->
+      <div id="TestimonialCopy-{{ section.id }}" class="copy-items">
+        {% for block in section.blocks %}
+        {% if block.type == 'slide' %}
+          <div class="item{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">
+            <div class="slide-content">
+              {% if block.settings.quote != blank %}
+                <div class="quote rte">{{ block.settings.quote }}</div>
+              {% endif %}
+              {% if block.settings.person_name != blank or block.settings.person_title != blank %}
+                <div class="person">
+                  {% if block.settings.person_name != blank %}
+                    <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
+                  {% endif %}
+                  {% if block.settings.person_title != blank %}
+                    <span>{{ block.settings.person_title }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Pager with progress + labels -->
+      <div class="pager" id="TestimonialPager-{{ section.id }}" style="--delay-ms: {{ section.settings.delay | times: 1000 }}ms">
+        {% for block in section.blocks %}
+        {% if block.type == 'slide' %}
+          <button class="pager__item{% if forloop.first %} is-active{% endif %}" data-idx="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <div class="pager__bar"></div>
+            {% if block.settings.pager_label != blank %}
+              <div class="pager__label">{{ block.settings.pager_label }}</div>
+            {% else %}
+              <div class="pager__label">{{ block.settings.person_name | default: 'Slide ' | append: forloop.index }}</div>
+            {% endif %}
+          </button>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonial Slider",
+  "class": "section",
+  "disabled_on": { "groups": ["header","footer"] },
+  "settings": [
+    { "type": "image_picker", "id": "label_icon", "label": "Small icon (left label)" },
+    { "type": "text", "id": "eyebrow", "label": "Subtitle (left label)", "default": "Cover Athletes" },
+    { "type": "inline_richtext", "id": "title", "label": "Title", "default": "Real Athletes. Real Stories." },
+    { "type": "select", "id": "title_size", "label": "Title size", "default": "h1", "options": [
+      { "value": "h3", "label": "H3" }, { "value": "h2", "label": "H2" }, { "value": "h1", "label": "H1" }, { "value": "h0", "label": "H0" }
+    ]},
+
+    { "type": "checkbox", "id": "ken_burns", "label": "Subtle Ken Burns zoom", "default": true },
+    { "type": "select", "id": "effect", "label": "Transition effect", "default": "slide", "options": [
+      { "value": "slide", "label": "Slide" },
+      { "value": "fade", "label": "Fade (background only)" }
+    ]},
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": true },
+    { "type": "range", "id": "delay", "label": "Autoplay delay (sec)", "min": 3, "max": 15, "step": 1, "default": 5 },
+    { "type": "checkbox", "id": "loop", "label": "Loop", "default": true },
+
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Background image" },
+        { "type": "video", "id": "video", "label": "Background video (optional)" },
+        { "type": "richtext", "id": "quote", "label": "Quote/content", "default": "<p>I’ve faced 150kph bouncers and never thought twice because I trust what’s protecting me.</p>" },
+        { "type": "text", "id": "person_name", "label": "Name", "default": "Glenn Phillips" },
+        { "type": "text", "id": "person_title", "label": "Role", "default": "New Zealand Cricketer" },
+        { "type": "text", "id": "pager_label", "label": "Pager label (underline text)", "default": "Glenn Phillips" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Testimonial Slider", "blocks": [{ "type": "slide" }, { "type": "slide" }, { "type": "slide" }] }
+  ]
+}
+{% endschema %}
