@@ -4494,5 +4494,5 @@ footer .menu__item.paragraph {
   width: 12px;
 }
 .link .arrow-wrapper svg path {
-  stroke: inherit;
+  stroke: var(--button-color);
 }
