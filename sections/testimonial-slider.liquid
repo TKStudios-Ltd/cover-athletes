@@ -84,8 +84,8 @@
   color:inherit;
 }
 .testimonial-{{ section.id }} .pager__bar {
-  position:relative; height:2px; width:100%;
-  background: rgba(255,255,255,.25); border-radius:2px; overflow:hidden;
+  position:relative; height:1px; width:100%;
+  background: rgba(255,255,255,.25); border-radius:1px; overflow:hidden;
 }
 .testimonial-{{ section.id }} .pager__bar::after {
   content:''; position:absolute; inset:0 100% 0 0; background:#fff; opacity:.95;
@@ -93,14 +93,13 @@
 
 /* Name and role under line */
 .testimonial-{{ section.id }} .pager__label {
-  margin-top:10px;
-  font-size:11px;
-  letter-spacing:.3px;
-  text-transform:uppercase;
-  opacity:.75;
+  margin-top: 10px;
+  font-size:  16px;
+  letter-spacing: -0.2px;
+  opacity: 0.6;
 }
-.testimonial-{{ section.id }} .pager__name { display:block; font-weight:600; }
-.testimonial-{{ section.id }} .pager__role { display:block; opacity:.8; margin-top:2px; }
+.testimonial-{{ section.id }} .pager__name { display:block; font-weight: 600; }
+.testimonial-{{ section.id }} .pager__role { display:block; opacity: 1; font-weigbt: 400; margin-top: 2px; }
 
 .testimonial-{{ section.id }} .pager__item.is-active .pager__label { opacity:1; }
 
