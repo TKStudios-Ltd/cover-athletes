@@ -4485,11 +4485,11 @@ footer .menu__item.paragraph {
 }
 .link {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 .link .arrow-wrapper {
   display: flex;
-  align-items: center;
   height: 12px;
   width: 12px;
 }
