@@ -1585,7 +1585,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 8,
+            "gap": 25,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -1614,29 +1614,15 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_HFg8GF": {
-              "type": "text",
-              "name": "Heading",
+            "icon_4RnQQW": {
+              "type": "icon",
+              "name": "t:names.icon",
               "settings": {
-                "text": "<h2>Intentional design</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/Cover_ShapeIcon1.png",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false
               },
               "blocks": {}
             },
@@ -1644,10 +1630,10 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>We create with intention. Our products solve real problems with clean design and honest materials.</p>",
+                "text": "<p>Composites designed for strength-to-weight efficiency.</p>",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "center",
+                "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
@@ -1668,11 +1654,11 @@
             }
           },
           "block_order": [
-            "text_HFg8GF",
+            "icon_4RnQQW",
             "text_wMw47D"
           ]
         },
-        "group_xKf8EC": {
+        "group_YbqfUT": {
           "type": "group",
           "name": "Column",
           "settings": {
@@ -1683,7 +1669,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 8,
+            "gap": 25,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -1712,40 +1698,26 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_cy6HFy": {
-              "type": "text",
-              "name": "Heading",
+            "icon_qGUbtz": {
+              "type": "icon",
+              "name": "t:names.icon",
               "settings": {
-                "text": "<h2>Quality first</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/Cover_ShapeIcon2.png",
+                "width": 58,
+                "link": "",
+                "open_in_new_tab": false
               },
               "blocks": {}
             },
-            "text_d8WqJV": {
+            "text_8VTRCb": {
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>We obsess over the details and strive to deliver the best products at the best prices, every time.</p>",
+                "text": "<p>Foams engineered for durability,  comfort and resistance.</p>",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "center",
+                "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
@@ -1766,11 +1738,11 @@
             }
           },
           "block_order": [
-            "text_cy6HFy",
-            "text_d8WqJV"
+            "icon_qGUbtz",
+            "text_8VTRCb"
           ]
         },
-        "group_wTW8J6": {
+        "group_GcGt6D": {
           "type": "group",
           "name": "Column",
           "settings": {
@@ -1781,7 +1753,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 8,
+            "gap": 25,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -1810,40 +1782,26 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_WGHnKf": {
-              "type": "text",
-              "name": "Heading",
+            "icon_nwRyCx": {
+              "type": "icon",
+              "name": "t:names.icon",
               "settings": {
-                "text": "<h2>Customer care</h2>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/Cover_ShapeIcon1.png",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false
               },
               "blocks": {}
             },
-            "text_edC9ic": {
+            "text_ALPn3e": {
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>We're always on your side: keeping our loyal customers happy is our top priority and number one goal.</p>",
+                "text": "<p>Exploration of recyclable and sustainable alternatives</p>",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "center",
+                "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
@@ -1864,15 +1822,103 @@
             }
           },
           "block_order": [
-            "text_WGHnKf",
-            "text_edC9ic"
+            "icon_nwRyCx",
+            "text_ALPn3e"
+          ]
+        },
+        "group_Wbi49i": {
+          "type": "group",
+          "name": "Column",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 25,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 10,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_7a6FM8": {
+              "type": "icon",
+              "name": "t:names.icon",
+              "settings": {
+                "icon": "price_tag",
+                "image_upload": "shopify://shop_images/Cover_ShapeIcon2.png",
+                "width": 58,
+                "link": "",
+                "open_in_new_tab": false
+              },
+              "blocks": {}
+            },
+            "text_MAc7Wm": {
+              "type": "text",
+              "name": "Description",
+              "settings": {
+                "text": "<p>Exploration of recyclable and sustainable alternatives</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "icon_7a6FM8",
+            "text_MAc7Wm"
           ]
         }
       },
       "block_order": [
         "group_dGdnay",
-        "group_xKf8EC",
-        "group_wTW8J6"
+        "group_YbqfUT",
+        "group_GcGt6D",
+        "group_Wbi49i"
+      ],
+      "custom_css": [
+        "p {font-weight: 300; max-width: 240px;}"
       ],
       "name": "t:names.multicolumn",
       "settings": {
@@ -1899,8 +1945,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
     "section_dVccD7": {
