@@ -49,7 +49,10 @@
 .testimonial-{{ section.id }} .title { margin:28px 0 0; font-size: clamp(22px, 2.8vw, 28px); line-height:1.2; text-transform:uppercase; max-width: 480px; }
 
 /* ===== Copy items (absolute stack with slide-up) ===== */
-.testimonial-{{ section.id }} .copy-items { position:relative; width:100%; min-height: var(--copy-h, 0px); }
+.testimonial-{{ section.id }} .copy-items { 
+    position: relative;
+    width: 50%;
+    min-height: var(--copy-h, 0px); }
 .testimonial-{{ section.id }} .copy-items .item { position:absolute; inset:0; opacity:0; pointer-events:none; }
 .testimonial-{{ section.id }} .copy-items .item.is-active { opacity:1; pointer-events:auto; }
 .testimonial-{{ section.id }} .slide-content { max-width:760px; }
@@ -57,7 +60,13 @@
 .testimonial-{{ section.id }} .copy-items .item.is-active .quote { animation: copyIn-{{ section.id }} .45s ease forwards; }
 .testimonial-{{ section.id }} .copy-items .item.is-active .person { animation: copyIn-{{ section.id }} .45s ease .14s forwards; }
 @keyframes copyIn-{{ section.id }} { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
-.testimonial-{{ section.id }} .quote { font-size: clamp(18px, 2.2vw, 28px); line-height:1.35; }
+.testimonial-{{ section.id }} .quote { 
+    font-family: 'Graphik', sans-serif;
+    font-weight: 500;
+    font-size: 44px; 
+    letter-spacing: -0.5px;
+    line-height: 1; 
+}
 .testimonial-{{ section.id }} .person { margin-top:22px; font-size: clamp(14px, 1.8vw, 16px); opacity:.9; }
 
 /* ===== Pager with progress ===== */
@@ -166,7 +175,7 @@
           <div class="item{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">
             <div class="slide-content">
               {% if block.settings.quote != blank %}
-                <div class="quote rte">{{ block.settings.quote }}</div>
+                <h3 class="quote rte">{{ block.settings.quote }}</h3>
               {% endif %}
             </div>
           </div>
