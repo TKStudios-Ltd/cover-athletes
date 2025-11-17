@@ -1964,6 +1964,7 @@
         "slide_AYAbPk": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Cover_ContactInnerBG-60.png",
             "quote": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
             "person_name": "Rachin Ravindra",
             "person_title": "New Zealand Cricketer"
@@ -1972,8 +1973,9 @@
         "slide_Fnjj8g": {
           "type": "slide",
           "settings": {
-            "quote": "<p>I’ve faced 150kph bouncers and never thought twice because I trust what’s protecting me.</p>",
-            "person_name": "Glenn Phillips",
+            "image": "shopify://shop_images/Cover_ContactInnerBG-60.png",
+            "quote": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+            "person_name": "Ben Stokes",
             "person_title": "New Zealand Cricketer"
           }
         }
