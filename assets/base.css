@@ -4486,7 +4486,9 @@ footer .menu__item.paragraph {
 .link {
   font-family: 'Graphik', sans-serif !important;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.2px;
   display: flex;
   align-items: center;
   gap: 10px;
