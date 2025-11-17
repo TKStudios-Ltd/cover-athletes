@@ -1428,22 +1428,25 @@
               },
               "blocks": {}
             },
-            "icon_XWeNbN": {
-              "type": "icon",
-              "name": "t:names.icon",
+            "button_9dqTzY": {
+              "type": "button",
+              "name": "t:names.button",
               "settings": {
-                "icon": "price_tag",
-                "image_upload": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
-                "width": 48,
-                "link": "",
-                "open_in_new_tab": false
+                "label": "Read Full Report",
+                "link": "#",
+                "open_in_new_tab": false,
+                "style_class": "link",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
               },
               "blocks": {}
             }
           },
           "block_order": [
             "text_dh4GCt",
-            "icon_XWeNbN"
+            "button_9dqTzY"
           ]
         }
       },
