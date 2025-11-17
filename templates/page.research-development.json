@@ -1949,6 +1949,52 @@
         "padding-block-end": 100
       }
     },
+    "testimonial_slider_GXWkLT": {
+      "type": "testimonial-slider",
+      "blocks": {
+        "slide_VNm9pM": {
+          "type": "slide",
+          "settings": {
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice because I trust what’s protecting me.</p>",
+            "person_name": "Glenn Phillips",
+            "person_title": "New Zealand Cricketer"
+          }
+        },
+        "slide_AYAbPk": {
+          "type": "slide",
+          "settings": {
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice because I trust what’s protecting me.</p>",
+            "person_name": "Glenn Phillips",
+            "person_title": "New Zealand Cricketer"
+          }
+        },
+        "slide_Fnjj8g": {
+          "type": "slide",
+          "settings": {
+            "quote": "<p>I’ve faced 150kph bouncers and never thought twice because I trust what’s protecting me.</p>",
+            "person_name": "Glenn Phillips",
+            "person_title": "New Zealand Cricketer"
+          }
+        }
+      },
+      "block_order": [
+        "slide_VNm9pM",
+        "slide_AYAbPk",
+        "slide_Fnjj8g"
+      ],
+      "name": "Testimonial Slider",
+      "settings": {
+        "eyebrow": "",
+        "title": "",
+        "title_size": "h1",
+        "ken_burns": true,
+        "effect": "slide",
+        "autoplay": true,
+        "delay": 5,
+        "loop": true,
+        "color_scheme": ""
+      }
+    },
     "section_dVccD7": {
       "type": "section",
       "blocks": {
@@ -2274,6 +2320,7 @@
     "section_mL9bM7",
     "section_dkKenk",
     "section_LUCKhD",
+    "testimonial_slider_GXWkLT",
     "section_dVccD7"
   ]
 }
