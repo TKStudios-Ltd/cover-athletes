@@ -60,10 +60,11 @@
 .testimonial-{{ section.id }} .copy-items .item.is-active .quote { animation: copyIn-{{ section.id }} .45s ease forwards; }
 .testimonial-{{ section.id }} .copy-items .item.is-active .person { animation: copyIn-{{ section.id }} .45s ease .14s forwards; }
 @keyframes copyIn-{{ section.id }} { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
-.testimonial-{{ section.id }} .quote { 
-    font-family: 'Graphik', sans-serif;
-    font-weight: 500;
+.testimonial-{{ section.id }} h3.quote { 
+    font-family: 'Graphik', sans-serif !important;
+    font-weight: 500 !important;
     font-size: 44px; 
+    text-transform: inherit !important;
     letter-spacing: -0.5px;
     line-height: 1; 
 }
