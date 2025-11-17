@@ -161,16 +161,6 @@
               {% if block.settings.quote != blank %}
                 <div class="quote rte">{{ block.settings.quote }}</div>
               {% endif %}
-              {% if block.settings.person_name != blank or block.settings.person_title != blank %}
-                <div class="person">
-                  {% if block.settings.person_name != blank %}
-                    <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
-                  {% endif %}
-                  {% if block.settings.person_title != blank %}
-                    <span>{{ block.settings.person_title }}</span>
-                  {% endif %}
-                </div>
-              {% endif %}
             </div>
           </div>
         {% endif %}
