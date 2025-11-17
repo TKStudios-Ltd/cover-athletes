@@ -4479,3 +4479,19 @@ footer .menu__item.paragraph {
     font-size: 28px !important;
   }
 }
+
+.arrow-wrapper {
+  display: none;
+}
+.link {
+  display: flex;
+  gap: 10px;
+}
+.link .arrow-wrapper {
+  display: flex;
+  height: 12px;
+  width: 12px;
+}
+.link .arrow-wrapper svg path {
+  stroke: inherit;
+}
