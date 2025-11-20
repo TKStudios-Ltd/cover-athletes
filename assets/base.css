@@ -3411,6 +3411,9 @@ slideshow-slides[gutters*='end'] {
   .ui-test-product-list .resource-list--grid .resource-list__item {
     flex: 1;
   }
+  .ui-test-product-list .button-wrapper.button-wrapper--button {
+    margin-top: -55px;
+  }
 }
 
 slideshow-component[dragging] {
