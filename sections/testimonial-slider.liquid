@@ -50,9 +50,13 @@
 
 /* ===== Copy items (absolute stack with slide-up) ===== */
 .testimonial-{{ section.id }} .copy-items { 
-    position: relative;
-    width: 50%;
-    min-height: var(--copy-h, 0px); }
+  position: relative;
+  width: 50%;
+  min-height: var(--copy-h, 0px); 
+  @media (max-width: 749px) {
+    width: 100%;
+  }
+}
 .testimonial-{{ section.id }} .copy-items .item { position:absolute; inset:0; opacity:0; pointer-events:none; }
 .testimonial-{{ section.id }} .copy-items .item.is-active { opacity:1; pointer-events:auto; }
 .testimonial-{{ section.id }} .slide-content { max-width:760px; }
