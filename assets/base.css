@@ -3405,6 +3405,9 @@ slideshow-slides[gutters*='end'] {
   .ui-test-product-list .resource-list--grid .resource-list__item:first-child {
     flex: 0 0 40% !important;
   }
+  .ui-test-product-list .resource-list--grid .resource-list__item:first-child .user-select-text p {
+    font-size: 26px !important;
+  }
   .ui-test-product-list .resource-list--grid .resource-list__item {
     flex: 1;
   }
