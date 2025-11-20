@@ -3393,7 +3393,8 @@ slideshow-slides[gutters*='end'] {
   padding-inline-end: calc(var(--gutter-slide-width, 0) - 5px);
 }
 
-.resource-list__carousel .product-media-container--image img {
+.resource-list__carousel .product-media-container--image img,
+.resource-list--grid .product-media-container--image img {
   background: #C4C4C4;
 }
 
