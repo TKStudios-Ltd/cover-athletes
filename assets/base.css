@@ -3413,6 +3413,7 @@ slideshow-slides[gutters*='end'] {
   }
   .ui-test-product-list .button-wrapper.button-wrapper--button {
     margin-top: -55px;
+    z-index: 2;
   }
 }
 
