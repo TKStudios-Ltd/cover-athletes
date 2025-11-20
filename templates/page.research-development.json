@@ -1540,7 +1540,8 @@
       ],
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1120px;}",
-        "h3 strong {font-weight: 400 !important; color: #07de85;}"
+        "h3 strong {font-weight: 400 !important; color: #07de85;}",
+        "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -2442,6 +2443,7 @@
       ],
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1080px;}",
+        "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}",
         ".user-select-text p {font-weight: 600;}",
         ".product-card__content .group-block,.product-card__content product-price {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
       ],
