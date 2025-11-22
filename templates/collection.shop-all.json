@@ -510,6 +510,10 @@
           ]
         }
       },
+      "custom_css": [
+        ".user-select-text p {font-weight: 600;}",
+        ".product-card__content .group-block,.product-card__content product-price {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
+      ],
       "settings": {
         "layout_type": "grid",
         "product_card_size": "large",
