@@ -131,6 +131,10 @@
       "block_order": [
         "text_QPGxyy"
       ],
+      "custom_css": [
+        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1080px;}",
+        "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}"
+      ],
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -157,7 +161,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 100,
-        "padding-block-end": 30
+        "padding-block-end": 20
       }
     },
     "main": {
@@ -502,7 +506,7 @@
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "color_scheme": "scheme-1",
-        "padding-block-start": 60,
+        "padding-block-start": 20,
         "padding-block-end": 100
       }
     }
