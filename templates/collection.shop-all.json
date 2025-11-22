@@ -106,7 +106,7 @@
           "name": "t:names.heading",
           "settings": {
             "text": "<h3>Discover our range of multi-award winning equipments.</h3>",
-            "width": "fit-content",
+            "width": "100%",
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "rte",
