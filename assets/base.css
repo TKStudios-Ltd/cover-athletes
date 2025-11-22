@@ -3394,7 +3394,8 @@ slideshow-slides[gutters*='end'] {
 }
 
 .resource-list__carousel .product-media-container--image img,
-.resource-list--grid .product-media-container--image img {
+.resource-list--grid .product-media-container--image img,
+.product-grid .product-media-container--image img {
   background: #C4C4C4;
 }
 
