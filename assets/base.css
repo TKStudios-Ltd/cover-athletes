@@ -3399,6 +3399,10 @@ slideshow-slides[gutters*='end'] {
   background: #C4C4C4;
 }
 
+.product-grid .product-card__content .group-block .layout-panel-flex--column {
+  flex-direction: column !important;
+}
+
 @media (min-width: 990px) {
   .ui-test-product-list .resource-list--grid {
     display: flex;
