@@ -132,7 +132,7 @@ line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padd
       <div class="image-tabs__tabs">
         <div class="image-tabs__tabs_inner">
           {% if section.settings.eyebrow != blank %}
-            <p class="eyebrow" data-reveal>
+            <p class="eyebrow">
               {% if section.settings.eyebrow_icon != blank %}
                 {{ section.settings.eyebrow_icon | image_url: width: 40 | image_tag: loading: 'lazy' }}
               {% endif %}
@@ -162,7 +162,7 @@ line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padd
         </div>
 
         {% if section.settings.below_text != blank %}
-          <div class="below-text rte" data-reveal>{{ section.settings.below_text }}</div>
+          <div class="below-text rte">{{ section.settings.below_text }}</div>
         {% endif %}
       </div>
 
