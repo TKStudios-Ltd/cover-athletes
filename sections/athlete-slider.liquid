@@ -156,7 +156,7 @@
     <div class="content">
         <div class="slider-top">
             {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
-                <div class="left-top">
+                <div class="left-top" data-reveal>
                 {% if section.settings.label_icon != blank %}
                     {{ section.settings.label_icon | image_url: width: 120 | image_tag: loading: 'lazy' }}
                 {% endif %}
@@ -166,14 +166,14 @@
                 </div>
             {% endif %}
             {% if section.settings.title != blank %}
-                <h2 class="title inline-richtext {{ section.settings.title_size }}">{{ section.settings.title }}</h2>
+                <h2 class="title inline-richtext {{ section.settings.title_size }}" data-reveal>{{ section.settings.title }}</h2>
             {% endif %}
         </div>
 
         <div class="slider-bottom">
             <!-- Arrows ABOVE copy -->
             <div class="nav">
-                <div class="button-wrapper button-wrapper--button">
+                <div class="button-wrapper button-wrapper--button" data-reveal>
                   <button class="arrow-button button prev" aria-label="Previous">
                     <svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                   </button>
@@ -192,10 +192,10 @@
                     <div class="item{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">
                     <div class="slide-content">
                         {% if block.settings.quote != blank %}
-                        <div class="quote rte">{{ block.settings.quote }}</div>
+                        <div class="quote rte" data-reveal>{{ block.settings.quote }}</div>
                         {% endif %}
                         {% if block.settings.person_name != blank or block.settings.person_title != blank %}
-                        <div class="person">
+                        <div class="person" data-reveal>
                             {% if block.settings.person_name != blank %}
                             <strong>{{ block.settings.person_name }}</strong>{% if block.settings.person_title != blank %}<br>{% endif %}
                             {% endif %}
