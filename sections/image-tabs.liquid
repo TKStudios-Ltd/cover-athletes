@@ -141,7 +141,7 @@ line-height: 1; text-decoration: none; color: rgb(var(--color-foreground)); padd
           {% endif %}
 
           {% if section.settings.heading != blank %}
-            <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px" data-reveal>{{ section.settings.heading }}</h2>
+            <h2 class="title inline-richtext {{ section.settings.heading_size }}" style="margin:0 0 16px">{{ section.settings.heading }}</h2>
           {% endif %}
 
           <div id="Tabs-{{ section.id }}" class="swiper tabs"
