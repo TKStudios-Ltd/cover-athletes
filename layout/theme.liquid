@@ -89,7 +89,7 @@
           const sectionTop = section.getBoundingClientRect().top;
           if (sectionTop < viewportHeight * 0.8) return;
           const innerEls = section.querySelectorAll(
-            '[data-reveal], h1, h2, h3, h4, h5, h6, p, img, picture, video, .text-block, .button, .button-secondary, .field, .card, .resource-list__arrows, .button-wrapper'
+            '[data-reveal], h1, h2, h3, h4, h5, h6, p, img, picture, video, .text-block, .button, .button-secondary, .field, .card, .resource-list__arrows, .button-wrapper, input'
           );
           innerEls.forEach(el => {
             if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
