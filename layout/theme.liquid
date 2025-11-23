@@ -75,7 +75,7 @@
     {% endif %}
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const elements = document.querySelectorAll('[data-reveal]');
+        const targets = document.querySelectorAll('[data-reveal-wrapper] *');
 
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -86,7 +86,13 @@
           });
         }, { threshold: 0.15 });
 
-        elements.forEach((el) => observer.observe(el));
+        targets.forEach((el) => {
+          // skip elements with 0 height (hidden)
+          if (el.offsetHeight > 0 && el.offsetWidth > 0) {
+            el.setAttribute('data-reveal', '');
+            observer.observe(el);
+          }
+        });
       });
     </script>
 
