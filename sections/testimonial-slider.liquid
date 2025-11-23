@@ -172,7 +172,7 @@
     <div class="content">
       <div class="slider-top">
         {% if section.settings.label_icon != blank or section.settings.eyebrow != blank %}
-          <div class="left-top">
+          <div class="left-top" data-reveal>
             {% if section.settings.label_icon != blank %}
               {{ section.settings.label_icon | image_url: width: 140 | image_tag: loading: 'lazy' }}
             {% endif %}
@@ -182,7 +182,7 @@
           </div>
         {% endif %}
         {% if section.settings.title != blank %}
-          <h2 class="title inline-richtext {{ section.settings.title_size }}">{{ section.settings.title }}</h2>
+          <h2 class="title inline-richtext {{ section.settings.title_size }}" data-reveal>{{ section.settings.title }}</h2>
         {% endif %}
       </div>
 
@@ -193,7 +193,7 @@
           <div class="item{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">
             <div class="slide-content">
               {% if block.settings.quote != blank %}
-                <h3 class="quote rte">{{ block.settings.quote }}</h3>
+                <h3 class="quote rte" data-reveal>{{ block.settings.quote }}</h3>
               {% endif %}
             </div>
           </div>
@@ -207,7 +207,7 @@
         {% if block.type == 'slide' %}
           <button class="pager__item{% if forloop.first %} is-active{% endif %}" data-idx="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             <div class="pager__bar"></div>
-            <div class="pager__label">
+            <div class="pager__label" data-reveal>
               {% if block.settings.person_name != blank %}
                 <span class="pager__name">{{ block.settings.person_name }}</span>
               {% endif %}
