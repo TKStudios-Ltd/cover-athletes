@@ -75,23 +75,28 @@
     {% endif %}
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const targets = document.querySelectorAll('[data-reveal-wrapper] *');
+        const sections = document.querySelectorAll('.section-content-wrapper');
 
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
+              const el = entry.target;
+              el.classList.add('is-visible');
+              observer.unobserve(el);
             }
           });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.2 });
 
-        targets.forEach((el) => {
-          // skip elements with 0 height (hidden)
-          if (el.offsetHeight > 0 && el.offsetWidth > 0) {
+        sections.forEach(section => {
+          // Find animatable children – headings, images, text blocks, buttons, etc
+          const innerEls = section.querySelectorAll(
+            'h1, h2, h3, h4, h5, h6, p, img, picture, video, .text-block, .button, .image, .media, .card'
+          );
+
+          innerEls.forEach(el => {
             el.setAttribute('data-reveal', '');
             observer.observe(el);
-          }
+          });
         });
       });
     </script>
