@@ -76,7 +76,6 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
       const viewportHeight = window.innerHeight;
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -85,32 +84,22 @@
           }
         });
       }, { threshold: 0.2 });
-
-      // 1. Auto-animate elements inside content wrappers
       document.querySelectorAll('.section-content-wrapper').forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
-
         const autoEls = section.querySelectorAll(
           'h1, h2, h3, h4, h5, h6, p, img, picture, video, .text-block, .button, .button-secondary, .field, .card, .resource-list__arrows, .button-wrapper, input'
         );
-
         autoEls.forEach(el => {
-          // Skip auto animations above the fold
           if (sectionTop < viewportHeight * 0.8) {
             el.classList.add('is-visible');
             return;
           }
-
           el.setAttribute('data-reveal', '');
           observer.observe(el);
         });
       });
-
-      // 2. Animate ALL manually-tagged data-reveal elements (anywhere in the DOM)
       document.querySelectorAll('[data-reveal]').forEach(el => {
-        // If it already became visible from auto logic, skip
         if (el.classList.contains('is-visible')) return;
-
         observer.observe(el);
       });
     });
