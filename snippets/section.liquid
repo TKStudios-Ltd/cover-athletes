@@ -58,9 +58,11 @@
         {% render 'layout-panel-style', settings: section.settings %}
         {% render 'spacing-style', settings: section.settings %}
       "
-      data-testid="section-content" data-reveal-wrapper
+      data-testid="section-content"
     >
-      {{ children }}
+      <div data-reveal-wrapper>
+        {{ children }}
+      </div>
     </div>
   </div>
 </div>
