@@ -87,7 +87,7 @@
       document.querySelectorAll('.section-content-wrapper').forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
         const autoEls = section.querySelectorAll(
-          'h1, h2, h3, h4, h5, h6, p, img, picture, video, deferred-media, product-card, .product-card .text-block, .button, .button-secondary, .field, .card, .resource-list__arrows, .button-wrapper, input'
+          'h1, h2, h3, h4, h5, h6, p, img, picture, video, deferred-media, product-card, .product-card .text-block, .button, .button-secondary, .field, .card, .resource-list__arrows, .resource-list__item, .button-wrapper, input'
         );
         autoEls.forEach(el => {
           if (sectionTop < viewportHeight * 0.8) {
