@@ -96,10 +96,13 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 .rd-slide.ratio-square .rd-slide__media {
   aspect-ratio: 1 / 1;
 }
-
-/* Optional: 3:4 */
-.rd-slide.ratio-34 .rd-slide__media {
-  aspect-ratio: 3 / 4;
+/* Optional: 5:4 */
+.rd-slide.ratio-54 .rd-slide__media {
+  aspect-ratio: 5 / 4;
+}
+/* Optional: 4:5 */
+.rd-slide.ratio-45 .rd-slide__media {
+  aspect-ratio: 4 / 5;
 }
 
 .rd-slide__media img {
@@ -184,7 +187,8 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
           "default": "square",
           "options": [
             { "value": "square", "label": "Square (1:1)" },
-            { "value": "34", "label": "3:4" }
+            { "value": "54", "label": "Short (5:4)" },
+            { "value": "45", "label": "Tall (4:5)" }
           ]
         }
       ]
