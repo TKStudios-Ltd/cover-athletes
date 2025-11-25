@@ -22,6 +22,12 @@
 .split-image-product__content .product-card__content {
   width: 100%;
 }
+.split-image-product__content .card-gallery {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+            
+}
 .split-image-product__content .card-gallery img {
     width: 100%;
     height: auto;
@@ -132,12 +138,7 @@
 
             <!-- FEATURED IMAGE -->
             {% if product_obj.featured_media %}
-            <div class="card-gallery spacing-style border-style" style="
-                --border-style:none;
-                --border-radius:12px;
-                overflow:hidden;
-                margin:20px 0;
-            " data-reveal>
+            <div class="card-gallery spacing-style border-style" data-reveal>
                 {{ product_obj.featured_media 
                 | image_url: width: 2000 
                 | image_tag: loading: 'lazy' 
