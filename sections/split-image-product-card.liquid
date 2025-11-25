@@ -39,7 +39,7 @@
 .split-image-product__content .group-block-content {
     border-top: rgba(0, 0, 0, 0.4) 1px solid;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 2.5rem;
 }
 .split-image-product__content .layout-panel-flex--row {
     display: flex;
@@ -64,19 +64,17 @@
 
 /* Responsive adjustments matching Ritual breakpoints */
 @media screen and (max-width: 749px) {
-  .split-image-product__inner {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .split-image-product__media,
-  .split-image-product__content {
-    width: 100%;
-  }
-
-  .split-image-product__content .product-card__content {
-    padding-inline: var(--padding-xs);
-  }
+    .split-image-product__inner {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .split-image-product__media,
+    .split-image-product__content {
+        width: 100%;
+    }
+    .split-image-product__content .group-block-content {    
+        margin-bottom: 2rem;
+    }
 }
 @media (min-width: 990px) {
     .split-image-product__content {
