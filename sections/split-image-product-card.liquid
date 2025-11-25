@@ -33,7 +33,13 @@
   margin-bottom: 6px;
 }
 
-.text-block--p-s {
+.split-image-product__content .layout-panel-flex--row {
+    display: flex;
+    padding: 7px 0;
+    border-bottom: rgba(0, 0, 0, 0.4) 1px solid;
+}
+.split-image-product__content .text-block--p-s {
+    flex: 0 0 calc(50% - 1rem);
     font-family: 'Graphik', sans-serif;
     font-size: var(--font-size);
     line-height: var(--line-height--body, var(--line-height));
@@ -138,8 +144,7 @@
 
             <!-- PRODUCT DETAILS (from metafields if present) -->
             {% if product_obj.metafields.custom.impact_resistance %}
-            <div class="group-block-content layout-panel-flex layout-panel-flex--row"
-            style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
+            <div class="layout-panel-flex--row">
             
             <div class="text-block--p-s">
                 <p style="color: rgb(147,,147,147);">Impact Resistance</p>
@@ -153,8 +158,7 @@
             {% endif %}
 
             {% if product_obj.metafields.custom.weight %}
-            <div class="group-block-content layout-panel-flex layout-panel-flex--row"
-            style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
+            <div class="layout-panel-flex--row">
             
             <div class="text-block--p-s">
                 <p style="color: rgb(147,,147,147);">Weight</p>
