@@ -27,7 +27,7 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 
           <div class="rd-slide__content">
             {% if block.settings.title != blank %}
-              <h5 class="rd-slide__title rte">{{ block.settings.title }}</h5>
+              <h5 class="rd-slide__title">{{ block.settings.title }}</h5>
             {% endif %}
 
             {% if block.settings.link_label != blank and block.settings.link_url != blank %}
@@ -125,9 +125,10 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 }
 
 .rd-slide__title {
-  font-size: 26px;
-  font-weight: 600;
-  max-width: 70%;
+    font-size: 28px;
+    font-weight: 200;
+    text-transform: inherit;
+    max-width: 240px;
 }
 
 .rd-slide__link {
