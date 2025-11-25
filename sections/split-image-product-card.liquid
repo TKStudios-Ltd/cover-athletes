@@ -9,7 +9,7 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: 150rem;
-  padding: {{ section.settings.padding_top }}px 2rem {{ section.settings.padding_bottom }}px 2rem;
+  padding: 
 }
 .split-image-product__media img {
   width: 100%;
@@ -75,7 +75,7 @@
 {% endif %}
 
 <div class="split-image-product color-{{ section.settings.color_scheme }}">
-    <div class="split-image-product__inner">
+    <div class="split-image-product__inner" style="padding: {{ section.settings.padding_top }}px 2rem {{ section.settings.padding_bottom }}px 2rem;">
     <!-- LEFT SIDE IMAGE -->
         <div class="split-image-product__media" style="flex:1;">
         {% if section.settings.image %}
