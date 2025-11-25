@@ -783,7 +783,7 @@
       "name": "R&D Slider",
       "settings": {
         "autoplay": true,
-        "delay": 5
+        "delay": 2
       }
     }
   },
