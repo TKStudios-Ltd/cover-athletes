@@ -27,7 +27,10 @@
       Two columns: image and content. Order depends on layout setting.
     {% endcomment %}
 
-    {% comment %} {% assign image_first = section.settings.layout == 'image-left' %} {% endcomment %}
+    {% assign image_first = false %}
+    {% if section.settings.layout == 'image-left' %}
+    {% assign image_first = true %}
+    {% endif %}
 
     {% if image_first %}
       <div class="split-featured-product__media-column">
