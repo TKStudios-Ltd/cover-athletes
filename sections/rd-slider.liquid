@@ -102,13 +102,29 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
 
 /* === SLIDES === */
 .rd-slide {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  width: calc(30% - 20px);
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+@media (min-width: 750px) and (max-width: 989px) {
+    .rd-slide {
+        width: calc(40% - 20px);
+    }
+}
+@media (min-width: 990px) and (max-width: 1199px) {
+    .rd-slide {
+        width: calc(35% - 20px);
+    }
+}
+@media (min-width: 1200px) {
+    .rd-slide {
+        width: calc(30% - 20px);
+    }
 }
 @media (max-width: 749px) {
-  .rd-slide { width: 80%; }
+    .rd-slide { 
+        width: calc(75% - 20px); 
+    }
 }
 
 .rd-swiper .swiper-wrapper { display: flex; }
@@ -157,11 +173,9 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
     color: #959595;
     font-style: normal;
 }
-
 .rd-slide__link {
   padding: 24px;
 }
-
 .rd-slide__icon {
   position: absolute;
   bottom: 24px;
