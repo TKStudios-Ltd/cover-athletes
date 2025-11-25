@@ -40,14 +40,6 @@
         --quick-add-display: none;
       ">
 
-        <!-- TITLE -->
-        <h3 class="h4">{{ product_obj.title }}</h3>
-
-        <!-- PRICE -->
-        <div class="h6">
-          {% render 'price', product: product_obj %}
-        </div>
-
         <!-- FEATURED IMAGE -->
         {% if product_obj.featured_media %}
           <div class="card-gallery spacing-style border-style" style="
@@ -62,6 +54,14 @@
             }}
           </div>
         {% endif %}
+
+        <!-- TITLE -->
+        <h3 class="h4">{{ product_obj.title }}</h3>
+
+        <!-- PRICE -->
+        <div class="h6">
+          {% render 'price', product: product_obj %}
+        </div>
 
         <!-- PRODUCT DETAILS (from metafields if present) -->
         {% if product_obj.metafields.custom.impact_resistance %}
