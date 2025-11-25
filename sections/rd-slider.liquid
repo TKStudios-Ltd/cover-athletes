@@ -40,7 +40,12 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
             {% endif %}
 
             {% if block.settings.link_label != blank and block.settings.link_url != blank %}
-              <a href="{{ block.settings.link_url }}" class="rd-slide__link">{{ block.settings.link_label }}</a>
+              <a href="{{ block.settings.link_url }}" class="rd-slide__link">
+                {{ block.settings.link_label }}
+                <span class="arrow-wrapper">
+                    {{- 'icon-arrow-alt.svg' | inline_asset_content -}}
+                </span>
+            </a>
             {% endif %}
           </div>
 
