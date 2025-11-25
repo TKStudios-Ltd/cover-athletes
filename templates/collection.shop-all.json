@@ -714,6 +714,7 @@
           "type": "slide",
           "settings": {
             "ratio": "square",
+            "color_scheme": "scheme-1",
             "title": "fgnfdbfgbfg",
             "link": "",
             "link_label": "Learn more"
@@ -722,7 +723,8 @@
         "slide_ciNnqi": {
           "type": "slide",
           "settings": {
-            "ratio": "square",
+            "ratio": "tall",
+            "color_scheme": "scheme-1",
             "title": "dbdfbgdfbg",
             "link": "",
             "link_label": "Learn more"
@@ -732,6 +734,37 @@
           "type": "slide",
           "settings": {
             "ratio": "square",
+            "color_scheme": "scheme-1",
+            "title": "dbdfbgdfbg",
+            "link": "",
+            "link_label": "Learn more"
+          }
+        },
+        "slide_878De7": {
+          "type": "slide",
+          "settings": {
+            "ratio": "tall",
+            "color_scheme": "scheme-1",
+            "title": "dbdfbgdfbg",
+            "link": "",
+            "link_label": "Learn more"
+          }
+        },
+        "slide_9UJfUM": {
+          "type": "slide",
+          "settings": {
+            "ratio": "square",
+            "color_scheme": "scheme-1",
+            "title": "dbdfbgdfbg",
+            "link": "",
+            "link_label": "Learn more"
+          }
+        },
+        "slide_BN4pFV": {
+          "type": "slide",
+          "settings": {
+            "ratio": "square",
+            "color_scheme": "scheme-1",
             "title": "dbdfbgdfbg",
             "link": "",
             "link_label": "Learn more"
@@ -741,13 +774,15 @@
       "block_order": [
         "slide_xh3FN3",
         "slide_ciNnqi",
-        "slide_VeEbQJ"
+        "slide_VeEbQJ",
+        "slide_878De7",
+        "slide_9UJfUM",
+        "slide_BN4pFV"
       ],
       "name": "R&D Slider",
       "settings": {
         "autoplay": false,
-        "delay": 5,
-        "color_scheme": ""
+        "delay": 5
       }
     }
   },
