@@ -15,20 +15,20 @@
   height: auto;
   display: block;
 }
-
 .split-image-product__content .product-card__content {
   width: 100%;
 }
-
 .split-image-product__content .card-gallery img {
     width: 100%;
     height: auto;
     display: block;
     background: #c4c4c4;
 }
-
 .split-image-product__content .h4 {
     margin: 0;
+}
+.split-image-product__content .group-block-content__sb {
+    display: flex;
 }
 .split-image-product__content .group-block-content {
     border-top: rgba(0, 0, 0, 0.4) 1px solid;
@@ -141,9 +141,12 @@
             <!-- TITLE -->
             <h3 class="h4">{{ product_obj.title }}</h3>
 
-            <!-- PRICE -->
-            <div class="h6">
-            {% render 'price', product: product_obj %}
+            <div class="group-block-content__sb">
+                <p>[INSERT SCHEMA]</p>
+                <!-- PRICE -->
+                <div class="price--p">
+                {% render 'price', product: product_obj %}
+                </div>
             </div>
 
             <div class="group-block-content">
