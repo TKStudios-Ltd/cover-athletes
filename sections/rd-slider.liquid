@@ -99,7 +99,7 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
 .rd-slide__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.var(--overlay-opacity));
+  background: rgba(0, 0, 0, calc(var(--overlay-opacity) / 10));
   z-index: 1;
   pointer-events: none;
 }

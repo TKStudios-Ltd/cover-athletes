@@ -718,7 +718,10 @@
             "link_label": "",
             "link_url": "",
             "icon": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
-            "ratio": "square"
+            "ratio": "square",
+            "title_max_width": 240,
+            "overlay_opacity": 0,
+            "icon_height": 40
           }
         },
         "slide_ciNnqi": {
@@ -729,7 +732,10 @@
             "title": "20+ industry recognized awards",
             "link_label": "Learn more",
             "link_url": "",
-            "ratio": "45"
+            "ratio": "45",
+            "title_max_width": 240,
+            "overlay_opacity": 2,
+            "icon_height": 24
           }
         },
         "slide_rhiehk": {
@@ -739,7 +745,10 @@
             "title": "High-speed motion capture for energy deflection analysis.  Suspendisse varius enim in eros elementum.",
             "link_label": "Read more",
             "link_url": "",
-            "ratio": "square"
+            "ratio": "square",
+            "title_max_width": 240,
+            "overlay_opacity": 0,
+            "icon_height": 24
           }
         },
         "slide_iMxPF7": {
@@ -750,7 +759,10 @@
             "title": "Material fatigue testing across thousands of repetitions.",
             "link_label": "",
             "link_url": "",
-            "ratio": "square"
+            "ratio": "square",
+            "title_max_width": 240,
+            "overlay_opacity": 0,
+            "icon_height": 24
           }
         },
         "slide_VeEbQJ": {
@@ -761,7 +773,10 @@
             "link_label": "Read Full Report",
             "link_url": "#",
             "icon": "shopify://shop_images/Frame_3929_1.png",
-            "ratio": "54"
+            "ratio": "54",
+            "title_max_width": 240,
+            "overlay_opacity": 0,
+            "icon_height": 24
           }
         },
         "slide_878De7": {
@@ -773,7 +788,10 @@
             "link_label": "",
             "link_url": "",
             "icon": "shopify://shop_images/Frame_3929.png",
-            "ratio": "45"
+            "ratio": "45",
+            "title_max_width": 240,
+            "overlay_opacity": 0,
+            "icon_height": 24
           }
         }
       },
