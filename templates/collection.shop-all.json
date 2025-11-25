@@ -746,7 +746,7 @@
             "link_label": "Read more",
             "link_url": "",
             "ratio": "square",
-            "title_max_width": 300,
+            "title_max_width": 360,
             "overlay_opacity": 0,
             "icon_height": 24
           }
