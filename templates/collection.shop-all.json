@@ -86,7 +86,7 @@
         ".icon-text-inline .h3 {line-height: 1;}",
         ".pt-icon-text {margin-top: 0.5rem;}",
         ".gray-icon-text {color: #939393;}",
-        "@media (max-width: 749px) {.icon-text-inline .h3 {font-size: 18px !important; } .icon-text-inline img {height: 14px !important; }}"
+        "@media (max-width: 749px) {.icon-text-inline .h3 {font-size: 16px !important; } .icon-text-inline img {height: 12px !important; }}"
       ],
       "name": "Collection heading",
       "settings": {
