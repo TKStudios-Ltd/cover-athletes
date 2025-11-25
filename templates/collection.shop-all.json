@@ -16,7 +16,7 @@
           "type": "custom-liquid",
           "name": "t:names.custom_liquid",
           "settings": {
-            "custom_liquid": ""
+            "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo1.svg\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-white-logo1.svg\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"h3\">Protecting The</div></div>\n<div class=\"icon-text-inline\"><div class=\"h3 pt-icon-text\">Sport <span class=\"gray-icon-text\">You Love</span></div></div>"
           },
           "blocks": {}
         },
@@ -79,6 +79,13 @@
         "custom_liquid_xjH9E3",
         "text_tqQTNE",
         "text_JEyVkJ"
+      ],
+      "custom_css": [
+        ".icon-text-inline {display: flex;}",
+        ".icon-text-inline img {height: 24px;}",
+        ".icon-text-inline .h4 {line-height: 1;}",
+        ".pt-icon-text {margin-top: 0.25rem;}",
+        ".gray-icon-text {color: #939393;}"
       ],
       "name": "Collection heading",
       "settings": {
