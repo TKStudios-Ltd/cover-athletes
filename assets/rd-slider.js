@@ -1,41 +1,62 @@
-console.log("[rd-slider] init");
+(() => {
+  const ROOT = '[data-component="rd-slider"]';
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sliders = document.querySelectorAll("[data-rd-slider]");
-  if (!sliders.length) return;
-
-  sliders.forEach((slider) => {
-    const autoplayEnabled = slider.dataset.autoplay === "true";
-    const delay = parseInt(slider.dataset.delay, 10) || 5000;
-    const swiperEl = slider.querySelector(".swiper");
-
-    const swiper = new Swiper(swiperEl, {
-      slidesPerView: "auto",
-      spaceBetween: 16,
-      grabCursor: true,
-      speed: 600,
-      autoplay: autoplayEnabled
-        ? {
-            delay: delay,
-            disableOnInteraction: false
-          }
-        : false,
-      loop: false,
-      resistanceRatio: 0.85,
-      breakpoints: {
-        750: { spaceBetween: 24 },
-        1200: { spaceBetween: 28 }
+  function onSwiperReady(cb) {
+    if (window.Swiper) return cb();
+    const t = setInterval(() => {
+      if (window.Swiper) {
+        clearInterval(t);
+        cb();
       }
+    }, 40);
+  }
+
+  function init(root) {
+    if (!root || root.__rdInit) return;
+    root.__rdInit = true;
+
+    const id = root.getAttribute('data-section-id');
+    const autoplay = root.getAttribute('data-autoplay') === 'true';
+    const delay = parseInt(root.getAttribute('data-delay') || 5000, 10);
+
+    const el = document.querySelector(`#RDSwiper-${id}`);
+    if (!el) return;
+
+    const sw = new Swiper(el, {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      speed: 600,
+      grabCursor: true,
+      allowTouchMove: true,
+      autoplay: autoplay
+        ? { delay, disableOnInteraction: false }
+        : false
     });
 
-    slider.addEventListener("mouseenter", () => {
-      if (swiper.autoplay) swiper.autoplay.stop();
+    el.addEventListener('mouseenter', () => {
+      if (sw.autoplay) sw.autoplay.stop();
     });
 
-    slider.addEventListener("mouseleave", () => {
-      if (swiper.autoplay) swiper.autoplay.start();
+    el.addEventListener('mouseleave', () => {
+      if (sw.autoplay) sw.autoplay.start();
     });
 
-    console.log("[rd-slider] ready");
+    root.__rdDestroy = () => {
+      try { sw.destroy(true, true); } catch(e){}
+      root.__rdInit = false;
+    };
+  }
+
+  function boot(ctx) {
+    onSwiperReady(() => {
+      (ctx || document).querySelectorAll(ROOT).forEach(init);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => boot());
+  document.addEventListener('shopify:section:load', e => boot(e.target));
+  document.addEventListener('shopify:section:unload', e => {
+    const root = e.target?.querySelector(ROOT);
+    if (root?.__rdDestroy) root.__rdDestroy();
   });
-});
+})();
