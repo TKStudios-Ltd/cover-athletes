@@ -1,62 +1,57 @@
 (() => {
-  const ROOT = '[data-component="rd-slider"]';
+  const SEL = '[data-component="rd-slider"]';
 
-  function onSwiperReady(cb) {
+  function wait(cb) {
     if (window.Swiper) return cb();
     const t = setInterval(() => {
-      if (window.Swiper) {
-        clearInterval(t);
-        cb();
-      }
+      if (window.Swiper) { clearInterval(t); cb(); }
     }, 40);
   }
 
   function init(root) {
-    if (!root || root.__rdInit) return;
-    root.__rdInit = true;
+    if (!root || root.__init) return;
+    root.__init = true;
 
     const id = root.getAttribute('data-section-id');
     const autoplay = root.getAttribute('data-autoplay') === 'true';
     const delay = parseInt(root.getAttribute('data-delay') || 5000, 10);
 
-    const el = document.querySelector(`#RDSwiper-${id}`);
-    if (!el) return;
+    const target = document.querySelector(`#RDSwiper-${id}`);
+    if (!target) return;
 
-    const sw = new Swiper(el, {
+    const sw = new Swiper(target, {
       slidesPerView: 'auto',
       spaceBetween: 24,
       speed: 600,
       grabCursor: true,
       allowTouchMove: true,
-      autoplay: autoplay
-        ? { delay, disableOnInteraction: false }
-        : false
+      autoplay: autoplay ? { delay, disableOnInteraction: false } : false
     });
 
-    el.addEventListener('mouseenter', () => {
+    target.addEventListener('mouseenter', () => {
       if (sw.autoplay) sw.autoplay.stop();
     });
-
-    el.addEventListener('mouseleave', () => {
+    target.addEventListener('mouseleave', () => {
       if (sw.autoplay) sw.autoplay.start();
     });
 
-    root.__rdDestroy = () => {
+    root.__destroy = () => {
       try { sw.destroy(true, true); } catch(e){}
-      root.__rdInit = false;
+      root.__init = false;
     };
   }
 
   function boot(ctx) {
-    onSwiperReady(() => {
-      (ctx || document).querySelectorAll(ROOT).forEach(init);
+    wait(() => {
+      (ctx || document).querySelectorAll(SEL).forEach(init);
     });
   }
 
-  document.addEventListener('DOMContentLoaded', () => boot());
+  document.addEventListener('DOMContentLoaded', boot);
   document.addEventListener('shopify:section:load', e => boot(e.target));
   document.addEventListener('shopify:section:unload', e => {
-    const root = e.target?.querySelector(ROOT);
-    if (root?.__rdDestroy) root.__rdDestroy();
+    const root = e.target?.querySelector(SEL);
+    if (root?.__destroy) root.__destroy();
   });
+
 })();
