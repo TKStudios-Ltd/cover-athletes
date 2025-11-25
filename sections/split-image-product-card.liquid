@@ -33,6 +33,11 @@
     height: auto;
     display: block;
     background: #c4c4c4;
+    overflow: hidden;
+    transition: transform var(--hover-transition-duration) var(--hover-transition-timing);
+}
+.split-image-product__content .card-gallery img {
+    transform: scale(var(--hover-subtle-zoom-amount));
 }
 .split-image-product__content .h4 {
     margin: 0;
