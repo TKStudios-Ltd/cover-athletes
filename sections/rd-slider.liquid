@@ -124,14 +124,26 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
   z-index: 3;
 }
 
-/* Dark fade */
-.rd-slide__media::after {
+.rd-slide__media {
+  position: relative;
+  background: rgb(var(--color-background));
+}
+
+.rd-slide__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+{% comment %} .rd-slide__media::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.0) 20%, rgba(0,0,0,0.6) 100%);
   z-index: 1;
-}
+  pointer-events: none;
+} {% endcomment %}
+
 </style>
 
 {% schema %}
