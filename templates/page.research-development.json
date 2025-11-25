@@ -1503,7 +1503,7 @@
           "type": "custom-liquid",
           "name": "t:names.custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\">Materials & Sustainability</div></div>"
+            "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\" data-reveal>Materials & Sustainability</div></div>"
           },
           "blocks": {}
         },
@@ -2101,7 +2101,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\">Explore our products</div></div>"
+                "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\" data-reveal>Explore our products</div></div>"
               },
               "blocks": {}
             },
