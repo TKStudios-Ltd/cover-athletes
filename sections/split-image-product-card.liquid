@@ -1,143 +1,69 @@
 {% assign product = section.settings.product %}
+{% if product %}
+  {% assign product_obj = all_products[product] %}
+{% endif %}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="split-image-product color-{{ section.settings.color_scheme }}"
+     style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  
+  <div class="split-image-product__inner" style="display:flex; gap:40px; align-items:center;">
 
-<div
-  class="split-image-product-custom section section--full-width color-{{ section.settings.color_scheme }}"
-  style="
-    --padding-block-start: {{ section.settings.padding_block_start }}px;
-    --padding-block-end: {{ section.settings.padding_block_end }}px;
-  "
->
-  <div class="section-content-wrapper layout-panel-flex layout-panel-flex--row gap-style">
-
-    {%- comment -%}
-      Handle left vs right media
-    {%- endcomment -%}
-    {% assign image_left = false %}
-    {% if section.settings.layout == 'image-left' %}
-      {% assign image_left = true %}
-    {% endif %}
-
-    {%- comment -%}
-      IMAGE COLUMN
-    {%- endcomment -%}
-    {% if image_left %}
-      <div class="split-image-product-custom__media">
-        {% if section.settings.left_image %}
-          {{ section.settings.left_image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
-        {% else %}
-          {{ 'image' | placeholder_svg_tag }}
-        {% endif %}
-      </div>
-    {% endif %}
-
-    {%- comment -%}
-      PRODUCT CONTENT COLUMN (your static product-card layout)
-      We will inject product data into the template below.
-    {%- endcomment -%}
-    <div class="split-image-product-custom__content">
-
-      {% if product == blank %}
-        <p>Select a product in the section settings.</p>
+    {%- comment -%} LEFT SIDE IMAGE {%- endcomment -%}
+    <div class="split-image-product__media" style="flex:1;">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
       {% else %}
-
-        <div
-          class="
-            product-card__content
-            layout-panel-flex
-            layout-panel-flex--column
-            product-grid__card
-            spacing-style
-            border-style
-            gap-style
-          "
-          style="
-            --border-width: 1px;
-            --border-style: none;
-            --border-color: rgb(var(--color-border-rgb) / 1.0);
-            --border-radius: 0px;
-            --flex-direction: column;
-            --padding-block-start: 0px;
-            --padding-block-end: 20px;
-            --padding-inline-start: 0px;
-            --padding-inline-end: 0px;
-            --product-card-gap: 0px;
-          "
-        >
-
-          {%- comment -%}
-            PRODUCT MEDIA
-          {%- endcomment -%}
-          <div class="card-gallery spacing-style border-style" style="--border-radius: 12px; overflow: hidden;">
-            {% assign media = product.featured_media %}
-            {% if media %}
-              <a href="{{ product.url }}" class="contents">
-                {{ media | image_url: width: 2000 | image_tag: loading: 'lazy', class: "product-media__image" }}
-              </a>
-            {% endif %}
-          </div>
-
-          {%- comment -%}
-            TITLE
-          {%- endcomment -%}
-          <h3 class="h4">{{ product.title }}</h3>
-
-          {%- comment -%}
-            PRICE
-          {%- endcomment -%}
-          <div class="h6">
-            {% render 'price', product: product %}
-          </div>
-
-          {%- comment -%}
-            CUSTOM BLOCKS BELOW
-          {%- endcomment -%}
-          {% for block in section.blocks %}
-            <div class="split-image-product-custom__block" {{ block.shopify_attributes }}>
-              {% case block.type %}
-
-                {% when 'text' %}
-                  <div class="rte">{{ block.settings.text }}</div>
-
-                {% when 'html' %}
-                  <div class="rte">{{ block.settings.code }}</div>
-
-                {% when 'group' %}
-                  <div class="group-block">
-                    <strong>{{ block.settings.label }}</strong>
-                    <div>{{ block.settings.value }}</div>
-                  </div>
-
-                {% when 'metafield' %}
-                  <div class="group-block">
-                    <strong>{{ block.settings.label }}</strong>
-                    <div>{{ product.metafields.custom[block.settings.key] }}</div>
-                  </div>
-
-              {% endcase %}
-            </div>
-          {% endfor %}
-
-        </div>
-
+        {{ 'image' | placeholder_svg_tag }}
       {% endif %}
     </div>
 
-    {%- comment -%}
-      IMAGE ON RIGHT
-    {%- endcomment -%}
-    {% unless image_left %}
-      <div class="split-image-product-custom__media">
-        {% if section.settings.left_image %}
-          {{ section.settings.left_image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
-        {% else %}
-          {{ 'image' | placeholder_svg_tag }}
+    {%- comment -%} RIGHT SIDE PRODUCT CARD (STATIC LAYOUT EXACTLY LIKE YOU WANT) {%- endcomment -%}
+    <div class="split-image-product__content" style="flex:1;">
+
+      {% if product_obj %}
+
+        <!-- PRODUCT TITLE -->
+        <h2 class="h3">{{ product_obj.title }}</h2>
+
+        <!-- PRICE -->
+        <div class="product-price">
+          {% render 'price', product: product_obj %}
+        </div>
+
+        <!-- PRODUCT IMAGE -->
+        {% if product_obj.featured_media %}
+          <div class="product-featured-image" style="margin:20px 0;">
+            {{ product_obj.featured_media
+              | image_url: width: 2000
+              | image_tag: loading: 'lazy'
+            }}
+          </div>
         {% endif %}
-      </div>
-    {% endunless %}
+
+        <!-- IMPACT RESISTANCE (metafield) -->
+        {% if product_obj.metafields.custom.impact_resistance %}
+          <div class="product-spec-row" style="display:flex; justify-content:space-between; margin-bottom:10px;">
+            <strong>Impact Resistance</strong>
+            <span>{{ product_obj.metafields.custom.impact_resistance }}</span>
+          </div>
+        {% endif %}
+
+        <!-- WEIGHT (metafield) -->
+        {% if product_obj.metafields.custom.weight %}
+          <div class="product-spec-row" style="display:flex; justify-content:space-between;">
+            <strong>Weight</strong>
+            <span>{{ product_obj.metafields.custom.weight }}</span>
+          </div>
+        {% endif %}
+
+      {% else %}
+        <p>Select a product in the section settings.</p>
+      {% endif %}
+
+    </div>
 
   </div>
+
 </div>
 
 {% schema %}
@@ -145,24 +71,14 @@
   "name": "Split Image & Product",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left image"
+    },
+    {
       "type": "product",
       "id": "product",
       "label": "Product"
-    },
-    {
-      "type": "image_picker",
-      "id": "left_image",
-      "label": "Image"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "Layout",
-      "options": [
-        { "value": "image-left", "label": "Image left" },
-        { "value": "image-right", "label": "Image right" }
-      ],
-      "default": "image-left"
     },
     {
       "type": "color_scheme",
@@ -172,53 +88,27 @@
     },
     {
       "type": "range",
-      "id": "padding_block_start",
+      "id": "padding_top",
       "label": "Top padding",
-      "min": 0, "max": 120, "step": 5, "unit": "px",
+      "min": 0,
+      "max": 160,
+      "step": 4,
       "default": 40
     },
     {
       "type": "range",
-      "id": "padding_block_end",
+      "id": "padding_bottom",
       "label": "Bottom padding",
-      "min": 0, "max": 120, "step": 5, "unit": "px",
+      "min": 0,
+      "max": 160,
+      "step": 4,
       "default": 40
     }
   ],
-  "blocks": [
-    {
-      "type": "text",
-      "name": "Text",
-      "settings": [
-        { "type": "richtext", "id": "text", "label": "Text" }
-      ]
-    },
-    {
-      "type": "html",
-      "name": "Custom HTML",
-      "settings": [
-        { "type": "liquid", "id": "code", "label": "Custom Liquid/HTML" }
-      ]
-    },
-    {
-      "type": "group",
-      "name": "Label + Value",
-      "settings": [
-        { "type": "text", "id": "label", "label": "Label" },
-        { "type": "text", "id": "value", "label": "Value" }
-      ]
-    },
-    {
-      "type": "metafield",
-      "name": "Metafield",
-      "settings": [
-        { "type": "text", "id": "label", "label": "Label" },
-        { "type": "text", "id": "key", "label": "Metafield key (custom.xxx)" }
-      ]
-    }
-  ],
   "presets": [
-    { "name": "Split Image & Product" }
+    {
+      "name": "Split Image & Product"
+    }
   ]
 }
 {% endschema %}
