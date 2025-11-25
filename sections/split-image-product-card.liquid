@@ -16,12 +16,12 @@
   <div
     class="section-content-wrapper spacing-style size-style border-style"
     style="
-        {% render 'spacing-style', settings: section.settings %}
-        --media-height: 100%;
-        {% if request.visual_preview_mode %}
-            --visual-preview--height: 100%;
-        {% endif %}
-        "
+      {% render 'spacing-style', settings: section.settings %}
+      --media-height: 100%;
+      {% if request.visual_preview_mode %}
+        --visual-preview--height: 100%;
+      {% endif %}
+    "
   >
     {% comment %}
       Two columns: image and content. Order depends on layout setting.
@@ -29,7 +29,7 @@
 
     {% assign image_first = false %}
     {% if section.settings.layout == 'image-left' %}
-    {% assign image_first = true %}
+      {% assign image_first = true %}
     {% endif %}
 
     {% if image_first %}
@@ -54,88 +54,79 @@
       {% endif %}
 
       {% if product %}
-        {% form 'product', product, id: 'SplitFeaturedProductForm-' | append: section.id %}
-          <input
-            type="hidden"
-            name="id"
-            value="{{ product.selected_or_first_available_variant.id }}"
-          >
+        {% for block in section.blocks %}
+          <div class="split-featured-product__block split-featured-product__block--{{ block.type }}" {{ block.shopify_attributes }}>
+            {% case block.type %}
 
-          {% for block in section.blocks %}
-            <div class="split-featured-product__block split-featured-product__block--{{ block.type }}" {{ block.shopify_attributes }}>
-              {% case block.type %}
+              {% when 'title' %}
+                {% assign heading_tag = block.settings.heading_tag | default: 'h2' %}
+                <{{ heading_tag }} class="split-featured-product__title">
+                  {{ product.title | escape }}
+                </{{ heading_tag }}>
 
-                {% when 'title' %}
-                  {% assign heading_tag = block.settings.heading_tag | default: 'h2' %}
-                  <{{ heading_tag }} class="split-featured-product__title">
-                    {{ product.title | escape }}
-                  </{{ heading_tag }}>
+              {% when 'price' %}
+                <div class="split-featured-product__price">
+                  {% render 'price', product: product %}
+                </div>
 
-                {% when 'price' %}
-                  {% if product %}
-                    <div class="split-featured-product__price">
-                      {% render 'price', product: product %}
-                    </div>
+              {% when 'text' %}
+                {% if block.settings.text != blank %}
+                  <div class="split-featured-product__text rte">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+
+              {% when 'custom_html' %}
+                {% if block.settings.code != blank %}
+                  <div class="split-featured-product__custom-html">
+                    {{ block.settings.code }}
+                  </div>
+                {% endif %}
+
+              {% when 'group_heading' %}
+                {% if block.settings.label != blank %}
+                  <div class="split-featured-product__group-heading">
+                    {{ block.settings.label }}
+                  </div>
+                {% endif %}
+
+              {% when 'button' %}
+                {% assign href = '' %}
+
+                {% if block.settings.use_product_link and product %}
+                  {% assign href = product.url %}
+                {% elsif block.settings.url != blank %}
+                  {% assign href = block.settings.url %}
+                {% endif %}
+
+                {% if href != blank and block.settings.label != blank %}
+                  {% assign style = block.settings.style | default: 'primary' %}
+                  {% assign full_width = block.settings.full_width %}
+
+                  {% assign button_classes = 'button' %}
+                  {% if style == 'primary' %}
+                    {% assign button_classes = button_classes | append: ' button--primary' %}
+                  {% elsif style == 'secondary' %}
+                    {% assign button_classes = button_classes | append: ' button--secondary' %}
                   {% endif %}
 
-                {% when 'text' %}
-                  {% if block.settings.text != blank %}
-                    <div class="split-featured-product__text rte">
-                      {{ block.settings.text }}
-                    </div>
+                  {% if full_width %}
+                    {% assign button_classes = button_classes | append: ' button--full-width' %}
                   {% endif %}
 
-                {% when 'custom_html' %}
-                  {% if block.settings.code != blank %}
-                    <div class="split-featured-product__custom-html">
-                      {{ block.settings.code }}
-                    </div>
-                  {% endif %}
+                  <a
+                    href="{{ href }}"
+                    class="{{ button_classes }}"
+                  >
+                    {{ block.settings.label }}
+                  </a>
+                {% endif %}
 
-                {% when 'group_heading' %}
-                  {% if block.settings.label != blank %}
-                    <div class="split-featured-product__group-heading">
-                      {{ block.settings.label }}
-                    </div>
-                  {% endif %}
-
-                {% when 'button' %}
-                  {% assign href = '' %}
-
-                  {% if block.settings.use_product_link and product %}
-                    {% assign href = product.url %}
-                  {% elsif block.settings.url != blank %}
-                    {% assign href = block.settings.url %}
-                  {% endif %}
-
-                  {% if href != blank and block.settings.label != blank %}
-                    {% assign style = block.settings.style | default: 'primary' %}
-                    {% assign full_width = block.settings.full_width %}
-
-                    {% assign button_classes = 'button' %}
-                    {% if style == 'primary' %}
-                      {% assign button_classes = button_classes | append: ' button--primary' %}
-                    {% elsif style == 'secondary' %}
-                      {% assign button_classes = button_classes | append: ' button--secondary' %}
-                    {% endif %}
-
-                    {% if full_width %}
-                      {% assign button_classes = button_classes | append: ' button--full-width' %}
-                    {% endif %}
-
-                    <a
-                      href="{{ href }}"
-                      class="{{ button_classes }}"
-                    >
-                      {{ block.settings.label }}
-                    </a>
-                  {% endif %}
-
-              {% endcase %}
-            </div>
-          {% endfor %}
-        {% endform %}
+            {% endcase %}
+          </div>
+        {% endfor %}
       {% else %}
+        {% comment %} Placeholder when no product selected {% endcomment %}
         {% for block in section.blocks %}
           <div class="split-featured-product__block split-featured-product__block--{{ block.type }}" {{ block.shopify_attributes }}>
             {% case block.type %}
