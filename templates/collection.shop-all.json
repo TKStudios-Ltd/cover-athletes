@@ -82,8 +82,8 @@
       ],
       "custom_css": [
         ".icon-text-inline {display: flex;}",
-        ".icon-text-inline img {height: 20px;}",
-        ".icon-text-inline .h3 {font-size: 24px !important; line-height: 1;}",
+        ".icon-text-inline img {height: 22px;}",
+        ".icon-text-inline .h3 {font-size: 28px !important; line-height: 1;}",
         ".pt-icon-text {margin-top: 0.5rem;}",
         ".gray-icon-text {color: #939393;}",
         "@media (max-width: 749px) {.icon-text-inline .h3 {font-size: 16px !important; } .icon-text-inline img {height: 12px !important; }}"
