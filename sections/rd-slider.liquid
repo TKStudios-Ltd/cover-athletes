@@ -69,7 +69,6 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
 
 /* CURSOR */
 .rd-swiper,
-.rd-swiper *,
 .rd-swiper .rd-slide,
 .rd-swiper .rd-slide__media,
 .rd-swiper .rd-slide__content,
@@ -80,6 +79,16 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
 .rd-swiper:active *,
 .rd-swiper:active {
     cursor: grabbing !important;
+}
+
+.rd-slide a,
+.rd-slide a *,
+.rd-slide__link,
+.rd-slide__link * {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 10 !important;
+    position: relative;
 }
 
 /* === SLIDES === */
