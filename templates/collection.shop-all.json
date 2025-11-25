@@ -762,7 +762,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h2>New arrivals</h2>",
+                "text": "<h3>Exlpore what awaits with <strong>every Cover product.</strong></h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -809,6 +809,11 @@
       "block_order": [
         "custom_liquid_HKTFDh",
         "group_NedYX8"
+      ],
+      "custom_css": [
+        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit;}",
+        "h3 strong {font-weight: 400 !important; color: #959595;}",
+        "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
