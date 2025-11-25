@@ -33,6 +33,12 @@
   margin-bottom: 6px;
 }
 
+.text-block--p-s {
+    font-family: 'Graphik', sans-serif;
+    font-size: var(--font-size);
+    line-height: var(--line-height--body, var(--line-height));
+}
+
 /* Buttons — inherit Ritual styles but allow spacing */
 .split-image-product__content .button-secondary {
   margin-top: 20px;
@@ -135,11 +141,11 @@
             <div class="group-block-content layout-panel-flex layout-panel-flex--row"
             style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
             
-            <div class="text-block custom" style="--color:var(--color-primary); --font-size:0.75rem;">
-                <p>Impact Resistance</p>
+            <div class="text-block--p-s">
+                <p style="color: rgb(147,,147,147);">Impact Resistance</p>
             </div>
 
-            <div class="text-block custom" style="--color:var(--color-foreground); --font-size:0.75rem;">
+            <div class="text-block--p-s">
                 <p>{{ product_obj.metafields.custom.impact_resistance }}</p>
             </div>
 
@@ -150,11 +156,11 @@
             <div class="group-block-content layout-panel-flex layout-panel-flex--row"
             style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
             
-            <div class="text-block custom" style="--color:var(--color-primary); --font-size:0.75rem;">
-                <p>Weight</p>
+            <div class="text-block--p-s">
+                <p style="color: rgb(147,,147,147);">Weight</p>
             </div>
 
-            <div class="text-block custom" style="--color:var(--color-foreground); --font-size:0.75rem;">
+            <div class="text-block--p-s">
                 <p>{{ product_obj.metafields.custom.weight }}</p>
             </div>
 
