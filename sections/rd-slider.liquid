@@ -93,14 +93,21 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 }
 
 /* Default ratio: 1:1 */
-.rd-slide.ratio-square .rd-slide__media img {
-  aspect-ratio: 1/1;
+.rd-slide.ratio-square .rd-slide__media {
+  aspect-ratio: 1 / 1;
 }
 
 /* Optional: 3:2 */
-.rd-slide.ratio-32 .rd-slide__media img {
-  aspect-ratio: 3/2;
+.rd-slide.ratio-32 .rd-slide__media {
+  aspect-ratio: 3 / 2;
 }
+
+.rd-slide__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 /* === CONTENT === */
 .rd-slide__content {
