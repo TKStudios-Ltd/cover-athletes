@@ -719,7 +719,7 @@
             "link_url": "",
             "icon": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
             "ratio": "square",
-            "title_max_width": 240,
+            "title_max_width": 200,
             "overlay_opacity": 0,
             "icon_height": 40
           }
@@ -733,8 +733,8 @@
             "link_label": "Learn more",
             "link_url": "",
             "ratio": "45",
-            "title_max_width": 240,
-            "overlay_opacity": 2,
+            "title_max_width": 200,
+            "overlay_opacity": 1,
             "icon_height": 24
           }
         },
@@ -746,7 +746,7 @@
             "link_label": "Read more",
             "link_url": "",
             "ratio": "square",
-            "title_max_width": 240,
+            "title_max_width": 300,
             "overlay_opacity": 0,
             "icon_height": 24
           }
@@ -761,7 +761,7 @@
             "link_url": "",
             "ratio": "square",
             "title_max_width": 240,
-            "overlay_opacity": 0,
+            "overlay_opacity": 4,
             "icon_height": 24
           }
         },
@@ -776,7 +776,7 @@
             "ratio": "54",
             "title_max_width": 240,
             "overlay_opacity": 0,
-            "icon_height": 24
+            "icon_height": 20
           }
         },
         "slide_878De7": {
@@ -791,7 +791,7 @@
             "ratio": "45",
             "title_max_width": 240,
             "overlay_opacity": 0,
-            "icon_height": 24
+            "icon_height": 20
           }
         }
       },
