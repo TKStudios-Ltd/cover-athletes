@@ -108,7 +108,7 @@
         <div class="split-image-product__content" style="flex:1;">
 
         {% if product_obj %}
-
+        <a href="{{ product_obj.url }}" class="product-card__wrapper-link" style="text-decoration:none; color:inherit;">    
         <div class="
             product-card__content
             layout-panel-flex
@@ -146,12 +146,19 @@
             <h3 class="h4" data-reveal>{{ product_obj.title }}</h3>
 
             <div class="group-block-content__sb" data-reveal>
-                <p>[INSERT SCHEMA]</p>
+                <!-- TAGLINE METAFIELD -->
+                {% if product_obj.metafields.custom.tagline %}
+                    <p class="product-tagline">{{ product_obj.metafields.custom.tagline }}</p>
+                {% else %}
+                    <p class="product-tagline"></p>
+                {% endif %}
+
                 <!-- PRICE -->
                 <div class="price--p">
-                {% render 'price', product: product_obj %}
+                    {% render 'price', product: product_obj %}
                 </div>
             </div>
+
 
             <div class="group-block-content" data-reveal>
                 <!-- PRODUCT DETAILS (from metafields if present) -->
@@ -187,6 +194,7 @@
             </div>
 
         </div>
+        </a>
 
         {% else %}
             <p>Select a product in the section settings.</p>
