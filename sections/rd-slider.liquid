@@ -1,0 +1,172 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.rnd-{{ section.id }} {
+  position: relative;
+  width: 100%;
+}
+
+.rnd-{{ section.id }} .swiper {
+  width: 100%;
+  overflow: visible;
+}
+
+.rnd-{{ section.id }} .swiper-slide {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  cursor: none;
+}
+
+.rnd-{{ section.id }} .slide-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.rnd-{{ section.id }} .slide-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rnd-{{ section.id }} .slide-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.rnd-{{ section.id }} .title {
+  font-size: 22px;
+  line-height: 1.3;
+  max-width: 80%;
+}
+
+.rnd-{{ section.id }} .cta {
+  font-size: 15px;
+  margin-top: auto;
+}
+
+.rnd-{{ section.id }} .icon-wrap {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2;
+}
+
+.rnd-{{ section.id }} .icon-wrap img {
+  width: 34px;
+  height: auto;
+}
+
+/* aspect ratios */
+.rnd-{{ section.id }} .ratio-1-1 { aspect-ratio: 1 / 1; }
+.rnd-{{ section.id }} .ratio-3-4 { aspect-ratio: 3 / 4; }
+
+/* drag cursor */
+.rnd-{{ section.id }} .swiper-slide:hover {
+  cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab;
+}
+
+.rnd-{{ section.id }} .swiper-slide:active {
+  cursor: grabbing !important;
+}
+
+{%- endstyle -%}
+
+
+<section class="rnd-{{ section.id }}">
+  <div
+    class="swiper rnd-swiper-{{ section.id }}"
+    data-autoplay="{{ section.settings.autoplay }}"
+    data-delay="{{ section.settings.delay | times: 1000 }}"
+  >
+    <div class="swiper-wrapper">
+
+      {% for block in section.blocks %}
+      <div class="swiper-slide ratio-{{ section.settings.ratio }}" {{ block.shopify_attributes }}>
+        
+        {% if block.settings.image %}
+        <div class="slide-bg">
+          <img src="{{ block.settings.image | image_url: width: 1600 }}" alt="">
+        </div>
+        {% endif %}
+
+        <div class="slide-content color-{{ block.settings.color_scheme }}">
+          <div class="title">{{ block.settings.title }}</div>
+
+          {% if block.settings.link_label != blank and block.settings.link_url != blank %}
+          <a class="cta" href="{{ block.settings.link_url }}">{{ block.settings.link_label }}</a>
+          {% endif %}
+
+          {% if block.settings.icon %}
+          <div class="icon-wrap">
+            <img src="{{ block.settings.icon | image_url: width: 64 }}">
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+<script src="{{ 'r-and-d-slider.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "R&D Slider",
+  "settings": [
+    {
+      "type": "select",
+      "id": "ratio",
+      "label": "Slide ratio",
+      "options": [
+        { "value": "1-1", "label": "1:1" },
+        { "value": "3-4", "label": "3:4" }
+      ],
+      "default": "3-4"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "delay",
+      "label": "Autoplay delay (seconds)",
+      "min": 3,
+      "max": 10,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Background image" },
+        { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "link_label", "label": "Link label" },
+        { "type": "url", "id": "link_url", "label": "Link URL" },
+        { "type": "image_picker", "id": "icon", "label": "Icon (bottom-right)" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "R&D Slider", "blocks": [{ "type": "slide" }, { "type": "slide" }] }
+  ]
+}
+{% endschema %}
