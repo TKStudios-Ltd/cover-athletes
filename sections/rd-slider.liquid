@@ -97,9 +97,9 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
   aspect-ratio: 1 / 1;
 }
 
-/* Optional: 3:2 */
-.rd-slide.ratio-32 .rd-slide__media {
-  aspect-ratio: 3 / 2;
+/* Optional: 2:3 */
+.rd-slide.ratio-23 .rd-slide__media {
+  aspect-ratio: 2 / 3;
 }
 
 .rd-slide__media img {
@@ -152,22 +152,14 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
   object-fit: cover;
 }
 
-{% comment %} .rd-slide__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-} {% endcomment %}
-
 </style>
 
 {% schema %}
 {
   "name": "RD Slider",
   "settings": [
-    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "label": "Padding top", "default": 60 },
-    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "label": "Padding bottom", "default": 60 },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 5, "label": "Padding top", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 5, "label": "Padding bottom", "default": 60 },
 
     { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": true },
     { "type": "range", "id": "delay", "min": 2, "max": 12, "step": 1, "label": "Autoplay delay (sec)", "default": 5 }
@@ -192,7 +184,7 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
           "default": "square",
           "options": [
             { "value": "square", "label": "Square (1:1)" },
-            { "value": "32", "label": "3:2" }
+            { "value": "23", "label": "2:3" }
           ]
         }
       ]
