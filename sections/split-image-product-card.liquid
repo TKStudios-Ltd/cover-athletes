@@ -27,12 +27,14 @@
     background: #c4c4c4;
 }
 
-/* Metafield group rows */
-.split-image-product__content .group-block-content {
-  width: 100%;
-  margin-bottom: 6px;
+.split-image-product__content .h4 {
+    margin: 0;
 }
-
+.split-image-product__content .group-block-content {
+    border-top: rgba(0, 0, 0, 0.4) 1px solid;
+    width: 100%;
+    margin-bottom: 10px;
+}
 .split-image-product__content .layout-panel-flex--row {
     display: flex;
     padding: 7px 0;
@@ -144,34 +146,30 @@
             {% render 'price', product: product_obj %}
             </div>
 
-            <!-- PRODUCT DETAILS (from metafields if present) -->
-            {% if product_obj.metafields.custom.impact_resistance %}
-            <div class="layout-panel-flex--row">
-            
-            <div class="text-block--p-s">
-                <p style="color: rgb(147,147,147);">Impact Resistance</p>
-            </div>
+            <div class="group-block-content">
+                <!-- PRODUCT DETAILS (from metafields if present) -->
+                {% if product_obj.metafields.custom.impact_resistance %}
+                    <div class="layout-panel-flex--row">
+                        <div class="text-block--p-s">
+                            <p style="color: rgb(147,147,147);">Impact Resistance</p>
+                        </div>
+                        <div class="text-block--p-s">
+                            <p>{{ product_obj.metafields.custom.impact_resistance }}</p>
+                        </div>
+                    </div>
+                {% endif %}
 
-            <div class="text-block--p-s">
-                <p>{{ product_obj.metafields.custom.impact_resistance }}</p>
+                {% if product_obj.metafields.custom.weight %}
+                    <div class="layout-panel-flex--row">
+                        <div class="text-block--p-s">
+                            <p style="color: rgb(147,147,147);">Weight</p>
+                        </div>
+                        <div class="text-block--p-s">
+                            <p>{{ product_obj.metafields.custom.weight }}</p>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
-
-            </div>
-            {% endif %}
-
-            {% if product_obj.metafields.custom.weight %}
-            <div class="layout-panel-flex--row">
-            
-            <div class="text-block--p-s">
-                <p style="color: rgb(147,147,147);">Weight</p>
-            </div>
-
-            <div class="text-block--p-s">
-                <p>{{ product_obj.metafields.custom.weight }}</p>
-            </div>
-
-            </div>
-            {% endif %}
 
             <!-- SHOP NOW BUTTON -->
             <a href="{{ product_obj.url }}" 
