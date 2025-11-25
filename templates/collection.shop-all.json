@@ -83,9 +83,10 @@
       "custom_css": [
         ".icon-text-inline {display: flex;}",
         ".icon-text-inline img {height: 24px;}",
-        ".icon-text-inline .h4 {line-height: 1;}",
-        ".pt-icon-text {margin-top: 0.25rem;}",
-        ".gray-icon-text {color: #939393;}"
+        ".icon-text-inline .h3 {line-height: 1;}",
+        ".pt-icon-text {margin-top: 0.5rem;}",
+        ".gray-icon-text {color: #939393;}",
+        "@media (max-width: 749px) {.icon-text-inline .h3 {font-size: 18px !important; } .icon-text-inline img {height: 14px !important; }}"
       ],
       "name": "Collection heading",
       "settings": {
