@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
       loop: false,
       resistanceRatio: 0.85,
       breakpoints: {
-        750: { spaceBetween: 24 }
+        750: { spaceBetween: 24 },
+        1200: { spaceBetween: 28 }
       }
     });
 
-    // Pause on hover
     slider.addEventListener("mouseenter", () => {
       if (swiper.autoplay) swiper.autoplay.stop();
     });
