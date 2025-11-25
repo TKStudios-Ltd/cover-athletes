@@ -40,7 +40,7 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
             {% endif %}
 
             {% if block.settings.link_label != blank and block.settings.link_url != blank %}
-              <a href="{{ block.settings.link_url }}" class="rd-slide__link">
+              <a href="{{ block.settings.link_url }}" class="rd-slide__link link">
                 {{ block.settings.link_label }}
                 <span class="arrow-wrapper">
                     {{- 'icon-arrow-alt.svg' | inline_asset_content -}}
@@ -131,7 +131,7 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
 .rd-slide__content {
   position: absolute;
   inset: 0;
-  padding: 24px;
+  {% comment %} padding: 24px; {% endcomment %}
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -146,6 +146,7 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
     letter-spacing: -0.03em;
     text-transform: inherit;
     max-width: var(--title-max-width, 240px);
+    padding: 24px;
 }
 .rd-slide__title em {
     color: #959595;
@@ -153,8 +154,7 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
 }
 
 .rd-slide__link {
-  font-size: 14px;
-  text-decoration: underline;
+  padding: 24px;
 }
 
 .rd-slide__icon {
