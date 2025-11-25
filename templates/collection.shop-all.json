@@ -713,7 +713,7 @@
         "slide_xh3FN3": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Cover_ContactInnerBG-60.png",
+            "color_scheme": "scheme-5",
             "title": "fgnfdbfgbfg",
             "link_label": "Learn more",
             "link_url": "",
@@ -723,17 +723,29 @@
         "slide_ciNnqi": {
           "type": "slide",
           "settings": {
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
             "title": "dbdfbgdfbg",
             "link_label": "Learn more",
             "link_url": "",
-            "ratio": "tall"
+            "ratio": "32"
           }
         },
         "slide_rhiehk": {
           "type": "slide",
           "settings": {
-            "title": "",
+            "color_scheme": "scheme-54cd8101-33f0-41ba-b773-fd28614048dc",
+            "title": "sdvdsfvgfd",
             "link_label": "Read more",
+            "link_url": "",
+            "ratio": "square"
+          }
+        },
+        "slide_iMxPF7": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "",
+            "title": "",
+            "link_label": "",
             "link_url": "",
             "ratio": "square"
           }
@@ -741,15 +753,17 @@
         "slide_VeEbQJ": {
           "type": "slide",
           "settings": {
+            "color_scheme": "scheme-4",
             "title": "dbdfbgdfbg",
             "link_label": "Learn more",
             "link_url": "",
-            "ratio": "tall"
+            "ratio": "square"
           }
         },
         "slide_878De7": {
           "type": "slide",
           "settings": {
+            "color_scheme": "scheme-5",
             "title": "dbdfbgdfbg",
             "link_label": "Learn more",
             "link_url": "",
@@ -759,15 +773,17 @@
         "slide_9UJfUM": {
           "type": "slide",
           "settings": {
+            "color_scheme": "scheme-3",
             "title": "dbdfbgdfbg",
             "link_label": "Learn more",
             "link_url": "",
-            "ratio": "tall"
+            "ratio": "32"
           }
         },
         "slide_BN4pFV": {
           "type": "slide",
           "settings": {
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
             "title": "dbdfbgdfbg",
             "link_label": "Learn more",
             "link_url": "",
@@ -779,6 +795,7 @@
         "slide_xh3FN3",
         "slide_ciNnqi",
         "slide_rhiehk",
+        "slide_iMxPF7",
         "slide_VeEbQJ",
         "slide_878De7",
         "slide_9UJfUM",
@@ -788,7 +805,7 @@
       "settings": {
         "padding_top": 60,
         "padding_bottom": 60,
-        "autoplay": true,
+        "autoplay": false,
         "delay": 2
       }
     }
