@@ -63,15 +63,23 @@ RD Slider — block-level color scheme, ratios, overlay, title width, icon heigh
 .rd-slider { width: 100%; }
 
 .rd-slider__inner {
-  padding-top: var(--pad-top);
-  padding-bottom: var(--pad-bottom);
+    padding-top: var(--pad-top);
+    padding-bottom: var(--pad-bottom);
 }
 
 /* CURSOR */
-.rd-swiper {
-  cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab;
+.rd-swiper *,
+.rd-swiper .rd-slide,
+.rd-swiper .rd-slide__media,
+.rd-swiper .rd-slide__content,
+.rd-swiper .rd-slide__overlay,
+.rd-swiper .rd-slide__icon {
+    cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab !important;
 }
-.rd-swiper:active { cursor: grabbing; }
+.rd-swiper:active *,
+.rd-swiper:active {
+    cursor: grabbing !important;
+}
 
 /* === SLIDES === */
 .rd-slide {
