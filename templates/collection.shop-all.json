@@ -12,9 +12,18 @@
     "section": {
       "type": "section",
       "blocks": {
+        "custom_liquid_xjH9E3": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": ""
+          },
+          "blocks": {}
+        },
         "text_tqQTNE": {
           "type": "text",
           "name": "Title",
+          "disabled": true,
           "settings": {
             "text": "<h1>{{ closest.collection.title }}</h1>",
             "width": "fit-content",
@@ -41,6 +50,7 @@
         "text_JEyVkJ": {
           "type": "text",
           "name": "Description",
+          "disabled": true,
           "settings": {
             "text": "{{ closest.collection.description }}",
             "width": "fit-content",
@@ -66,6 +76,7 @@
         }
       },
       "block_order": [
+        "custom_liquid_xjH9E3",
         "text_tqQTNE",
         "text_JEyVkJ"
       ],
