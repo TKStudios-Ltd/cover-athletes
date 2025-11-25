@@ -714,67 +714,78 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Cover_ContactInnerBG-60.png",
-            "ratio": "square",
-            "color_scheme": "scheme-1",
             "title": "fgnfdbfgbfg",
-            "link": "",
-            "link_label": "Learn more"
+            "link_url": "",
+            "link_label": "Learn more",
+            "ratio": "1-1",
+            "color_scheme": "scheme-1"
           }
         },
         "slide_ciNnqi": {
           "type": "slide",
           "settings": {
-            "ratio": "tall",
-            "color_scheme": "scheme-1",
             "title": "dbdfbgdfbg",
-            "link": "",
-            "link_label": "Learn more"
+            "link_url": "",
+            "link_label": "Learn more",
+            "ratio": "4-5",
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide_rhiehk": {
+          "type": "slide",
+          "settings": {
+            "title": "",
+            "link_url": "",
+            "link_label": "Read more",
+            "ratio": "1-1",
+            "color_scheme": ""
           }
         },
         "slide_VeEbQJ": {
           "type": "slide",
           "settings": {
-            "ratio": "square",
-            "color_scheme": "scheme-1",
             "title": "dbdfbgdfbg",
-            "link": "",
-            "link_label": "Learn more"
+            "link_url": "",
+            "link_label": "Learn more",
+            "ratio": "4-5",
+            "color_scheme": "scheme-1"
           }
         },
         "slide_878De7": {
           "type": "slide",
           "settings": {
-            "ratio": "tall",
-            "color_scheme": "scheme-1",
             "title": "dbdfbgdfbg",
-            "link": "",
-            "link_label": "Learn more"
+            "link_url": "",
+            "link_label": "Learn more",
+            "ratio": "3-4",
+            "color_scheme": "scheme-1"
           }
         },
         "slide_9UJfUM": {
           "type": "slide",
           "settings": {
-            "ratio": "square",
-            "color_scheme": "scheme-1",
             "title": "dbdfbgdfbg",
-            "link": "",
-            "link_label": "Learn more"
+            "link_url": "",
+            "link_label": "Learn more",
+            "ratio": "4-5",
+            "color_scheme": "scheme-1"
           }
         },
         "slide_BN4pFV": {
           "type": "slide",
           "settings": {
-            "ratio": "square",
-            "color_scheme": "scheme-1",
             "title": "dbdfbgdfbg",
-            "link": "",
-            "link_label": "Learn more"
+            "link_url": "",
+            "link_label": "Learn more",
+            "ratio": "4-5",
+            "color_scheme": "scheme-1"
           }
         }
       },
       "block_order": [
         "slide_xh3FN3",
         "slide_ciNnqi",
+        "slide_rhiehk",
         "slide_VeEbQJ",
         "slide_878De7",
         "slide_9UJfUM",
@@ -783,7 +794,9 @@
       "name": "R&D Slider",
       "settings": {
         "autoplay": true,
-        "delay": 2
+        "delay": 2,
+        "pad_top": 40,
+        "pad_bottom": 40
       }
     }
   },
