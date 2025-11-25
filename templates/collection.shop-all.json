@@ -743,8 +743,8 @@
           "settings": {
             "color_scheme": "scheme-7efa9d04-cabf-448f-9087-5417bb3a721e",
             "title": "High-speed motion capture for energy deflection analysis.  <em>Suspendisse varius enim in eros elementum.</em>",
-            "link_label": "Read more",
-            "link_url": "",
+            "link_label": "Learn more",
+            "link_url": "#",
             "ratio": "square",
             "title_max_width": 360,
             "overlay_opacity": 0,
@@ -760,7 +760,7 @@
             "link_label": "",
             "link_url": "",
             "ratio": "square",
-            "title_max_width": 240,
+            "title_max_width": 280,
             "overlay_opacity": 4,
             "icon_height": 24
           }
