@@ -706,6 +706,49 @@
         "padding-block-start": 20,
         "padding-block-end": 100
       }
+    },
+    "rd_slider_qdgFcB": {
+      "type": "rd-slider",
+      "blocks": {
+        "slide_xh3FN3": {
+          "type": "slide",
+          "settings": {
+            "ratio": "square",
+            "title": "fgnfdbfgbfg",
+            "link": "",
+            "link_label": "Learn more"
+          }
+        },
+        "slide_ciNnqi": {
+          "type": "slide",
+          "settings": {
+            "ratio": "square",
+            "title": "dbdfbgdfbg",
+            "link": "",
+            "link_label": "Learn more"
+          }
+        },
+        "slide_VeEbQJ": {
+          "type": "slide",
+          "settings": {
+            "ratio": "square",
+            "title": "dbdfbgdfbg",
+            "link": "",
+            "link_label": "Learn more"
+          }
+        }
+      },
+      "block_order": [
+        "slide_xh3FN3",
+        "slide_ciNnqi",
+        "slide_VeEbQJ"
+      ],
+      "name": "R&D Slider",
+      "settings": {
+        "autoplay": false,
+        "delay": 5,
+        "color_scheme": ""
+      }
     }
   },
   "order": [
@@ -714,6 +757,7 @@
     "split_image_product_card_WUH9VM",
     "featured_product_xtYLxg",
     "section_48CgTF",
-    "main"
+    "main",
+    "rd_slider_qdgFcB"
   ]
 }
