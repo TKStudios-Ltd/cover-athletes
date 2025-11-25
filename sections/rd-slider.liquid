@@ -7,6 +7,11 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
   data-section-id="{{ section.id }}"
   data-autoplay="{{ section.settings.autoplay }}"
   data-delay="{{ section.settings.delay }}"
+  style="
+    --title-max-width: {{ section.settings.title_max_width }}px;
+    --overlay-opacity: {{ section.settings.overlay_opacity }};
+    --icon-height: {{ section.settings.icon_height }}px;
+  "
 >
   <div class="rd-slider__inner" style="
     --pad-top: {{ section.settings.padding_top }}px;
@@ -19,11 +24,12 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
         {% for block in section.blocks %}
         <div class="swiper-slide rd-slide color-{{ block.settings.color_scheme }} ratio-{{ block.settings.ratio }}" {{ block.shopify_attributes }}>
 
-            <div class="rd-slide__media" style="background: rgb(var(--color-background));">
+          <div class="rd-slide__media">
             {% if block.settings.image != blank %}
-                {{ block.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
+              {{ block.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
             {% endif %}
-            </div>
+            <div class="rd-slide__overlay"></div>
+          </div>
 
           <div class="rd-slide__content">
             {% if block.settings.title != blank %}
@@ -37,7 +43,7 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 
           {% if block.settings.icon != blank %}
             <div class="rd-slide__icon">
-              {{ block.settings.icon | image_url: width: 100 | image_tag }}
+              {{ block.settings.icon | image_url: width: 200 | image_tag }}
             </div>
           {% endif %}
 
@@ -58,7 +64,7 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
   padding-bottom: var(--pad-bottom);
 }
 
-/* SWIPER */
+/* SWIPER — FIXED CURSOR */
 .rd-swiper {
   cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab;
 }
@@ -66,12 +72,11 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 
 /* === SLIDES === */
 .rd-slide {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    width: calc(30% - 20px);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  width: calc(30% - 20px);
 }
-
 @media (max-width: 749px) {
   .rd-slide { width: 80%; }
 }
@@ -79,38 +84,33 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 .rd-swiper .swiper-wrapper {
   display: flex;
 }
-
 .rd-swiper .swiper-slide {
   flex-shrink: 0;
 }
 
-
 /* === RATIOS === */
+.rd-slide__media {
+  position: relative;
+  background: rgb(var(--color-background));
+}
 .rd-slide__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Default ratio: 1:1 */
-.rd-slide.ratio-square .rd-slide__media {
-  aspect-ratio: 1 / 1;
-}
-/* Optional: 5:4 */
-.rd-slide.ratio-54 .rd-slide__media {
-  aspect-ratio: 5 / 4;
-}
-/* Optional: 4:5 */
-.rd-slide.ratio-45 .rd-slide__media {
-  aspect-ratio: 4 / 5;
-}
+.rd-slide.ratio-square .rd-slide__media { aspect-ratio: 1/1; }
+.rd-slide.ratio-54 .rd-slide__media { aspect-ratio: 5/4; }
+.rd-slide.ratio-45 .rd-slide__media { aspect-ratio: 4/5; }
 
-.rd-slide__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* === OVERLAY === */
+.rd-slide__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,var(--overlay-opacity));
+  pointer-events: none;
+  z-index: 1;
 }
-
 
 /* === CONTENT === */
 .rd-slide__content {
@@ -121,16 +121,16 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
   flex-direction: column;
   justify-content: space-between;
   color: var(--color-foreground);
-  z-index: 2;
+  z-index: 3;
 }
 
 .rd-slide__title {
-    font-size: 28px;
-    font-weight: 200;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    text-transform: inherit;
-    max-width: 240px;
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: inherit;
+  max-width: var(--title-max-width, 240px);
 }
 
 .rd-slide__link {
@@ -139,28 +139,15 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
 }
 
 .rd-slide__icon {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    z-index: 3;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 3;
 }
 .rd-slide__icon img {
-    width: 100%;
-    height: 24px;
+  height: var(--icon-height, 24px);
+  width: auto;
 }
-
-.rd-slide__media {
-  position: relative;
-  background: rgb(var(--color-background));
-}
-
-.rd-slide__media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 </style>
 
 {% schema %}
@@ -169,6 +156,12 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
   "settings": [
     { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 5, "label": "Padding top", "default": 60 },
     { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 5, "label": "Padding bottom", "default": 60 },
+
+    { "type": "range", "id": "title_max_width", "min": 120, "max": 600, "step": 10, "label": "Title max-width (px)", "default": 240 },
+
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 100, "step": 1, "label": "Background overlay opacity", "default": 0 },
+
+    { "type": "range", "id": "icon_height", "min": 16, "max": 120, "step": 2, "label": "Icon height (px)", "default": 24 },
 
     { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": true },
     { "type": "range", "id": "delay", "min": 2, "max": 12, "step": 1, "label": "Autoplay delay (sec)", "default": 5 }
