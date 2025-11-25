@@ -756,10 +756,11 @@
         "slide_VeEbQJ": {
           "type": "slide",
           "settings": {
-            "color_scheme": "scheme-4",
-            "title": "dbdfbgdfbg",
-            "link_label": "Learn more",
-            "link_url": "",
+            "color_scheme": "scheme-7efa9d04-cabf-448f-9087-5417bb3a721e",
+            "title": "High-speed motion capture for energy deflection analysis.  Suspendisse varius enim in eros elementum.",
+            "link_label": "Read Full Report",
+            "link_url": "#",
+            "icon": "shopify://shop_images/image_6.png",
             "ratio": "54"
           }
         },
