@@ -1,3 +1,68 @@
+{% stylesheet %}
+.split-image-product {
+  width: 100%;
+}
+
+.split-image-product__inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.split-image-product__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.split-image-product__content .product-card__content {
+  width: 100%;
+}
+
+/* Product gallery styling */
+.split-image-product__content .card-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Metafield group rows */
+.split-image-product__content .group-block-content {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+/* Buttons — inherit Ritual styles but allow spacing */
+.split-image-product__content .button-secondary {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.split-image-product__content .button-secondary .arrow-wrapper svg {
+  display: inline-block;
+}
+
+/* Responsive adjustments matching Ritual breakpoints */
+@media screen and (max-width: 749px) {
+  .split-image-product__inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .split-image-product__media,
+  .split-image-product__content {
+    width: 100%;
+  }
+
+  .split-image-product__content .product-card__content {
+    padding-inline: var(--padding-xs);
+  }
+}
+{% endstylesheet %}
+
 {% assign product = section.settings.product %}
 {% if product %}
   {% assign product_obj = all_products[product] %}
