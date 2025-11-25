@@ -1,3 +1,5 @@
+
+
 <script type="application/ld+json">
   {{ section.settings.product | structured_data }}
 </script>
@@ -21,49 +23,20 @@
       {% endif %}
     "
   >
-    {% assign featured_product = section.settings.product %}
+    {% capture featured_product_media %}
+      {% content_for 'block', type: '_media-without-appearance', id: 'media', closest.product: section.settings.product %}
+    {% endcapture %}
 
-    {% if featured_product != blank %}
-      {% comment %}
-        Decide column order based on layout setting
-      {% endcomment %}
-      {% if section.settings.layout == 'media-left' %}
-        <div class="featured-product__media-column">
-          {% for block in section.blocks %}
-            {% if block.type == 'media' %}
-              {% render 'featured-product-block', block: block, product: featured_product %}
-            {% endif %}
-          {% endfor %}
-        </div>
+    {% capture featured_product_content %}
+      {% content_for 'block', type: '_featured-product', id: 'featured-product', closest.product: section.settings.product %}
+    {% endcapture %}
 
-        <div class="featured-product__content-column">
-          {% for block in section.blocks %}
-            {% unless block.type == 'media' %}
-              {% render 'featured-product-block', block: block, product: featured_product %}
-            {% endunless %}
-          {% endfor %}
-        </div>
-      {% else %}
-        <div class="featured-product__content-column">
-          {% for block in section.blocks %}
-            {% unless block.type == 'media' %}
-              {% render 'featured-product-block', block: block, product: featured_product %}
-            {% endunless %}
-          {% endfor %}
-        </div>
-
-        <div class="featured-product__media-column">
-          {% for block in section.blocks %}
-            {% if block.type == 'media' %}
-              {% render 'featured-product-block', block: block, product: featured_product %}
-            {% endif %}
-          {% endfor %}
-        </div>
-      {% endif %}
+    {% if section.settings.layout == 'media-left' %}
+      {{ featured_product_media }}
+      {{ featured_product_content }}
     {% else %}
-      <div class="featured-product__empty">
-        <p>{{ 'onboarding.product.title' | t }}</p>
-      </div>
+      {{ featured_product_content }}
+      {{ featured_product_media }}
     {% endif %}
   </div>
 </div>
@@ -73,25 +46,15 @@
     grid-template-columns: 1fr;
     display: grid;
     overflow: hidden;
-    gap: 2rem;
 
     @media (min-width: 750px) {
       grid-template-columns: 1fr 1fr;
-      align-items: stretch;
     }
   }
 
-  .featured-product__media-column {
-    position: relative;
-  }
-
-  .featured-product__content-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
+  /* Here I should maybe set the width to auto when the ratio is set to adapt */
   .featured-product-section .product-media-container.constrain-height {
+    /* arbitrary offset value based on average theme spacing and header height */
     --viewport-offset: 400px;
     --constrained-min-height: var(--visual-preview--height, 80dvh);
 
@@ -115,59 +78,11 @@
       order: -1;
     }
   }
-
-  .featured-product__media-gallery {
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .featured-product__media-gallery-main img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .featured-product__media-thumbs {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-    overflow-x: auto;
-  }
-
-  .featured-product__media-thumb img {
-    display: block;
-    width: 70px;
-    height: auto;
-  }
-
-  .featured-product__price {
-    font-size: 1.1rem;
-    font-weight: 500;
-  }
-
-  .featured-product__block {
-    margin-bottom: 0.5rem;
-  }
-
-  .featured-product__form {
-    display: grid;
-    gap: 0.75rem;
-  }
-
-  .featured-product__variant-select {
-    width: 100%;
-  }
-
-  .featured-product__buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Featured product",
+  "name": "t:names.featured_product",
   "disabled_on": {
     "groups": ["header"]
   },
@@ -175,32 +90,38 @@
     {
       "type": "product",
       "id": "product",
-      "label": "Product"
+      "label": "t:settings.product"
     },
     {
       "type": "select",
       "id": "layout",
-      "label": "Media position",
+      "label": "t:settings.media_position",
       "options": [
-        { "value": "media-left", "label": "Left" },
-        { "value": "media-right", "label": "Right" }
+        {
+          "value": "media-left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "media-right",
+          "label": "t:options.right"
+        }
       ],
       "default": "media-left"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Color scheme",
+      "label": "t:settings.color_scheme",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "Padding"
+      "content": "t:content.padding"
     },
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "Top",
+      "label": "t:settings.top",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -210,7 +131,7 @@
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "Bottom",
+      "label": "t:settings.bottom",
       "min": 0,
       "max": 100,
       "step": 1,
@@ -218,81 +139,54 @@
       "default": 0
     }
   ],
-
-  "blocks": [
-    {
-      "type": "media",
-      "name": "Product media",
-      "limit": 1,
-      "settings": []
-    },
-    {
-      "type": "title",
-      "name": "Title",
-      "settings": [
-        {
-          "type": "select",
-          "id": "heading_tag",
-          "label": "Heading size",
-          "options": [
-            { "value": "h2", "label": "H2" },
-            { "value": "h3", "label": "H3" },
-            { "value": "h4", "label": "H4" },
-            { "value": "h5", "label": "H5" }
-          ],
-          "default": "h2"
-        }
-      ]
-    },
-    {
-      "type": "price",
-      "name": "Price",
-      "settings": []
-    },
-    {
-      "type": "text",
-      "name": "Text",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text"
-        }
-      ]
-    },
-    {
-      "type": "variant_picker",
-      "name": "Variant picker",
-      "settings": []
-    },
-    {
-      "type": "buy_buttons",
-      "name": "Buy buttons",
-      "settings": [
-        {
-          "type": "checkbox",
-          "id": "show_dynamic_checkout",
-          "label": "Show dynamic checkout button",
-          "default": true
-        }
-      ]
-    }
-  ],
-
   "presets": [
     {
-      "name": "Featured product",
-      "category": "Products",
+      "name": "t:names.featured_product",
+      "category": "t:categories.products",
       "settings": {
         "color_scheme": "scheme-3"
       },
-      "blocks": [
-        { "type": "media" },
-        { "type": "title" },
-        { "type": "price" },
-        { "type": "variant_picker" },
-        { "type": "buy_buttons" }
-      ]
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "name": "t:names.product_media"
+        },
+        "featured-product": {
+          "type": "_featured-product",
+          "static": true,
+          "name": "t:names.product",
+          "blocks": {
+            "featured-product-title": {
+              "type": "product-title",
+              "name": "t:names.title",
+              "static": true,
+              "settings": {
+                "type_preset": "h5",
+                "width": "100%"
+              }
+            },
+            "featured-product-price": {
+              "type": "_featured-product-price",
+              "name": "t:names.price",
+              "static": true
+            },
+            "featured-product-gallery": {
+              "type": "_featured-product-gallery",
+              "name": "t:names.image",
+              "static": true
+            },
+            "featured-product-swatches": {
+              "type": "swatches",
+              "name": "t:names.swatches",
+              "static": true,
+              "settings": {
+                "hide_padding": true
+              }
+            }
+          }
+        }
+      }
     }
   ]
 }
