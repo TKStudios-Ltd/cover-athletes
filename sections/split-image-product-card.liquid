@@ -90,7 +90,7 @@
 <div class="split-image-product color-{{ section.settings.color_scheme }}">
     <div class="split-image-product__inner" style="padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px 20px;">
     <!-- LEFT SIDE IMAGE -->
-        <div class="split-image-product__media" style="flex:1;" data-reveal>
+        <div class="split-image-product__media background-image-container" style="flex:1;" data-reveal>
         {% if section.settings.image %}
             {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
         {% else %}
