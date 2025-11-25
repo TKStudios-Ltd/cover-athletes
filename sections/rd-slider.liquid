@@ -19,11 +19,11 @@ RD Slider — uses block color scheme + correct ratios (1:1 default, optional 3:
         {% for block in section.blocks %}
         <div class="swiper-slide rd-slide color-{{ block.settings.color_scheme }} ratio-{{ block.settings.ratio }}" {{ block.shopify_attributes }}>
 
-          <div class="rd-slide__media">
+            <div class="rd-slide__media" style="background: rgb(var(--color-background));">
             {% if block.settings.image != blank %}
-              {{ block.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
+                {{ block.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
             {% endif %}
-          </div>
+            </div>
 
           <div class="rd-slide__content">
             {% if block.settings.title != blank %}
