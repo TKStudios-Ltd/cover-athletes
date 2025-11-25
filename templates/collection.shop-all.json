@@ -729,7 +729,7 @@
             "title": "20+ industry recognized awards",
             "link_label": "Learn more",
             "link_url": "",
-            "ratio": "34"
+            "ratio": "45"
           }
         },
         "slide_rhiehk": {
@@ -760,7 +760,7 @@
             "title": "dbdfbgdfbg",
             "link_label": "Learn more",
             "link_url": "",
-            "ratio": "square"
+            "ratio": "54"
           }
         },
         "slide_878De7": {
@@ -770,27 +770,7 @@
             "title": "dbdfbgdfbg",
             "link_label": "Learn more",
             "link_url": "",
-            "ratio": "square"
-          }
-        },
-        "slide_9UJfUM": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "scheme-3",
-            "title": "dbdfbgdfbg",
-            "link_label": "Learn more",
-            "link_url": "",
-            "ratio": "32"
-          }
-        },
-        "slide_BN4pFV": {
-          "type": "slide",
-          "settings": {
-            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
-            "title": "dbdfbgdfbg",
-            "link_label": "Learn more",
-            "link_url": "",
-            "ratio": "square"
+            "ratio": "45"
           }
         }
       },
@@ -800,9 +780,7 @@
         "slide_rhiehk",
         "slide_iMxPF7",
         "slide_VeEbQJ",
-        "slide_878De7",
-        "slide_9UJfUM",
-        "slide_BN4pFV"
+        "slide_878De7"
       ],
       "name": "R&D Slider",
       "settings": {
