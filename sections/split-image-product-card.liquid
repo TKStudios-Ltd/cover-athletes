@@ -98,7 +98,7 @@
 <div class="split-image-product color-{{ section.settings.color_scheme }}">
     <div class="split-image-product__inner" style="padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px 20px;">
     <!-- LEFT SIDE IMAGE -->
-        <div class="split-image-product__media" style="flex:1;">
+        <div class="split-image-product__media" style="flex:1;" data-reveal>
         {% if section.settings.image %}
             {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
         {% else %}
@@ -136,7 +136,7 @@
                 --border-radius:12px;
                 overflow:hidden;
                 margin:20px 0;
-            ">
+            " data-reveal>
                 {{ product_obj.featured_media 
                 | image_url: width: 2000 
                 | image_tag: loading: 'lazy' 
@@ -145,9 +145,9 @@
             {% endif %}
 
             <!-- TITLE -->
-            <h3 class="h4">{{ product_obj.title }}</h3>
+            <h3 class="h4" data-reveal>{{ product_obj.title }}</h3>
 
-            <div class="group-block-content__sb">
+            <div class="group-block-content__sb" data-reveal>
                 <p>[INSERT SCHEMA]</p>
                 <!-- PRICE -->
                 <div class="price--p">
@@ -155,7 +155,7 @@
                 </div>
             </div>
 
-            <div class="group-block-content">
+            <div class="group-block-content" data-reveal>
                 <!-- PRODUCT DETAILS (from metafields if present) -->
                 {% if product_obj.metafields.custom.impact_resistance %}
                     <div class="layout-panel-flex--row">
@@ -181,21 +181,18 @@
             </div>
 
             <!-- SHOP NOW BUTTON -->
-            <a href="{{ product_obj.url }}" 
-            class="size-style button-secondary is-visible"
-            style="
-                --size-style-width: fit-content;
-                --size-style-width-mobile: fit-content;
-                margin-top:20px;
-            "
-            data-reveal="">
-            Shop Now
-            <span class="arrow-wrapper">
-                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.55352 0.5H12.3535M12.3535 0.5V11.3M12.3535 0.5L0.353516 12.5" stroke="#000"></path>
-                </svg>
-            </span>
-            </a>
+            <div class="button-wrapper button-wrapper--button">
+                <a href="{{ product_obj.url }}" 
+                class="size-style button-secondary is-visible"
+                style="
+                    --size-style-width: fit-content;
+                    --size-style-width-mobile: fit-content;
+                    margin-top:20px;
+                "
+                data-reveal>
+                Shop Now
+                </a>
+            </div>
 
         </div>
 
