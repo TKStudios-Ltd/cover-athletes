@@ -184,6 +184,17 @@
         "padding-block-end": 100
       }
     },
+    "split_image_product_card_WUH9VM": {
+      "type": "split-image-product-card",
+      "name": "Split Image & Product",
+      "settings": {
+        "image": "shopify://shop_images/Cover_Heat_Still_009Under_BAck0071.jpg",
+        "product": "cover-guard-1-0",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "featured_product_xtYLxg": {
       "type": "featured-product",
       "blocks": {
@@ -274,6 +285,7 @@
           "block_order": []
         }
       },
+      "disabled": true,
       "name": "t:names.featured_product",
       "settings": {
         "product": "cover-guard-1-0",
@@ -699,6 +711,7 @@
   "order": [
     "section",
     "section_ACzkGw",
+    "split_image_product_card_WUH9VM",
     "featured_product_xtYLxg",
     "section_48CgTF",
     "main"
