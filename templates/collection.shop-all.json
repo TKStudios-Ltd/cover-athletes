@@ -713,18 +713,20 @@
         "slide_xh3FN3": {
           "type": "slide",
           "settings": {
-            "color_scheme": "scheme-5",
-            "title": "fgnfdbfgbfg",
-            "link_label": "Learn more",
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
+            "title": "20+ industry recognized awards",
+            "link_label": "",
             "link_url": "",
+            "icon": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
             "ratio": "square"
           }
         },
         "slide_ciNnqi": {
           "type": "slide",
           "settings": {
-            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
-            "title": "dbdfbgdfbg",
+            "color_scheme": "scheme-6",
+            "image": "shopify://shop_images/Cover_R_D_CricketShot.jpg",
+            "title": "20+ industry recognized awards",
             "link_label": "Learn more",
             "link_url": "",
             "ratio": "34"
@@ -733,8 +735,8 @@
         "slide_rhiehk": {
           "type": "slide",
           "settings": {
-            "color_scheme": "scheme-54cd8101-33f0-41ba-b773-fd28614048dc",
-            "title": "sdvdsfvgfd",
+            "color_scheme": "scheme-7efa9d04-cabf-448f-9087-5417bb3a721e",
+            "title": "High-speed motion capture for energy deflection analysis.  Suspendisse varius enim in eros elementum.",
             "link_label": "Read more",
             "link_url": "",
             "ratio": "square"
@@ -743,11 +745,12 @@
         "slide_iMxPF7": {
           "type": "slide",
           "settings": {
-            "color_scheme": "",
-            "title": "",
+            "color_scheme": "scheme-6",
+            "image": "shopify://shop_images/43e5ec251ac8dfe3def75426cf1f4931372b8a7c.jpg",
+            "title": "Material fatigue testing across thousands of repetitions.",
             "link_label": "",
             "link_url": "",
-            "ratio": "square"
+            "ratio": "34"
           }
         },
         "slide_VeEbQJ": {
