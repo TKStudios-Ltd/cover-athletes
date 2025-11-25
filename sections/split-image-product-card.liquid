@@ -75,7 +75,7 @@
 <div class="split-image-product color-{{ section.settings.color_scheme }}"
     style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
     <div class="split-image-product__inner" style="display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
-        <!-- LEFT SIDE IMAGE -->
+    <!-- LEFT SIDE IMAGE -->
         <div class="split-image-product__media" style="flex:1;">
         {% if section.settings.image %}
             {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
@@ -85,107 +85,107 @@
         </div>
 
     <!-- RIGHT SIDE PRODUCT CARD -->
-    <div class="split-image-product__content" style="flex:1;">
+        <div class="split-image-product__content" style="flex:1;">
 
-      {% if product_obj %}
+        {% if product_obj %}
 
-      <div class="
-        product-card__content
-        layout-panel-flex
-        layout-panel-flex--column
-        product-grid__card
-        spacing-style
-        border-style
-        gap-style
-      " style="
-        --border-width: 1px; 
-        --border-style: none; 
-        --border-color: rgb(var(--color-border-rgb) / 1.0); 
-        --border-radius: 0px;
-        --flex-direction: column;
-        --padding-block-end: 20px;
-        --quick-add-display: none;
-      ">
+        <div class="
+            product-card__content
+            layout-panel-flex
+            layout-panel-flex--column
+            product-grid__card
+            spacing-style
+            border-style
+            gap-style
+        " style="
+            --border-width: 1px; 
+            --border-style: none; 
+            --border-color: rgb(var(--color-border-rgb) / 1.0); 
+            --border-radius: 0px;
+            --flex-direction: column;
+            --padding-block-end: 20px;
+            --quick-add-display: none;
+        ">
 
-        <!-- FEATURED IMAGE -->
-        {% if product_obj.featured_media %}
-          <div class="card-gallery spacing-style border-style" style="
-            --border-style:none;
-            --border-radius:12px;
-            overflow:hidden;
-            margin:20px 0;
-          ">
-            {{ product_obj.featured_media 
-              | image_url: width: 2000 
-              | image_tag: loading: 'lazy' 
-            }}
-          </div>
-        {% endif %}
+            <!-- FEATURED IMAGE -->
+            {% if product_obj.featured_media %}
+            <div class="card-gallery spacing-style border-style" style="
+                --border-style:none;
+                --border-radius:12px;
+                overflow:hidden;
+                margin:20px 0;
+            ">
+                {{ product_obj.featured_media 
+                | image_url: width: 2000 
+                | image_tag: loading: 'lazy' 
+                }}
+            </div>
+            {% endif %}
 
-        <!-- TITLE -->
-        <h3 class="h4">{{ product_obj.title }}</h3>
+            <!-- TITLE -->
+            <h3 class="h4">{{ product_obj.title }}</h3>
 
-        <!-- PRICE -->
-        <div class="h6">
-          {% render 'price', product: product_obj %}
+            <!-- PRICE -->
+            <div class="h6">
+            {% render 'price', product: product_obj %}
+            </div>
+
+            <!-- PRODUCT DETAILS (from metafields if present) -->
+            {% if product_obj.metafields.custom.impact_resistance %}
+            <div class="group-block-content layout-panel-flex layout-panel-flex--row"
+            style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
+            
+            <div class="text-block custom" style="--color:var(--color-primary); --font-size:0.75rem;">
+                <p>Impact Resistance</p>
+            </div>
+
+            <div class="text-block custom" style="--color:var(--color-foreground); --font-size:0.75rem;">
+                <p>{{ product_obj.metafields.custom.impact_resistance }}</p>
+            </div>
+
+            </div>
+            {% endif %}
+
+            {% if product_obj.metafields.custom.weight %}
+            <div class="group-block-content layout-panel-flex layout-panel-flex--row"
+            style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
+            
+            <div class="text-block custom" style="--color:var(--color-primary); --font-size:0.75rem;">
+                <p>Weight</p>
+            </div>
+
+            <div class="text-block custom" style="--color:var(--color-foreground); --font-size:0.75rem;">
+                <p>{{ product_obj.metafields.custom.weight }}</p>
+            </div>
+
+            </div>
+            {% endif %}
+
+            <!-- SHOP NOW BUTTON -->
+            <a href="{{ product_obj.url }}" 
+            class="size-style button-secondary is-visible"
+            style="
+                --size-style-width: fit-content;
+                --size-style-width-mobile: fit-content;
+                margin-top:20px;
+            "
+            data-reveal="">
+            Shop Now
+            <span class="arrow-wrapper">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.55352 0.5H12.3535M12.3535 0.5V11.3M12.3535 0.5L0.353516 12.5" stroke="#000"></path>
+                </svg>
+            </span>
+            </a>
+
         </div>
 
-        <!-- PRODUCT DETAILS (from metafields if present) -->
-        {% if product_obj.metafields.custom.impact_resistance %}
-        <div class="group-block-content layout-panel-flex layout-panel-flex--row"
-          style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
-          
-          <div class="text-block custom" style="--color:var(--color-primary); --font-size:0.75rem;">
-            <p>Impact Resistance</p>
-          </div>
-
-          <div class="text-block custom" style="--color:var(--color-foreground); --font-size:0.75rem;">
-            <p>{{ product_obj.metafields.custom.impact_resistance }}</p>
-          </div>
-
-        </div>
+        {% else %}
+            <p>Select a product in the section settings.</p>
         {% endif %}
-
-        {% if product_obj.metafields.custom.weight %}
-        <div class="group-block-content layout-panel-flex layout-panel-flex--row"
-          style="--gap:10px; --horizontal-alignment:space-between; --vertical-alignment:center; padding:7px 0;">
-          
-          <div class="text-block custom" style="--color:var(--color-primary); --font-size:0.75rem;">
-            <p>Weight</p>
-          </div>
-
-          <div class="text-block custom" style="--color:var(--color-foreground); --font-size:0.75rem;">
-            <p>{{ product_obj.metafields.custom.weight }}</p>
-          </div>
-
         </div>
-        {% endif %}
 
-        <!-- SHOP NOW BUTTON -->
-        <a href="{{ product_obj.url }}" 
-           class="size-style button-secondary is-visible"
-           style="
-             --size-style-width: fit-content;
-             --size-style-width-mobile: fit-content;
-             margin-top:20px;
-           "
-           data-reveal="">
-          Shop Now
-          <span class="arrow-wrapper">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.55352 0.5H12.3535M12.3535 0.5V11.3M12.3535 0.5L0.353516 12.5" stroke="#000"></path>
-            </svg>
-          </span>
-        </a>
-
-      </div>
-
-      {% else %}
-        <p>Select a product in the section settings.</p>
-      {% endif %}
     </div>
-
-  </div>
 </div>
 
 {% schema %}
