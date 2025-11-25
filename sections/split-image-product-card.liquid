@@ -9,7 +9,6 @@
   align-items: center;
   flex-wrap: wrap;
 }
-
 .split-image-product__media img {
   width: 100%;
   height: auto;
@@ -60,6 +59,11 @@
   .split-image-product__content .product-card__content {
     padding-inline: var(--padding-xs);
   }
+}
+@media (min-width: 990px) {
+    .split-image-product__media {
+        flex: 0 0 40% !important;
+    }
 }
 {% endstylesheet %}
 
