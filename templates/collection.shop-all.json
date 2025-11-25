@@ -782,7 +782,7 @@
       ],
       "name": "R&D Slider",
       "settings": {
-        "autoplay": false,
+        "autoplay": true,
         "delay": 5
       }
     }
