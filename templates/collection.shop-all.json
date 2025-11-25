@@ -750,7 +750,17 @@
             "title": "Material fatigue testing across thousands of repetitions.",
             "link_label": "",
             "link_url": "",
-            "ratio": "34"
+            "ratio": "square"
+          }
+        },
+        "slide_EbUfwj": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "",
+            "title": "",
+            "link_label": "",
+            "link_url": "",
+            "ratio": "square"
           }
         },
         "slide_VeEbQJ": {
@@ -769,8 +779,8 @@
           "settings": {
             "color_scheme": "scheme-6",
             "image": "shopify://shop_images/6983f8a04fcb010776ceafb05af425b032b6f354.jpg",
-            "title": "dbdfbgdfbg",
-            "link_label": "Learn more",
+            "title": "High-speed motion capture for energy deflection analysis.  Suspendisse varius enim in eros elementum.",
+            "link_label": "",
             "link_url": "",
             "ratio": "45"
           }
@@ -781,6 +791,7 @@
         "slide_ciNnqi",
         "slide_rhiehk",
         "slide_iMxPF7",
+        "slide_EbUfwj",
         "slide_VeEbQJ",
         "slide_878De7"
       ],
