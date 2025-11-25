@@ -4,18 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const sliderEl = section.querySelector('#RDSlider-' + id);
     if (!sliderEl) return;
 
-    const autoplaySetting = section.querySelector('.rd-slider__inner')
-      ?.closest('.rd-slider')
-      ?.dataset?.autoplay;
+    const autoplay = section.dataset.autoplay === "true";
+    const delay = parseInt(section.dataset.delay || 5) * 1000;
 
-    const delay = parseInt(section.dataset.delay || 5000);
-
-    const swiper = new Swiper(sliderEl, {
+    new Swiper(sliderEl, {
       slidesPerView: "auto",
       spaceBetween: 20,
+      speed: 600,
       grabCursor: true,
-      autoplay: autoplaySetting ? { delay: delay * 1000, pauseOnMouseEnter: true } : false,
-      speed: 600
+      autoplay: autoplay ? { delay, pauseOnMouseEnter: true } : false
     });
   });
 });
