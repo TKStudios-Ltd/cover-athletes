@@ -4,18 +4,16 @@
 {% endif %}
 
 <div class="split-image-product color-{{ section.settings.color_scheme }}"
-     style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
-
-  <div class="split-image-product__inner" style="display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
-
-    <!-- LEFT SIDE IMAGE -->
-    <div class="split-image-product__media" style="flex:1;">
-      {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag }}
-      {% endif %}
-    </div>
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+    <div class="split-image-product__inner" style="display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
+        <!-- LEFT SIDE IMAGE -->
+        <div class="split-image-product__media" style="flex:1;">
+        {% if section.settings.image %}
+            {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
+        {% else %}
+            {{ 'image' | placeholder_svg_tag }}
+        {% endif %}
+        </div>
 
     <!-- RIGHT SIDE PRODUCT CARD -->
     <div class="split-image-product__content" style="flex:1;">
