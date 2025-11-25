@@ -1,0 +1,432 @@
+<script type="application/ld+json">
+  {{ section.settings.product | structured_data }}
+</script>
+
+{% assign product = section.settings.product %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="
+    split-featured-product
+    section
+    section--full-width
+    color-{{ section.settings.color_scheme }}
+  "
+>
+  <div
+    class="section-content-wrapper spacing-style size-style border-style"
+    style="
+        {% render 'spacing-style', settings: section.settings %}
+        --media-height: 100%;
+        {% if request.visual_preview_mode %}
+            --visual-preview--height: 100%;
+        {% endif %}
+        "
+  >
+    {% comment %}
+      Two columns: image and content. Order depends on layout setting.
+    {% endcomment %}
+
+    {% comment %} {% assign image_first = section.settings.layout == 'image-left' %} {% endcomment %}
+
+    {% if image_first %}
+      <div class="split-featured-product__media-column">
+        {% if section.settings.left_image != blank %}
+          <div class="split-featured-product__media-inner">
+            {{ section.settings.left_image | image_url: width: 1600 | image_tag: loading: 'lazy', class: 'split-featured-product__image' }}
+          </div>
+        {% else %}
+          <div class="split-featured-product__media-inner split-featured-product__media-inner--placeholder">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="split-featured-product__content-column">
+      {% if product == blank %}
+        <p class="split-featured-product__notice">
+          Select a product in the section settings to display its details.
+        </p>
+      {% endif %}
+
+      {% if product %}
+        {% form 'product', product, id: 'SplitFeaturedProductForm-' | append: section.id %}
+          <input
+            type="hidden"
+            name="id"
+            value="{{ product.selected_or_first_available_variant.id }}"
+          >
+
+          {% for block in section.blocks %}
+            <div class="split-featured-product__block split-featured-product__block--{{ block.type }}" {{ block.shopify_attributes }}>
+              {% case block.type %}
+
+                {% when 'title' %}
+                  {% assign heading_tag = block.settings.heading_tag | default: 'h2' %}
+                  <{{ heading_tag }} class="split-featured-product__title">
+                    {{ product.title | escape }}
+                  </{{ heading_tag }}>
+
+                {% when 'price' %}
+                  {% if product %}
+                    <div class="split-featured-product__price">
+                      {% render 'price', product: product %}
+                    </div>
+                  {% endif %}
+
+                {% when 'text' %}
+                  {% if block.settings.text != blank %}
+                    <div class="split-featured-product__text rte">
+                      {{ block.settings.text }}
+                    </div>
+                  {% endif %}
+
+                {% when 'custom_html' %}
+                  {% if block.settings.code != blank %}
+                    <div class="split-featured-product__custom-html">
+                      {{ block.settings.code }}
+                    </div>
+                  {% endif %}
+
+                {% when 'group_heading' %}
+                  {% if block.settings.label != blank %}
+                    <div class="split-featured-product__group-heading">
+                      {{ block.settings.label }}
+                    </div>
+                  {% endif %}
+
+                {% when 'button' %}
+                  {% assign href = '' %}
+
+                  {% if block.settings.use_product_link and product %}
+                    {% assign href = product.url %}
+                  {% elsif block.settings.url != blank %}
+                    {% assign href = block.settings.url %}
+                  {% endif %}
+
+                  {% if href != blank and block.settings.label != blank %}
+                    {% assign style = block.settings.style | default: 'primary' %}
+                    {% assign full_width = block.settings.full_width %}
+
+                    {% assign button_classes = 'button' %}
+                    {% if style == 'primary' %}
+                      {% assign button_classes = button_classes | append: ' button--primary' %}
+                    {% elsif style == 'secondary' %}
+                      {% assign button_classes = button_classes | append: ' button--secondary' %}
+                    {% endif %}
+
+                    {% if full_width %}
+                      {% assign button_classes = button_classes | append: ' button--full-width' %}
+                    {% endif %}
+
+                    <a
+                      href="{{ href }}"
+                      class="{{ button_classes }}"
+                    >
+                      {{ block.settings.label }}
+                    </a>
+                  {% endif %}
+
+              {% endcase %}
+            </div>
+          {% endfor %}
+        {% endform %}
+      {% else %}
+        {% for block in section.blocks %}
+          <div class="split-featured-product__block split-featured-product__block--{{ block.type }}" {{ block.shopify_attributes }}>
+            {% case block.type %}
+              {% when 'title' %}
+                <h2 class="split-featured-product__title">
+                  {{ 'onboarding.product.title' | t }}
+                </h2>
+              {% when 'price' %}
+                <div class="split-featured-product__price">
+                  {{ 1999 | money }}
+                </div>
+              {% when 'text' %}
+                {% if block.settings.text != blank %}
+                  <div class="split-featured-product__text rte">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+              {% when 'custom_html' %}
+                {% if block.settings.code != blank %}
+                  <div class="split-featured-product__custom-html">
+                    {{ block.settings.code }}
+                  </div>
+                {% endif %}
+              {% when 'group_heading' %}
+                {% if block.settings.label != blank %}
+                  <div class="split-featured-product__group-heading">
+                    {{ block.settings.label }}
+                  </div>
+                {% endif %}
+              {% when 'button' %}
+                {% if block.settings.label != blank %}
+                  <a href="#" class="button button--primary">
+                    {{ block.settings.label }}
+                  </a>
+                {% endif %}
+            {% endcase %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    {% unless image_first %}
+      <div class="split-featured-product__media-column">
+        {% if section.settings.left_image != blank %}
+          <div class="split-featured-product__media-inner">
+            {{ section.settings.left_image | image_url: width: 1600 | image_tag: loading: 'lazy', class: 'split-featured-product__image' }}
+          </div>
+        {% else %}
+          <div class="split-featured-product__media-inner split-featured-product__media-inner--placeholder">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    {% endunless %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .split-featured-product .section-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    overflow: hidden;
+
+    @media screen and (min-width: 750px) {
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+  }
+
+  .split-featured-product__media-column {
+    position: relative;
+  }
+
+  .split-featured-product__media-inner {
+    width: 100%;
+  }
+
+  .split-featured-product__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .split-featured-product__media-inner--placeholder svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .split-featured-product__content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .split-featured-product__block {
+    margin-bottom: 0.5rem;
+  }
+
+  .split-featured-product__title {
+    margin: 0;
+  }
+
+  .split-featured-product__price {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .split-featured-product__group-heading {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .split-featured-product__notice {
+    opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Split Image & Product",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left image"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "image-left",
+          "label": "Image left, product right"
+        },
+        {
+          "value": "image-right",
+          "label": "Product left, image right"
+        }
+      ],
+      "default": "image-left"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading size",
+          "options": [
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" },
+            { "value": "h5", "label": "H5" }
+          ],
+          "default": "h2"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price",
+      "settings": []
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "code",
+          "label": "Custom liquid or HTML"
+        }
+      ]
+    },
+    {
+      "type": "group_heading",
+      "name": "Group heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            { "value": "primary", "label": "Primary" },
+            { "value": "secondary", "label": "Secondary" }
+          ],
+          "default": "primary"
+        },
+        {
+          "type": "checkbox",
+          "id": "full_width",
+          "label": "Full width",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "use_product_link",
+          "label": "Use product link instead of custom link",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Image & Product",
+      "category": "Products",
+      "blocks": [
+        { "type": "title" },
+        { "type": "price" },
+        { "type": "text" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}
