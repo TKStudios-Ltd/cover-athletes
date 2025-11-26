@@ -16,21 +16,21 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "carousel",
-            "media_columns": "two",
+            "media_presentation": "grid",
+            "media_columns": "one",
             "image_gap": 0,
             "large_first_image": true,
-            "icons_style": "arrows",
+            "icons_style": "chevron",
             "slideshow_controls_style": "thumbnails",
-            "slideshow_mobile_controls_style": "dots",
+            "slideshow_mobile_controls_style": "hint",
             "thumbnail_position": "bottom",
             "thumbnail_width": 48,
-            "aspect_ratio": "1/1.25",
+            "aspect_ratio": "adapt",
             "constrain_to_viewport": false,
             "media_fit": "cover",
             "media_radius": 0,
             "extend_media": true,
-            "zoom": true,
+            "zoom": false,
             "video_loop": true,
             "hide_variants": false,
             "padding-block-start": 0,
@@ -52,19 +52,19 @@
             "details_position": "flex-start",
             "gap": 24,
             "sticky_details_desktop": true,
-            "inherit_color_scheme": true,
-            "color_scheme": "scheme-3",
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-bbaa84de-bde0-484d-9a30-d1934e578232",
             "background_media": "none",
             "video_position": "cover",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 48,
-            "padding-block-end": 48,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "border_radius": 24,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 24,
+            "padding-inline-end": 24
           },
           "blocks": {
             "group": {
@@ -231,12 +231,24 @@
               },
               "blocks": {}
             },
+            "divider": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1.5,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "buy_buttons": {
               "type": "buy-buttons",
               "settings": {
                 "stacking": false,
                 "show_pickup_availability": false,
-                "gift_card_form": true,
+                "gift_card_form": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -259,24 +271,13 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
                 }
               },
               "block_order": []
-            },
-            "divider": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1.5,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
-              },
-              "blocks": {}
             },
             "text": {
               "type": "product-description",
@@ -308,8 +309,8 @@
           "block_order": [
             "group",
             "variant_picker",
-            "buy_buttons",
             "divider",
+            "buy_buttons",
             "text"
           ]
         }
@@ -320,7 +321,7 @@
         "equal_columns": false,
         "limit_details_width": true,
         "gap": 48,
-        "color_scheme": "scheme-bbaa84de-bde0-484d-9a30-d1934e578232",
+        "color_scheme": "scheme-2",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
