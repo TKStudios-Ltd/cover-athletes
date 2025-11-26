@@ -50,7 +50,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 24,
+            "gap": 20,
             "sticky_details_desktop": true,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-bbaa84de-bde0-484d-9a30-d1934e578232",
@@ -115,7 +115,7 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h3",
+                    "type_preset": "h4",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -173,6 +173,32 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
+                    "text_xAh7E6": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "<p>{{ closest.product.metafields.custom.tagline.value }}</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
                     "price_97GqNF": {
                       "type": "price",
                       "settings": {
@@ -180,8 +206,8 @@
                         "show_installments": true,
                         "show_tax_info": true,
                         "type_preset": "paragraph",
-                        "width": "100%",
-                        "alignment": "left",
+                        "width": "fit-content",
+                        "alignment": "right",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
@@ -197,6 +223,7 @@
                     },
                     "review_QhdEwM": {
                       "type": "review",
+                      "disabled": true,
                       "settings": {
                         "stars_style": "shaded",
                         "show_number": true,
@@ -208,6 +235,7 @@
                     }
                   },
                   "block_order": [
+                    "text_xAh7E6",
                     "price_97GqNF",
                     "review_QhdEwM"
                   ]
@@ -217,6 +245,18 @@
                 "text_nXdFcd",
                 "group_8B3NLh"
               ]
+            },
+            "divider": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
             },
             "variant_picker": {
               "type": "variant-picker",
@@ -231,11 +271,11 @@
               },
               "blocks": {}
             },
-            "divider": {
+            "divider_hze6jf": {
               "type": "_divider",
               "name": "t:names.divider",
               "settings": {
-                "thickness": 1.5,
+                "thickness": 1,
                 "corner_radius": "square",
                 "width_percent": 100,
                 "padding-block-start": 0,
@@ -308,8 +348,9 @@
           },
           "block_order": [
             "group",
-            "variant_picker",
             "divider",
+            "variant_picker",
+            "divider_hze6jf",
             "buy_buttons",
             "text"
           ]
@@ -322,8 +363,8 @@
         "limit_details_width": true,
         "gap": 48,
         "color_scheme": "scheme-2",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
     "product-recommendations": {
