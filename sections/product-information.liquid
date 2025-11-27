@@ -43,6 +43,7 @@
 </script>
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
 <div
   class="product-information section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }} relative"
   style="{% render 'spacing-style', settings: section.settings %} --gap: {{ section.settings.gap }}px;"
@@ -51,16 +52,30 @@
     {% assign product_href = '#ProductInformation-' | append: section.id %}
     {% render 'skip-to-content-link', href: product_href, text: 'accessibility.skip_to_product_info' %}
   {% endif %}
-  <div
-    class="{{ product_grid_class }}"
-    data-product-grid-content
-  >
+
+  <div class="{{ product_grid_class }}" data-product-grid-content>
     {% assign render_order_array = render_order | split: ',' %}
+
     {% capture media %}
       <div
-        class="product-information__media"
+        class="product-information__media has-custom-horizontal-gallery"
         data-testid="product-information-media"
       >
+
+        <!-- Custom horizontal drag gallery -->
+        <div class="custom-horizontal-gallery-wrapper">
+          <div class="custom-horizontal-gallery" data-drag-scroll>
+            {% for media in closest.product.media %}
+              {% if media.media_type == 'image' %}
+                <div class="gallery-item">
+                  {{ media | image_url: width: 2400 | image_tag: loading: 'eager' }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Native Ritual media -->
         {%- content_for 'block',
           type: '_product-media-gallery',
           id: 'media-gallery',
@@ -88,6 +103,7 @@
 
   {% content_for 'blocks' %}
 </div>
+
 
 {% stylesheet %}
   .product-information {
