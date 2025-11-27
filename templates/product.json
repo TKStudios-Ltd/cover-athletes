@@ -102,7 +102,7 @@
                 "open_in_new_tab": false,
                 "placeholder": "",
                 "padding-block-start": 30,
-                "padding-block-end": 30,
+                "padding-block-end": 25,
                 "padding-inline-start": 30,
                 "padding-inline-end": 30
               },
@@ -265,8 +265,8 @@
                 "variant_style": "buttons",
                 "show_swatches": true,
                 "alignment": "left",
-                "padding-block-start": 30,
-                "padding-block-end": 30,
+                "padding-block-start": 25,
+                "padding-block-end": 25,
                 "padding-inline-start": 30,
                 "padding-inline-end": 30
               },
@@ -290,10 +290,10 @@
                 "stacking": false,
                 "show_pickup_availability": false,
                 "gift_card_form": false,
-                "padding-block-start": 30,
-                "padding-block-end": 30,
+                "padding-block-start": 25,
+                "padding-block-end": 25,
                 "padding-inline-start": 30,
-                "padding-inline-end": 0
+                "padding-inline-end": 30
               },
               "blocks": {
                 "quantity": {
