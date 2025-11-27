@@ -351,7 +351,7 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "rte",
+            "type_preset": "h3",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -372,6 +372,10 @@
       },
       "block_order": [
         "text_awifTg"
+      ],
+      "custom_css": [
+        ".h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1120px;}",
+        "@media (max-width: 749px) {.h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
