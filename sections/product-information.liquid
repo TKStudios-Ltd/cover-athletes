@@ -143,7 +143,9 @@
   position: static;
   width: 100%;
   min-width: 100%;
-  height: min(85vh, 600px);
+  height: auto;
+  min-height: 90vh;
+  max-height: 800px;
   overflow: visible;
 }
 
@@ -203,7 +205,8 @@
 .gallery-item img {
   width: auto;
   height: auto;
-  max-height: min(85vh, 900px);
+  min-height: 90vh;
+  max-height: 800px;
   display: block;
   pointer-events: none;
 }
