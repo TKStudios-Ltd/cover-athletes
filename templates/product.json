@@ -50,7 +50,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 20,
+            "gap": 0,
             "sticky_details_desktop": true,
             "inherit_color_scheme": false,
             "color_scheme": "scheme-bbaa84de-bde0-484d-9a30-d1934e578232",
@@ -104,7 +104,7 @@
                 "padding-block-start": 30,
                 "padding-block-end": 30,
                 "padding-inline-start": 30,
-                "padding-inline-end": 0
+                "padding-inline-end": 30
               },
               "blocks": {
                 "text_nXdFcd": {
@@ -265,10 +265,10 @@
                 "variant_style": "buttons",
                 "show_swatches": true,
                 "alignment": "left",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-block-start": 30,
+                "padding-block-end": 30,
+                "padding-inline-start": 30,
+                "padding-inline-end": 30
               },
               "blocks": {}
             },
@@ -290,9 +290,9 @@
                 "stacking": false,
                 "show_pickup_availability": false,
                 "gift_card_form": false,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
+                "padding-block-start": 30,
+                "padding-block-end": 30,
+                "padding-inline-start": 30,
                 "padding-inline-end": 0
               },
               "blocks": {
