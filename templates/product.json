@@ -1306,7 +1306,7 @@
                 "corner_radius": "square",
                 "width_percent": 100,
                 "padding-block-start": 0,
-                "padding-block-end": 15
+                "padding-block-end": 5
               },
               "blocks": {}
             },
