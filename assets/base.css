@@ -4538,3 +4538,13 @@ footer .menu__item.paragraph {
 .link .arrow-wrapper svg path {
   stroke: var(--button-color);
 }
+
+.custom-horizontal-gallery,
+.custom-horizontal-gallery * {
+  cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab !important;
+}
+
+.custom-horizontal-gallery:active,
+.custom-horizontal-gallery:active * {
+  cursor: grabbing !important;
+}
