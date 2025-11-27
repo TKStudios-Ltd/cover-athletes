@@ -409,6 +409,18 @@
     "section_QeCUqq": {
       "type": "section",
       "blocks": {
+        "divider_TVQDqw": {
+          "type": "_divider",
+          "name": "t:names.divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
         "group_MHrMYQ": {
           "type": "group",
           "name": "t:names.group",
@@ -483,8 +495,8 @@
                 "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-start": 7,
+                "padding-block-end": 7,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -554,7 +566,11 @@
         }
       },
       "block_order": [
+        "divider_TVQDqw",
         "group_MHrMYQ"
+      ],
+      "custom_css": [
+        ".group-block .group-block {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
