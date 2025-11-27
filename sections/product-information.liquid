@@ -174,20 +174,12 @@
 .custom-horizontal-gallery {
   display: flex;
   align-items: center;
-
-  /* Reduced spacing */
-  gap: clamp(16px, 3vw, 48px);
-  padding: 0 clamp(16px, 4vw, 80px);
-
+  gap: 25px;
+  padding: 0 25px;
   overflow-x: scroll;
   overflow-y: hidden;
-
   -webkit-overflow-scrolling: touch;
-
-  /* Remove snap / pagination feel */
   scroll-snap-type: none;
-
-  /* Remove scrollbars (all browsers) */
   scrollbar-width: none;
 }
 
