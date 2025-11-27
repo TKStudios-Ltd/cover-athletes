@@ -52,6 +52,9 @@
   document.addEventListener('shopify:section:load', e => wireExternalArrows(e.target));
 })();
 
+
+// Product Gallery 
+
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-drag-scroll]').forEach(slider => {
     let isDown = false;
