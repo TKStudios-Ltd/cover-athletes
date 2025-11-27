@@ -2298,7 +2298,7 @@
       ],
       "custom_css": [
         ".custom-typography p {font-weight: 300;}",
-        "h3 strong {color: #07de85; font-weight: 400 !important;}"
+        "h3 strong {color: #07DE85; font-weight: 400 !important;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
