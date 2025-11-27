@@ -120,13 +120,23 @@
     order: 1;
   }
 
+  .product-information__media {
+    order: 0;
+    width: 0;
+    min-width: 100%;
+  }
+
+  /* Custom horizontal gallery: base container */
   .product-information__media.has-custom-horizontal-gallery {
     position: relative;
+    width: 100%;
+    min-width: 100%;
     overflow: visible;
   }
 
-  /* Keep Ritual gallery mounted but invisible */
-  .product-information__media.has-custom-horizontal-gallery .media-gallery {
+  /* Hide all native media output except our wrapper */
+  .product-information__media.has-custom-horizontal-gallery
+    > :not(.custom-horizontal-gallery-wrapper) {
     position: absolute;
     inset: 0;
     opacity: 0;
@@ -136,6 +146,7 @@
   .custom-horizontal-gallery-wrapper {
     position: relative;
     z-index: 1;
+    width: 100%;
     grid-column: 1 / -1;
   }
 
@@ -178,17 +189,11 @@
     backdrop-filter: blur(12px);
   }
 
-  /* Desktop only */
+  /* Desktop only: hide custom gallery on mobile if you want */
   @media (max-width: 749px) {
     .custom-horizontal-gallery-wrapper {
       display: none;
     }
-  }
-
-  .product-information__media {
-    order: 0;
-    width: 0;
-    min-width: 100%;
   }
 
   /* Mobile styles */
@@ -260,9 +265,9 @@
       &.product-information__grid--half:has(.media-gallery--extend) {
         grid-column: 1 / -1;
         grid-template-columns:
-          var(--full-page-grid-margin) calc(var(--full-page-grid-central-column-width) / 2) calc(
-            var(--full-page-grid-central-column-width) / 2
-          )
+          var(--full-page-grid-margin)
+          calc(var(--full-page-grid-central-column-width) / 2)
+          calc(var(--full-page-grid-central-column-width) / 2)
           var(--full-page-grid-margin);
 
         &.product-information--media-left {
@@ -356,11 +361,13 @@
     max-width: var(--sidebar-width);
   }
 
-  /* If the header is sticky, make product details content stick underneath the header */
-  body:has(#header-group #header-component[data-sticky-state='active']) .product-details.sticky-content--desktop {
+  /* Sticky header offset */
+  body:has(#header-group #header-component[data-sticky-state='active'])
+    .product-details.sticky-content--desktop {
     --sticky-header-offset: var(--header-height);
   }
 {% endstylesheet %}
+
 
 {% schema %}
 {
