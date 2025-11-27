@@ -122,6 +122,71 @@
     order: 1;
   }
 
+  .product-information__media.has-custom-horizontal-gallery {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Keep Ritual gallery mounted but invisible */
+  .product-information__media.has-custom-horizontal-gallery .media-gallery {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .custom-horizontal-gallery-wrapper {
+    position: relative;
+    z-index: 1;
+    grid-column: 1 / -1;
+  }
+
+  .custom-horizontal-gallery {
+    display: flex;
+    align-items: center;
+    gap: 8vw;
+    padding: 0 8vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+
+  .custom-horizontal-gallery:active {
+    cursor: grabbing;
+  }
+
+  .custom-horizontal-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-item {
+    flex: 0 0 auto;
+    width: min(75vw, 1100px);
+    scroll-snap-align: center;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Product details above gallery */
+  .product-details {
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(12px);
+  }
+
+  /* Desktop only */
+  @media (max-width: 749px) {
+    .custom-horizontal-gallery-wrapper {
+      display: none;
+    }
+  }
+
   .product-information__media {
     order: 0;
     width: 0;
