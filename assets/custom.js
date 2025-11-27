@@ -52,3 +52,27 @@
   document.addEventListener('shopify:section:load', e => wireExternalArrows(e.target));
 })();
 
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-drag-scroll]').forEach(slider => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', e => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => isDown = false);
+    slider.addEventListener('mouseup', () => isDown = false);
+
+    slider.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      slider.scrollLeft = scrollLeft - (x - startX) * 1.2;
+    });
+  });
+});
+
