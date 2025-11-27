@@ -106,23 +106,21 @@
 
 {% stylesheet %}
 
-/* ===============================
+/* ======================================
    BASE PRODUCT INFORMATION
-   =============================== */
+   ====================================== */
 
 .product-information {
   position: relative;
   gap: var(--gap) 0;
 }
 
-/* Base grid */
 .product-information__grid {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
 }
 
-/* Order defaults */
 .product-information__media {
   order: 0;
   width: 0;
@@ -136,16 +134,11 @@
   backdrop-filter: blur(12px);
 }
 
-/* ===============================
-   CUSTOM HORIZONTAL GALLERY
-   =============================== */
+/* ======================================
+   CUSTOM HORIZONTAL GALLERY – LAYOUT
+   ====================================== */
 
-/* Anchor for absolute gallery */
-.product-information {
-  position: relative;
-}
-
-/* Reserve vertical space so next section does NOT overlap */
+/* Reserve vertical space so the next section does not overlap */
 .product-information__media.has-custom-horizontal-gallery {
   position: static;
   width: 100%;
@@ -154,7 +147,7 @@
   overflow: visible;
 }
 
-/* Pull gallery out of grid / columns */
+/* Pull gallery out of grid and columns */
 .custom-horizontal-gallery-wrapper {
   position: absolute;
   top: 0;
@@ -174,27 +167,40 @@
   pointer-events: none;
 }
 
-/* Horizontal scroll container */
+/* ======================================
+   HORIZONTAL SCROLL CONTAINER
+   ====================================== */
+
 .custom-horizontal-gallery {
   display: flex;
   align-items: center;
-  gap: 8vw;
-  padding: 0 8vw;
 
-  overflow-x: auto;
+  /* Reduced spacing */
+  gap: clamp(16px, 3vw, 48px);
+  padding: 0 clamp(16px, 4vw, 80px);
+
+  overflow-x: scroll;
   overflow-y: hidden;
+
   -webkit-overflow-scrolling: touch;
 
   /* Remove snap / pagination feel */
   scroll-snap-type: none;
+
+  /* Remove scrollbars (all browsers) */
+  scrollbar-width: none;
 }
 
-/* Remove scrollbar */
 .custom-horizontal-gallery::-webkit-scrollbar {
+  width: 0;
+  height: 0;
   display: none;
 }
 
-/* Gallery items */
+/* ======================================
+   GALLERY ITEMS + IMAGE HEIGHT
+   ====================================== */
+
 .gallery-item {
   flex: 0 0 auto;
   width: min(80vw, 1200px);
@@ -202,18 +208,19 @@
   align-items: center;
 }
 
-/* Images drive height */
 .gallery-item img {
   width: auto;
-  max-height: min(85vh, 900px);
   height: auto;
+  max-height: min(85vh, 900px);
   display: block;
+
+  /* Prevent images stealing pointer */
   pointer-events: none;
 }
 
-/* ===============================
-   CURSOR (MATCH WORKING PATTERN)
-   =============================== */
+/* ======================================
+   CURSOR (MATCH WORKING SECTION)
+   ====================================== */
 
 .custom-horizontal-gallery,
 .custom-horizontal-gallery * {
@@ -225,9 +232,23 @@
   cursor: grabbing !important;
 }
 
-/* ===============================
-   MOBILE FALLBACK
-   =============================== */
+/* ======================================
+   ALLOW CURSOR TO PASS THROUGH DETAILS
+   ====================================== */
+
+/* Let pointer events reach gallery underneath */
+.product-details {
+  pointer-events: none;
+}
+
+/* Re-enable interaction inside details */
+.product-details * {
+  pointer-events: auto;
+}
+
+/* ======================================
+   MOBILE BEHAVIOUR
+   ====================================== */
 
 @media (max-width: 749px) {
   .custom-horizontal-gallery-wrapper {
@@ -239,9 +260,9 @@
   }
 }
 
-/* ===============================
+/* ======================================
    RITUAL GRID BEHAVIOUR (UNCHANGED)
-   =============================== */
+   ====================================== */
 
 @media screen and (max-width: 749px) {
   .product-information__media {
@@ -333,6 +354,7 @@ body:has(#header-group #header-component[data-sticky-state='active'])
 }
 
 {% endstylesheet %}
+
 
 
 {% schema %}
