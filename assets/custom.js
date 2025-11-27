@@ -54,22 +54,28 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('[data-drag-scroll]').forEach(slider => {
+  console.log('[Custom Gallery] DOM loaded');
+
+  document.querySelectorAll('[data-drag-scroll]').forEach((slider, index) => {
+    console.log(`[Custom Gallery] Initialised slider ${index + 1}`, slider);
+
     let isDown = false;
-    let startX;
-    let scrollLeft;
+    let startX = 0;
+    let scrollLeft = 0;
 
     slider.addEventListener('mousedown', e => {
       isDown = true;
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseleave', () => {
-      isDown = false;
+      console.log('[Custom Gallery] Drag start', { startX, scrollLeft });
     });
 
     slider.addEventListener('mouseup', () => {
+      isDown = false;
+      console.log('[Custom Gallery] Drag end');
+    });
+
+    slider.addEventListener('mouseleave', () => {
       isDown = false;
     });
 
@@ -77,7 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
-      slider.scrollLeft = scrollLeft - (x - startX) * 1.2;
+      const walk = (x - startX) * 1.2;
+      slider.scrollLeft = scrollLeft - walk;
+      console.log('[Custom Gallery] Dragging', slider.scrollLeft);
     });
   });
 });
