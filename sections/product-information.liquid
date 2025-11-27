@@ -127,28 +127,33 @@
     min-width: 100%;
   }
 
-  /* Custom horizontal gallery: base container */
-  .product-information__media.has-custom-horizontal-gallery {
-    position: relative;
-    width: 100%;
-    min-width: 100%;
-    overflow: visible;
-  }
+  /* ===============================
+   FORCE FULL-WIDTH OVERLAY GALLERY
+   =============================== */
 
-  /* Hide all native media output except our wrapper */
-  .product-information__media.has-custom-horizontal-gallery
-    > :not(.custom-horizontal-gallery-wrapper) {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    pointer-events: none;
+  .product-information {
+    position: relative;
   }
 
   .custom-horizontal-gallery-wrapper {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
     z-index: 1;
-    width: 100%;
-    grid-column: 1 / -1;
+    pointer-events: auto;
+  }
+
+  .product-information__media {
+    position: static;
+  }
+
+  .product-information__media > :not(.custom-horizontal-gallery-wrapper) {
+    position: absolute !important;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
   }
 
   .custom-horizontal-gallery {
@@ -156,19 +161,45 @@
     align-items: center;
     gap: 8vw;
     padding: 0 8vw;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab;
+    scroll-snap-type: none;
+    cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab !important;
   }
 
   .custom-horizontal-gallery:active {
-    cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grabbing;
+    cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grabbing !important;
   }
 
   .custom-horizontal-gallery::-webkit-scrollbar {
     display: none;
+  }
+
+  .gallery-item {
+    flex: 0 0 auto;
+    width: min(80vw, 1200px);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Product details must sit ABOVE gallery */
+  .product-details {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+  }
+
+  /* Desktop only */
+  @media (max-width: 749px) {
+    .custom-horizontal-gallery-wrapper {
+      display: none;
+    }
   }
 
   .gallery-item {
