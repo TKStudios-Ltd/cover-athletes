@@ -219,6 +219,20 @@
 }
 
 /* ======================================
+   CURSOR (MATCH WORKING SECTION)
+   ====================================== */
+
+.custom-horizontal-gallery,
+.custom-horizontal-gallery * {
+  cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab !important;
+}
+
+.custom-horizontal-gallery:active,
+.custom-horizontal-gallery:active * {
+  cursor: grabbing !important;
+}
+
+/* ======================================
    ALLOW CURSOR TO PASS THROUGH DETAILS
    ====================================== */
 
