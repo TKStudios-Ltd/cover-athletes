@@ -53,8 +53,6 @@
 })();
 
 
-// Product Gallery 
-
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-drag-scroll]').forEach(slider => {
     let isDown = false;
@@ -67,8 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollLeft = slider.scrollLeft;
     });
 
-    slider.addEventListener('mouseleave', () => isDown = false);
-    slider.addEventListener('mouseup', () => isDown = false);
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+    });
 
     slider.addEventListener('mousemove', e => {
       if (!isDown) return;
@@ -78,4 +81,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
 
