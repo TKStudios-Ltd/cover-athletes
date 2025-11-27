@@ -363,8 +363,8 @@
         "limit_details_width": true,
         "gap": 48,
         "color_scheme": "scheme-2",
-        "padding-block-start": 100,
-        "padding-block-end": 100
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "product-recommendations": {
