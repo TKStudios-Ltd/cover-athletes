@@ -2694,7 +2694,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 /* Quantity selector */
 .quantity-selector {
-  --quantity-selector-width: 124px;
+  --quantity-selector-width: 100px;
 
   display: flex;
   justify-content: space-between;
