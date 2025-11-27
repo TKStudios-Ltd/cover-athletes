@@ -44,10 +44,10 @@
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 
-<div
-  class="product-information section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }} relative"
-  style="{% render 'spacing-style', settings: section.settings %} --gap: {{ section.settings.gap }}px;"
->
+  <div
+    class="product-information section section--{{ content_width }} spacing-style color-{{ section.settings.color_scheme }} relative"
+    data-product-info-root
+  >
   {% if section.settings.desktop_media_position == 'left' and product_has_media %}
     {% assign product_href = '#ProductInformation-' | append: section.id %}
     {% render 'skip-to-content-link', href: product_href, text: 'accessibility.skip_to_product_info' %}
