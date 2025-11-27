@@ -2298,7 +2298,7 @@
       ],
       "custom_css": [
         ".custom-typography p {font-weight: 300;}",
-        "h3 strong {color: #07DE85; font-weight: 400 !important;}"
+        "h3 strong {color: #07de85; font-weight: 400 !important;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -2328,6 +2328,20 @@
         "padding-block-start": 50,
         "padding-block-end": 100
       }
+    },
+    "divider_t4xwVi": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "section_width": "page-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 50,
+        "padding-block-end": 20
+      }
     }
   },
   "order": [
@@ -2336,6 +2350,7 @@
     "section_QeCUqq",
     "section_iDCnx6",
     "section_yBpTHy",
-    "section_rDYzFQ"
+    "section_rDYzFQ",
+    "divider_t4xwVi"
   ]
 }
