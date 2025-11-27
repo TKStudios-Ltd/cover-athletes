@@ -2333,6 +2333,7 @@
     },
     "divider_t4xwVi": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
@@ -2468,7 +2469,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
