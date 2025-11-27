@@ -61,8 +61,6 @@
         class="product-information__media has-custom-horizontal-gallery"
         data-testid="product-information-media"
       >
-
-        <!-- Custom horizontal drag gallery -->
         <div class="custom-horizontal-gallery-wrapper">
           <div class="custom-horizontal-gallery" data-drag-scroll>
             {% for media in closest.product.media %}
@@ -75,7 +73,6 @@
           </div>
         </div>
 
-        <!-- Native Ritual media -->
         {%- content_for 'block',
           type: '_product-media-gallery',
           id: 'media-gallery',
@@ -103,6 +100,7 @@
 
   {% content_for 'blocks' %}
 </div>
+
 
 
 {% stylesheet %}
