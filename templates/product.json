@@ -2299,7 +2299,8 @@
       ],
       "custom_css": [
         ".custom-typography p {font-weight: 300;}",
-        "h3 strong {color: #07de85; font-weight: 400 !important;}"
+        "h3 strong {color: #07de85; font-weight: 400 !important;}",
+        ".accordion .details__header {letter-spacing: 0;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
