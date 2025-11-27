@@ -1547,7 +1547,8 @@
       "custom_css": [
         ".group-block .group-block {border-bottom: rgba(0, 0, 0, 0.1) 1px solid;}",
         ".custom-typography p {font-weight: 300;}",
-        ".custom-typography p strong {font-weight: 400 !important;}"
+        ".custom-typography p strong {font-weight: 400 !important;}",
+        ".accordion .details__header {text-transform: uppercase;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
