@@ -150,11 +150,11 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    cursor: grab;
+    cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grab;
   }
 
   .custom-horizontal-gallery:active {
-    cursor: grabbing;
+    cursor: url("{{ 'cursor-drag.svg' | asset_url }}") 20 20, grabbing;
   }
 
   .custom-horizontal-gallery::-webkit-scrollbar {
