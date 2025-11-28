@@ -10,8 +10,8 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: var(--padding-top);
-  padding-bottom: var(--padding-bottom);
+  padding-top: var(--pt);
+  padding-bottom: var(--pb);
 }
 
 /* ================================
@@ -23,7 +23,6 @@
 
 .specs-hotspots__image img {
   width: 100%;
-  height: auto;
   display: block;
 }
 
@@ -47,7 +46,7 @@
   background: #5fbf92;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 3;
 }
 
 .specs-hotspot__dot::after {
@@ -64,7 +63,6 @@
 .specs-hotspot__line {
   position: absolute;
   top: 0;
-  width: var(--line-length);
   height: 1px;
   background: rgba(0,0,0,.45);
 }
@@ -74,9 +72,7 @@
 ================================ */
 .specs-hotspot__content {
   position: absolute;
-  top: 0;
   max-width: 280px;
-  transform: translateY(-50%);
 }
 
 .specs-hotspot__content h4 {
@@ -97,12 +93,20 @@
 ================================ */
 .specs-hotspot--right .specs-hotspot__line {
   left: 0;
+  width: calc(1200px * (1 - var(--x) / 100));
   transform-origin: left center;
   transform: rotate(var(--angle));
 }
 
 .specs-hotspot--right .specs-hotspot__content {
-  left: calc(var(--line-length) + 14px);
+  left: calc(1200px - (var(--x) * 12px));
+  transform:
+    translateY(
+      calc(
+        tan(var(--angle)) * (1200px * (1 - var(--x) / 100))
+      )
+      - 50%
+    );
   text-align: left;
 }
 
@@ -111,12 +115,20 @@
 ================================ */
 .specs-hotspot--left .specs-hotspot__line {
   right: 0;
+  width: calc(1200px * (var(--x) / 100));
   transform-origin: right center;
   transform: rotate(calc(var(--angle) * -1));
 }
 
 .specs-hotspot--left .specs-hotspot__content {
-  right: calc(var(--line-length) + 14px);
+  right: calc(var(--x) * 12px);
+  transform:
+    translateY(
+      calc(
+        tan(var(--angle)) * (1200px * (var(--x) / 100))
+      )
+      - 50%
+    );
   text-align: right;
 }
 
@@ -133,15 +145,13 @@
 <div
   class="specs-hotspots color-{{ section.settings.color_scheme }}"
   style="
-    --padding-top: {{ section.settings.padding_top }}px;
-    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pt: {{ section.settings.padding_top }}px;
+    --pb: {{ section.settings.padding_bottom }}px;
   "
 >
   <div class="specs-hotspots__inner">
     <div class="specs-hotspots__image">
-      {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
-      {% endif %}
+      {{ section.settings.image | image_url: width: 2400 | image_tag }}
 
       {% for block in section.blocks %}
         <div
@@ -150,20 +160,14 @@
             --x: {{ block.settings.pos_x }};
             --y: {{ block.settings.pos_y }};
             --angle: {{ block.settings.angle }}deg;
-            --line-length: {{ block.settings.line_length }}px;
           "
           {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
           <span class="specs-hotspot__line"></span>
-
           <div class="specs-hotspot__content">
-            {% if block.settings.title != blank %}
-              <h4>{{ block.settings.title }}</h4>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <p>{{ block.settings.text }}</p>
-            {% endif %}
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
           </div>
         </div>
       {% endfor %}
@@ -194,6 +198,7 @@
       "min": 0,
       "max": 200,
       "step": 10,
+      "unit": "px",
       "default": 40
     },
     {
@@ -203,6 +208,7 @@
       "min": 0,
       "max": 200,
       "step": 10,
+      "unit": "px",
       "default": 40
     }
   ],
@@ -230,30 +236,12 @@
           "default": 50
         },
         {
-          "type": "range",
-          "id": "angle",
-          "label": "Line angle",
-          "min": 0,
-          "max": 180,
-          "step": 5,
-          "default": 30
-        },
-        {
-          "type": "range",
-          "id": "line_length",
-          "label": "Line length (px)",
-          "min": 40,
-          "max": 400,
-          "step": 10,
-          "default": 160
-        },
-        {
           "type": "select",
           "id": "text_side",
-          "label": "Text position",
+          "label": "Text side",
           "options": [
-            { "value": "left", "label": "Left of hotspot" },
-            { "value": "right", "label": "Right of hotspot" }
+            { "value": "left", "label": "Left of image" },
+            { "value": "right", "label": "Right of image" }
           ],
           "default": "right"
         },
@@ -279,3 +267,4 @@
   ]
 }
 {% endschema %}
+
