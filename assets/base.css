@@ -2137,6 +2137,7 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
     /* for when you want fixed sizing (e.g. pdp) */
     --swatch-width: var(--variant-picker-swatch-width);
     --swatch-height: var(--variant-picker-swatch-height);
+    border: none !important;
   }
 
   &.swatch--filter {
