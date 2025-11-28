@@ -8,7 +8,6 @@
 
 .specs-hotspots__inner {
   position: relative;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -27,19 +26,25 @@
 
 /* ================================
    HOTSPOT ROOT
+   (full row, dot positioned via --x)
 ================================ */
 .specs-hotspot {
   position: absolute;
+  left: 0;
+  width: 100%;
   pointer-events: none;
+  transform: translateY(-50%);
 }
 
-/* DOT */
+/* Dot sits at X% across the row */
 .specs-hotspot__dot {
   width: 14px;
   height: 14px;
   background: #5fbf92;
   border-radius: 50%;
   position: absolute;
+  top: 0;
+  left: var(--x);
   transform: translate(-50%, -50%);
   z-index: 2;
 }
@@ -52,22 +57,55 @@
   border: 1px solid rgba(95, 191, 146, 0.6);
 }
 
-/* LINE (JS will set width + rotation) */
+/* ================================
+   LINE – always horizontal
+   JS-free: just stretch to edge
+================================ */
 .specs-hotspot__line {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
   height: 1px;
   background: rgba(0, 0, 0, 0.45);
-  transform-origin: left center;
 }
 
-/* TEXT BOX */
+/* Right side: from dot to right edge */
+.specs-hotspot--right .specs-hotspot__line {
+  left: var(--x);
+  right: 0;
+}
+
+/* Left side: from left edge to dot */
+.specs-hotspot--left .specs-hotspot__line {
+  left: 0;
+  right: calc(100% - var(--x));
+}
+
+/* ================================
+   TEXT BOX – locked to edge
+================================ */
 .specs-hotspot__content {
   position: absolute;
+  top: 0;
   max-width: 280px;
 }
 
+/* Right edge */
+.specs-hotspot--right .specs-hotspot__content {
+  right: 0;
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+/* Left edge */
+.specs-hotspot--left .specs-hotspot__content {
+  left: 0;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+/* ================================
+   TYPOGRAPHY
+================================ */
 .specs-hotspot__content h4 {
   margin: 0 0 6px;
   font-size: 16px;
@@ -81,7 +119,9 @@
   opacity: 0.75;
 }
 
-/* MOBILE – hide the desktop hotspots layout */
+/* ================================
+   MOBILE – hide desktop layout
+================================ */
 @media (max-width: 749px) {
   .specs-hotspot {
     display: none;
@@ -90,12 +130,12 @@
 {% endstylesheet %}
 
 <div
-  id="SpecsHotspots-{{ section.id }}"
   class="specs-hotspots color-{{ section.settings.color_scheme }}"
 >
   <div
     class="specs-hotspots__inner"
     style="
+      max-width: {{ section.settings.image_max_width }}px;
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     "
@@ -111,15 +151,14 @@
         <div
           class="specs-hotspot specs-hotspot--{{ block.settings.text_side }}"
           style="
-            left: {{ block.settings.pos_x }}%;
             top: {{ block.settings.pos_y }}%;
+            --x: {{ block.settings.pos_x }}%;
           "
-          data-text-side="{{ block.settings.text_side }}"
-          data-text-track="{{ block.settings.text_track }}"
           {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
           <span class="specs-hotspot__line"></span>
+
           <div class="specs-hotspot__content">
             {% if block.settings.title != blank %}
               <h4>{{ block.settings.title }}</h4>
@@ -134,82 +173,6 @@
   </div>
 </div>
 
-<script>
-function layoutSpecsHotspots() {
-  document.querySelectorAll('.specs-hotspots').forEach(section => {
-    const inner = section.querySelector('.specs-hotspots__inner');
-    const image = section.querySelector('.specs-hotspots__image');
-
-    if (!inner || !image) return;
-
-    const sectionRect = inner.getBoundingClientRect();
-    const imageRect = image.getBoundingClientRect();
-
-    section.querySelectorAll('.specs-hotspot').forEach(hotspot => {
-      const dot = hotspot.querySelector('.specs-hotspot__dot');
-      const line = hotspot.querySelector('.specs-hotspot__line');
-      const content = hotspot.querySelector('.specs-hotspot__content');
-      if (!dot || !line || !content) return;
-
-      const side = hotspot.dataset.textSide || 'right';
-      const track = hotspot.dataset.textTrack || 'middle';
-
-      const xPercent = hotspot.dataset.x / 100;
-      const yPercent = hotspot.dataset.y / 100;
-
-      const dotX = imageRect.left + imageRect.width * xPercent;
-      const dotY = imageRect.top  + imageRect.height * yPercent;
-
-      const targetX =
-        side === 'right'
-          ? sectionRect.right
-          : sectionRect.left;
-
-      let verticalOffset = 0;
-      if (track === 'top') verticalOffset = -0.25;
-      if (track === 'bottom') verticalOffset = 0.25;
-
-      const targetY = dotY + verticalOffset * imageRect.height;
-
-      const dx = targetX - dotX;
-      const dy = targetY - dotY;
-
-      const length = Math.sqrt(dx * dx + dy * dy);
-      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-
-      hotspot.style.left = `${dotX - sectionRect.left}px`;
-      hotspot.style.top  = `${dotY - sectionRect.top}px`;
-
-      line.style.width = `${length}px`;
-      line.style.transform = `rotate(${angle}deg)`;
-      line.style.left = '0';
-      line.style.top = '0';
-
-      dot.style.left = '0';
-      dot.style.top  = '0';
-
-      content.style.top = `${targetY - sectionRect.top}px`;
-
-      if (side === 'right') {
-        content.style.left = `${sectionRect.width}px`;
-        content.style.transform = 'translate(-100%, -50%)';
-        content.style.textAlign = 'left';
-      } else {
-        content.style.left = '0';
-        content.style.transform = 'translate(0, -50%)';
-        content.style.textAlign = 'right';
-      }
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', layoutSpecsHotspots);
-window.addEventListener('resize', layoutSpecsHotspots);
-</script>
-
-
-
-
 {% schema %}
 {
   "name": "Specs Hotspots",
@@ -218,6 +181,16 @@ window.addEventListener('resize', layoutSpecsHotspots);
       "type": "image_picker",
       "id": "image",
       "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "label": "Section max width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
     },
     {
       "type": "color_scheme",
@@ -272,23 +245,12 @@ window.addEventListener('resize', layoutSpecsHotspots);
         {
           "type": "select",
           "id": "text_side",
-          "label": "Text side",
+          "label": "Text position",
           "options": [
             { "value": "left", "label": "Left of image" },
             { "value": "right", "label": "Right of image" }
           ],
           "default": "right"
-        },
-        {
-          "type": "select",
-          "id": "text_track",
-          "label": "Vertical alignment",
-          "options": [
-            { "value": "top", "label": "Top" },
-            { "value": "middle", "label": "Middle" },
-            { "value": "bottom", "label": "Bottom" }
-          ],
-          "default": "middle"
         },
         {
           "type": "text",
@@ -300,7 +262,7 @@ window.addEventListener('resize', layoutSpecsHotspots);
           "type": "textarea",
           "id": "text",
           "label": "Text",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         }
       ]
     }
