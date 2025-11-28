@@ -305,11 +305,12 @@
     }
   }
 
-  /* Gradient border */
+  /* CUSTOM START */
+
   .variant-option__button-label::after {
     content: "";
     position: absolute;
-    inset: -1px; /* default 1px */
+    inset: -1px;
     border-radius: inherit;
     background: linear-gradient(
       108.74deg,
@@ -318,21 +319,43 @@
     );
     pointer-events: none;
     z-index: 0;
-    transition: inset 0.2s ease;
   }
-
-  /* Checked = thicker border */
   .variant-option__button-label:has(:checked)::after {
     inset: -3px;
   }
-
-  /* Keep content above border */
-  .variant-option__button-label__text,
-  .variant-option__button-label__pill,
-  .swatch {
-    position: relative;
-    z-index: 1;
+  .variant-option__button-label:has(:checked) {
+    background: linear-gradient(
+      108.74deg,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
   }
+  .variant-option__button-label__text,
+  .variant-option__button-label__pill {
+    position: relative;
+    z-index: 2;
+  }
+  .variant-option__button-label--has-swatch {
+    background: transparent;
+  }
+  .variant-option__button-label--has-swatch::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      108.74deg,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  .variant-option__button-label--has-swatch:has(:checked)::after {
+    inset: -3px;
+  }
+
+  /* CUSTOM END */
 
   .variant-option__button-label {
     position: relative;
@@ -497,37 +520,6 @@
     border-color: var(--color-foreground);
     outline: var(--focus-outline-width) solid var(--color-foreground);
     outline-offset: var(--focus-outline-offset);
-  }
-
-  .variant-option__button-label--has-swatch {
-    position: relative;
-    padding: 0;
-    display: block;
-    flex-basis: auto;
-    min-height: auto;
-    border-radius: var(--variant-picker-swatch-radius);
-    overflow: visible;
-  }
-  .variant-option__button-label--has-swatch::after {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(
-          108.74deg,
-          rgba(255, 255, 255, 0.24) 0%,
-          rgba(255, 255, 255, 0.06) 100%
-    );
-    pointer-events: none;
-    z-index: 0;
-    transition: inset 0.2s ease;
-  }
-  .variant-option__button-label--has-swatch:has(:checked)::after {
-    inset: -3px;
-  }
-  .variant-option__button-label--has-swatch .swatch {
-    position: relative;
-    z-index: 1;
   }
 
   .variant-option__button-label:has(:checked) {
