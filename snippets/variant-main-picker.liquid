@@ -307,6 +307,19 @@
 
   /* CUSTOM START */
 
+  .variant-option__button-label:not(.variant-option__button-label--has-swatch)::after {
+    inset: -1px;
+  }
+  .variant-option__button-label:not(.variant-option__button-label--has-swatch):has(:checked)::after {
+    inset: -3px;
+  }
+  .variant-option__button-label:not(.variant-option__button-label--has-swatch):has(:checked) {
+    background: linear-gradient(
+      108.74deg,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+  }
   .variant-option__button-label::after {
     content: "";
     position: absolute;
@@ -322,13 +335,6 @@
   }
   .variant-option__button-label:has(:checked)::after {
     inset: -3px;
-  }
-  .variant-option__button-label:has(:checked) {
-    background: linear-gradient(
-      108.74deg,
-      rgba(255, 255, 255, 0.24) 0%,
-      rgba(255, 255, 255, 0.06) 100%
-    );
   }
   .variant-option__button-label__text,
   .variant-option__button-label__pill {
