@@ -1585,40 +1585,9 @@
     },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
-      "blocks": {
-        "hotspot_wgbEBq": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 11,
-            "pos_y": 27,
-            "angle": -30,
-            "text_side": "left",
-            "title": "dhjfjasvdsvdf",
-            "text": "fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds"
-          }
-        },
-        "hotspot_ARBkna": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 68,
-            "pos_y": 37,
-            "angle": 38,
-            "text_side": "right",
-            "title": "dhjfjasvdsvdf",
-            "text": "fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds"
-          }
-        }
-      },
-      "block_order": [
-        "hotspot_wgbEBq",
-        "hotspot_ARBkna"
-      ],
       "name": "Specs Hotspots",
       "settings": {
-        "image": "shopify://shop_images/Cover_Hotspot.png",
-        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "image": "shopify://shop_images/Cover_Hotspot.png"
       }
     },
     "section_BGcdyU": {
