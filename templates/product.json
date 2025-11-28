@@ -1589,10 +1589,11 @@
         "hotspot_KE7Gx6": {
           "type": "hotspot",
           "settings": {
-            "pos_x": 68,
-            "pos_y": 36,
-            "angle": -45,
+            "pos_x": 70,
+            "pos_y": 35,
+            "angle": -55,
             "line_length": 280,
+            "text_side": "right",
             "title": "Diecasted moulds",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
           }
@@ -1600,10 +1601,23 @@
         "hotspot_tqzAfm": {
           "type": "hotspot",
           "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "angle": 180,
-            "line_length": 400,
+            "pos_x": 30,
+            "pos_y": 60,
+            "angle": -150,
+            "line_length": 190,
+            "text_side": "left",
+            "title": "Diecasted moulds",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+          }
+        },
+        "hotspot_xWfa6a": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 40,
+            "pos_y": 35,
+            "angle": 145,
+            "line_length": 240,
+            "text_side": "left",
             "title": "Diecasted moulds",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
           }
@@ -1611,7 +1625,8 @@
       },
       "block_order": [
         "hotspot_KE7Gx6",
-        "hotspot_tqzAfm"
+        "hotspot_tqzAfm",
+        "hotspot_xWfa6a"
       ],
       "name": "Specs Hotspots",
       "settings": {
