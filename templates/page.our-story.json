@@ -995,7 +995,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>+</p>",
+                    "text": "<p>m2</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1479,7 +1479,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>+</p>",
+                    "text": "<p>m2</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1519,6 +1519,9 @@
         "group_P4gtUd",
         "group_Kr3C83",
         "group_7XfzXy"
+      ],
+      "custom_css": [
+        ".custom-typography p {font-family: \"Graphik\", sans-serif; font-weight: 300 !important;}"
       ],
       "name": "t:names.custom_section",
       "settings": {
