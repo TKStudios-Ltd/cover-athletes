@@ -71,10 +71,13 @@
 /* TEXT BOX */
 
 .section-map-hotspots .spec-hotspot__content {
-  position: absolute;
-  width: 260px;
-  padding: 1rem 0;
-  z-index: 3;
+    position: absolute;
+    width: 260px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem;
+    z-index: 3;
 }
 
 .section-map-hotspots .spec-hotspot__content h4 {
