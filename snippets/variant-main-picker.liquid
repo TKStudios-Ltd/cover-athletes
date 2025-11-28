@@ -501,6 +501,9 @@
     pointer-events: none;
     z-index: 1;
   }
+  .variant-option__button-label--has-swatch:has(:checked)::after {
+    inset: -3px;
+  }
 
   .variant-option__button-label:has(:checked) {
     color: var(--color-selected-variant-text);
