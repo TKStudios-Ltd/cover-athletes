@@ -867,6 +867,82 @@
         "padding-block-end": 50
       }
     },
+    "section_exyjgY": {
+      "type": "section",
+      "blocks": {
+        "custom_liquid_pizddM": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\" data-reveal>Our Team</div></div>"
+          },
+          "blocks": {}
+        },
+        "text_4yTbPr": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h3>We are a collective of thinkers and makers driven by a shared belief that <strong>protection in sport can be better.</strong> </h3>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "custom_liquid_pizddM",
+        "text_4yTbPr"
+      ],
+      "custom_css": [
+        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1000px;}",
+        "h3 strong {font-weight: 400 !important; color: #959595;}",
+        "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 100
+      }
+    },
     "section_qPUEAp": {
       "type": "section",
       "blocks": {
@@ -1435,6 +1511,7 @@
     "section_9rnLR6",
     "specs_hotspots_EpDANH",
     "hero_yFXqQe",
+    "section_exyjgY",
     "section_qPUEAp",
     "rd_slider_qdgFcB",
     "section_dVccD7"
