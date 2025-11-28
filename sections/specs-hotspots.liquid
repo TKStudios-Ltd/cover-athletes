@@ -1,97 +1,138 @@
 {% stylesheet %}
+/* =====================================================
+   SPECS HOTSPOTS – BASE
+===================================================== */
+
 .specs-hotspots {
   position: relative;
   width: 100%;
 }
 
 .specs-hotspots__inner {
+  max-width: var(--image-max-width, 1200px);
   margin: 0 auto;
   position: relative;
+}
+
+.specs-hotspots__image-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 .specs-hotspots__image {
-  position: relative;
-  margin: 0 auto;
-}
-
-.specs-hotspots__image img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* HOTSPOT WRAPPER */
-.specs-hotspot {
+/* =====================================================
+   HOTSPOT ROOT
+===================================================== */
+
+.spec-hotspot {
   position: absolute;
+  left: var(--x);
+  top: var(--y);
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
-/* DOT */
-.specs-hotspot__dot {
+/* =====================================================
+   HOTSPOT DOT
+===================================================== */
+
+.spec-hotspot__dot {
+  position: absolute;
   width: 14px;
   height: 14px;
-  background: #5fbf92;
+  background-color: #5fd39b;
   border-radius: 50%;
-  position: relative;
-  z-index: 2;
+  z-index: 3;
+  box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
 }
 
-.specs-hotspot__dot::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border: 1px solid rgba(95, 191, 146, 0.6);
-  border-radius: 50%;
-}
+/* =====================================================
+   HOTSPOT LINE
+===================================================== */
 
-/* ANGLED LINE ONLY */
-.specs-hotspot__line {
+.spec-hotspot__line {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 7px;
+  left: 7px;
   width: var(--line-length);
   height: 1px;
-  background: rgba(0, 0, 0, 0.45);
+  background-color: #9a9a9a;
   transform-origin: left center;
-  transform: translateY(-50%) rotate(var(--angle));
+  transform: rotate(var(--angle));
+  z-index: 1;
 }
 
-/* CONTENT (FLAT) */
-.specs-hotspot__content {
+/* =====================================================
+   HOTSPOT CONTENT
+===================================================== */
+
+.spec-hotspot__content {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform:
-    translateY(-50%)
-    translate(
-      calc(cos(var(--angle)) * var(--line-length)),
-      calc(sin(var(--angle)) * var(--line-length))
-    );
-  margin-left: 14px;
   max-width: 280px;
-}
-
-.specs-hotspot__content h4 {
-  margin: 0 0 6px;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.specs-hotspot__content p {
-  margin: 0;
   font-size: 14px;
-  line-height: 1.5;
-  opacity: 0.75;
+  line-height: 1.45;
+  color: rgb(var(--color-foreground));
 }
 
-/* MOBILE SAFETY */
-@media screen and (max-width: 749px) {
-  .specs-hotspot__content {
+.spec-hotspot__content h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.spec-hotspot__content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   RIGHT SIDE (DEFAULT)
+===================================================== */
+
+.spec-hotspot--right .spec-hotspot__content {
+  left: calc(var(--line-length) + 12px);
+  top: calc(var(--line-length) * 0.25);
+  text-align: left;
+}
+
+/* =====================================================
+   LEFT SIDE (FLIPPED)
+===================================================== */
+
+.spec-hotspot--left .spec-hotspot__line {
+  transform: rotate(calc(var(--angle) * -1));
+}
+
+.spec-hotspot--left .spec-hotspot__content {
+  right: calc(var(--line-length) + 12px);
+  top: calc(var(--line-length) * 0.25);
+  text-align: right;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media screen and (max-width: 990px) {
+  .spec-hotspot__content {
     max-width: 220px;
+    font-size: 13px;
   }
 }
+
+@media screen and (max-width: 749px) {
+  .spec-hotspot {
+    display: none;
+  }
+}
+
 {% endstylesheet %}
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
