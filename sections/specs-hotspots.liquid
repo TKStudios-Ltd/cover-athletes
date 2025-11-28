@@ -4,22 +4,21 @@
 ===================================================== */
 
 .specs-hotspots {
-  position: relative;
   width: 100%;
+  position: relative;
 }
 
 .specs-hotspots__inner {
-  max-width: var(--image-max-width, 1200px);
   margin: 0 auto;
   position: relative;
 }
 
 .specs-hotspots__image-wrapper {
   position: relative;
-  width: 100%;
+  margin: 0 auto;
 }
 
-.specs-hotspots__image {
+.specs-hotspots__image-wrapper img {
   width: 100%;
   height: auto;
   display: block;
@@ -45,7 +44,7 @@
   position: absolute;
   width: 14px;
   height: 14px;
-  background-color: #5fd39b;
+  background: #5fd39b;
   border-radius: 50%;
   z-index: 3;
   box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
@@ -61,7 +60,7 @@
   left: 7px;
   width: var(--line-length);
   height: 1px;
-  background-color: #9a9a9a;
+  background: #9a9a9a;
   transform-origin: left center;
   transform: rotate(var(--angle));
   z-index: 1;
@@ -74,8 +73,6 @@
 .spec-hotspot__content {
   position: absolute;
   max-width: 280px;
-  font-size: 14px;
-  line-height: 1.45;
   color: rgb(var(--color-foreground));
 }
 
@@ -83,7 +80,6 @@
   margin: 0 0 6px;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .spec-hotspot__content p {
@@ -93,7 +89,7 @@
 }
 
 /* =====================================================
-   RIGHT SIDE (DEFAULT)
+   RIGHT SIDE
 ===================================================== */
 
 .spec-hotspot--right .spec-hotspot__content {
@@ -103,7 +99,7 @@
 }
 
 /* =====================================================
-   LEFT SIDE (FLIPPED)
+   LEFT SIDE
 ===================================================== */
 
 .spec-hotspot--left .spec-hotspot__line {
@@ -120,19 +116,11 @@
    RESPONSIVE
 ===================================================== */
 
-@media screen and (max-width: 990px) {
-  .spec-hotspot__content {
-    max-width: 220px;
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width: 749px) {
+@media (max-width: 749px) {
   .spec-hotspot {
     display: none;
   }
 }
-
 {% endstylesheet %}
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
@@ -144,7 +132,7 @@
     "
   >
     <div
-      class="specs-hotspots__image"
+      class="specs-hotspots__image-wrapper"
       style="max-width: {{ section.settings.image_max_width }}px;"
     >
       {% if section.settings.image %}
@@ -155,22 +143,22 @@
 
       {% for block in section.blocks %}
         <div
-            class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
-            style="
-                --x: {{ block.settings.x }}%;
-                --y: {{ block.settings.y }}%;
-                --angle: {{ block.settings.angle }}deg;
-                --line-length: {{ block.settings.line_length }}px;
-            "
-            {{ block.shopify_attributes }}
-            >
-            <span class="spec-hotspot__dot"></span>
-            <span class="spec-hotspot__line"></span>
+          class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
+          style="
+            --x: {{ block.settings.pos_x }}%;
+            --y: {{ block.settings.pos_y }}%;
+            --angle: {{ block.settings.angle }}deg;
+            --line-length: {{ block.settings.line_length }}px;
+          "
+          {{ block.shopify_attributes }}
+        >
+          <span class="spec-hotspot__dot"></span>
+          <span class="spec-hotspot__line"></span>
 
-            <div class="spec-hotspot__content">
-                <h4>{{ block.settings.title }}</h4>
-                <div class="rte">{{ block.settings.text }}</div>
-            </div>
+          <div class="spec-hotspot__content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
         </div>
       {% endfor %}
     </div>
@@ -197,10 +185,10 @@
       "default": 1200
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1"
+    "type": "color_scheme",
+    "id": "color_scheme",
+    "label": "Color scheme",
+    "default": "scheme-1"
     },
     {
       "type": "range",
@@ -231,21 +219,19 @@
         {
           "type": "range",
           "id": "pos_x",
-          "label": "Position X",
+          "label": "Position X (%)",
           "min": 0,
           "max": 100,
           "step": 1,
-          "unit": "%",
           "default": 50
         },
         {
           "type": "range",
           "id": "pos_y",
-          "label": "Position Y",
+          "label": "Position Y (%)",
           "min": 0,
           "max": 100,
           "step": 1,
-          "unit": "%",
           "default": 50
         },
         {
@@ -255,28 +241,26 @@
           "min": -180,
           "max": 180,
           "step": 5,
-          "unit": "°",
           "default": -45
         },
         {
           "type": "range",
           "id": "line_length",
           "label": "Line length",
-          "min": 20,
+          "min": 40,
           "max": 800,
           "step": 10,
-          "unit": "px",
           "default": 140
         },
         {
-            "type": "select",
-            "id": "text_side",
-            "label": "Text position",
-            "options": [
-                { "value": "right", "label": "Right of hotspot" },
-                { "value": "left", "label": "Left of hotspot" }
-            ],
-            "default": "right"
+          "type": "select",
+          "id": "text_side",
+          "label": "Text position",
+          "options": [
+            { "value": "right", "label": "Right" },
+            { "value": "left", "label": "Left" }
+          ],
+          "default": "right"
         },
         {
           "type": "text",
@@ -288,7 +272,7 @@
           "type": "textarea",
           "id": "text",
           "label": "Text",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         }
       ]
     }
