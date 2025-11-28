@@ -134,83 +134,118 @@
   </div>
 </div>
 
-{% javascript %}
-  document.addEventListener('DOMContentLoaded', () => {
-    const root = document.getElementById('SpecsHotspots-{{ section.id }}');
-    if (!root) return;
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const roots = document.querySelectorAll('.specs-hotspots');
 
+  roots.forEach(root => {
+    const sectionInner = root.querySelector('.specs-hotspots__inner');
     const imageWrapper = root.querySelector('.specs-hotspots__image');
-    if (!imageWrapper) return;
 
-    const hotspots = root.querySelectorAll('.specs-hotspot');
-    if (!hotspots.length) return;
+    if (!sectionInner || !imageWrapper) return;
 
+    const sectionRect = sectionInner.getBoundingClientRect();
     const imageRect = imageWrapper.getBoundingClientRect();
 
-    hotspots.forEach((hotspot) => {
+    const hotspots = root.querySelectorAll('.specs-hotspot');
+
+    hotspots.forEach(hotspot => {
       const dot = hotspot.querySelector('.specs-hotspot__dot');
       const line = hotspot.querySelector('.specs-hotspot__line');
       const content = hotspot.querySelector('.specs-hotspot__content');
 
       if (!dot || !line || !content) return;
 
-      const side = hotspot.dataset.textSide === 'left' ? 'left' : 'right';
-      const track = hotspot.dataset.textTrack || 'middle';
+      const side =
+        hotspot.classList.contains('specs-hotspot--left') ? 'left' : 'right';
 
-      // Get positions in viewport
-      const dotRect = dot.getBoundingClientRect();
-      const srcX = dotRect.left + dotRect.width / 2;
-      const srcY = dotRect.top + dotRect.height / 2;
+      /* -----------------------------------
+         DOT POSITION (IMAGE RELATIVE)
+      ----------------------------------- */
 
-      const verticalPadding = 40; // distance from image top/bottom for top/bottom tracks
+      const xPercent = Number(hotspot.dataset.x);
+      const yPercent = Number(hotspot.dataset.y);
 
-      let targetY;
-      if (track === 'top') {
-        targetY = imageRect.top + verticalPadding;
-      } else if (track === 'bottom') {
-        targetY = imageRect.bottom - verticalPadding;
-      } else {
-        targetY = imageRect.top + imageRect.height / 2;
-      }
+      const dotX =
+        imageRect.left + (xPercent / 100) * imageRect.width;
+      const dotY =
+        imageRect.top + (yPercent / 100) * imageRect.height;
 
-      const horizontalOffset = 24; // spacing between image edge and text box
+      /* -----------------------------------
+         TARGET TEXT EDGE (SECTION BOUND)
+      ----------------------------------- */
 
       const targetX =
         side === 'right'
-          ? imageRect.right + horizontalOffset
-          : imageRect.left - horizontalOffset;
+          ? sectionRect.right
+          : sectionRect.left;
 
-      // Compute line geometry
-      const dx = targetX - srcX;
-      const dy = targetY - srcY;
+      /* -----------------------------------
+         VERTICAL OFFSET (ANGLE DRIVER)
+      ----------------------------------- */
+
+      const verticalBias =
+        Number(hotspot.dataset.vertical || 0);
+
+      const targetY =
+        dotY + verticalBias * imageRect.height;
+
+      /* -----------------------------------
+         LINE VECTOR
+      ----------------------------------- */
+
+      const dx = targetX - dotX;
+      const dy = targetY - dotY;
+
       const length = Math.sqrt(dx * dx + dy * dy);
-      const angleDeg = (Math.atan2(dy, dx) * 180) / Math.PI;
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-      // Position and rotate the line: origin at dot, end at text box
+      /* -----------------------------------
+         APPLY LINE
+      ----------------------------------- */
+
       line.style.width = `${length}px`;
-      line.style.left = '50%';
+      line.style.transformOrigin = 'left center';
+      line.style.transform = `rotate(${angle}deg)`;
+      line.style.left = '0px';
       line.style.top = '50%';
-      line.style.transform = `translate(-50%, -50%) rotate(${angleDeg}deg)`;
 
-      // Position text box at the target point, staying flat
-      const localTargetY = targetY - imageRect.top;
+      /* -----------------------------------
+         PLACE CONTENT AT SECTION EDGE
+      ----------------------------------- */
 
-      content.style.top = `${localTargetY}px`;
+      const localY = targetY - sectionRect.top;
+
+      content.style.top = `${localY}px`;
 
       if (side === 'right') {
-        // anchor to the right of the image
-        content.style.left = `${imageRect.width + horizontalOffset}px`;
+        content.style.left = `${sectionRect.width}px`;
         content.style.transform = 'translate(-100%, -50%)';
         content.style.textAlign = 'left';
       } else {
-        // anchor to the left of the image
-        content.style.left = `${-horizontalOffset}px`;
+        content.style.left = `0px`;
         content.style.transform = 'translate(0, -50%)';
         content.style.textAlign = 'right';
       }
+
+      /* -----------------------------------
+         POSITION HOTSPOT ROOT
+      ----------------------------------- */
+
+      hotspot.style.left = `${dotX - sectionRect.left}px`;
+      hotspot.style.top = `${dotY - sectionRect.top}px`;
+
+      /* -----------------------------------
+         DOT CENTERING
+      ----------------------------------- */
+
+      dot.style.left = '0px';
+      dot.style.top = '0px';
     });
   });
-{% endjavascript %}
+});
+</script>
+
 
 {% schema %}
 {
