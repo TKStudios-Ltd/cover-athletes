@@ -1589,17 +1589,29 @@
         "hotspot_39RTR3": {
           "type": "hotspot",
           "settings": {
-            "title": "dsbgdbfgdb",
-            "text": "",
+            "pos_x": 70,
+            "pos_y": 35,
             "angle": -50,
             "line_length": 230,
-            "pos_x": 70,
-            "pos_y": 27
+            "title": "Diecasted Moulds",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+          }
+        },
+        "hotspot_jWKqbk": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "angle": -45,
+            "line_length": 140,
+            "title": "Diecasted moulds",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
           }
         }
       },
       "block_order": [
-        "hotspot_39RTR3"
+        "hotspot_39RTR3",
+        "hotspot_jWKqbk"
       ],
       "name": "Specs Hotspots",
       "settings": {
