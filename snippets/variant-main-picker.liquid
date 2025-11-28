@@ -535,10 +535,14 @@
   }
 
   .variant-option__button-label--has-swatch:has(:checked) {
-    --focus-outline: var(--focus-outline-width) solid var(--color-foreground);
-
+    /* --focus-outline: var(--focus-outline-width) solid var(--color-foreground);
     outline: var(--focus-outline);
-    /* outline-offset: var(--focus-outline-offset); */
+    outline-offset: var(--focus-outline-offset); */
+    border-image: linear-gradient(
+        108.74deg,
+        rgba(255, 255, 255, 0.24) 0%,
+        rgba(255, 255, 255, 0.06) 100%
+    ) 1;
   }
 
   /* This triggers iOS < 16.4. The outline bug is not recognized as a lack of @supports */
