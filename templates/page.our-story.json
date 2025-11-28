@@ -610,7 +610,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 50,
-        "padding-block-end": 100
+        "padding-block-end": 25
       }
     },
     "specs_hotspots_EpDANH": {
@@ -668,7 +668,7 @@
         "background_image": "shopify://shop_images/Cover_Hotspot.png",
         "image_max_width": 800,
         "show_outline": false,
-        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5"
+        "color_scheme": "scheme-1"
       }
     },
     "section_qPUEAp": {
