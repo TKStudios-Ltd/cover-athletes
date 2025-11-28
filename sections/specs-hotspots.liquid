@@ -250,9 +250,9 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth >= 750) return;
-  const section = document.currentScript.closest('.section-map-hotspots');
+(function () {
+  const mobileQuery = window.matchMedia('(max-width: 749px)');
+  const section = document.querySelector('.section-map-hotspots');
   if (!section) return;
   const hotspots = section.querySelectorAll('.spec-hotspot');
   const items = section.querySelectorAll('.map-hotspots-mobile__item');
@@ -260,18 +260,22 @@ document.addEventListener('DOMContentLoaded', () => {
   function activate(index) {
     hotspots.forEach(h => h.classList.remove('is-active'));
     items.forEach(i => i.classList.remove('active'));
-
     hotspots[index]?.classList.add('is-active');
     items[index]?.classList.add('active');
   }
-  activate(0);
-  hotspots.forEach((hotspot, index) => {
-    hotspot.addEventListener('click', () => {
-      activate(index);
+  function bind() {
+    if (!mobileQuery.matches) return;
+    activate(0);
+    hotspots.forEach((hotspot, index) => {
+      hotspot.addEventListener('click', () => {
+        activate(index);
+      });
     });
-  });
-});
+  }
+  bind();
+})();
 </script>
+
 
 
 {% schema %}
