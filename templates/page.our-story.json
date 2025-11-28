@@ -72,7 +72,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>We carefully select materials not only for performance but also for longevity and <strong>sustainability</strong>.</h3>",
+            "text": "<h3>At Cover, we exist to change how athletes think about protection. For too long, sports gear has treated safety as an afterthought. Protective equipment is bulky, uncomfortable, and outdated. We set out to build something better to give athletes the freedom to play their game.</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -101,7 +101,6 @@
       ],
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1120px;}",
-        "h3 strong {font-weight: 400 !important; color: #07de85;}",
         "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}"
       ],
       "name": "t:names.rich_text_section",
