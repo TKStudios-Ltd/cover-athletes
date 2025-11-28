@@ -513,39 +513,6 @@
     } */
   }
 
-  /* Base non-swatch buttons */
-  .variant-option__button-label:not(.variant-option__button-label--has-swatch) {
-      position: relative;
-      overflow: visible;
-      border-radius: var(--options-border-radius);
-  }
-
-  /* Gradient border */
-  .variant-option__button-label:not(.variant-option__button-label--has-swatch)::after {
-      content: "";
-      position: absolute;
-      inset: -1px; /* default = 1px stroke */
-      border-radius: inherit;
-      background: linear-gradient(
-          108.74deg,
-          rgba(255, 255, 255, 0.24) 0%,
-          rgba(255, 255, 255, 0.06) 100%
-      );
-      pointer-events: none;
-      z-index: 0;
-      transition: inset 0.2s ease;
-  }
-
-  .variant-option__button-label:not(.variant-option__button-label--has-swatch):has(:checked)::after {
-      inset: -3px;
-  }
-
-  .variant-option__button-label__pill,
-  .variant-option__button-label__text {
-    position: relative;
-    z-index: 1;
-  }
-
   .variant-option__button-label:has([data-option-available='false']) {
     color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
   }
