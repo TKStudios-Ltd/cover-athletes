@@ -702,7 +702,7 @@
         "text_KqnkPe": {
           "type": "text",
           "settings": {
-            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
+            "text": "<p>We are constantly evolving, driven by research and feedback from the athletes who trust our gear. Stay updated as we shape the future of sports protection. Be the first to know what’s next from the Cover Lab. Be the first to know what’s next from the Cover Lab.</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -718,7 +718,7 @@
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 0,
-            "padding-block-end": 32,
+            "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
