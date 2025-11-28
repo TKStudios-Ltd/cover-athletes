@@ -1626,7 +1626,7 @@
       "settings": {
         "background_image": "shopify://shop_images/Cover_Hotspot.png",
         "image_max_width": 800,
-        "show_outline": true,
+        "show_outline": false,
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5"
       }
     },
