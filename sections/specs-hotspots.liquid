@@ -118,23 +118,36 @@
     "
   >
     <div
-    class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
-    style="
-        --x: {{ block.settings.pos_x }}%;
-        --y: {{ block.settings.pos_y }}%;
-        --angle: {{ block.settings.angle }}deg;
-        --line-length: {{ block.settings.line_length }}px;
-    "
-    {{ block.shopify_attributes }}
+      class="specs-hotspots__image-wrapper"
+      style="max-width: {{ section.settings.image_max_width }}px;"
     >
-    <span class="spec-hotspot__dot"></span>
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag }}
+      {% endif %}
 
-    <span class="spec-hotspot__arm">
-        <span class="spec-hotspot__content">
-        <h4>{{ block.settings.title }}</h4>
-        <p>{{ block.settings.text }}</p>
+      {% for block in section.blocks %}
+        <div
+        class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
+        style="
+            --x: {{ block.settings.pos_x }}%;
+            --y: {{ block.settings.pos_y }}%;
+            --angle: {{ block.settings.angle }}deg;
+            --line-length: {{ block.settings.line_length }}px;
+        "
+        {{ block.shopify_attributes }}
+        >
+        <span class="spec-hotspot__dot"></span>
+
+        <span class="spec-hotspot__arm">
+            <span class="spec-hotspot__content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+            </span>
         </span>
-    </span>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>
