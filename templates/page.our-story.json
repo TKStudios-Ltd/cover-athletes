@@ -512,9 +512,7 @@
         "image_t4pGqC",
         "group_UQ6tHD"
       ],
-      "custom_css": [
-        "h4 {font-family: \"Graphik\", san-serif !important; font-weight: 500;}"
-      ],
+      "custom_css": [],
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "row",
