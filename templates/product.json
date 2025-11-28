@@ -1591,7 +1591,7 @@
           "settings": {
             "pos_x": 50,
             "pos_y": 50,
-            "angle": -50,
+            "angle": -70,
             "text_side": "left",
             "title": "Hotspot title",
             "text": "Hotspot description"
