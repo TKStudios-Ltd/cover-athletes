@@ -1,6 +1,8 @@
 {% comment %}
-  Map Hotspots Section for Dawn Theme — FINAL
-  Fully JS-powered: angle, text side, line length & transform all respected
+  Map Hotspots Section for Dawn Theme — FINAL CONTAINED VERSION
+  - Hotspot system with correct line + textbox containment
+  - Textbox locked inside 1200px max-width container
+  - Fully mobile responsive
 {% endcomment %}
 
 {% stylesheet %}
@@ -9,11 +11,13 @@
 ================================ */
 .specs-hotspots {
   width: 100%;
+  overflow: hidden;
 }
 .specs-hotspots__inner {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 /* ================================
    IMAGE
@@ -61,6 +65,7 @@
   background: white;
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 3;
 }
 .specs-hotspot__content h4 {
   margin: 0 0 6px;
@@ -157,6 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
       line.style.transform = `rotate(${lineAngle}deg)`;
 
       content.style.top = targetY + 'px';
+      content.style.maxWidth = '280px';
+      content.style.zIndex = '3';
+
       if (side === 'right') {
         content.style.left = containerWidth + 'px';
         content.style.transform = 'translate(-100%, -50%)';
