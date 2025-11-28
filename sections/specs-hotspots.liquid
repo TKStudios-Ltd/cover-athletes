@@ -6,7 +6,10 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     "
   >
-    <div class="specs-hotspots__image-wrapper">
+    <div
+      class="specs-hotspots__image-wrapper"
+      style="max-width: {{ section.settings.image_max_width }}px;"
+    >
       {% if section.settings.image %}
         {{ section.settings.image
           | image_url: width: 2400
@@ -16,27 +19,28 @@
 
       {% for block in section.blocks %}
         <div
-          class="specs-hotspot specs-hotspot--{{ block.settings.side }}"
+          class="specs-hotspot"
           style="
             left: {{ block.settings.pos_x }}%;
             top: {{ block.settings.pos_y }}%;
+            --line-length: {{ block.settings.line_length }}px;
+            --line-angle: {{ block.settings.angle }}deg;
           "
           {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
 
-          <span
-            class="specs-hotspot__line"
-            style="--line-length: {{ block.settings.line_length }}px;"
-          ></span>
+          <div class="specs-hotspot__arm">
+            <span class="specs-hotspot__line"></span>
 
-          <div class="specs-hotspot__content">
-            {% if block.settings.title != blank %}
-              <h4>{{ block.settings.title }}</h4>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <p>{{ block.settings.text }}</p>
-            {% endif %}
+            <div class="specs-hotspot__content">
+              {% if block.settings.title != blank %}
+                <h4>{{ block.settings.title }}</h4>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <p>{{ block.settings.text }}</p>
+              {% endif %}
+            </div>
           </div>
         </div>
       {% endfor %}
@@ -46,13 +50,11 @@
 
 {% stylesheet %}
 .specs-hotspots {
-  position: relative;
   width: 100%;
 }
 
 .specs-hotspots__image-wrapper {
   position: relative;
-  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -62,11 +64,9 @@
   display: block;
 }
 
-/* HOTSPOT BASE */
+/* HOTSPOT */
 .specs-hotspot {
   position: absolute;
-  display: flex;
-  align-items: center;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
@@ -78,6 +78,7 @@
   background: #5fbf92;
   border-radius: 50%;
   position: relative;
+  z-index: 2;
 }
 
 .specs-hotspot__dot::after {
@@ -88,15 +89,28 @@
   border-radius: 50%;
 }
 
+/* ARM (rotated wrapper for line + text) */
+.specs-hotspot__arm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(var(--line-angle));
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
 /* LINE */
 .specs-hotspot__line {
-  height: 1px;
-  background: rgba(0,0,0,0.4);
   width: var(--line-length);
+  height: 1px;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 /* CONTENT */
 .specs-hotspot__content {
+  margin-left: 12px;
   max-width: 260px;
   font-size: 14px;
   line-height: 1.4;
@@ -111,25 +125,7 @@
 .specs-hotspot__content p {
   margin: 0;
   font-size: 13px;
-  color: rgba(0,0,0,0.7);
-}
-
-/* RIGHT SIDE */
-.specs-hotspot--right {
-  flex-direction: row;
-}
-
-.specs-hotspot--right .specs-hotspot__line {
-  margin: 0 10px;
-}
-
-/* LEFT SIDE */
-.specs-hotspot--left {
-  flex-direction: row-reverse;
-}
-
-.specs-hotspot--left .specs-hotspot__line {
-  margin: 0 10px;
+  color: rgba(0, 0, 0, 0.7);
 }
 {% endstylesheet %}
 
@@ -141,6 +137,15 @@
       "type": "image_picker",
       "id": "image",
       "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "label": "Image max width (px)",
+      "min": 600,
+      "max": 2000,
+      "step": 50,
+      "default": 1400
     },
     {
       "type": "color_scheme",
@@ -183,23 +188,22 @@
           "label": "Text"
         },
         {
-          "type": "select",
-          "id": "side",
-          "label": "Text position",
-          "options": [
-            { "value": "right", "label": "Right of dot" },
-            { "value": "left", "label": "Left of dot" }
-          ],
-          "default": "right"
+          "type": "range",
+          "id": "angle",
+          "label": "Line angle (degrees)",
+          "min": -180,
+          "max": 180,
+          "step": 5,
+          "default": 0
         },
         {
           "type": "range",
           "id": "line_length",
-          "label": "Line length",
-          "min": 20,
-          "max": 300,
+          "label": "Line length (px)",
+          "min": 30,
+          "max": 400,
           "step": 5,
-          "default": 120
+          "default": 140
         },
         {
           "type": "range",
@@ -230,3 +234,4 @@
   ]
 }
 {% endschema %}
+
