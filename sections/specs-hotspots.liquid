@@ -49,26 +49,30 @@
 }
 
 /* =====================================================
-   ARM (the rotating part)
+   ARM – STARTS AT DOT CENTRE
 ===================================================== */
 .spec-hotspot__arm {
   position: absolute;
+  top: 7px;   /* centre of 14px dot */
+  left: 7px;  /* centre of 14px dot */
   width: var(--line-length);
   height: 1px;
   background: #9a9a9a;
-  top: 50%;
-  left: 50%;
   transform-origin: left center;
 }
 
 /* =====================================================
-   TEXT — STAYS FLAT!
+   TEXT – ALWAYS FLAT
 ===================================================== */
 .spec-hotspot__content {
   position: absolute;
+  top: 7px;
+  left: 7px;
+  transform-origin: left center;
+  max-width: 260px;
   font-size: 13px;
   color: rgb(var(--color-foreground));
-  max-width: 260px;
+  text-align: left; /* always left, design-style */
 }
 
 .spec-hotspot__content h4 {
@@ -84,42 +88,43 @@
 }
 
 /* =====================================================
-   RIGHT SIDE GEOMETRY
+   RIGHT SIDE (DEFAULT)
+   - Line rotates by +angle
+   - Text moves along line, then rotates back
 ===================================================== */
 .spec-hotspot--right .spec-hotspot__arm {
   transform: rotate(var(--angle));
 }
 
 .spec-hotspot--right .spec-hotspot__content {
-  /* move to end of rotated line */
   transform:
     rotate(var(--angle))
     translateX(var(--line-length))
     rotate(calc(var(--angle) * -1));
   margin-left: 12px;
-  transform-origin: left center;
-  text-align: left;
 }
 
 /* =====================================================
-   LEFT SIDE GEOMETRY
+   LEFT SIDE (MIRRORED)
+   - Line rotates by -angle
+   - Text moves along line, then rotates back
+   - Box ends up on the left side of the dot
 ===================================================== */
 .spec-hotspot--left .spec-hotspot__arm {
   transform: rotate(calc(var(--angle) * -1));
 }
 
 .spec-hotspot--left .spec-hotspot__content {
+  transform-origin: right center;
   transform:
     rotate(calc(var(--angle) * -1))
     translateX(var(--line-length))
     rotate(var(--angle));
   margin-right: 12px;
-  transform-origin: right center;
-  text-align: right;
 }
 
 /* =====================================================
-   RESPONSIVE (hide hotspots on mobile)
+   RESPONSIVE – HIDE HOTSPOTS ON SMALL SCREENS
 ===================================================== */
 @media (max-width: 749px) {
   .spec-hotspot {
@@ -133,31 +138,30 @@
        style="padding-top: {{ section.settings.padding_top }}px;
               padding-bottom: {{ section.settings.padding_bottom }}px;
               --image-max-width: {{ section.settings.image_max_width }}px;">
-    
     <div class="specs-hotspots__image-wrapper">
       {% if section.settings.image %}
         {{ section.settings.image | image_url: width: 2400 | image_tag }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag }}
       {% endif %}
 
       {% for block in section.blocks %}
-        <div class="spec-hotspot spec-hotspot--{{ block.settings.side }}"
-             style="
-               --x: {{ block.settings.pos_x }}%;
-               --y: {{ block.settings.pos_y }}%;
-               --angle: {{ block.settings.angle }}deg;
-               --line-length: {{ block.settings.line_length }}px;
-             "
-             {{ block.shopify_attributes }}>
-          
+        <div
+          class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
+          style="
+            --x: {{ block.settings.pos_x }}%;
+            --y: {{ block.settings.pos_y }}%;
+            --angle: {{ block.settings.angle }}deg;
+            --line-length: {{ block.settings.line_length }}px;
+          "
+          {{ block.shopify_attributes }}
+        >
           <div class="spec-hotspot__dot"></div>
-
           <div class="spec-hotspot__arm"></div>
-
           <div class="spec-hotspot__content">
             <h4>{{ block.settings.title }}</h4>
             <div class="rte">{{ block.settings.text }}</div>
           </div>
-
         </div>
       {% endfor %}
     </div>
@@ -235,7 +239,7 @@
         },
         {
           "type": "select",
-          "id": "side",
+          "id": "text_side",
           "label": "Text side",
           "options": [
             { "value": "right", "label": "Right" },
@@ -267,13 +271,13 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Diecasted Moulds"
+          "default": "Diecasted moulds"
         },
         {
           "type": "textarea",
           "id": "text",
           "label": "Body text",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
         }
       ]
     }
