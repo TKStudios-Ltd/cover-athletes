@@ -1610,17 +1610,28 @@
           "type": "hotspot",
           "settings": {
             "title": "HIGH PRESSURE DIECASTING",
-            "text": "Hotspot description",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
             "pos_x": 35,
             "pos_y": 70,
             "placement": "bottom-left"
+          }
+        },
+        "hotspot_g8fpFt": {
+          "type": "hotspot",
+          "settings": {
+            "title": "DIECASTED MOULDS",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "pos_x": 48,
+            "pos_y": 54,
+            "placement": "bottom-right"
           }
         }
       },
       "block_order": [
         "hotspot_JmxJWP",
         "hotspot_kUHwqk",
-        "hotspot_mqBApf"
+        "hotspot_mqBApf",
+        "hotspot_g8fpFt"
       ],
       "name": "Specs Hotspots",
       "settings": {
