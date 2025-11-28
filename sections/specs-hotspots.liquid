@@ -1,8 +1,8 @@
 {% stylesheet %}
 
-/* =====================================================
-   SECTION WRAPPER
-===================================================== */
+/* ================================
+   SECTION
+================================ */
 
 .specs-hotspots {
   width: 100%;
@@ -10,127 +10,135 @@
 
 .specs-hotspots__inner {
   position: relative;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* =====================================================
+/* ================================
    IMAGE
-===================================================== */
+================================ */
 
 .specs-hotspots__image {
   position: relative;
-  margin: 0 auto;
 }
 
 .specs-hotspots__image img {
-  display: block;
   width: 100%;
   height: auto;
+  display: block;
 }
 
-/* =====================================================
-   FIXED TEXT RAILS
-===================================================== */
-
-.specs-hotspots__rail {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 320px;
-  pointer-events: none;
-}
-
-.specs-hotspots__rail--left {
-  left: 0;
-  text-align: right;
-}
-
-.specs-hotspots__rail--right {
-  right: 0;
-  text-align: left;
-}
-
-/* =====================================================
-   HOTSPOT DOT
-===================================================== */
+/* ================================
+   HOTSPOT ROOT
+================================ */
 
 .specs-hotspot {
   position: absolute;
-  transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
+/* ================================
+   DOT
+================================ */
+
 .specs-hotspot__dot {
-  position: relative;
   width: 14px;
   height: 14px;
   background: #5fbf92;
   border-radius: 50%;
-  z-index: 3;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .specs-hotspot__dot::after {
   content: '';
   position: absolute;
   inset: -6px;
-  border: 1px solid rgba(95, 191, 146, 0.6);
+  border: 1px solid rgba(95,191,146,.6);
   border-radius: 50%;
 }
 
-/* =====================================================
+/* ================================
    LINE
-===================================================== */
+================================ */
 
 .specs-hotspot__line {
   position: absolute;
-  top: 50%;
+  top: 0;
   height: 1px;
-  background: rgba(0, 0, 0, 0.45);
-  transform: translateY(-50%);
+  background: rgba(0,0,0,.45);
 }
 
-/* RIGHT SIDE */
-.specs-hotspot--right .specs-hotspot__line {
-  left: 100%;
-  width: calc(100% - var(--hotspot-x));
-}
+/* ================================
+   TEXT
+================================ */
 
-/* LEFT SIDE */
-.specs-hotspot--left .specs-hotspot__line {
-  right: 100%;
-  width: var(--hotspot-x);
-}
-
-/* =====================================================
-   TEXT BLOCKS
-===================================================== */
-
-.specs-hotspots__content {
+.specs-hotspot__content {
+  position: absolute;
   max-width: 280px;
-  margin-bottom: 40px;
 }
 
-.specs-hotspots__content h4 {
+.specs-hotspot__content h4 {
   margin: 0 0 6px;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.25;
 }
 
-.specs-hotspots__content p {
+.specs-hotspot__content p {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  opacity: 0.75;
+  opacity: .75;
 }
 
-/* =====================================================
+/* ================================
+   RIGHT SIDE
+================================ */
+
+.specs-hotspot--right {
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+}
+
+.specs-hotspot--right .specs-hotspot__line {
+  left: 7px;
+  width: calc(100% - var(--x) * 1%);
+}
+
+.specs-hotspot--right .specs-hotspot__content {
+  left: calc(100% + 14px);
+  top: 0;
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+/* ================================
+   LEFT SIDE
+================================ */
+
+.specs-hotspot--left {
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+}
+
+.specs-hotspot--left .specs-hotspot__line {
+  right: 7px;
+  width: calc(var(--x) * 1%);
+}
+
+.specs-hotspot--left .specs-hotspot__content {
+  right: calc(100% + 14px);
+  top: 0;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+/* ================================
    MOBILE
-===================================================== */
+================================ */
 
 @media (max-width: 749px) {
-  .specs-hotspot,
-  .specs-hotspots__rail {
+  .specs-hotspot {
     display: none;
   }
 }
@@ -138,67 +146,35 @@
 {% endstylesheet %}
 
 
-
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
   <div
     class="specs-hotspots__inner"
-    style="
-      max-width: {{ section.settings.image_max_width }}px;
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    "
+    style="padding: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;"
   >
-
-    <!-- LEFT TEXT RAIL -->
-    <div class="specs-hotspots__rail specs-hotspots__rail--left">
-      {% for block in section.blocks %}
-        {% if block.settings.text_side == 'left' %}
-          <div class="specs-hotspots__content">
-            <h4>{{ block.settings.title }}</h4>
-            <p>{{ block.settings.text }}</p>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <!-- IMAGE + HOTSPOTS -->
     <div class="specs-hotspots__image">
-      {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
-      {% endif %}
+      {{ section.settings.image | image_url: width: 2400 | image_tag }}
 
       {% for block in section.blocks %}
         <div
           class="specs-hotspot specs-hotspot--{{ block.settings.text_side }}"
           style="
-            left: {{ block.settings.pos_x }}%;
-            top: {{ block.settings.pos_y }}%;
-            --hotspot-x: {{ block.settings.pos_x }}%;
+            --x: {{ block.settings.pos_x }};
+            --y: {{ block.settings.pos_y }};
           "
           {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
           <span class="specs-hotspot__line"></span>
-        </div>
-      {% endfor %}
-    </div>
 
-    <!-- RIGHT TEXT RAIL -->
-    <div class="specs-hotspots__rail specs-hotspots__rail--right">
-      {% for block in section.blocks %}
-        {% if block.settings.text_side == 'right' %}
-          <div class="specs-hotspots__content">
+          <div class="specs-hotspot__content">
             <h4>{{ block.settings.title }}</h4>
             <p>{{ block.settings.text }}</p>
           </div>
-        {% endif %}
+        </div>
       {% endfor %}
     </div>
-
   </div>
 </div>
-
-
 
 
 {% schema %}
