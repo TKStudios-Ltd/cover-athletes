@@ -135,7 +135,7 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+function layoutSpecsHotspots() {
   document.querySelectorAll('.specs-hotspots').forEach(section => {
     const inner = section.querySelector('.specs-hotspots__inner');
     const image = section.querySelector('.specs-hotspots__image');
@@ -149,34 +149,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const dot = hotspot.querySelector('.specs-hotspot__dot');
       const line = hotspot.querySelector('.specs-hotspot__line');
       const content = hotspot.querySelector('.specs-hotspot__content');
-
       if (!dot || !line || !content) return;
 
       const side = hotspot.dataset.textSide || 'right';
       const track = hotspot.dataset.textTrack || 'middle';
 
-      const xPercent = hotspot.style.left.replace('%','') / 100;
-      const yPercent = hotspot.style.top.replace('%','') / 100;
-
-      /* -----------------------------
-         DOT WORLD POSITION
-      ----------------------------- */
+      const xPercent = hotspot.dataset.x / 100;
+      const yPercent = hotspot.dataset.y / 100;
 
       const dotX = imageRect.left + imageRect.width * xPercent;
-      const dotY = imageRect.top + imageRect.height * yPercent;
-
-      /* -----------------------------
-         TEXT EDGE X (SECTION EDGE)
-      ----------------------------- */
+      const dotY = imageRect.top  + imageRect.height * yPercent;
 
       const targetX =
         side === 'right'
           ? sectionRect.right
           : sectionRect.left;
-
-      /* -----------------------------
-         VERTICAL TRACK OFFSET
-      ----------------------------- */
 
       let verticalOffset = 0;
       if (track === 'top') verticalOffset = -0.25;
@@ -184,61 +171,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const targetY = dotY + verticalOffset * imageRect.height;
 
-      /* -----------------------------
-         VECTOR + ANGLE
-      ----------------------------- */
-
       const dx = targetX - dotX;
       const dy = targetY - dotY;
 
       const length = Math.sqrt(dx * dx + dy * dy);
       const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-      /* -----------------------------
-         APPLY HOTSPOT ROOT
-      ----------------------------- */
-
       hotspot.style.left = `${dotX - sectionRect.left}px`;
       hotspot.style.top  = `${dotY - sectionRect.top}px`;
 
-      /* -----------------------------
-         LINE
-      ----------------------------- */
-
       line.style.width = `${length}px`;
-      line.style.transformOrigin = 'left center';
       line.style.transform = `rotate(${angle}deg)`;
       line.style.left = '0';
-      line.style.top = '50%';
-
-      /* -----------------------------
-         DOT
-      ----------------------------- */
+      line.style.top = '0';
 
       dot.style.left = '0';
-      dot.style.top = '0';
+      dot.style.top  = '0';
 
-      /* -----------------------------
-         TEXTBOX @ EDGE
-      ----------------------------- */
-
-      const localY = targetY - sectionRect.top;
-
-      content.style.top = `${localY}px`;
+      content.style.top = `${targetY - sectionRect.top}px`;
 
       if (side === 'right') {
         content.style.left = `${sectionRect.width}px`;
         content.style.transform = 'translate(-100%, -50%)';
         content.style.textAlign = 'left';
       } else {
-        content.style.left = `0px`;
+        content.style.left = '0';
         content.style.transform = 'translate(0, -50%)';
         content.style.textAlign = 'right';
       }
     });
   });
-});
+}
+
+document.addEventListener('DOMContentLoaded', layoutSpecsHotspots);
+window.addEventListener('resize', layoutSpecsHotspots);
 </script>
+
 
 
 
