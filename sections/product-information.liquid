@@ -149,9 +149,14 @@
   position: relative;
   width: 100%;
   min-width: 100%;
-  height: calc(100vw - 480px);
+  height: 100vw;
   max-height: 100vh;
   overflow: visible;
+}
+@media (min-width: 990px) {
+  .product-information__media.has-custom-horizontal-gallery {
+    height: calc(100vw - 480px);
+  }
 }
 .custom-horizontal-gallery-wrapper {
   position: absolute;
