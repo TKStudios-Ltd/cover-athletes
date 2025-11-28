@@ -1586,32 +1586,32 @@
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
       "blocks": {
-        "hotspot_rbJnW8": {
+        "hotspot_wgbEBq": {
           "type": "hotspot",
           "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "angle": -90,
-            "text_side": "right",
-            "title": "dvdgbfng",
-            "text": "fdngfnfnbgbfbgbgf"
-          }
-        },
-        "hotspot_XqW96V": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
+            "pos_x": 11,
+            "pos_y": 27,
             "angle": -30,
             "text_side": "left",
-            "title": "dvdgbfng",
-            "text": "fdngfnfnbgbfbgbgf"
+            "title": "dhjfjasvdsvdf",
+            "text": "fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds"
+          }
+        },
+        "hotspot_ARBkna": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 68,
+            "pos_y": 37,
+            "angle": 38,
+            "text_side": "right",
+            "title": "dhjfjasvdsvdf",
+            "text": "fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds fjfjfjjfjfgjavdbdsbgbds"
           }
         }
       },
       "block_order": [
-        "hotspot_rbJnW8",
-        "hotspot_XqW96V"
+        "hotspot_wgbEBq",
+        "hotspot_ARBkna"
       ],
       "name": "Specs Hotspots",
       "settings": {
