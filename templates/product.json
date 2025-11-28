@@ -1586,32 +1586,44 @@
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
       "blocks": {
-        "hotspot_bTqwGc": {
+        "hotspot_JmxJWP": {
           "type": "hotspot",
           "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "angle": -70,
+            "pos_x": 42,
+            "pos_y": 32,
+            "angle": -20,
             "text_side": "left",
-            "title": "Hotspot title",
-            "text": "Hotspot description"
+            "title": "DUAL LAYER MATERIAL SHELL FOAM",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique."
           }
         },
-        "hotspot_wUmHjA": {
+        "hotspot_kUHwqk": {
           "type": "hotspot",
           "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "angle": 42,
+            "pos_x": 76,
+            "pos_y": 32,
+            "angle": 36,
             "text_side": "right",
-            "title": "Hotspot title",
+            "title": "DIECASTED MOULDS",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique."
+          }
+        },
+        "hotspot_mqBApf": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 30,
+            "pos_y": 70,
+            "angle": 40,
+            "text_side": "left",
+            "title": "HIGH PRESSURE DIECASTING",
             "text": "Hotspot description"
           }
         }
       },
       "block_order": [
-        "hotspot_bTqwGc",
-        "hotspot_wUmHjA"
+        "hotspot_JmxJWP",
+        "hotspot_kUHwqk",
+        "hotspot_mqBApf"
       ],
       "name": "Specs Hotspots",
       "settings": {
