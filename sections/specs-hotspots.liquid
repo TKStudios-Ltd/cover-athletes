@@ -1,30 +1,5 @@
 {% stylesheet %}
 /* =====================================================
-   SPECS HOTSPOTS – BASE
-===================================================== */
-
-.specs-hotspots {
-  width: 100%;
-  position: relative;
-}
-
-.specs-hotspots__inner {
-  margin: 0 auto;
-  position: relative;
-}
-
-.specs-hotspots__image-wrapper {
-  position: relative;
-  margin: 0 auto;
-}
-
-.specs-hotspots__image-wrapper img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* =====================================================
    HOTSPOT ROOT
 ===================================================== */
 
@@ -37,44 +12,79 @@
 }
 
 /* =====================================================
-   HOTSPOT DOT
+   DOT
 ===================================================== */
 
 .spec-hotspot__dot {
-  position: absolute;
   width: 14px;
   height: 14px;
   background: #5fd39b;
   border-radius: 50%;
-  z-index: 3;
   box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
+  position: relative;
+  z-index: 3;
 }
 
 /* =====================================================
-   HOTSPOT LINE
+   LINE + CONTENT WRAPPER
 ===================================================== */
 
-.spec-hotspot__line {
+.spec-hotspot__arm {
   position: absolute;
-  top: 7px;
-  left: 7px;
+  top: 50%;
+  left: 50%;
   width: var(--line-length);
   height: 1px;
-  background: #9a9a9a;
   transform-origin: left center;
   transform: rotate(var(--angle));
-  z-index: 1;
+  background: #9a9a9a;
 }
 
 /* =====================================================
-   HOTSPOT CONTENT
+   CONTENT (ALWAYS AT LINE END)
 ===================================================== */
 
 .spec-hotspot__content {
   position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
   max-width: 280px;
+  font-size: 13px;
   color: rgb(var(--color-foreground));
 }
+
+/* =====================================================
+   RIGHT SIDE (DEFAULT)
+===================================================== */
+
+.spec-hotspot--right .spec-hotspot__arm {
+  transform: rotate(var(--angle));
+}
+
+.spec-hotspot--right .spec-hotspot__content {
+  margin-left: 12px;
+  text-align: left;
+}
+
+/* =====================================================
+   LEFT SIDE (MIRRORED)
+===================================================== */
+
+.spec-hotspot--left .spec-hotspot__arm {
+  transform: rotate(calc(var(--angle) * -1));
+}
+
+.spec-hotspot--left .spec-hotspot__content {
+  left: 0;
+  transform: translate(-100%, -50%);
+  margin-right: 12px;
+  text-align: right;
+}
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
 
 .spec-hotspot__content h4 {
   margin: 0 0 6px;
@@ -84,32 +94,7 @@
 
 .spec-hotspot__content p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-/* =====================================================
-   RIGHT SIDE
-===================================================== */
-
-.spec-hotspot--right .spec-hotspot__content {
-  left: calc(var(--line-length) + 12px);
-  top: calc(var(--line-length) * 0.25);
-  text-align: left;
-}
-
-/* =====================================================
-   LEFT SIDE
-===================================================== */
-
-.spec-hotspot--left .spec-hotspot__line {
-  transform: rotate(calc(var(--angle) * -1));
-}
-
-.spec-hotspot--left .spec-hotspot__content {
-  right: calc(var(--line-length) + 12px);
-  top: calc(var(--line-length) * 0.25);
-  text-align: right;
+  line-height: 1.45;
 }
 
 /* =====================================================
@@ -121,6 +106,7 @@
     display: none;
   }
 }
+
 {% endstylesheet %}
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
@@ -132,35 +118,23 @@
     "
   >
     <div
-      class="specs-hotspots__image-wrapper"
-      style="max-width: {{ section.settings.image_max_width }}px;"
+    class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
+    style="
+        --x: {{ block.settings.pos_x }}%;
+        --y: {{ block.settings.pos_y }}%;
+        --angle: {{ block.settings.angle }}deg;
+        --line-length: {{ block.settings.line_length }}px;
+    "
+    {{ block.shopify_attributes }}
     >
-      {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag }}
-      {% endif %}
+    <span class="spec-hotspot__dot"></span>
 
-      {% for block in section.blocks %}
-        <div
-          class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
-          style="
-            --x: {{ block.settings.pos_x }}%;
-            --y: {{ block.settings.pos_y }}%;
-            --angle: {{ block.settings.angle }}deg;
-            --line-length: {{ block.settings.line_length }}px;
-          "
-          {{ block.shopify_attributes }}
-        >
-          <span class="spec-hotspot__dot"></span>
-          <span class="spec-hotspot__line"></span>
-
-          <div class="spec-hotspot__content">
-            <h4>{{ block.settings.title }}</h4>
-            <p>{{ block.settings.text }}</p>
-          </div>
-        </div>
-      {% endfor %}
+    <span class="spec-hotspot__arm">
+        <span class="spec-hotspot__content">
+        <h4>{{ block.settings.title }}</h4>
+        <p>{{ block.settings.text }}</p>
+        </span>
+    </span>
     </div>
   </div>
 </div>
