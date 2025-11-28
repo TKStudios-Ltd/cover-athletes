@@ -1,111 +1,175 @@
 {% comment %}
-  Map Hotspots Section for Dawn Theme
-  Features:
-  - Hotspots with dot, angled line, and textbox
-  - Textbox locked to left or right edge of 1200px container
-  - Line automatically stretches and rotates to meet textbox
-  - Angle controlled by schema (with <101 steps rule respected)
+  Map Hotspots Section for Dawn Theme — FINAL
+  Fully JS-powered: angle, text side, line length & transform all respected
 {% endcomment %}
 
-<style>
-.map-hotspot-section {
+{% stylesheet %}
+/* ================================
+   SECTION
+================================ */
+.specs-hotspots {
+  width: 100%;
+}
+.specs-hotspots__inner {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
+}
+/* ================================
+   IMAGE
+================================ */
+.specs-hotspots__image {
   position: relative;
 }
-
-.map-hotspot-section img {
+.specs-hotspots__image img {
   width: 100%;
   height: auto;
   display: block;
 }
-
-.spec-hotspot {
+/* ================================
+   HOTSPOT ROOT
+================================ */
+.specs-hotspot {
   position: absolute;
-  transform: translate(-50%, -50%);
   pointer-events: none;
 }
-
-.spec-hotspot__dot {
+.specs-hotspot__dot {
   width: 14px;
   height: 14px;
-  background: #5fd39b;
+  background: #5fbf92;
   border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
-  position: relative;
+  position: absolute;
+  transform: translate(-50%, -50%);
   z-index: 2;
 }
-
-.spec-hotspot__line {
+.specs-hotspot__dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(95,191,146,.6);
+}
+.specs-hotspot__line {
   position: absolute;
   height: 1px;
-  background: #5fd39b;
+  background: rgba(0,0,0,.45);
   transform-origin: left center;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
 }
-
-.spec-hotspot__text {
+.specs-hotspot__content {
   position: absolute;
-  width: 300px;
-  max-width: 90vw;
+  max-width: 280px;
   background: white;
   padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.specs-hotspot__content h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.specs-hotspot__content p {
+  margin: 0;
   font-size: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  z-index: 3;
+  line-height: 1.5;
+  opacity: .75;
 }
-
-.spec-hotspot__text.left {
-  left: 0;
-  transform: translateY(-50%);
-  text-align: left;
+@media (max-width: 749px) {
+  .specs-hotspot {
+    display: block;
+  }
 }
+{% endstylesheet %}
 
-.spec-hotspot__text.right {
-  right: 0;
-  transform: translateY(-50%);
-  text-align: right;
-}
-</style>
+<div class="specs-hotspots color-{{ section.settings.color_scheme }}">
+  <div
+    class="specs-hotspots__inner"
+    style="padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;"
+  >
+    <div class="specs-hotspots__image">
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% endif %}
 
-<div class="map-hotspot-section">
-  <img src="{{ section.settings.image | image_url }}" alt="Map Background">
-
-  {% for block in section.blocks %}
-    {% assign angle = block.settings.angle | times: 1 %}
-    {% assign dot_top = block.settings.pos_y | append: '%' %}
-    {% assign dot_left = block.settings.pos_x | append: '%' %}
-
-    <div
-      class="spec-hotspot"
-      style="top: {{ dot_top }}; left: {{ dot_left }};"
-    >
-      <div class="spec-hotspot__dot"></div>
-
-      {% comment %} Calculate angle, side, and text alignment {% endcomment %}
-      {% assign text_side = block.settings.text_side %}
-      {% assign direction = angle | times: 1 %}
-
-      <div
-        class="spec-hotspot__line"
-        style="
-          width: 600px;
-          transform: rotate({{ angle }}deg);
-        "
-      ></div>
-
-      <div
-        class="spec-hotspot__text {{ text_side }}"
-        style="top: calc({{ dot_top }} + (600px * {{ angle | divided_by: 90.0 }}));"
-      >
-        <strong>{{ block.settings.title }}</strong><br>
-        {{ block.settings.text }}
-      </div>
+      {% for block in section.blocks %}
+        <div
+          class="specs-hotspot"
+          data-side="{{ block.settings.text_side }}"
+          data-angle="{{ block.settings.angle }}"
+          style="left: {{ block.settings.pos_x }}%; top: {{ block.settings.pos_y }}%;"
+          {{ block.shopify_attributes }}
+        >
+          <span class="specs-hotspot__dot"></span>
+          <span class="specs-hotspot__line"></span>
+          <div class="specs-hotspot__content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
+  </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.specs-hotspots').forEach(section => {
+    const inner = section.querySelector('.specs-hotspots__inner');
+    const image = section.querySelector('.specs-hotspots__image');
+
+    if (!inner || !image) return;
+
+    const containerWidth = inner.offsetWidth;
+    const imageWidth = image.offsetWidth;
+    const imageHeight = image.offsetHeight;
+
+    section.querySelectorAll('.specs-hotspot').forEach(hotspot => {
+      const dot = hotspot.querySelector('.specs-hotspot__dot');
+      const line = hotspot.querySelector('.specs-hotspot__line');
+      const content = hotspot.querySelector('.specs-hotspot__content');
+
+      const side = hotspot.dataset.side;
+      const angleDeg = parseFloat(hotspot.dataset.angle || 0);
+      const angleRad = angleDeg * Math.PI / 180;
+
+      const xPercent = parseFloat(hotspot.style.left) / 100;
+      const yPercent = parseFloat(hotspot.style.top) / 100;
+
+      const dotX = imageWidth * xPercent;
+      const dotY = imageHeight * yPercent;
+
+      hotspot.style.left = dotX + 'px';
+      hotspot.style.top  = dotY + 'px';
+
+      dot.style.left = '0px';
+      dot.style.top  = '0px';
+
+      const targetX = side === 'right' ? containerWidth : 0;
+      const dx = targetX - dotX;
+      const dy = Math.tan(angleRad) * Math.abs(dx);
+      const targetY = dotY + (side === 'right' ? dy : -dy);
+
+      const length = Math.sqrt(dx * dx + dy * dy);
+      const lineAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+      line.style.left = '0px';
+      line.style.top  = '0px';
+      line.style.width = length + 'px';
+      line.style.transform = `rotate(${lineAngle}deg)`;
+
+      content.style.top = targetY + 'px';
+      if (side === 'right') {
+        content.style.left = containerWidth + 'px';
+        content.style.transform = 'translate(-100%, -50%)';
+        content.style.textAlign = 'left';
+      } else {
+        content.style.left = '0px';
+        content.style.transform = 'translate(0, -50%)';
+        content.style.textAlign = 'right';
+      }
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
@@ -114,7 +178,31 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Map Background Image"
+      "label": "Map background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 40
     }
   ],
   "blocks": [
@@ -125,7 +213,7 @@
         {
           "type": "range",
           "id": "pos_x",
-          "label": "X Position (%)",
+          "label": "Position X (%)",
           "min": 0,
           "max": 100,
           "step": 1,
@@ -134,16 +222,25 @@
         {
           "type": "range",
           "id": "pos_y",
-          "label": "Y Position (%)",
+          "label": "Position Y (%)",
           "min": 0,
           "max": 100,
           "step": 1,
           "default": 50
         },
         {
+          "type": "range",
+          "id": "angle",
+          "label": "Line angle",
+          "min": -90,
+          "max": 90,
+          "step": 2,
+          "default": 0
+        },
+        {
           "type": "select",
           "id": "text_side",
-          "label": "Textbox Side",
+          "label": "Text side",
           "options": [
             { "value": "left", "label": "Left" },
             { "value": "right", "label": "Right" }
@@ -151,38 +248,23 @@
           "default": "right"
         },
         {
-          "type": "range",
-          "id": "angle",
-          "label": "Line Angle",
-          "min": -90,
-          "max": 90,
-          "step": 2,
-          "default": 0
-        },
-        {
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Hotspot Title"
+          "default": "Hotspot title"
         },
         {
           "type": "textarea",
           "id": "text",
-          "label": "Description",
-          "default": "Hotspot text description."
+          "label": "Text",
+          "default": "Hotspot description"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Map Hotspots",
-      "category": "Custom",
-      "blocks": [
-        {"type": "hotspot"},
-        {"type": "hotspot"},
-        {"type": "hotspot"}
-      ]
+      "name": "Map Hotspots"
     }
   ]
 }
