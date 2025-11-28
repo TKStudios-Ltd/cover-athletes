@@ -187,7 +187,7 @@
                         "line_height": "normal",
                         "letter_spacing": "tight",
                         "case": "none",
-                        "wrap": "pretty",
+                        "wrap": "nowrap",
                         "color": "var(--color-primary)",
                         "background": false,
                         "background_color": "#00000026",
