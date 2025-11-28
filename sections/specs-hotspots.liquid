@@ -1,32 +1,31 @@
 {% stylesheet %}
-/* =====================================================
-   WRAPPER
-===================================================== */
+/* ===============================
+   SECTION WRAPPER
+=============================== */
+
 .specs-hotspots {
   position: relative;
   width: 100%;
 }
 
 .specs-hotspots__inner {
-  position: relative;
   margin: 0 auto;
-  max-width: var(--image-max-width, 1200px);
 }
 
 .specs-hotspots__image-wrapper {
   position: relative;
-  width: 100%;
+  margin: 0 auto;
 }
 
 .specs-hotspots__image-wrapper img {
   width: 100%;
-  height: auto;
   display: block;
 }
 
-/* =====================================================
+/* ===============================
    HOTSPOT ROOT
-===================================================== */
+=============================== */
+
 .spec-hotspot {
   position: absolute;
   left: var(--x);
@@ -35,114 +34,110 @@
   pointer-events: none;
 }
 
-/* =====================================================
+/* ===============================
    DOT
-===================================================== */
+=============================== */
+
 .spec-hotspot__dot {
+  position: relative;
   width: 14px;
   height: 14px;
   background: #5fd39b;
   border-radius: 50%;
   box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
-  position: relative;
   z-index: 3;
 }
 
-/* =====================================================
-   ARM – STARTS AT DOT CENTRE
-===================================================== */
-.spec-hotspot__arm {
+/* ===============================
+   LINE
+=============================== */
+
+.spec-hotspot__line {
   position: absolute;
-  top: 7px;   /* centre of 14px dot */
-  left: 7px;  /* centre of 14px dot */
+  top: 50%;
+  left: 50%;
   width: var(--line-length);
   height: 1px;
   background: #9a9a9a;
   transform-origin: left center;
+  z-index: 1;
 }
 
-/* =====================================================
-   TEXT – ALWAYS FLAT
-===================================================== */
+/* ===============================
+   CONTENT (ALWAYS FLAT)
+=============================== */
+
 .spec-hotspot__content {
   position: absolute;
-  top: 7px;
-  left: 7px;
-  transform-origin: left center;
-  max-width: 260px;
-  font-size: 13px;
-  color: rgb(var(--color-foreground));
-  text-align: left; /* always left, design-style */
+  top: 50%;
+  max-width: 280px;
+  transform: translateY(-50%);
 }
 
 .spec-hotspot__content h4 {
   margin: 0 0 6px;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .spec-hotspot__content p {
   margin: 0;
+  font-size: 13px;
   line-height: 1.45;
 }
 
-/* =====================================================
-   RIGHT SIDE (DEFAULT)
-   - Line rotates by +angle
-   - Text moves along line, then rotates back
-===================================================== */
-.spec-hotspot--right .spec-hotspot__arm {
+/* ===============================
+   RIGHT SIDE (TEXT RIGHT)
+=============================== */
+
+.spec-hotspot--right .spec-hotspot__line {
   transform: rotate(var(--angle));
 }
 
 .spec-hotspot--right .spec-hotspot__content {
-  transform:
-    rotate(var(--angle))
-    translateX(var(--line-length))
-    rotate(calc(var(--angle) * -1));
-  margin-left: 12px;
+  left: calc(var(--line-length) + 48px);
+  text-align: left;
 }
 
-/* =====================================================
-   LEFT SIDE (MIRRORED)
-   - Line rotates by -angle
-   - Text moves along line, then rotates back
-   - Box ends up on the left side of the dot
-===================================================== */
-.spec-hotspot--left .spec-hotspot__arm {
+/* ===============================
+   LEFT SIDE (TEXT LEFT)
+=============================== */
+
+.spec-hotspot--left .spec-hotspot__line {
   transform: rotate(calc(var(--angle) * -1));
 }
 
 .spec-hotspot--left .spec-hotspot__content {
-  transform-origin: right center;
-  transform:
-    rotate(calc(var(--angle) * -1))
-    translateX(var(--line-length))
-    rotate(var(--angle));
-  margin-right: 12px;
+  right: calc(var(--line-length) + 48px);
+  text-align: right;
 }
 
-/* =====================================================
-   RESPONSIVE – HIDE HOTSPOTS ON SMALL SCREENS
-===================================================== */
+/* ===============================
+   MOBILE
+=============================== */
+
 @media (max-width: 749px) {
   .spec-hotspot {
     display: none;
   }
 }
+
 {% endstylesheet %}
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
-  <div class="specs-hotspots__inner"
-       style="padding-top: {{ section.settings.padding_top }}px;
-              padding-bottom: {{ section.settings.padding_bottom }}px;
-              --image-max-width: {{ section.settings.image_max_width }}px;">
-    <div class="specs-hotspots__image-wrapper">
+  <div
+    class="specs-hotspots__inner"
+    style="
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    "
+  >
+    <div
+      class="specs-hotspots__image-wrapper"
+      style="max-width: {{ section.settings.image_max_width }}px;"
+    >
       {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2400 | image_tag }}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag }}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
       {% endif %}
 
       {% for block in section.blocks %}
@@ -151,13 +146,15 @@
           style="
             --x: {{ block.settings.pos_x }}%;
             --y: {{ block.settings.pos_y }}%;
-            --angle: {{ block.settings.angle }}deg;
             --line-length: {{ block.settings.line_length }}px;
+            --angle: {{ block.settings.angle }}deg;
           "
           {{ block.shopify_attributes }}
         >
-          <div class="spec-hotspot__dot"></div>
-          <div class="spec-hotspot__arm"></div>
+          <span class="spec-hotspot__dot"></span>
+
+          <span class="spec-hotspot__line"></span>
+
           <div class="spec-hotspot__content">
             <h4>{{ block.settings.title }}</h4>
             <div class="rte">{{ block.settings.text }}</div>
@@ -222,7 +219,7 @@
         {
           "type": "range",
           "id": "pos_x",
-          "label": "X Position (%)",
+          "label": "X position (%)",
           "min": 0,
           "max": 100,
           "step": 1,
@@ -231,7 +228,7 @@
         {
           "type": "range",
           "id": "pos_y",
-          "label": "Y Position (%)",
+          "label": "Y position (%)",
           "min": 0,
           "max": 100,
           "step": 1,
@@ -240,7 +237,7 @@
         {
           "type": "select",
           "id": "text_side",
-          "label": "Text side",
+          "label": "Text position",
           "options": [
             { "value": "right", "label": "Right" },
             { "value": "left", "label": "Left" }
@@ -250,22 +247,22 @@
         {
           "type": "range",
           "id": "angle",
-          "label": "Line angle (0–90°)",
+          "label": "Line angle (0–90)",
           "min": 0,
           "max": 90,
-          "step": 1,
+          "step": 5,
           "unit": "°",
-          "default": 35
+          "default": 20
         },
         {
           "type": "range",
           "id": "line_length",
           "label": "Line length",
-          "min": 20,
+          "min": 40,
           "max": 600,
           "step": 10,
           "unit": "px",
-          "default": 160
+          "default": 180
         },
         {
           "type": "text",
@@ -276,7 +273,7 @@
         {
           "type": "textarea",
           "id": "text",
-          "label": "Body text",
+          "label": "Text",
           "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
         }
       ]
@@ -288,4 +285,5 @@
     }
   ]
 }
+
 {% endschema %}
