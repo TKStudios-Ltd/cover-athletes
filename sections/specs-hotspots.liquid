@@ -136,63 +136,57 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const roots = document.querySelectorAll('.specs-hotspots');
+  document.querySelectorAll('.specs-hotspots').forEach(section => {
+    const inner = section.querySelector('.specs-hotspots__inner');
+    const image = section.querySelector('.specs-hotspots__image');
 
-  roots.forEach(root => {
-    const sectionInner = root.querySelector('.specs-hotspots__inner');
-    const imageWrapper = root.querySelector('.specs-hotspots__image');
+    if (!inner || !image) return;
 
-    if (!sectionInner || !imageWrapper) return;
+    const sectionRect = inner.getBoundingClientRect();
+    const imageRect = image.getBoundingClientRect();
 
-    const sectionRect = sectionInner.getBoundingClientRect();
-    const imageRect = imageWrapper.getBoundingClientRect();
-
-    const hotspots = root.querySelectorAll('.specs-hotspot');
-
-    hotspots.forEach(hotspot => {
+    section.querySelectorAll('.specs-hotspot').forEach(hotspot => {
       const dot = hotspot.querySelector('.specs-hotspot__dot');
       const line = hotspot.querySelector('.specs-hotspot__line');
       const content = hotspot.querySelector('.specs-hotspot__content');
 
       if (!dot || !line || !content) return;
 
-      const side =
-        hotspot.classList.contains('specs-hotspot--left') ? 'left' : 'right';
+      const side = hotspot.dataset.textSide || 'right';
+      const track = hotspot.dataset.textTrack || 'middle';
 
-      /* -----------------------------------
-         DOT POSITION (IMAGE RELATIVE)
-      ----------------------------------- */
+      const xPercent = hotspot.style.left.replace('%','') / 100;
+      const yPercent = hotspot.style.top.replace('%','') / 100;
 
-      const xPercent = Number(hotspot.dataset.x);
-      const yPercent = Number(hotspot.dataset.y);
+      /* -----------------------------
+         DOT WORLD POSITION
+      ----------------------------- */
 
-      const dotX =
-        imageRect.left + (xPercent / 100) * imageRect.width;
-      const dotY =
-        imageRect.top + (yPercent / 100) * imageRect.height;
+      const dotX = imageRect.left + imageRect.width * xPercent;
+      const dotY = imageRect.top + imageRect.height * yPercent;
 
-      /* -----------------------------------
-         TARGET TEXT EDGE (SECTION BOUND)
-      ----------------------------------- */
+      /* -----------------------------
+         TEXT EDGE X (SECTION EDGE)
+      ----------------------------- */
 
       const targetX =
         side === 'right'
           ? sectionRect.right
           : sectionRect.left;
 
-      /* -----------------------------------
-         VERTICAL OFFSET (ANGLE DRIVER)
-      ----------------------------------- */
+      /* -----------------------------
+         VERTICAL TRACK OFFSET
+      ----------------------------- */
 
-      const verticalBias =
-        Number(hotspot.dataset.vertical || 0);
+      let verticalOffset = 0;
+      if (track === 'top') verticalOffset = -0.25;
+      if (track === 'bottom') verticalOffset = 0.25;
 
-      const targetY =
-        dotY + verticalBias * imageRect.height;
+      const targetY = dotY + verticalOffset * imageRect.height;
 
-      /* -----------------------------------
-         LINE VECTOR
-      ----------------------------------- */
+      /* -----------------------------
+         VECTOR + ANGLE
+      ----------------------------- */
 
       const dx = targetX - dotX;
       const dy = targetY - dotY;
@@ -200,19 +194,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const length = Math.sqrt(dx * dx + dy * dy);
       const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-      /* -----------------------------------
-         APPLY LINE
-      ----------------------------------- */
+      /* -----------------------------
+         APPLY HOTSPOT ROOT
+      ----------------------------- */
+
+      hotspot.style.left = `${dotX - sectionRect.left}px`;
+      hotspot.style.top  = `${dotY - sectionRect.top}px`;
+
+      /* -----------------------------
+         LINE
+      ----------------------------- */
 
       line.style.width = `${length}px`;
       line.style.transformOrigin = 'left center';
       line.style.transform = `rotate(${angle}deg)`;
-      line.style.left = '0px';
+      line.style.left = '0';
       line.style.top = '50%';
 
-      /* -----------------------------------
-         PLACE CONTENT AT SECTION EDGE
-      ----------------------------------- */
+      /* -----------------------------
+         DOT
+      ----------------------------- */
+
+      dot.style.left = '0';
+      dot.style.top = '0';
+
+      /* -----------------------------
+         TEXTBOX @ EDGE
+      ----------------------------- */
 
       const localY = targetY - sectionRect.top;
 
@@ -227,24 +235,11 @@ document.addEventListener('DOMContentLoaded', () => {
         content.style.transform = 'translate(0, -50%)';
         content.style.textAlign = 'right';
       }
-
-      /* -----------------------------------
-         POSITION HOTSPOT ROOT
-      ----------------------------------- */
-
-      hotspot.style.left = `${dotX - sectionRect.left}px`;
-      hotspot.style.top = `${dotY - sectionRect.top}px`;
-
-      /* -----------------------------------
-         DOT CENTERING
-      ----------------------------------- */
-
-      dot.style.left = '0px';
-      dot.style.top = '0px';
     });
   });
 });
 </script>
+
 
 
 {% schema %}
