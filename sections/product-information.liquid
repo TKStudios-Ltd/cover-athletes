@@ -207,10 +207,15 @@
 
 .gallery-item img {
   width: auto;
-  height: calc(100vw - 480px);
+  height: 100vw;
   max-height: 100vh;
   display: block;
   pointer-events: none;
+}
+@media (min-width: 990px) {
+  .gallery-item img {
+    height: calc(100vw - 480px);
+  }
 }
 
 /* ======================================
