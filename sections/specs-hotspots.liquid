@@ -138,15 +138,48 @@
   transform: translateY(1px);
 }
 
-/* MOBILE (optional: hide overlays) */
+/* ===============================
+   MOBILE HOTSPOTS (<750px)
+================================ */
 
 @media (max-width: 749px) {
   .section-map-hotspots .spec-hotspot__content,
-  .section-map-hotspots .spec-hotspot__line,
-  .section-map-hotspots .spec-hotspot__dot {
+  .section-map-hotspots .spec-hotspot__line {
     display: none;
   }
+  .section-map-hotspots .spec-hotspot {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+  .map-hotspots-mobile {
+    margin-top: 32px;
+    padding: 0 16px;
+  }
+  .map-hotspots-mobile__item {
+    display: none;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .map-hotspots-mobile__item.active {
+    display: block;
+  }
+  .map-hotspots-mobile__item h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+  }
+  .map-hotspots-mobile__item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .section-map-hotspots .spec-hotspot.is-active .spec-hotspot__dot {
+    background: #58D5A0;
+  }
 }
+
 {% endstylesheet %}
 
 <div class="section-map-hotspots color-{{ section.settings.color_scheme }}">
@@ -200,6 +233,31 @@
     {% endfor %}
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth >= 750) return;
+  const section = document.currentScript.closest('.section-map-hotspots');
+  if (!section) return;
+  const hotspots = section.querySelectorAll('.spec-hotspot');
+  const items = section.querySelectorAll('.map-hotspots-mobile__item');
+  if (!hotspots.length || !items.length) return;
+  function activate(index) {
+    hotspots.forEach(h => h.classList.remove('is-active'));
+    items.forEach(i => i.classList.remove('active'));
+
+    hotspots[index]?.classList.add('is-active');
+    items[index]?.classList.add('active');
+  }
+  activate(0);
+  hotspots.forEach((hotspot, index) => {
+    hotspot.addEventListener('click', () => {
+      activate(index);
+    });
+  });
+});
+</script>
+
 
 {% schema %}
 {
