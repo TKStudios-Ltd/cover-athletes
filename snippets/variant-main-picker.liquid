@@ -315,7 +315,7 @@
     min-height: auto;
     border-radius: var(--variant-picker-swatch-radius);
   }
-  .variant-option__button-label--has-swatch::after {
+  .variant-option__button-label::after {
     content: "";
     position: absolute;
     inset: -1px;
@@ -328,14 +328,14 @@
     pointer-events: none;
     transition: inset 0.2s ease;
   }
-  .variant-option__button-label--has-swatch::before {
+  .variant-option__button-label::before {
     background: var(--color-background);
     z-index: 1;
   }
-  .variant-option__button-label--has-swatch:has(:checked)::after {
+  .variant-option__button-label:has(:checked)::after {
     inset: -3px;
   }
-  .variant-option__button-label--has-swatch .swatch {
+  .variant-option__button-label .swatch {
     position: relative;
     z-index: 1;
   }
