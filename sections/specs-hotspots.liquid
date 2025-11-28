@@ -1,6 +1,6 @@
 {% stylesheet %}
 /* ================================
-   SECTION
+   SECTION WRAPPER
 ================================ */
 .specs-hotspots {
   width: 100%;
@@ -10,8 +10,6 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: var(--pt);
-  padding-bottom: var(--pb);
 }
 
 /* ================================
@@ -22,8 +20,9 @@
 }
 
 .specs-hotspots__image img {
-  width: 100%;
   display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ================================
@@ -31,45 +30,39 @@
 ================================ */
 .specs-hotspot {
   position: absolute;
-  left: calc(var(--x) * 1%);
-  top: calc(var(--y) * 1%);
   pointer-events: none;
 }
 
-/* ================================
-   DOT
-================================ */
+/* DOT */
 .specs-hotspot__dot {
-  position: absolute;
   width: 14px;
   height: 14px;
   background: #5fbf92;
   border-radius: 50%;
+  position: absolute;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 2;
 }
 
 .specs-hotspot__dot::after {
   content: '';
   position: absolute;
   inset: -6px;
-  border: 1px solid rgba(95,191,146,.6);
   border-radius: 50%;
+  border: 1px solid rgba(95, 191, 146, 0.6);
 }
 
-/* ================================
-   LINE
-================================ */
+/* LINE (JS will set width + rotation) */
 .specs-hotspot__line {
   position: absolute;
-  top: 0;
+  top: 50%;
+  left: 50%;
   height: 1px;
-  background: rgba(0,0,0,.45);
+  background: rgba(0, 0, 0, 0.45);
+  transform-origin: left center;
 }
 
-/* ================================
-   CONTENT
-================================ */
+/* TEXT BOX */
 .specs-hotspot__content {
   position: absolute;
   max-width: 280px;
@@ -85,56 +78,10 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  opacity: .75;
+  opacity: 0.75;
 }
 
-/* ================================
-   RIGHT SIDE
-================================ */
-.specs-hotspot--right .specs-hotspot__line {
-  left: 0;
-  width: calc(1200px * (1 - var(--x) / 100));
-  transform-origin: left center;
-  transform: rotate(var(--angle));
-}
-
-.specs-hotspot--right .specs-hotspot__content {
-  left: calc(1200px - (var(--x) * 12px));
-  transform:
-    translateY(
-      calc(
-        tan(var(--angle)) * (1200px * (1 - var(--x) / 100))
-      )
-      - 50%
-    );
-  text-align: left;
-}
-
-/* ================================
-   LEFT SIDE
-================================ */
-.specs-hotspot--left .specs-hotspot__line {
-  right: 0;
-  width: calc(1200px * (var(--x) / 100));
-  transform-origin: right center;
-  transform: rotate(calc(var(--angle) * -1));
-}
-
-.specs-hotspot--left .specs-hotspot__content {
-  right: calc(var(--x) * 12px);
-  transform:
-    translateY(
-      calc(
-        tan(var(--angle)) * (1200px * (var(--x) / 100))
-      )
-      - 50%
-    );
-  text-align: right;
-}
-
-/* ================================
-   MOBILE
-================================ */
+/* MOBILE – hide the desktop hotspots layout */
 @media (max-width: 749px) {
   .specs-hotspot {
     display: none;
@@ -143,31 +90,43 @@
 {% endstylesheet %}
 
 <div
+  id="SpecsHotspots-{{ section.id }}"
   class="specs-hotspots color-{{ section.settings.color_scheme }}"
-  style="
-    --pt: {{ section.settings.padding_top }}px;
-    --pb: {{ section.settings.padding_bottom }}px;
-  "
 >
-  <div class="specs-hotspots__inner">
+  <div
+    class="specs-hotspots__inner"
+    style="
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    "
+  >
     <div class="specs-hotspots__image">
-      {{ section.settings.image | image_url: width: 2400 | image_tag }}
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag }}
+      {% endif %}
 
       {% for block in section.blocks %}
         <div
           class="specs-hotspot specs-hotspot--{{ block.settings.text_side }}"
           style="
-            --x: {{ block.settings.pos_x }};
-            --y: {{ block.settings.pos_y }};
-            --angle: {{ block.settings.angle }}deg;
+            left: {{ block.settings.pos_x }}%;
+            top: {{ block.settings.pos_y }}%;
           "
+          data-text-side="{{ block.settings.text_side }}"
+          data-text-track="{{ block.settings.text_track }}"
           {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
           <span class="specs-hotspot__line"></span>
           <div class="specs-hotspot__content">
-            <h4>{{ block.settings.title }}</h4>
-            <p>{{ block.settings.text }}</p>
+            {% if block.settings.title != blank %}
+              <h4>{{ block.settings.title }}</h4>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text }}</p>
+            {% endif %}
           </div>
         </div>
       {% endfor %}
@@ -175,6 +134,83 @@
   </div>
 </div>
 
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('SpecsHotspots-{{ section.id }}');
+    if (!root) return;
+
+    const imageWrapper = root.querySelector('.specs-hotspots__image');
+    if (!imageWrapper) return;
+
+    const hotspots = root.querySelectorAll('.specs-hotspot');
+    if (!hotspots.length) return;
+
+    const imageRect = imageWrapper.getBoundingClientRect();
+
+    hotspots.forEach((hotspot) => {
+      const dot = hotspot.querySelector('.specs-hotspot__dot');
+      const line = hotspot.querySelector('.specs-hotspot__line');
+      const content = hotspot.querySelector('.specs-hotspot__content');
+
+      if (!dot || !line || !content) return;
+
+      const side = hotspot.dataset.textSide === 'left' ? 'left' : 'right';
+      const track = hotspot.dataset.textTrack || 'middle';
+
+      // Get positions in viewport
+      const dotRect = dot.getBoundingClientRect();
+      const srcX = dotRect.left + dotRect.width / 2;
+      const srcY = dotRect.top + dotRect.height / 2;
+
+      const verticalPadding = 40; // distance from image top/bottom for top/bottom tracks
+
+      let targetY;
+      if (track === 'top') {
+        targetY = imageRect.top + verticalPadding;
+      } else if (track === 'bottom') {
+        targetY = imageRect.bottom - verticalPadding;
+      } else {
+        targetY = imageRect.top + imageRect.height / 2;
+      }
+
+      const horizontalOffset = 24; // spacing between image edge and text box
+
+      const targetX =
+        side === 'right'
+          ? imageRect.right + horizontalOffset
+          : imageRect.left - horizontalOffset;
+
+      // Compute line geometry
+      const dx = targetX - srcX;
+      const dy = targetY - srcY;
+      const length = Math.sqrt(dx * dx + dy * dy);
+      const angleDeg = (Math.atan2(dy, dx) * 180) / Math.PI;
+
+      // Position and rotate the line: origin at dot, end at text box
+      line.style.width = `${length}px`;
+      line.style.left = '50%';
+      line.style.top = '50%';
+      line.style.transform = `translate(-50%, -50%) rotate(${angleDeg}deg)`;
+
+      // Position text box at the target point, staying flat
+      const localTargetY = targetY - imageRect.top;
+
+      content.style.top = `${localTargetY}px`;
+
+      if (side === 'right') {
+        // anchor to the right of the image
+        content.style.left = `${imageRect.width + horizontalOffset}px`;
+        content.style.transform = 'translate(-100%, -50%)';
+        content.style.textAlign = 'left';
+      } else {
+        // anchor to the left of the image
+        content.style.left = `${-horizontalOffset}px`;
+        content.style.transform = 'translate(0, -50%)';
+        content.style.textAlign = 'right';
+      }
+    });
+  });
+{% endjavascript %}
 
 {% schema %}
 {
@@ -246,6 +282,17 @@
           "default": "right"
         },
         {
+          "type": "select",
+          "id": "text_track",
+          "label": "Vertical alignment",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "middle", "label": "Middle" },
+            { "value": "bottom", "label": "Bottom" }
+          ],
+          "default": "middle"
+        },
+        {
           "type": "text",
           "id": "title",
           "label": "Title",
@@ -255,7 +302,7 @@
           "type": "textarea",
           "id": "text",
           "label": "Text",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
         }
       ]
     }
@@ -267,4 +314,3 @@
   ]
 }
 {% endschema %}
-
