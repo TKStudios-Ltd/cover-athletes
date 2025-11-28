@@ -1625,7 +1625,8 @@
       "name": "Specs Hotspots",
       "settings": {
         "background_image": "shopify://shop_images/Cover_Hotspot.png",
-        "max_width": 1200,
+        "image_max_width": 800,
+        "show_outline": true,
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5"
       }
     },
