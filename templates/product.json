@@ -1593,6 +1593,7 @@
             "pos_y": 35,
             "angle": -50,
             "line_length": 230,
+            "text_side": "right",
             "title": "Diecasted Moulds",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
           }
@@ -1600,10 +1601,11 @@
         "hotspot_jWKqbk": {
           "type": "hotspot",
           "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "angle": -45,
+            "pos_x": 30,
+            "pos_y": 55,
+            "angle": -160,
             "line_length": 140,
+            "text_side": "left",
             "title": "Diecasted moulds",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
           }
