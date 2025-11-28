@@ -1585,36 +1585,9 @@
     },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
-      "blocks": {
-        "hotspot_Y8BY66": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "text_side": "left",
-            "title": "Diecasted moulds",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          }
-        },
-        "hotspot_gUaLYV": {
-          "type": "hotspot",
-          "settings": {
-            "pos_x": 50,
-            "pos_y": 50,
-            "text_side": "right",
-            "title": "Diecasted moulds",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          }
-        }
-      },
-      "block_order": [
-        "hotspot_Y8BY66",
-        "hotspot_gUaLYV"
-      ],
       "name": "Specs Hotspots",
       "settings": {
         "image": "shopify://shop_images/Cover_Hotspot.png",
-        "image_max_width": 850,
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
         "padding_top": 60,
         "padding_bottom": 60
