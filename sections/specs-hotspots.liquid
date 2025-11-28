@@ -1,3 +1,119 @@
+{% stylesheet %}
+.section-map-hotspots {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0;
+}
+.section-map-hotspots .hotspots-wrapper {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+}
+.section-map-hotspots .hotspot-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.spec-hotspot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.spec-hotspot__dot {
+  width: 14px;
+  height: 14px;
+  background: #5fd39b;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
+  z-index: 3;
+  position: relative;
+}
+.spec-hotspot__content {
+  position: absolute;
+  max-width: 280px;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 2;
+  transform: translate(var(--offset-x), var(--offset-y));
+  text-align: var(--text-align);
+}
+.spec-hotspot__content h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: inherit;
+}
+.spec-hotspot__content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: .75;
+  text-align: inherit;
+}
+{% endstylesheet %}
+
+<div class="section-map-hotspots">
+  <div class="hotspots-wrapper" style="max-width: {{ section.settings.max_width }}px;">
+    {% if section.settings.background_image != blank %}
+      <img src="{{ section.settings.background_image | img_url: 'master' }}" class="hotspot-image" alt="Map background">
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {%- assign x = block.settings.pos_x | append: '%' -%}
+      {%- assign y = block.settings.pos_y | append: '%' -%}
+
+      {%- case block.settings.placement -%}
+        {%- when 'top-left' %}
+          {%- assign offset_x = '-100%' -%}
+          {%- assign offset_y = '-100%' -%}
+          {%- assign text_align = 'left' -%}
+        {%- when 'top-center' %}
+          {%- assign offset_x = '-50%' -%}
+          {%- assign offset_y = '-100%' -%}
+          {%- assign text_align = 'center' -%}
+        {%- when 'top-right' %}
+          {%- assign offset_x = '0%' -%}
+          {%- assign offset_y = '-100%' -%}
+          {%- assign text_align = 'right' -%}
+        {%- when 'middle-left' %}
+          {%- assign offset_x = '-100%' -%}
+          {%- assign offset_y = '-50%' -%}
+          {%- assign text_align = 'left' -%}
+        {%- when 'middle-right' %}
+          {%- assign offset_x = '0%' -%}
+          {%- assign offset_y = '-50%' -%}
+          {%- assign text_align = 'right' -%}
+        {%- when 'bottom-left' %}
+          {%- assign offset_x = '-100%' -%}
+          {%- assign offset_y = '0%' -%}
+          {%- assign text_align = 'left' -%}
+        {%- when 'bottom-center' %}
+          {%- assign offset_x = '-50%' -%}
+          {%- assign offset_y = '0%' -%}
+          {%- assign text_align = 'center' -%}
+        {%- when 'bottom-right' %}
+          {%- assign offset_x = '0%' -%}
+          {%- assign offset_y = '0%' -%}
+          {%- assign text_align = 'right' -%}
+      {%- endcase -%}
+
+      <div class="spec-hotspot" style="--x: {{ x }}; --y: {{ y }};">
+        {% if section.settings.show_outline %}
+          <div class="spec-hotspot__dot"></div>
+        {% endif %}
+        <div class="spec-hotspot__content"
+             style="--offset-x: {{ offset_x }}; --offset-y: {{ offset_y }}; --text-align: {{ text_align }};">
+          <h4>{{ block.settings.title }}</h4>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 {% schema %}
 {
   "name": "Map Hotspots",
@@ -98,119 +214,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-.section-map-hotspots {
-  position: relative;
-  overflow: hidden;
-  padding: 60px 0;
-}
-.section-map-hotspots .hotspots-wrapper {
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-}
-.section-map-hotspots .hotspot-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.spec-hotspot {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.spec-hotspot__dot {
-  width: 14px;
-  height: 14px;
-  background: #5fd39b;
-  border-radius: 50%;
-  box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
-  z-index: 3;
-  position: relative;
-}
-.spec-hotspot__content {
-  position: absolute;
-  max-width: 280px;
-  background: white;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  z-index: 2;
-  transform: translate(var(--offset-x), var(--offset-y));
-  text-align: var(--text-align);
-}
-.spec-hotspot__content h4 {
-  margin: 0 0 6px;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: inherit;
-}
-.spec-hotspot__content p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  opacity: .75;
-  text-align: inherit;
-}
-{% endstylesheet %}
-
-{% render 'color-scheme', color_scheme: section.settings.color_scheme %}
-
-<div class="hotspots-wrapper" style="max-width: {{ section.settings.max_width }}px;">
-  {% if section.settings.background_image != blank %}
-    <img src="{{ section.settings.background_image | img_url: 'master' }}" class="hotspot-image" alt="Map background">
-  {% endif %}
-
-  {% for block in section.blocks %}
-    {%- assign x = block.settings.pos_x | append: '%' -%}
-    {%- assign y = block.settings.pos_y | append: '%' -%}
-
-    {%- case block.settings.placement -%}
-      {%- when 'top-left' %}
-        {%- assign offset_x = '-100%' -%}
-        {%- assign offset_y = '-100%' -%}
-        {%- assign text_align = 'left' -%}
-      {%- when 'top-center' %}
-        {%- assign offset_x = '-50%' -%}
-        {%- assign offset_y = '-100%' -%}
-        {%- assign text_align = 'center' -%}
-      {%- when 'top-right' %}
-        {%- assign offset_x = '0%' -%}
-        {%- assign offset_y = '-100%' -%}
-        {%- assign text_align = 'right' -%}
-      {%- when 'middle-left' %}
-        {%- assign offset_x = '-100%' -%}
-        {%- assign offset_y = '-50%' -%}
-        {%- assign text_align = 'left' -%}
-      {%- when 'middle-right' %}
-        {%- assign offset_x = '0%' -%}
-        {%- assign offset_y = '-50%' -%}
-        {%- assign text_align = 'right' -%}
-      {%- when 'bottom-left' %}
-        {%- assign offset_x = '-100%' -%}
-        {%- assign offset_y = '0%' -%}
-        {%- assign text_align = 'left' -%}
-      {%- when 'bottom-center' %}
-        {%- assign offset_x = '-50%' -%}
-        {%- assign offset_y = '0%' -%}
-        {%- assign text_align = 'center' -%}
-      {%- when 'bottom-right' %}
-        {%- assign offset_x = '0%' -%}
-        {%- assign offset_y = '0%' -%}
-        {%- assign text_align = 'right' -%}
-    {%- endcase -%}
-
-    <div class="spec-hotspot" style="--x: {{ x }}; --y: {{ y }};">
-      {% if section.settings.show_outline %}
-        <div class="spec-hotspot__dot"></div>
-      {% endif %}
-      <div class="spec-hotspot__content"
-           style="--offset-x: {{ offset_x }}; --offset-y: {{ offset_y }}; --text-align: {{ text_align }};">
-        <h4>{{ block.settings.title }}</h4>
-        <p>{{ block.settings.text }}</p>
-      </div>
-    </div>
-  {% endfor %}
-</div>
