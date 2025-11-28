@@ -1,4 +1,8 @@
 {% stylesheet %}
+
+/* ================================
+   SECTION
+================================ */
 .specs-hotspots {
   width: 100%;
 }
@@ -9,16 +13,22 @@
   margin: 0 auto;
 }
 
+/* ================================
+   IMAGE
+================================ */
 .specs-hotspots__image {
   position: relative;
 }
 
 .specs-hotspots__image img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
-/* HOTSPOT ROOT */
+/* ================================
+   HOTSPOT ROOT
+================================ */
 .specs-hotspot {
   position: absolute;
   pointer-events: none;
@@ -39,8 +49,8 @@
   content: '';
   position: absolute;
   inset: -6px;
-  border: 1px solid rgba(95,191,146,.6);
   border-radius: 50%;
+  border: 1px solid rgba(95,191,146,.6);
 }
 
 /* LINE */
@@ -70,29 +80,35 @@
   opacity: .75;
 }
 
+/* MOBILE OFF */
 @media (max-width: 749px) {
   .specs-hotspot {
     display: none;
   }
 }
+
 {% endstylesheet %}
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
   <div
-    id="SpecsHotspotsInner-{{ section.id }}"
     class="specs-hotspots__inner"
     style="padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;"
   >
     <div class="specs-hotspots__image">
-      {{ section.settings.image | image_url: width: 2400 | image_tag }}
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% endif %}
 
       {% for block in section.blocks %}
         <div
           class="specs-hotspot"
-          data-x="{{ block.settings.pos_x }}"
-          data-y="{{ block.settings.pos_y }}"
-          data-angle="{{ block.settings.angle }}"
           data-side="{{ block.settings.text_side }}"
+          data-angle="{{ block.settings.angle }}"
+          style="
+            left: {{ block.settings.pos_x }}%;
+            top: {{ block.settings.pos_y }}%;
+          "
+          {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
           <span class="specs-hotspot__line"></span>
@@ -112,54 +128,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const inner = section.querySelector('.specs-hotspots__inner');
     const image = section.querySelector('.specs-hotspots__image');
 
-    const innerRect = inner.getBoundingClientRect();
-    const imageRect = image.getBoundingClientRect();
+    if (!inner || !image) return;
 
-    section.querySelectorAll('.specs-hotspot').forEach(h => {
-      const dot = h.querySelector('.specs-hotspot__dot');
-      const line = h.querySelector('.specs-hotspot__line');
-      const content = h.querySelector('.specs-hotspot__content');
+    const containerWidth = inner.offsetWidth;
+    const imageWidth = image.offsetWidth;
+    const imageHeight = image.offsetHeight;
 
-      const x = parseFloat(h.dataset.x) / 100;
-      const y = parseFloat(h.dataset.y) / 100;
-      const angle = parseFloat(h.dataset.angle);
-      const side = h.dataset.side;
+    section.querySelectorAll('.specs-hotspot').forEach(hotspot => {
+      const dot = hotspot.querySelector('.specs-hotspot__dot');
+      const line = hotspot.querySelector('.specs-hotspot__line');
+      const content = hotspot.querySelector('.specs-hotspot__content');
 
-      const dotX = imageRect.left + imageRect.width * x;
-      const dotY = imageRect.top + imageRect.height * y;
+      const side = hotspot.dataset.side;
+      const angleDeg = parseFloat(hotspot.dataset.angle || 0);
+      const angleRad = angleDeg * Math.PI / 180;
 
-      const targetX = side === 'right'
-        ? innerRect.right
-        : innerRect.left;
+      const xPercent = parseFloat(hotspot.style.left) / 100;
+      const yPercent = parseFloat(hotspot.style.top) / 100;
 
-      const rad = angle * Math.PI / 180;
-      const dx = Math.cos(rad);
-      const dy = Math.sin(rad);
+      /* DOT POSITION (container-relative) */
+      const dotX = imageWidth * xPercent;
+      const dotY = imageHeight * yPercent;
 
-      const t = (targetX - dotX) / dx;
-      const targetY = dotY + t * dy;
+      /* FORCE HOTSPOT ROOT TO DOT */
+      hotspot.style.left = dotX + 'px';
+      hotspot.style.top  = dotY + 'px';
 
-      const length = Math.abs(t);
+      dot.style.left = '0px';
+      dot.style.top  = '0px';
 
-      h.style.left = `${dotX - innerRect.left}px`;
-      h.style.top = `${dotY - innerRect.top}px`;
+      /* TEXT X EDGE */
+      const targetX = side === 'right' ? containerWidth : 0;
 
-      dot.style.left = '0';
-      dot.style.top = '0';
+      /* TEXT Y from angle */
+      const dx = targetX - dotX;
+      const dy = Math.tan(angleRad) * Math.abs(dx);
 
-      line.style.width = `${length}px`;
-      line.style.left = '0';
-      line.style.top = '0';
-      line.style.transform = `rotate(${angle}deg)`;
+      const targetY = dotY + (side === 'right' ? dy : -dy);
 
-      content.style.top = `${targetY - innerRect.top}px`;
+      /* LINE */
+      const length = Math.sqrt(dx * dx + dy * dy);
+      const lineAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+      line.style.left = '0px';
+      line.style.top  = '0px';
+      line.style.width = length + 'px';
+      line.style.transform = `rotate(${lineAngle}deg)`;
+
+      /* TEXT */
+      content.style.top = targetY + 'px';
 
       if (side === 'right') {
-        content.style.left = `${innerRect.width}px`;
+        content.style.left = containerWidth + 'px';
         content.style.transform = 'translate(-100%, -50%)';
         content.style.textAlign = 'left';
       } else {
-        content.style.left = `0`;
+        content.style.left = '0px';
         content.style.transform = 'translate(0, -50%)';
         content.style.textAlign = 'right';
       }
@@ -169,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 {% schema %}
-
 {
   "name": "Specs Hotspots",
   "settings": [
@@ -191,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "min": 0,
       "max": 200,
       "step": 10,
-      "unit": "px",
       "default": 40
     },
     {
@@ -201,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
       "min": 0,
       "max": 200,
       "step": 10,
-      "unit": "px",
       "default": 40
     }
   ],
@@ -229,19 +250,18 @@ document.addEventListener('DOMContentLoaded', () => {
           "default": 50
         },
         {
-          "type": "range",
-          "id": "angle",
-          "label": "Line angle",
-          "min": -90,
-          "max": 90,
-          "step": 2,
-          "unit": "°",
-          "default": 0
+        "type": "range",
+        "id": "angle",
+        "label": "Line angle",
+        "min": -80,
+        "max": 80,
+        "step": 2,
+        "default": -20
         },
         {
           "type": "select",
           "id": "text_side",
-          "label": "Text position",
+          "label": "Text side",
           "options": [
             { "value": "left", "label": "Left of image" },
             { "value": "right", "label": "Right of image" }
@@ -251,12 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           "type": "text",
           "id": "title",
-          "label": "Title"
+          "label": "Title",
+          "default": "Diecasted moulds"
         },
         {
           "type": "textarea",
           "id": "text",
-          "label": "Text"
+          "label": "Text",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         }
       ]
     }
@@ -267,6 +289,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ]
 }
-
-
-{%  endschema %}
+{% endschema %}
