@@ -2790,6 +2790,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   text-align: center;
   border: none;
   appearance: none;
+  min-width: 28px;
   max-width: calc(var(--quantity-selector-width) - var(--minimum-touch-target) * 2);
   border-radius: var(--style-border-radius-buttons);
   color: var(--color-input-text);
