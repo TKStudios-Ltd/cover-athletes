@@ -5,159 +5,131 @@
 {% endcomment %}
 
 {% stylesheet %}
-/* SECTION */
-.specs-hotspots {
+.specs-hotspot-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 1rem;
+}
+
+.specs-hotspot-image {
+  position: relative;
   width: 100%;
-  overflow: hidden;
 }
-.specs-hotspots__inner {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-.specs-hotspots__image-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-/* IMAGE */
-.specs-hotspots__image {
-  position: relative;
-}
-.specs-hotspots__image img {
+
+.specs-hotspot-image img {
   width: 100%;
   height: auto;
   display: block;
 }
-/* HOTSPOTS */
-.specs-hotspot {
+
+.spec-hotspot {
   position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
   pointer-events: none;
 }
-.specs-hotspot__dot {
+
+.spec-hotspot__dot {
   width: 14px;
   height: 14px;
-  background: #5fbf92;
+  background: #5fd39b;
   border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(95, 211, 155, 0.28);
+  position: relative;
+  z-index: 3;
+}
+
+.spec-hotspot__content {
   position: absolute;
-  transform: translate(-50%, -50%);
+  max-width: 200px;
+  background: #fff;
+  color: #000;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+  pointer-events: auto;
   z-index: 2;
 }
-.specs-hotspot__dot::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1px solid rgba(95,191,146,.6);
+
+/* Placement rules */
+.placement-top-left {
+  transform: translate(-100%, -100%);
+  text-align: left;
 }
-.specs-hotspot__content {
-  position: absolute;
-  max-width: 280px;
-  background: white;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  z-index: 3;
-  transform: translate(-50%, -50%);
+
+.placement-top-center {
+  transform: translate(-50%, -100%);
   text-align: center;
 }
-.specs-hotspot__content h4 {
-  margin: 0 0 6px;
-  font-size: 16px;
-  font-weight: 600;
+
+.placement-top-right {
+  transform: translate(0, -100%);
+  text-align: right;
 }
-.specs-hotspot__content p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  opacity: .75;
+
+.placement-middle-left {
+  transform: translate(-100%, -50%);
+  text-align: left;
 }
-@media (max-width: 749px) {
-  .specs-hotspot {
-    display: block;
-  }
+
+.placement-middle-right {
+  transform: translate(0, -50%);
+  text-align: right;
 }
+
+.placement-bottom-left {
+  transform: translate(-100%, 0%);
+  text-align: left;
+}
+
+.placement-bottom-center {
+  transform: translate(-50%, 0%);
+  text-align: center;
+}
+
+.placement-bottom-right {
+  transform: translate(0, 0%);
+  text-align: right;
+}
+
 {% endstylesheet %}
 
-<div class="specs-hotspots color-{{ section.settings.color_scheme }}">
-  <div
-    class="specs-hotspots__inner"
-    style="padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;"
-  >
-    <div class="specs-hotspots__image">
-      <div class="specs-hotspots__image-wrapper">
-        {% if section.settings.image %}
-          {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+<div class="specs-hotspot-wrapper page-width">
+  {% if section.settings.image %}
+    <div class="specs-hotspot-image">
+      <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.alt_text }}" />
+    </div>
+  {% endif %}
+
+  {% for block in section.blocks %}
+    {% assign x = block.settings.pos_x | append: '%' %}
+    {% assign y = block.settings.pos_y | append: '%' %}
+    <div
+      class="spec-hotspot"
+      style="--x: {{ x }}; --y: {{ y }};"
+    >
+      <div class="spec-hotspot__dot"></div>
+      <div class="spec-hotspot__content placement-{{ block.settings.placement }}">
+        {% if block.settings.title != blank %}
+          <div class="spec-hotspot__title">{{ block.settings.title }}</div>
+        {% endif %}
+        {% if block.settings.text != blank %}
+          <div class="spec-hotspot__text">{{ block.settings.text }}</div>
         {% endif %}
       </div>
-
-      {% for block in section.blocks %}
-        {% assign dot_top = block.settings.pos_y | append: '%' %}
-        {% assign dot_left = block.settings.pos_x | append: '%' %}
-
-        {% assign placement = block.settings.placement %}
-
-        {% assign text_top = block.settings.pos_y %}
-        {% assign text_left = block.settings.pos_x %}
-
-        {% case placement %}
-          {% when 'top-left' %}
-            {% assign offset_x = '-100%' %}
-            {% assign offset_y = '-100%' %}
-            {% assign align = 'left' %}
-          {% when 'top-center' %}
-            {% assign offset_x = '-50%' %}
-            {% assign offset_y = '-100%' %}
-            {% assign align = 'center' %}
-          {% when 'top-right' %}
-            {% assign offset_x = '0' %}
-            {% assign offset_y = '-100%' %}
-            {% assign align = 'right' %}
-          {% when 'middle-left' %}
-            {% assign offset_x = '-100%' %}
-            {% assign offset_y = '-50%' %}
-            {% assign align = 'left' %}
-          {% when 'middle-right' %}
-            {% assign offset_x = '0' %}
-            {% assign offset_y = '-50%' %}
-            {% assign align = 'right' %}
-          {% when 'bottom-left' %}
-            {% assign offset_x = '-100%' %}
-            {% assign offset_y = '0' %}
-            {% assign align = 'left' %}
-          {% when 'bottom-center' %}
-            {% assign offset_x = '-50%' %}
-            {% assign offset_y = '0' %}
-            {% assign align = 'center' %}
-          {% when 'bottom-right' %}
-            {% assign offset_x = '0' %}
-            {% assign offset_y = '0' %}
-            {% assign align = 'right' %}
-          {% else %}
-            {% assign offset_x = '-50%' %}
-            {% assign offset_y = '-50%' %}
-            {% assign align = 'center' %}
-        {% endcase %}
-
-        <div
-          class="specs-hotspot"
-          style="top: {{ dot_top }}; left: {{ dot_left }};"
-          {{ block.shopify_attributes }}
-        >
-          <span class="specs-hotspot__dot"></span>
-          <div class="specs-hotspot__content"
-               style="top: {{ dot_top }}; left: {{ dot_left }}; transform: translate({{ offset_x }}, {{ offset_y }}); text-align: {{ align }};">
-            <h4>{{ block.settings.title }}</h4>
-            <p>{{ block.settings.text }}</p>
-          </div>
-        </div>
-      {% endfor %}
     </div>
-  </div>
+  {% endfor %}
 </div>
 
 {% schema %}
 {
-  "name": "Spec Hotspots",
+  "name": "Map Hotspots",
+  "tag": "section",
+  "class": "specs-hotspot-section",
   "settings": [
     {
       "type": "image_picker",
@@ -165,37 +137,35 @@
       "label": "Background image"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Color scheme",
-      "default": "scheme-1"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Top padding",
-      "min": 0,
-      "max": 200,
-      "step": 10,
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Bottom padding",
-      "min": 0,
-      "max": 200,
-      "step": 10,
-      "default": 40
+      "type": "text",
+      "id": "alt_text",
+      "label": "Image alt text",
+      "default": "Map"
     }
   ],
   "blocks": [
     {
-      "type": "hotspot",
+      "type": "hotspot_item",
       "name": "Hotspot",
       "settings": [
-        { "type": "range", "id": "pos_x", "label": "Position X (%)", "min": 0, "max": 100, "step": 1, "default": 50 },
-        { "type": "range", "id": "pos_y", "label": "Position Y (%)", "min": 0, "max": 100, "step": 1, "default": 50 },
+        {
+          "type": "range",
+          "id": "pos_x",
+          "label": "Position X (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pos_y",
+          "label": "Position Y (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
         {
           "type": "select",
           "id": "placement",
@@ -212,19 +182,23 @@
           ],
           "default": "top-left"
         },
-        { "type": "text", "id": "title", "label": "Title", "default": "Hotspot title" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Hotspot description" }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description"
+        }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Spec Hotspots",
-      "blocks": [
-        { "type": "hotspot" },
-        { "type": "hotspot" },
-        { "type": "hotspot" }
-      ]
+      "name": "Map Hotspots",
+      "blocks": []
     }
   ]
 }
