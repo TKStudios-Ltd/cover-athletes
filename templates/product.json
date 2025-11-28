@@ -1591,7 +1591,7 @@
           "settings": {
             "title": "DUAL LAYER MATERIAL SHELL FOAM",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
-            "pos_x": 42,
+            "pos_x": 45,
             "pos_y": 32,
             "placement": "top-left"
           }
@@ -1601,9 +1601,9 @@
           "settings": {
             "title": "DIECASTED MOULDS",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
-            "pos_x": 76,
+            "pos_x": 65,
             "pos_y": 32,
-            "placement": "middle-right"
+            "placement": "top-right"
           }
         },
         "hotspot_mqBApf": {
@@ -1611,7 +1611,7 @@
           "settings": {
             "title": "HIGH PRESSURE DIECASTING",
             "text": "Hotspot description",
-            "pos_x": 30,
+            "pos_x": 35,
             "pos_y": 70,
             "placement": "bottom-left"
           }
