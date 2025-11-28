@@ -1589,31 +1589,31 @@
         "hotspot_JmxJWP": {
           "type": "hotspot",
           "settings": {
+            "title": "DUAL LAYER MATERIAL SHELL FOAM",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
             "pos_x": 42,
             "pos_y": 32,
-            "placement": "top-left",
-            "title": "DUAL LAYER MATERIAL SHELL FOAM",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique."
+            "placement": "top-left"
           }
         },
         "hotspot_kUHwqk": {
           "type": "hotspot",
           "settings": {
+            "title": "DIECASTED MOULDS",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
             "pos_x": 76,
             "pos_y": 32,
-            "placement": "middle-right",
-            "title": "DIECASTED MOULDS",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique."
+            "placement": "middle-right"
           }
         },
         "hotspot_mqBApf": {
           "type": "hotspot",
           "settings": {
+            "title": "HIGH PRESSURE DIECASTING",
+            "text": "Hotspot description",
             "pos_x": 30,
             "pos_y": 70,
-            "placement": "bottom-left",
-            "title": "HIGH PRESSURE DIECASTING",
-            "text": "Hotspot description"
+            "placement": "bottom-left"
           }
         }
       },
@@ -1624,10 +1624,10 @@
       ],
       "name": "Specs Hotspots",
       "settings": {
-        "image": "shopify://shop_images/Cover_Hotspot.png",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "background_image": "shopify://shop_images/Cover_Hotspot.png",
+        "max_width": 1200,
+        "show_outline": true,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5"
       }
     },
     "section_BGcdyU": {
