@@ -108,12 +108,12 @@ select {
   --cursor: pointer;
 }
 
-.product-card__content .product-swatches {
+.product-card__content product-swatches {
   z-index: 9;
   margin-top: -40px;
   padding: 5px;
 }
-.product-card__content .product-swatches .swatch {
+.product-card__content product-swatches .swatch {
   max-width: 10px !important;
   width: 10px !important;
   max-height: 10px !important;
