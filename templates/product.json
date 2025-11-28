@@ -1585,9 +1585,40 @@
     },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
+      "blocks": {
+        "hotspot_bTqwGc": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "angle": -50,
+            "text_side": "left",
+            "title": "Hotspot title",
+            "text": "Hotspot description"
+          }
+        },
+        "hotspot_wUmHjA": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "angle": 42,
+            "text_side": "right",
+            "title": "Hotspot title",
+            "text": "Hotspot description"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_bTqwGc",
+        "hotspot_wUmHjA"
+      ],
       "name": "Specs Hotspots",
       "settings": {
-        "image": "shopify://shop_images/Cover_Hotspot.png"
+        "image": "shopify://shop_images/Cover_Hotspot.png",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "section_BGcdyU": {
