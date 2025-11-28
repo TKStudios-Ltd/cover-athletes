@@ -213,9 +213,9 @@
     {
       "type": "range",
       "id": "image_max_width",
-      "label": "Image max width",
-      "min": 400,
-      "max": 2000,
+      "label": "Section max width",
+      "min": 800,
+      "max": 1600,
       "step": 50,
       "unit": "px",
       "default": 1200
@@ -233,7 +233,6 @@
       "min": 0,
       "max": 200,
       "step": 10,
-      "unit": "px",
       "default": 40
     },
     {
@@ -243,7 +242,6 @@
       "min": 0,
       "max": 200,
       "step": 10,
-      "unit": "px",
       "default": 40
     }
   ],
@@ -255,40 +253,28 @@
         {
           "type": "range",
           "id": "pos_x",
-          "label": "Position X",
+          "label": "Position X (%)",
           "min": 0,
           "max": 100,
           "step": 1,
-          "unit": "%",
           "default": 50
         },
         {
           "type": "range",
           "id": "pos_y",
-          "label": "Position Y",
+          "label": "Position Y (%)",
           "min": 0,
           "max": 100,
           "step": 1,
-          "unit": "%",
           "default": 50
-        },
-        {
-          "type": "range",
-          "id": "angle",
-          "label": "Line angle (0–90°)",
-          "min": 0,
-          "max": 90,
-          "step": 5,
-          "unit": "°",
-          "default": 30
         },
         {
           "type": "select",
           "id": "text_side",
-          "label": "Text side",
+          "label": "Text position",
           "options": [
-            { "value": "left", "label": "Left side" },
-            { "value": "right", "label": "Right side" }
+            { "value": "left", "label": "Left of image" },
+            { "value": "right", "label": "Right of image" }
           ],
           "default": "right"
         },
@@ -302,7 +288,7 @@
           "type": "textarea",
           "id": "text",
           "label": "Text",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         }
       ]
     }
@@ -313,4 +299,5 @@
     }
   ]
 }
+
 {% endschema %}
