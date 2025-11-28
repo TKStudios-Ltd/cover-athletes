@@ -305,7 +305,38 @@
     }
   }
 
+  /* Gradient border */
+  .variant-option__button-label::after {
+    content: "";
+    position: absolute;
+    inset: -1px; /* default 1px */
+    border-radius: inherit;
+    background: linear-gradient(
+      108.74deg,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+    transition: inset 0.2s ease;
+  }
+
+  /* Checked = thicker border */
+  .variant-option__button-label:has(:checked)::after {
+    inset: -3px;
+  }
+
+  /* Keep content above border */
+  .variant-option__button-label__text,
+  .variant-option__button-label__pill,
+  .swatch {
+    position: relative;
+    z-index: 1;
+  }
+
   .variant-option__button-label {
+    position: relative;
+    overflow: visible;
     --variant-picker-stroke-color: var(--color-variant-border);
     cursor: pointer;
     display: flex;
@@ -427,7 +458,7 @@
   }
 
   .variant-option__button-label__pill {
-    background: linear-gradient(108.74deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.06) 100%);
+    background: transarent;
     position: absolute;
     top: calc(var(--options-border-width) * -1);
     bottom: calc(var(--options-border-width) * -1);
