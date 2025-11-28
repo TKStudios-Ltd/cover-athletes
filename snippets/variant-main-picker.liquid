@@ -363,9 +363,9 @@
       border: 1px solid rgba(255,255,255, 0.3);
       inset: calc(var(--options-border-width) * -1);
     }
-    &:has(:checked):not(.variant-option__button-label--has-swatch):not(:has([data-option-available='false']))::before {
+    /* &:has(:checked):not(.variant-option__button-label--has-swatch):not(:has([data-option-available='false']))::before {
       border-color: var(--color-selected-variant-border);
-    }
+    } */
 
     /* setting left/right accounts for variant buttons of different widths */
     &:not(:has(:checked)):has(~ label > :checked),
