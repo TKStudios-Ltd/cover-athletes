@@ -1,11 +1,11 @@
 {% comment %}
-  Hotspots Section
+  Hotspots Section (Simplified Placement Mode)
+  - Uses pos_x and pos_y for dot position
+  - Uses placement option (top left, center right, etc) to set text alignment
 {% endcomment %}
 
 {% stylesheet %}
-/* ================================
-   SECTION
-================================ */
+/* SECTION */
 .specs-hotspots {
   width: 100%;
   overflow: hidden;
@@ -20,9 +20,7 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-/* ================================
-   IMAGE
-================================ */
+/* IMAGE */
 .specs-hotspots__image {
   position: relative;
 }
@@ -31,9 +29,7 @@
   height: auto;
   display: block;
 }
-/* ================================
-   HOTSPOT ROOT
-================================ */
+/* HOTSPOTS */
 .specs-hotspot {
   position: absolute;
   pointer-events: none;
@@ -54,12 +50,6 @@
   border-radius: 50%;
   border: 1px solid rgba(95,191,146,.6);
 }
-.specs-hotspot__line {
-  position: absolute;
-  height: 1px;
-  background: rgba(0,0,0,.45);
-  transform-origin: left center;
-}
 .specs-hotspot__content {
   position: absolute;
   max-width: 280px;
@@ -67,6 +57,8 @@
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   z-index: 3;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 .specs-hotspot__content h4 {
   margin: 0 0 6px;
@@ -99,16 +91,61 @@
       </div>
 
       {% for block in section.blocks %}
+        {% assign dot_top = block.settings.pos_y | append: '%' %}
+        {% assign dot_left = block.settings.pos_x | append: '%' %}
+
+        {% assign placement = block.settings.placement %}
+
+        {% assign text_top = block.settings.pos_y %}
+        {% assign text_left = block.settings.pos_x %}
+
+        {% case placement %}
+          {% when 'top-left' %}
+            {% assign offset_x = '-100%' %}
+            {% assign offset_y = '-100%' %}
+            {% assign align = 'left' %}
+          {% when 'top-center' %}
+            {% assign offset_x = '-50%' %}
+            {% assign offset_y = '-100%' %}
+            {% assign align = 'center' %}
+          {% when 'top-right' %}
+            {% assign offset_x = '0' %}
+            {% assign offset_y = '-100%' %}
+            {% assign align = 'right' %}
+          {% when 'middle-left' %}
+            {% assign offset_x = '-100%' %}
+            {% assign offset_y = '-50%' %}
+            {% assign align = 'left' %}
+          {% when 'middle-right' %}
+            {% assign offset_x = '0' %}
+            {% assign offset_y = '-50%' %}
+            {% assign align = 'right' %}
+          {% when 'bottom-left' %}
+            {% assign offset_x = '-100%' %}
+            {% assign offset_y = '0' %}
+            {% assign align = 'left' %}
+          {% when 'bottom-center' %}
+            {% assign offset_x = '-50%' %}
+            {% assign offset_y = '0' %}
+            {% assign align = 'center' %}
+          {% when 'bottom-right' %}
+            {% assign offset_x = '0' %}
+            {% assign offset_y = '0' %}
+            {% assign align = 'right' %}
+          {% else %}
+            {% assign offset_x = '-50%' %}
+            {% assign offset_y = '-50%' %}
+            {% assign align = 'center' %}
+        {% endcase %}
+
         <div
           class="specs-hotspot"
-          data-side="{{ block.settings.text_side }}"
-          data-angle="{{ block.settings.angle }}"
-          style="left: {{ block.settings.pos_x }}%; top: {{ block.settings.pos_y }}%;"
+          style="top: {{ dot_top }}; left: {{ dot_left }};"
           {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
-          <span class="specs-hotspot__line"></span>
-          <div class="specs-hotspot__content">
+          <div class="specs-hotspot__content"
+               style="top: {{ dot_top }}; left: {{ dot_left }}; transform: translate({{ offset_x }}, {{ offset_y }}); text-align: {{ align }};">
             <h4>{{ block.settings.title }}</h4>
             <p>{{ block.settings.text }}</p>
           </div>
@@ -117,73 +154,6 @@
     </div>
   </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.specs-hotspots').forEach(section => {
-    const inner = section.querySelector('.specs-hotspots__inner');
-    const image = section.querySelector('.specs-hotspots__image');
-    const imageWrapper = section.querySelector('.specs-hotspots__image-wrapper');
-
-    if (!inner || !image || !imageWrapper) return;
-
-    const containerWidth = inner.offsetWidth;
-    const imageWidth = image.offsetWidth;
-    const imageHeight = image.offsetHeight;
-
-    const offsetLeft = inner.getBoundingClientRect().left - image.getBoundingClientRect().left;
-
-    section.querySelectorAll('.specs-hotspot').forEach(hotspot => {
-      const dot = hotspot.querySelector('.specs-hotspot__dot');
-      const line = hotspot.querySelector('.specs-hotspot__line');
-      const content = hotspot.querySelector('.specs-hotspot__content');
-
-      const side = hotspot.dataset.side;
-      const angleDeg = parseFloat(hotspot.dataset.angle || 0);
-      const angleRad = angleDeg * Math.PI / 180;
-
-      const xPercent = parseFloat(hotspot.style.left) / 100;
-      const yPercent = parseFloat(hotspot.style.top) / 100;
-
-      const dotX = imageWidth * xPercent;
-      const dotY = imageHeight * yPercent;
-
-      hotspot.style.left = dotX + 'px';
-      hotspot.style.top = dotY + 'px';
-
-      dot.style.left = '0px';
-      dot.style.top = '0px';
-
-      const targetX = side === 'right' ? containerWidth : 0;
-      const dx = targetX - dotX;
-      const dy = Math.tan(angleRad) * Math.abs(dx);
-      const targetY = dotY + (side === 'right' ? dy : -dy);
-
-      const length = Math.sqrt(dx * dx + dy * dy);
-      const lineAngle = Math.atan2(dy, dx) * (180 / Math.PI);
-
-      line.style.left = '0px';
-      line.style.top = '0px';
-      line.style.width = length + 'px';
-      line.style.transform = `rotate(${lineAngle}deg)`;
-
-      content.style.top = targetY + 'px';
-      content.style.maxWidth = '280px';
-      content.style.zIndex = '3';
-
-      if (side === 'right') {
-        content.style.left = offsetLeft + containerWidth + 'px';
-        content.style.transform = 'translate(-100%, -50%)';
-        content.style.textAlign = 'left';
-      } else {
-        content.style.left = offsetLeft + 'px';
-        content.style.transform = 'translate(0, -50%)';
-        content.style.textAlign = 'right';
-      }
-    });
-  });
-});
-</script>
 
 {% schema %}
 {
@@ -226,8 +196,22 @@ document.addEventListener('DOMContentLoaded', () => {
       "settings": [
         { "type": "range", "id": "pos_x", "label": "Position X (%)", "min": 0, "max": 100, "step": 1, "default": 50 },
         { "type": "range", "id": "pos_y", "label": "Position Y (%)", "min": 0, "max": 100, "step": 1, "default": 50 },
-        { "type": "range", "id": "angle", "label": "Line angle", "min": -90, "max": 90, "step": 2, "default": 0 },
-        { "type": "select", "id": "text_side", "label": "Text side", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "right" },
+        {
+          "type": "select",
+          "id": "placement",
+          "label": "Text Placement",
+          "options": [
+            { "value": "top-left", "label": "Top Left" },
+            { "value": "top-center", "label": "Top Center" },
+            { "value": "top-right", "label": "Top Right" },
+            { "value": "middle-left", "label": "Middle Left" },
+            { "value": "middle-right", "label": "Middle Right" },
+            { "value": "bottom-left", "label": "Bottom Left" },
+            { "value": "bottom-center", "label": "Bottom Center" },
+            { "value": "bottom-right", "label": "Bottom Right" }
+          ],
+          "default": "top-left"
+        },
         { "type": "text", "id": "title", "label": "Title", "default": "Hotspot title" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "Hotspot description" }
       ]
