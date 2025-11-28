@@ -149,7 +149,7 @@
   position: relative;
   width: 100%;
   min-width: 100%;
-  height: 100vw;
+  /* height: 100vw; */
   max-height: 100vh;
   overflow: visible;
 }
@@ -217,10 +217,15 @@
 
 .gallery-item img {
   width: auto;
-  height: 100vw;
+  /* height: 100vw; */
   max-height: 100vh;
   display: block;
   pointer-events: none;
+}
+@media (max-width: 989px) {
+  .gallery-item img {
+    height: 100vw !important;
+  }
 }
 @media (min-width: 990px) {
   .gallery-item img {
