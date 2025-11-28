@@ -360,7 +360,7 @@
     &:not(.variant-option__button-label--has-swatch)::before {
       /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
       clip-path: inset(0 0 0 0);
-      border-color: var(--color-variant-border);
+      border: 1px solid rgba(255,255,255, 0.3);
       inset: calc(var(--options-border-width) * -1);
     }
     &:has(:checked):not(.variant-option__button-label--has-swatch):not(:has([data-option-available='false']))::before {
