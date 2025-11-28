@@ -126,28 +126,29 @@
 
       {% for block in section.blocks %}
         <div
-          class="specs-hotspot"
-          style="
+            class="specs-hotspot specs-hotspot--{{ block.settings.text_side }}"
+            style="
             left: {{ block.settings.pos_x }}%;
             top: {{ block.settings.pos_y }}%;
             --angle: {{ block.settings.angle }}deg;
             --line-length: {{ block.settings.line_length }}px;
-          "
-          {{ block.shopify_attributes }}
+            "
+            {{ block.shopify_attributes }}
         >
-          <span class="specs-hotspot__dot"></span>
-          <span class="specs-hotspot__line"></span>
+            <span class="specs-hotspot__dot"></span>
+            <span class="specs-hotspot__line"></span>
 
-          <div class="specs-hotspot__content">
+            <div class="specs-hotspot__content">
             {% if block.settings.title != blank %}
-              <h4>{{ block.settings.title }}</h4>
+                <h4>{{ block.settings.title }}</h4>
             {% endif %}
             {% if block.settings.text != blank %}
-              <p>{{ block.settings.text }}</p>
+                <p>{{ block.settings.text }}</p>
             {% endif %}
-          </div>
+            </div>
         </div>
-      {% endfor %}
+        {% endfor %}
+
     </div>
   </div>
 </div>
