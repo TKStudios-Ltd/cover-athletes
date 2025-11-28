@@ -1585,6 +1585,23 @@
     },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
+      "blocks": {
+        "hotspot_tqzAfm": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "text_side": "left",
+            "angle": 90,
+            "line_length": 180,
+            "title": "Diecasted moulds",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_tqzAfm"
+      ],
       "name": "Specs Hotspots",
       "settings": {
         "image": "shopify://shop_images/Cover_Hotspot.png",
