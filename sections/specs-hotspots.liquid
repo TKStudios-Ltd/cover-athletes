@@ -1,0 +1,232 @@
+<div class="specs-hotspots color-{{ section.settings.color_scheme }}">
+  <div
+    class="specs-hotspots__inner"
+    style="
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    "
+  >
+    <div class="specs-hotspots__image-wrapper">
+      {% if section.settings.image %}
+        {{ section.settings.image
+          | image_url: width: 2400
+          | image_tag: loading: 'lazy', class: 'specs-hotspots__image'
+        }}
+      {% endif %}
+
+      {% for block in section.blocks %}
+        <div
+          class="specs-hotspot specs-hotspot--{{ block.settings.side }}"
+          style="
+            left: {{ block.settings.pos_x }}%;
+            top: {{ block.settings.pos_y }}%;
+          "
+          {{ block.shopify_attributes }}
+        >
+          <span class="specs-hotspot__dot"></span>
+
+          <span
+            class="specs-hotspot__line"
+            style="--line-length: {{ block.settings.line_length }}px;"
+          ></span>
+
+          <div class="specs-hotspot__content">
+            {% if block.settings.title != blank %}
+              <h4>{{ block.settings.title }}</h4>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.specs-hotspots {
+  position: relative;
+  width: 100%;
+}
+
+.specs-hotspots__image-wrapper {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.specs-hotspots__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* HOTSPOT BASE */
+.specs-hotspot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* DOT */
+.specs-hotspot__dot {
+  width: 14px;
+  height: 14px;
+  background: #5fbf92;
+  border-radius: 50%;
+  position: relative;
+}
+
+.specs-hotspot__dot::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(95, 191, 146, 0.6);
+  border-radius: 50%;
+}
+
+/* LINE */
+.specs-hotspot__line {
+  height: 1px;
+  background: rgba(0,0,0,0.4);
+  width: var(--line-length);
+}
+
+/* CONTENT */
+.specs-hotspot__content {
+  max-width: 260px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.specs-hotspot__content h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.specs-hotspot__content p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+
+/* RIGHT SIDE */
+.specs-hotspot--right {
+  flex-direction: row;
+}
+
+.specs-hotspot--right .specs-hotspot__line {
+  margin: 0 10px;
+}
+
+/* LEFT SIDE */
+.specs-hotspot--left {
+  flex-direction: row-reverse;
+}
+
+.specs-hotspot--left .specs-hotspot__line {
+  margin: 0 10px;
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Specs Hotspots",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "side",
+          "label": "Text position",
+          "options": [
+            { "value": "right", "label": "Right of dot" },
+            { "value": "left", "label": "Left of dot" }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "range",
+          "id": "line_length",
+          "label": "Line length",
+          "min": 20,
+          "max": 300,
+          "step": 5,
+          "default": 120
+        },
+        {
+          "type": "range",
+          "id": "pos_x",
+          "label": "Position X (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "pos_y",
+          "label": "Position Y (%)",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specs Hotspots",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}
