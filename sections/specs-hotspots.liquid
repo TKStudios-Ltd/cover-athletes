@@ -1,50 +1,36 @@
 {% stylesheet %}
-/* ================================
-   SECTION WRAPPER
-================================ */
 .specs-hotspots {
   width: 100%;
 }
 
 .specs-hotspots__inner {
   position: relative;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ================================
-   IMAGE
-================================ */
 .specs-hotspots__image {
   position: relative;
 }
 
 .specs-hotspots__image img {
-  display: block;
   width: 100%;
-  height: auto;
+  display: block;
 }
 
-/* ================================
-   HOTSPOT ROOT
-   (full row, dot positioned via --x)
-================================ */
+/* HOTSPOT ROOT */
 .specs-hotspot {
   position: absolute;
-  left: 0;
-  width: 100%;
   pointer-events: none;
-  transform: translateY(-50%);
 }
 
-/* Dot sits at X% across the row */
+/* DOT */
 .specs-hotspot__dot {
   width: 14px;
   height: 14px;
   background: #5fbf92;
   border-radius: 50%;
   position: absolute;
-  top: 0;
-  left: var(--x);
   transform: translate(-50%, -50%);
   z-index: 2;
 }
@@ -53,59 +39,24 @@
   content: '';
   position: absolute;
   inset: -6px;
+  border: 1px solid rgba(95,191,146,.6);
   border-radius: 50%;
-  border: 1px solid rgba(95, 191, 146, 0.6);
 }
 
-/* ================================
-   LINE – always horizontal
-   JS-free: just stretch to edge
-================================ */
+/* LINE */
 .specs-hotspot__line {
   position: absolute;
-  top: 0;
   height: 1px;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,.45);
+  transform-origin: left center;
 }
 
-/* Right side: from dot to right edge */
-.specs-hotspot--right .specs-hotspot__line {
-  left: var(--x);
-  right: 0;
-}
-
-/* Left side: from left edge to dot */
-.specs-hotspot--left .specs-hotspot__line {
-  left: 0;
-  right: calc(100% - var(--x));
-}
-
-/* ================================
-   TEXT BOX – locked to edge
-================================ */
+/* TEXT */
 .specs-hotspot__content {
   position: absolute;
-  top: 0;
   max-width: 280px;
 }
 
-/* Right edge */
-.specs-hotspot--right .specs-hotspot__content {
-  right: 0;
-  transform: translateY(-50%);
-  text-align: left;
-}
-
-/* Left edge */
-.specs-hotspot--left .specs-hotspot__content {
-  left: 0;
-  transform: translateY(-50%);
-  text-align: right;
-}
-
-/* ================================
-   TYPOGRAPHY
-================================ */
 .specs-hotspot__content h4 {
   margin: 0 0 6px;
   font-size: 16px;
@@ -116,12 +67,9 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
-  opacity: 0.75;
+  opacity: .75;
 }
 
-/* ================================
-   MOBILE – hide desktop layout
-================================ */
 @media (max-width: 749px) {
   .specs-hotspot {
     display: none;
@@ -129,43 +77,28 @@
 }
 {% endstylesheet %}
 
-<div
-  class="specs-hotspots color-{{ section.settings.color_scheme }}"
->
+<div class="specs-hotspots color-{{ section.settings.color_scheme }}">
   <div
+    id="SpecsHotspotsInner-{{ section.id }}"
     class="specs-hotspots__inner"
-    style="
-      max-width: {{ section.settings.image_max_width }}px;
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    "
+    style="padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;"
   >
     <div class="specs-hotspots__image">
-      {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag }}
-      {% endif %}
+      {{ section.settings.image | image_url: width: 2400 | image_tag }}
 
       {% for block in section.blocks %}
         <div
-          class="specs-hotspot specs-hotspot--{{ block.settings.text_side }}"
-          style="
-            top: {{ block.settings.pos_y }}%;
-            --x: {{ block.settings.pos_x }}%;
-          "
-          {{ block.shopify_attributes }}
+          class="specs-hotspot"
+          data-x="{{ block.settings.pos_x }}"
+          data-y="{{ block.settings.pos_y }}"
+          data-angle="{{ block.settings.angle }}"
+          data-side="{{ block.settings.text_side }}"
         >
           <span class="specs-hotspot__dot"></span>
           <span class="specs-hotspot__line"></span>
-
           <div class="specs-hotspot__content">
-            {% if block.settings.title != blank %}
-              <h4>{{ block.settings.title }}</h4>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <p>{{ block.settings.text }}</p>
-            {% endif %}
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
           </div>
         </div>
       {% endfor %}
@@ -173,7 +106,70 @@
   </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.specs-hotspots').forEach(section => {
+    const inner = section.querySelector('.specs-hotspots__inner');
+    const image = section.querySelector('.specs-hotspots__image');
+
+    const innerRect = inner.getBoundingClientRect();
+    const imageRect = image.getBoundingClientRect();
+
+    section.querySelectorAll('.specs-hotspot').forEach(h => {
+      const dot = h.querySelector('.specs-hotspot__dot');
+      const line = h.querySelector('.specs-hotspot__line');
+      const content = h.querySelector('.specs-hotspot__content');
+
+      const x = parseFloat(h.dataset.x) / 100;
+      const y = parseFloat(h.dataset.y) / 100;
+      const angle = parseFloat(h.dataset.angle);
+      const side = h.dataset.side;
+
+      const dotX = imageRect.left + imageRect.width * x;
+      const dotY = imageRect.top + imageRect.height * y;
+
+      const targetX = side === 'right'
+        ? innerRect.right
+        : innerRect.left;
+
+      const rad = angle * Math.PI / 180;
+      const dx = Math.cos(rad);
+      const dy = Math.sin(rad);
+
+      const t = (targetX - dotX) / dx;
+      const targetY = dotY + t * dy;
+
+      const length = Math.abs(t);
+
+      h.style.left = `${dotX - innerRect.left}px`;
+      h.style.top = `${dotY - innerRect.top}px`;
+
+      dot.style.left = '0';
+      dot.style.top = '0';
+
+      line.style.width = `${length}px`;
+      line.style.left = '0';
+      line.style.top = '0';
+      line.style.transform = `rotate(${angle}deg)`;
+
+      content.style.top = `${targetY - innerRect.top}px`;
+
+      if (side === 'right') {
+        content.style.left = `${innerRect.width}px`;
+        content.style.transform = 'translate(-100%, -50%)';
+        content.style.textAlign = 'left';
+      } else {
+        content.style.left = `0`;
+        content.style.transform = 'translate(0, -50%)';
+        content.style.textAlign = 'right';
+      }
+    });
+  });
+});
+</script>
+
 {% schema %}
+
 {
   "name": "Specs Hotspots",
   "settings": [
@@ -181,16 +177,6 @@
       "type": "image_picker",
       "id": "image",
       "label": "Background image"
-    },
-    {
-      "type": "range",
-      "id": "image_max_width",
-      "label": "Section max width",
-      "min": 800,
-      "max": 1600,
-      "step": 50,
-      "unit": "px",
-      "default": 1200
     },
     {
       "type": "color_scheme",
@@ -243,6 +229,16 @@
           "default": 50
         },
         {
+          "type": "range",
+          "id": "angle",
+          "label": "Line angle",
+          "min": -80,
+          "max": 80,
+          "step": 2,
+          "unit": "°",
+          "default": -30
+        },
+        {
           "type": "select",
           "id": "text_side",
           "label": "Text position",
@@ -255,14 +251,12 @@
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": "Diecasted moulds"
+          "label": "Title"
         },
         {
           "type": "textarea",
           "id": "text",
-          "label": "Text",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          "label": "Text"
         }
       ]
     }
@@ -273,4 +267,5 @@
     }
   ]
 }
+
 {% endschema %}
