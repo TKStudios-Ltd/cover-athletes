@@ -1,9 +1,7 @@
 {% stylesheet %}
-
 /* ================================
    SECTION
 ================================ */
-
 .specs-hotspots {
   width: 100%;
 }
@@ -12,12 +10,13 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
 }
 
 /* ================================
    IMAGE
 ================================ */
-
 .specs-hotspots__image {
   position: relative;
 }
@@ -31,23 +30,24 @@
 /* ================================
    HOTSPOT ROOT
 ================================ */
-
 .specs-hotspot {
   position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
   pointer-events: none;
 }
 
 /* ================================
    DOT
 ================================ */
-
 .specs-hotspot__dot {
+  position: absolute;
   width: 14px;
   height: 14px;
   background: #5fbf92;
   border-radius: 50%;
-  position: absolute;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .specs-hotspot__dot::after {
@@ -61,21 +61,22 @@
 /* ================================
    LINE
 ================================ */
-
 .specs-hotspot__line {
   position: absolute;
   top: 0;
+  width: var(--line-length);
   height: 1px;
   background: rgba(0,0,0,.45);
 }
 
 /* ================================
-   TEXT
+   CONTENT
 ================================ */
-
 .specs-hotspot__content {
   position: absolute;
+  top: 0;
   max-width: 280px;
+  transform: translateY(-50%);
 }
 
 .specs-hotspot__content h4 {
@@ -94,65 +95,53 @@
 /* ================================
    RIGHT SIDE
 ================================ */
-
-.specs-hotspot--right {
-  left: calc(var(--x) * 1%);
-  top: calc(var(--y) * 1%);
-}
-
 .specs-hotspot--right .specs-hotspot__line {
-  left: 7px;
-  width: calc(100% - var(--x) * 1%);
+  left: 0;
+  transform-origin: left center;
+  transform: rotate(var(--angle));
 }
 
 .specs-hotspot--right .specs-hotspot__content {
-  left: calc(100% + 14px);
-  top: 0;
-  transform: translateY(-50%);
+  left: calc(var(--line-length) + 14px);
   text-align: left;
 }
 
 /* ================================
    LEFT SIDE
 ================================ */
-
-.specs-hotspot--left {
-  left: calc(var(--x) * 1%);
-  top: calc(var(--y) * 1%);
-}
-
 .specs-hotspot--left .specs-hotspot__line {
-  right: 7px;
-  width: calc(var(--x) * 1%);
+  right: 0;
+  transform-origin: right center;
+  transform: rotate(calc(var(--angle) * -1));
 }
 
 .specs-hotspot--left .specs-hotspot__content {
-  right: calc(100% + 14px);
-  top: 0;
-  transform: translateY(-50%);
+  right: calc(var(--line-length) + 14px);
   text-align: right;
 }
 
 /* ================================
    MOBILE
 ================================ */
-
 @media (max-width: 749px) {
   .specs-hotspot {
     display: none;
   }
 }
-
 {% endstylesheet %}
 
-
-<div class="specs-hotspots color-{{ section.settings.color_scheme }}">
-  <div
-    class="specs-hotspots__inner"
-    style="padding: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;"
-  >
+<div
+  class="specs-hotspots color-{{ section.settings.color_scheme }}"
+  style="
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="specs-hotspots__inner">
     <div class="specs-hotspots__image">
-      {{ section.settings.image | image_url: width: 2400 | image_tag }}
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% endif %}
 
       {% for block in section.blocks %}
         <div
@@ -160,6 +149,8 @@
           style="
             --x: {{ block.settings.pos_x }};
             --y: {{ block.settings.pos_y }};
+            --angle: {{ block.settings.angle }}deg;
+            --line-length: {{ block.settings.line_length }}px;
           "
           {{ block.shopify_attributes }}
         >
@@ -167,8 +158,12 @@
           <span class="specs-hotspot__line"></span>
 
           <div class="specs-hotspot__content">
-            <h4>{{ block.settings.title }}</h4>
-            <p>{{ block.settings.text }}</p>
+            {% if block.settings.title != blank %}
+              <h4>{{ block.settings.title }}</h4>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text }}</p>
+            {% endif %}
           </div>
         </div>
       {% endfor %}
@@ -185,16 +180,6 @@
       "type": "image_picker",
       "id": "image",
       "label": "Background image"
-    },
-    {
-      "type": "range",
-      "id": "image_max_width",
-      "label": "Section max width",
-      "min": 800,
-      "max": 1600,
-      "step": 50,
-      "unit": "px",
-      "default": 1200
     },
     {
       "type": "color_scheme",
@@ -245,12 +230,30 @@
           "default": 50
         },
         {
+          "type": "range",
+          "id": "angle",
+          "label": "Line angle",
+          "min": 0,
+          "max": 180,
+          "step": 5,
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "line_length",
+          "label": "Line length (px)",
+          "min": 40,
+          "max": 400,
+          "step": 10,
+          "default": 160
+        },
+        {
           "type": "select",
           "id": "text_side",
           "label": "Text position",
           "options": [
-            { "value": "left", "label": "Left of image" },
-            { "value": "right", "label": "Right of image" }
+            { "value": "left", "label": "Left of hotspot" },
+            { "value": "right", "label": "Right of hotspot" }
           ],
           "default": "right"
         },
@@ -275,5 +278,4 @@
     }
   ]
 }
-
 {% endschema %}
