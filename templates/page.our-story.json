@@ -613,6 +613,110 @@
         "padding-block-end": 100
       }
     },
+    "rd_slider_qdgFcB": {
+      "type": "rd-slider",
+      "blocks": {
+        "slide_xh3FN3": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
+            "title": "20+ industry recognized awards",
+            "link_label": "",
+            "link_url": "",
+            "icon": "shopify://shop_images/IF-Product-Design-Award-Logo_1.png",
+            "ratio": "square",
+            "title_max_width": 200,
+            "overlay_opacity": 0,
+            "icon_height": 40
+          }
+        },
+        "slide_ciNnqi": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "scheme-6",
+            "image": "shopify://shop_images/Cover_R_D_CricketShot.jpg",
+            "title": "20+ industry recognized awards",
+            "link_label": "Learn more",
+            "link_url": "",
+            "ratio": "45",
+            "title_max_width": 200,
+            "overlay_opacity": 1,
+            "icon_height": 24
+          }
+        },
+        "slide_rhiehk": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "scheme-7efa9d04-cabf-448f-9087-5417bb3a721e",
+            "title": "High-speed motion capture for energy deflection analysis.  <em>Suspendisse varius enim in eros elementum.</em>",
+            "link_label": "Learn more",
+            "link_url": "#",
+            "ratio": "square",
+            "title_max_width": 360,
+            "overlay_opacity": 0,
+            "icon_height": 24
+          }
+        },
+        "slide_iMxPF7": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "scheme-6",
+            "image": "shopify://shop_images/43e5ec251ac8dfe3def75426cf1f4931372b8a7c.jpg",
+            "title": "Material fatigue testing across thousands of repetitions.",
+            "link_label": "",
+            "link_url": "",
+            "ratio": "square",
+            "title_max_width": 280,
+            "overlay_opacity": 4,
+            "icon_height": 24
+          }
+        },
+        "slide_VeEbQJ": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "scheme-7efa9d04-cabf-448f-9087-5417bb3a721e",
+            "title": "High-speed motion capture for energy deflection analysis.  <em>Suspendisse varius enim in eros elementum.</em>",
+            "link_label": "Read Full Report",
+            "link_url": "#",
+            "icon": "shopify://shop_images/Frame_3929_1.png",
+            "ratio": "54",
+            "title_max_width": 240,
+            "overlay_opacity": 0,
+            "icon_height": 20
+          }
+        },
+        "slide_878De7": {
+          "type": "slide",
+          "settings": {
+            "color_scheme": "scheme-6",
+            "image": "shopify://shop_images/6983f8a04fcb010776ceafb05af425b032b6f354.jpg",
+            "title": "High-speed motion capture for energy deflection analysis.  <em>Suspendisse varius enim in eros elementum.</em>",
+            "link_label": "",
+            "link_url": "",
+            "icon": "shopify://shop_images/Frame_3929.png",
+            "ratio": "45",
+            "title_max_width": 240,
+            "overlay_opacity": 0,
+            "icon_height": 20
+          }
+        }
+      },
+      "block_order": [
+        "slide_xh3FN3",
+        "slide_ciNnqi",
+        "slide_rhiehk",
+        "slide_iMxPF7",
+        "slide_VeEbQJ",
+        "slide_878De7"
+      ],
+      "name": "R&D Slider",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "autoplay": false,
+        "delay": 2
+      }
+    },
     "section_dVccD7": {
       "type": "section",
       "blocks": {
@@ -936,6 +1040,7 @@
     "section_dkKenk",
     "section_emmiqF",
     "section_9rnLR6",
+    "rd_slider_qdgFcB",
     "section_dVccD7"
   ]
 }
