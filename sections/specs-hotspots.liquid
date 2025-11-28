@@ -1,6 +1,10 @@
 {% stylesheet %}
+
+/* =====================================================
+   SECTION WRAPPER
+===================================================== */
+
 .specs-hotspots {
-  position: relative;
   width: 100%;
 }
 
@@ -9,32 +13,60 @@
   margin: 0 auto;
 }
 
+/* =====================================================
+   IMAGE
+===================================================== */
+
 .specs-hotspots__image {
   position: relative;
   margin: 0 auto;
 }
 
 .specs-hotspots__image img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
 }
 
-/* HOTSPOT ROOT */
+/* =====================================================
+   FIXED TEXT RAILS
+===================================================== */
+
+.specs-hotspots__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  pointer-events: none;
+}
+
+.specs-hotspots__rail--left {
+  left: 0;
+  text-align: right;
+}
+
+.specs-hotspots__rail--right {
+  right: 0;
+  text-align: left;
+}
+
+/* =====================================================
+   HOTSPOT DOT
+===================================================== */
+
 .specs-hotspot {
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
-/* DOT */
 .specs-hotspot__dot {
+  position: relative;
   width: 14px;
   height: 14px;
   background: #5fbf92;
   border-radius: 50%;
-  position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .specs-hotspot__dot::after {
@@ -45,69 +77,66 @@
   border-radius: 50%;
 }
 
-/* LINE */
+/* =====================================================
+   LINE
+===================================================== */
+
 .specs-hotspot__line {
   position: absolute;
   top: 50%;
   height: 1px;
-  background: rgba(0,0,0,0.45);
-  transform-origin: left center;
-}
-
-/* CONTENT */
-.specs-hotspot__content {
-  position: absolute;
-  top: 50%;
+  background: rgba(0, 0, 0, 0.45);
   transform: translateY(-50%);
-  max-width: 280px;
 }
 
 /* RIGHT SIDE */
-.specs-hotspot--right .specs-hotspot__content {
-  left: calc(100vw - 320px);
-  text-align: left;
-}
-
 .specs-hotspot--right .specs-hotspot__line {
-  left: 50%;
-  width: calc(100vw - (var(--hotspot-x) * 1vw) - 320px);
-  transform: translateY(-50%) rotate(var(--angle));
+  left: 100%;
+  width: calc(100% - var(--hotspot-x));
 }
 
 /* LEFT SIDE */
-.specs-hotspot--left .specs-hotspot__content {
-  right: calc(100vw - 320px);
-  text-align: right;
-}
-
 .specs-hotspot--left .specs-hotspot__line {
-  right: 50%;
-  width: calc((var(--hotspot-x) * 1vw) - 320px);
-  transform-origin: right center;
-  transform: translateY(-50%) rotate(calc(var(--angle) * -1));
+  right: 100%;
+  width: var(--hotspot-x);
 }
 
-/* TYPE */
-.specs-hotspot__content h4 {
+/* =====================================================
+   TEXT BLOCKS
+===================================================== */
+
+.specs-hotspots__content {
+  max-width: 280px;
+  margin-bottom: 40px;
+}
+
+.specs-hotspots__content h4 {
   margin: 0 0 6px;
   font-size: 16px;
   font-weight: 600;
+  line-height: 1.25;
 }
 
-.specs-hotspot__content p {
+.specs-hotspots__content p {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
   opacity: 0.75;
 }
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media (max-width: 749px) {
-  .specs-hotspot {
+  .specs-hotspot,
+  .specs-hotspots__rail {
     display: none;
   }
 }
+
 {% endstylesheet %}
+
 
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
@@ -119,8 +148,24 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     "
   >
+
+    <!-- LEFT TEXT RAIL -->
+    <div class="specs-hotspots__rail specs-hotspots__rail--left">
+      {% for block in section.blocks %}
+        {% if block.settings.text_side == 'left' %}
+          <div class="specs-hotspots__content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- IMAGE + HOTSPOTS -->
     <div class="specs-hotspots__image">
-      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% endif %}
 
       {% for block in section.blocks %}
         <div
@@ -128,23 +173,31 @@
           style="
             left: {{ block.settings.pos_x }}%;
             top: {{ block.settings.pos_y }}%;
-            --angle: {{ block.settings.angle }}deg;
-            --hotspot-x: {{ block.settings.pos_x }};
+            --hotspot-x: {{ block.settings.pos_x }}%;
           "
           {{ block.shopify_attributes }}
         >
           <span class="specs-hotspot__dot"></span>
           <span class="specs-hotspot__line"></span>
-
-          <div class="specs-hotspot__content">
-            <h4>{{ block.settings.title }}</h4>
-            <p>{{ block.settings.text }}</p>
-          </div>
         </div>
       {% endfor %}
     </div>
+
+    <!-- RIGHT TEXT RAIL -->
+    <div class="specs-hotspots__rail specs-hotspots__rail--right">
+      {% for block in section.blocks %}
+        {% if block.settings.text_side == 'right' %}
+          <div class="specs-hotspots__content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
   </div>
 </div>
+
 
 
 
