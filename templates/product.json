@@ -1583,6 +1583,16 @@
         "padding-block-end": 100
       }
     },
+    "specs_hotspots_EpDANH": {
+      "type": "specs-hotspots",
+      "name": "Specs Hotspots",
+      "settings": {
+        "image": "shopify://shop_images/Cover_Hotspot.png",
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "section_BGcdyU": {
       "type": "section",
       "blocks": {
@@ -2928,6 +2938,7 @@
     "main",
     "section_mU68Pb",
     "section_QeCUqq",
+    "specs_hotspots_EpDANH",
     "section_BGcdyU",
     "section_iDCnx6",
     "section_yBpTHy",
