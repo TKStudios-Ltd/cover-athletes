@@ -3610,6 +3610,10 @@
         "group_q7HtKW",
         "group_f6643y"
       ],
+      "custom_css": [
+        ".layout-panel-flex--column .layout-panel-flex--column {border-top: rgba(0, 0, 0, 0.4) 1px solid;}",
+        ".layout-panel-flex--row {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
+      ],
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "row",
