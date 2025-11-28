@@ -8,146 +8,187 @@
   padding: 60px 0;
 }
 
-.hotspots-wrapper {
+.section-map-hotspots .hotspots-wrapper {
   position: relative;
-  max-width: {{ section.settings.max_width }}px;
   margin: 0 auto;
 }
 
 /* ===============================
-   IMAGE
+   BACKGROUND IMAGE
 ================================ */
 
-.hotspot-image {
+.section-map-hotspots .hotspot-image {
   width: 100%;
   height: auto;
   display: block;
 }
 
 /* ===============================
-   HOTSPOT CORE
+   HOTSPOT OVERLAY
+   (fills wrapper, children use %)
 ================================ */
 
-.spec-hotspot {
+.section-map-hotspots .spec-hotspot {
   position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 
 /* DOT */
 
-.spec-hotspot__dot {
+.section-map-hotspots .spec-hotspot__dot {
+  position: absolute;
   width: 14px;
   height: 14px;
   background: #5fd39b;
   border-radius: 50%;
-  position: absolute;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 6px rgba(95,211,155,.28);
+  z-index: 2;
 }
 
-/* ===============================
-   TEXT BOX
-================================ */
+.section-map-hotspots .spec-hotspot__dot::after {
+  {% if section.settings.show_outline %}
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(95, 211, 155, 0.6);
+  {% endif %}
+}
 
-.spec-hotspot__content {
+/* LINE: always horizontal from dot to rail edge */
+
+.section-map-hotspots .spec-hotspot__line {
+  position: absolute;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* TEXT BOX */
+
+.section-map-hotspots .spec-hotspot__content {
   position: absolute;
   width: 280px;
-  background: #fff;
+  background: #ffffff;
   padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 3;
 }
 
-/* LEFT EDGE */
-
-.spec-hotspot__content.left {
-  left: 0;
-  text-align: left;
-}
-
-/* RIGHT EDGE */
-
-.spec-hotspot__content.right {
-  right: 0;
-  text-align: left;
-}
-
-/* VERTICAL PLACEMENT */
-
-.spec-hotspot__content.top {
-  transform: translateY(-100%);
-}
-
-.spec-hotspot__content.middle {
-  transform: translateY(-50%);
-}
-
-.spec-hotspot__content.bottom {
-  transform: translateY(0);
-}
-
-/* TYPOGRAPHY */
-
-.spec-hotspot__content h4 {
+.section-map-hotspots .spec-hotspot__content h4 {
   margin: 0 0 6px;
   font-size: 16px;
   font-weight: 600;
 }
 
-.spec-hotspot__content p {
+.section-map-hotspots .spec-hotspot__content p {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
   opacity: 0.75;
 }
 
-/* MOBILE */
+/* SIDE RAILS: LEFT / RIGHT */
+
+.section-map-hotspots .spec-hotspot--left  .spec-hotspot__content { left: 0;  text-align: left; }
+.section-map-hotspots .spec-hotspot--right .spec-hotspot__content { right: 0; text-align: left; }
+
+/* LINE TO EDGE */
+
+.section-map-hotspots .spec-hotspot--right .spec-hotspot__line {
+  left: var(--x);
+  right: 0;
+  top: var(--y);
+}
+
+.section-map-hotspots .spec-hotspot--left .spec-hotspot__line {
+  left: 0;
+  right: calc(100% - var(--x));
+  top: var(--y);
+}
+
+/* DOT POSITION */
+
+.section-map-hotspots .spec-hotspot__dot {
+  left: var(--x);
+  top: var(--y);
+}
+
+/* VERTICAL PLACEMENT */
+
+.section-map-hotspots .spec-hotspot--top .spec-hotspot__content {
+  top: var(--y);
+  transform: translateY(-100%);
+}
+
+.section-map-hotspots .spec-hotspot--middle .spec-hotspot__content {
+  top: var(--y);
+  transform: translateY(-50%);
+}
+
+.section-map-hotspots .spec-hotspot--bottom .spec-hotspot__content {
+  top: var(--y);
+  transform: translateY(0);
+}
+
+/* MOBILE (optional: hide overlays) */
 
 @media (max-width: 749px) {
-  .spec-hotspot__content {
-    position: static;
-    width: auto;
-    transform: none;
-    margin-top: 1rem;
+  .section-map-hotspots .spec-hotspot__content,
+  .section-map-hotspots .spec-hotspot__line,
+  .section-map-hotspots .spec-hotspot__dot {
+    display: none;
   }
 }
 {% endstylesheet %}
 
 <div class="section-map-hotspots color-{{ section.settings.color_scheme }}">
-  <div class="hotspots-wrapper">
-    {% if section.settings.background_image %}
+  <div
+    class="hotspots-wrapper"
+    style="max-width: {{ section.settings.image_max_width }}px;"
+  >
+    {% if section.settings.background_image != blank %}
       <img
         src="{{ section.settings.background_image | img_url: '2400x' }}"
         class="hotspot-image"
-        alt=""
+        alt="{{ section.settings.background_image.alt | escape }}"
       >
+    {% else %}
+      {{ 'image' | placeholder_svg_tag }}
     {% endif %}
 
     {% for block in section.blocks %}
-      {% assign x = block.settings.pos_x | append: '%' %}
-      {% assign y = block.settings.pos_y | append: '%' %}
+      {%- assign x_val = block.settings.pos_x | append: '%' -%}
+      {%- assign y_val = block.settings.pos_y | append: '%' -%}
 
-      {% assign side = 'right' %}
-      {% if block.settings.placement contains 'left' %}
-        {% assign side = 'left' %}
-      {% endif %}
+      {%- assign side = 'right' -%}
+      {%- if block.settings.placement contains 'left' -%}
+        {%- assign side = 'left' -%}
+      {%- endif -%}
 
-      {% assign vertical = 'middle' %}
-      {% if block.settings.placement contains 'top' %}
-        {% assign vertical = 'top' %}
-      {% elsif block.settings.placement contains 'bottom' %}
-        {% assign vertical = 'bottom' %}
-      {% endif %}
+      {%- assign vertical = 'middle' -%}
+      {%- if block.settings.placement contains 'top' -%}
+        {%- assign vertical = 'top' -%}
+      {%- elsif block.settings.placement contains 'bottom' -%}
+        {%- assign vertical = 'bottom' -%}
+      {%- endif -%}
 
       <div
-        class="spec-hotspot"
-        style="left: {{ x }}; top: {{ y }};"
+        class="spec-hotspot spec-hotspot--{{ side }} spec-hotspot--{{ vertical }}"
+        style="--x: {{ x_val }}; --y: {{ y_val }};"
         {{ block.shopify_attributes }}
       >
-        <div class="spec-hotspot__dot"></div>
+        <span class="spec-hotspot__dot"></span>
+        <span class="spec-hotspot__line"></span>
 
-        <div class="spec-hotspot__content {{ side }} {{ vertical }}">
-          <h4>{{ block.settings.title }}</h4>
-          <p>{{ block.settings.text }}</p>
+        <div class="spec-hotspot__content">
+          {% if block.settings.title != blank %}
+            <h4>{{ block.settings.title }}</h4>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <p>{{ block.settings.text }}</p>
+          {% endif %}
         </div>
       </div>
     {% endfor %}
@@ -166,13 +207,19 @@
     },
     {
       "type": "range",
-      "id": "max_width",
-      "label": "Max content width",
+      "id": "image_max_width",
+      "label": "Background image max width",
       "min": 800,
       "max": 1800,
       "step": 100,
       "unit": "px",
       "default": 1200
+    },
+    {
+      "type": "checkbox",
+      "id": "show_outline",
+      "label": "Show hotspot outline",
+      "default": true
     },
     {
       "type": "color_scheme",
@@ -196,7 +243,7 @@
           "type": "textarea",
           "id": "text",
           "label": "Text",
-          "default": "Hotspot description"
+          "default": "Hotspot description text goes here."
         },
         {
           "type": "range",
@@ -221,12 +268,12 @@
           "id": "placement",
           "label": "Textbox placement",
           "options": [
-            { "value": "top-left", "label": "Top Left" },
-            { "value": "middle-left", "label": "Middle Left" },
-            { "value": "bottom-left", "label": "Bottom Left" },
-            { "value": "top-right", "label": "Top Right" },
-            { "value": "middle-right", "label": "Middle Right" },
-            { "value": "bottom-right", "label": "Bottom Right" }
+            { "value": "top-left", "label": "Top left rail" },
+            { "value": "middle-left", "label": "Middle left rail" },
+            { "value": "bottom-left", "label": "Bottom left rail" },
+            { "value": "top-right", "label": "Top right rail" },
+            { "value": "middle-right", "label": "Middle right rail" },
+            { "value": "bottom-right", "label": "Bottom right rail" }
           ],
           "default": "top-right"
         }
