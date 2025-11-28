@@ -2320,7 +2320,7 @@
         ".custom-typography p {font-weight: 300;}",
         "h3 strong {color: #07de85; font-weight: 400 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
-        "@media (max-width: 749px) {h3 {font-size: 24px; }}"
+        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -2632,8 +2632,8 @@
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
           },
           "blocks": {}
         },
@@ -2658,7 +2658,8 @@
         "button_hJfhnB"
       ],
       "custom_css": [
-        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 300 !important; text-transform: inherit;}"
+        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 300 !important; text-transform: inherit;}",
+        "@media (max-width: 749px) {h3 {font-size: 32px; }}"
       ],
       "name": "t:names.hero",
       "settings": {
