@@ -1585,6 +1585,22 @@
     },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
+      "blocks": {
+        "hotspot_39RTR3": {
+          "type": "hotspot",
+          "settings": {
+            "title": "dsbgdbfgdb",
+            "text": "",
+            "side": "right",
+            "line_length": 230,
+            "pos_x": 70,
+            "pos_y": 27
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_39RTR3"
+      ],
       "name": "Specs Hotspots",
       "settings": {
         "image": "shopify://shop_images/Cover_Hotspot.png",
