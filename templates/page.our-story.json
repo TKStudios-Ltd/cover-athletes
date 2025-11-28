@@ -375,13 +375,13 @@
                   "type": "text",
                   "name": "Description",
                   "settings": {
-                    "text": "<p>We create with intention. Our products solve real problems with clean design and honest materials.</p>",
+                    "text": "<p>The idea for Cover began with a simple insight - cricket has evolved, but protective gear hasn’t. Modern players face faster bowling, longer sessions, and higher standards of fitness, yet rely on equipment designed decades ago.</p><p>We believed it was time for protection to evolve too. What started as a single concept, the perfect cricket box, became a mission to redefine how athletes experience safety and performance.</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font_size": "1.125rem",
                     "line_height": "tight",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -414,7 +414,7 @@
         "group_UQ6tHD"
       ],
       "custom_css": [
-        "h4 {font-family: 'Graphik', san-serif !important; font-weight: 500;}"
+        "h4 {font-family: \"Graphik\", san-serif !important; font-weight: 500;}"
       ],
       "name": "t:names.custom_section",
       "settings": {
