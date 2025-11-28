@@ -16,6 +16,10 @@
   margin: 0 auto;
   overflow: hidden;
 }
+.specs-hotspots__image-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 /* ================================
    IMAGE
 ================================ */
@@ -88,9 +92,11 @@
     style="padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;"
   >
     <div class="specs-hotspots__image">
-      {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
-      {% endif %}
+      <div class="specs-hotspots__image-wrapper">
+        {% if section.settings.image %}
+          {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+        {% endif %}
+      </div>
 
       {% for block in section.blocks %}
         <div
@@ -117,12 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.specs-hotspots').forEach(section => {
     const inner = section.querySelector('.specs-hotspots__inner');
     const image = section.querySelector('.specs-hotspots__image');
+    const imageWrapper = section.querySelector('.specs-hotspots__image-wrapper');
 
-    if (!inner || !image) return;
+    if (!inner || !image || !imageWrapper) return;
 
     const containerWidth = inner.offsetWidth;
     const imageWidth = image.offsetWidth;
     const imageHeight = image.offsetHeight;
+
+    const offsetLeft = inner.getBoundingClientRect().left - image.getBoundingClientRect().left;
 
     section.querySelectorAll('.specs-hotspot').forEach(hotspot => {
       const dot = hotspot.querySelector('.specs-hotspot__dot');
@@ -140,10 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const dotY = imageHeight * yPercent;
 
       hotspot.style.left = dotX + 'px';
-      hotspot.style.top  = dotY + 'px';
+      hotspot.style.top = dotY + 'px';
 
       dot.style.left = '0px';
-      dot.style.top  = '0px';
+      dot.style.top = '0px';
 
       const targetX = side === 'right' ? containerWidth : 0;
       const dx = targetX - dotX;
@@ -154,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const lineAngle = Math.atan2(dy, dx) * (180 / Math.PI);
 
       line.style.left = '0px';
-      line.style.top  = '0px';
+      line.style.top = '0px';
       line.style.width = length + 'px';
       line.style.transform = `rotate(${lineAngle}deg)`;
 
@@ -163,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
       content.style.zIndex = '3';
 
       if (side === 'right') {
-        content.style.left = containerWidth + 'px';
+        content.style.left = offsetLeft + containerWidth + 'px';
         content.style.transform = 'translate(-100%, -50%)';
         content.style.textAlign = 'left';
       } else {
-        content.style.left = '0px';
+        content.style.left = offsetLeft + 'px';
         content.style.transform = 'translate(0, -50%)';
         content.style.textAlign = 'right';
       }
