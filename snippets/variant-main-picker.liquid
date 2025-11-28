@@ -477,7 +477,7 @@
     border-radius: var(--variant-picker-swatch-radius);
     overflow: visible;
   }
-  .variant-option__button-label::after {
+  .variant-option__button-label--has-swatch::after {
       content: "";
       position: absolute;
       inset: -1px;
@@ -491,12 +491,12 @@
       z-index: 0;
       transition: inset 0.2s ease;
   }
-  .variant-option__button-label:has(:checked)::after {
-    inset: -3px;
+  .variant-option__button-label--has-swatch:has(:checked)::after {
+      inset: -3px;
   }
   .variant-option__button-label--has-swatch .swatch {
-    position: relative;
-    z-index: 1;
+      position: relative;
+      z-index: 1;
   }
 
   .variant-option__button-label:has(:checked) {
