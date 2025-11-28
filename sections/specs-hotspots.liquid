@@ -1,12 +1,15 @@
 {% stylesheet %}
+/* ===============================
+   WRAPPER
+=============================== */
 .specs-hotspots {
   position: relative;
   width: 100%;
 }
 
 .specs-hotspots__inner {
-  margin: 0 auto;
   position: relative;
+  margin: 0 auto;
 }
 
 .specs-hotspots__image {
@@ -20,14 +23,44 @@
   display: block;
 }
 
-/* HOTSPOT ROOT */
+/* ===============================
+   TEXT RAILS
+=============================== */
+.specs-hotspots__rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  pointer-events: none;
+}
+
+.specs-hotspots__rail--left {
+  left: -340px;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.specs-hotspots__rail--right {
+  right: -340px;
+  text-align: left;
+  align-items: flex-start;
+}
+
+/* ===============================
+   HOTSPOT ROOT
+=============================== */
 .specs-hotspot {
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
-/* DOT */
+/* ===============================
+   DOT
+=============================== */
 .specs-hotspot__dot {
   width: 14px;
   height: 14px;
@@ -45,49 +78,43 @@
   border-radius: 50%;
 }
 
-/* LINE */
+/* ===============================
+   LINE
+=============================== */
 .specs-hotspot__line {
   position: absolute;
   top: 50%;
-  left: 50%;
-  width: var(--line-length);
   height: 1px;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
+}
+
+/* RIGHT */
+.specs-hotspot--right .specs-hotspot__line {
+  left: 50%;
+  width: calc(100% + 340px);
   transform-origin: left center;
   transform: translateY(-50%) rotate(var(--angle));
 }
 
-/* CONTENT BASE */
-.specs-hotspot__content {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 280px;
-}
-
-/* RIGHT SIDE */
-.specs-hotspot--right .specs-hotspot__content {
-  left: calc(50% + var(--line-length) + 16px);
-  text-align: left;
-}
-
-/* LEFT SIDE */
+/* LEFT */
 .specs-hotspot--left .specs-hotspot__line {
+  right: 50%;
+  width: calc(100% + 340px);
+  transform-origin: right center;
   transform: translateY(-50%) rotate(calc(var(--angle) * -1));
 }
 
-.specs-hotspot--left .specs-hotspot__content {
-  left: calc(50% - var(--line-length) - 16px);
-  transform: translate(-100%, -50%);
-  text-align: right;
+/* ===============================
+   CONTENT
+=============================== */
+.specs-hotspot__content {
+  max-width: 280px;
 }
 
-/* TYPOGRAPHY */
 .specs-hotspot__content h4 {
   margin: 0 0 6px;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.2;
 }
 
 .specs-hotspot__content p {
@@ -97,61 +124,75 @@
   opacity: 0.75;
 }
 
-/* MOBILE */
-@media screen and (max-width: 749px) {
-  .specs-hotspot {
+/* ===============================
+   MOBILE
+=============================== */
+@media (max-width: 749px) {
+  .specs-hotspot,
+  .specs-hotspots__rail {
     display: none;
   }
 }
-
 {% endstylesheet %}
+
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
   <div
     class="specs-hotspots__inner"
     style="
+      max-width: {{ section.settings.image_max_width }}px;
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     "
   >
-    <div
-      class="specs-hotspots__image"
-      style="max-width: {{ section.settings.image_max_width }}px;"
-    >
-      {% if section.settings.image %}
-        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
-      {% else %}
-        {{ 'image' | placeholder_svg_tag }}
-      {% endif %}
+
+    <!-- LEFT RAIL -->
+    <div class="specs-hotspots__rail specs-hotspots__rail--left">
+      {% for block in section.blocks %}
+        {% if block.settings.text_side == 'left' %}
+          <div class="specs-hotspot__content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- IMAGE -->
+    <div class="specs-hotspots__image">
+      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
 
       {% for block in section.blocks %}
         <div
-            class="specs-hotspot specs-hotspot--{{ block.settings.text_side }}"
-            style="
+          class="specs-hotspot specs-hotspot--{{ block.settings.text_side }}"
+          style="
             left: {{ block.settings.pos_x }}%;
             top: {{ block.settings.pos_y }}%;
             --angle: {{ block.settings.angle }}deg;
-            --line-length: {{ block.settings.line_length }}px;
-            "
-            {{ block.shopify_attributes }}
+          "
+          {{ block.shopify_attributes }}
         >
-            <span class="specs-hotspot__dot"></span>
-            <span class="specs-hotspot__line"></span>
-
-            <div class="specs-hotspot__content">
-            {% if block.settings.title != blank %}
-                <h4>{{ block.settings.title }}</h4>
-            {% endif %}
-            {% if block.settings.text != blank %}
-                <p>{{ block.settings.text }}</p>
-            {% endif %}
-            </div>
+          <span class="specs-hotspot__dot"></span>
+          <span class="specs-hotspot__line"></span>
         </div>
-        {% endfor %}
-
+      {% endfor %}
     </div>
+
+    <!-- RIGHT RAIL -->
+    <div class="specs-hotspots__rail specs-hotspots__rail--right">
+      {% for block in section.blocks %}
+        {% if block.settings.text_side == 'right' %}
+          <div class="specs-hotspot__content">
+            <h4>{{ block.settings.title }}</h4>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
   </div>
 </div>
+
 
 {% schema %}
 {
@@ -227,32 +268,22 @@
         {
           "type": "range",
           "id": "angle",
-          "label": "Line angle",
-          "min": -180,
-          "max": 180,
+          "label": "Line angle (0–90°)",
+          "min": 0,
+          "max": 90,
           "step": 5,
           "unit": "°",
-          "default": -45
+          "default": 30
         },
         {
-          "type": "range",
-          "id": "line_length",
-          "label": "Line length",
-          "min": 40,
-          "max": 400,
-          "step": 10,
-          "unit": "px",
-          "default": 140
-        },
-        {
-        "type": "select",
-        "id": "text_side",
-        "label": "Text position",
-        "options": [
-            { "value": "right", "label": "Right of image" },
-            { "value": "left", "label": "Left of image" }
-        ],
-        "default": "right"
+          "type": "select",
+          "id": "text_side",
+          "label": "Text side",
+          "options": [
+            { "value": "left", "label": "Left side" },
+            { "value": "right", "label": "Right side" }
+          ],
+          "default": "right"
         },
         {
           "type": "text",
