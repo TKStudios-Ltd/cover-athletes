@@ -1602,9 +1602,9 @@
           "type": "hotspot",
           "settings": {
             "pos_x": 30,
-            "pos_y": 55,
-            "angle": -160,
-            "line_length": 140,
+            "pos_y": 54,
+            "angle": -30,
+            "line_length": 210,
             "text_side": "left",
             "title": "Diecasted moulds",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
