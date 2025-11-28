@@ -232,6 +232,21 @@
       </div>
     {% endfor %}
   </div>
+  <div class="map-hotspots-mobile">
+    {% for block in section.blocks %}
+        <div
+        class="map-hotspots-mobile__item"
+        data-hotspot-index="{{ forloop.index0 }}"
+        >
+        {% if block.settings.title != blank %}
+            <h4>{{ block.settings.title }}</h4>
+        {% endif %}
+        {% if block.settings.text != blank %}
+            <p>{{ block.settings.text }}</p>
+        {% endif %}
+        </div>
+    {% endfor %}
+  </div>
 </div>
 
 <script>
