@@ -1603,7 +1603,7 @@
           "settings": {
             "pos_x": 30,
             "pos_y": 54,
-            "angle": -30,
+            "angle": 5,
             "line_length": 210,
             "text_side": "left",
             "title": "Diecasted moulds",
