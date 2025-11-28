@@ -215,61 +215,23 @@ document.addEventListener('DOMContentLoaded', () => {
       "type": "hotspot",
       "name": "Hotspot",
       "settings": [
-        {
-          "type": "range",
-          "id": "pos_x",
-          "label": "Position X (%)",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 50
-        },
-        {
-          "type": "range",
-          "id": "pos_y",
-          "label": "Position Y (%)",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 50
-        },
-        {
-          "type": "range",
-          "id": "angle",
-          "label": "Line angle",
-          "min": -90,
-          "max": 90,
-          "step": 2,
-          "default": 0
-        },
-        {
-          "type": "select",
-          "id": "text_side",
-          "label": "Text side",
-          "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "right", "label": "Right" }
-          ],
-          "default": "right"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Hotspot title"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Text",
-          "default": "Hotspot description"
-        }
+        { "type": "range", "id": "pos_x", "label": "Position X (%)", "min": 0, "max": 100, "step": 1, "default": 50 },
+        { "type": "range", "id": "pos_y", "label": "Position Y (%)", "min": 0, "max": 100, "step": 1, "default": 50 },
+        { "type": "range", "id": "angle", "label": "Line angle", "min": -90, "max": 90, "step": 2, "default": 0 },
+        { "type": "select", "id": "text_side", "label": "Text side", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ], "default": "right" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Hotspot title" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Hotspot description" }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Spec Hotspots"
+      "name": "Spec Hotspots",
+      "blocks": [
+        { "type": "hotspot" },
+        { "type": "hotspot" },
+        { "type": "hotspot" }
+      ]
     }
   ]
 }
