@@ -613,6 +613,64 @@
         "padding-block-end": 100
       }
     },
+    "specs_hotspots_EpDANH": {
+      "type": "specs-hotspots",
+      "blocks": {
+        "hotspot_JmxJWP": {
+          "type": "hotspot",
+          "settings": {
+            "title": "DUAL LAYER MATERIAL SHELL FOAM",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "pos_x": 45,
+            "pos_y": 32,
+            "placement": "top-left"
+          }
+        },
+        "hotspot_kUHwqk": {
+          "type": "hotspot",
+          "settings": {
+            "title": "DIECASTED MOULDS",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "pos_x": 65,
+            "pos_y": 32,
+            "placement": "top-right"
+          }
+        },
+        "hotspot_mqBApf": {
+          "type": "hotspot",
+          "settings": {
+            "title": "HIGH PRESSURE DIECASTING",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "pos_x": 35,
+            "pos_y": 70,
+            "placement": "bottom-left"
+          }
+        },
+        "hotspot_g8fpFt": {
+          "type": "hotspot",
+          "settings": {
+            "title": "Lorem ipsum elementum trise",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "pos_x": 48,
+            "pos_y": 54,
+            "placement": "bottom-right"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_JmxJWP",
+        "hotspot_kUHwqk",
+        "hotspot_mqBApf",
+        "hotspot_g8fpFt"
+      ],
+      "name": "Specs Hotspots",
+      "settings": {
+        "background_image": "shopify://shop_images/Cover_Hotspot.png",
+        "image_max_width": 800,
+        "show_outline": false,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5"
+      }
+    },
     "section_qPUEAp": {
       "type": "section",
       "blocks": {
@@ -1179,6 +1237,7 @@
     "section_dkKenk",
     "section_emmiqF",
     "section_9rnLR6",
+    "specs_hotspots_EpDANH",
     "section_qPUEAp",
     "rd_slider_qdgFcB",
     "section_dVccD7"
