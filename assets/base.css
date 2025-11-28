@@ -108,6 +108,12 @@ select {
   --cursor: pointer;
 }
 
+.product-card__content .product-swatches {
+  z-index: 9;
+  margin-top: -40px;
+  padding: 5px;
+}
+
 .predictive-search-results__card .product-card,
 .predictive-search-results__card .collection-card,
 .predictive-search-results__card .resource-card {
