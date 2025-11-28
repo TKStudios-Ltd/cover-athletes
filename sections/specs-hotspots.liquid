@@ -20,7 +20,7 @@
   display: block;
 }
 
-/* HOTSPOT WRAPPER */
+/* HOTSPOT ROOT */
 .specs-hotspot {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -45,7 +45,7 @@
   border-radius: 50%;
 }
 
-/* ANGLED LINE ONLY */
+/* LINE */
 .specs-hotspot__line {
   position: absolute;
   top: 50%;
@@ -57,21 +57,32 @@
   transform: translateY(-50%) rotate(var(--angle));
 }
 
-/* CONTENT (FLAT) */
+/* CONTENT BASE */
 .specs-hotspot__content {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform:
-    translateY(-50%)
-    translate(
-      calc(cos(var(--angle)) * var(--line-length)),
-      calc(sin(var(--angle)) * var(--line-length))
-    );
-  margin-left: 14px;
+  transform: translateY(-50%);
   max-width: 280px;
 }
 
+/* RIGHT SIDE */
+.specs-hotspot--right .specs-hotspot__content {
+  left: calc(50% + var(--line-length) + 16px);
+  text-align: left;
+}
+
+/* LEFT SIDE */
+.specs-hotspot--left .specs-hotspot__line {
+  transform: translateY(-50%) rotate(calc(var(--angle) * -1));
+}
+
+.specs-hotspot--left .specs-hotspot__content {
+  left: calc(50% - var(--line-length) - 16px);
+  transform: translate(-100%, -50%);
+  text-align: right;
+}
+
+/* TYPOGRAPHY */
 .specs-hotspot__content h4 {
   margin: 0 0 6px;
   font-size: 16px;
@@ -86,12 +97,13 @@
   opacity: 0.75;
 }
 
-/* MOBILE SAFETY */
+/* MOBILE */
 @media screen and (max-width: 749px) {
-  .specs-hotspot__content {
-    max-width: 220px;
+  .specs-hotspot {
+    display: none;
   }
 }
+
 {% endstylesheet %}
 
 <div class="specs-hotspots color-{{ section.settings.color_scheme }}">
