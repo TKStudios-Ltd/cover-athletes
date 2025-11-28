@@ -1,70 +1,26 @@
-<div class="specs-hotspots color-{{ section.settings.color_scheme }}">
-  <div
-    class="specs-hotspots__inner"
-    style="
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    "
-  >
-    <div
-      class="specs-hotspots__image-wrapper"
-      style="max-width: {{ section.settings.image_max_width }}px;"
-    >
-      {% if section.settings.image %}
-        {{ section.settings.image
-          | image_url: width: 2400
-          | image_tag: loading: 'lazy', class: 'specs-hotspots__image'
-        }}
-      {% endif %}
-
-        {% for block in section.blocks %}
-        <div
-            class="specs-hotspot"
-            style="
-            left: {{ block.settings.pos_x }}%;
-            top: {{ block.settings.pos_y }}%;
-            --angle: {{ block.settings.angle }}deg;
-            --line-length: {{ block.settings.line_length }}px;
-            "
-            {{ block.shopify_attributes }}
-        >
-            <span class="specs-hotspot__dot"></span>
-
-            <!-- ANGLED LINE -->
-            <span class="specs-hotspot__line"></span>
-
-            <!-- FLAT CONTENT -->
-            <div class="specs-hotspot__content">
-            {% if block.settings.title != blank %}
-                <h4>{{ block.settings.title }}</h4>
-            {% endif %}
-            {% if block.settings.text != blank %}
-                <p>{{ block.settings.text }}</p>
-            {% endif %}
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-  </div>
-</div>
-
 {% stylesheet %}
 .specs-hotspots {
+  position: relative;
   width: 100%;
 }
 
-.specs-hotspots__image-wrapper {
+.specs-hotspots__inner {
+  margin: 0 auto;
+  position: relative;
+}
+
+.specs-hotspots__image {
   position: relative;
   margin: 0 auto;
 }
 
-.specs-hotspots__image {
+.specs-hotspots__image img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* HOTSPOT */
+/* HOTSPOT WRAPPER */
 .specs-hotspot {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -89,45 +45,100 @@
   border-radius: 50%;
 }
 
-/* ARM (rotated wrapper for line + text) */
-.specs-hotspot__arm {
+/* ANGLED LINE ONLY */
+.specs-hotspot__line {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform-origin: left center;
-  transform: rotate(var(--line-angle));
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-}
-
-/* LINE */
-.specs-hotspot__line {
   width: var(--line-length);
   height: 1px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
+  transform-origin: left center;
+  transform: translateY(-50%) rotate(var(--angle));
 }
 
-/* CONTENT */
+/* CONTENT (FLAT) */
 .specs-hotspot__content {
-  margin-left: 12px;
-  max-width: 260px;
-  font-size: 14px;
-  line-height: 1.4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:
+    translateY(-50%)
+    translate(
+      calc(cos(var(--angle)) * var(--line-length)),
+      calc(sin(var(--angle)) * var(--line-length))
+    );
+  margin-left: 14px;
+  max-width: 280px;
 }
 
 .specs-hotspot__content h4 {
-  margin: 0 0 4px;
-  font-size: 14px;
+  margin: 0 0 6px;
+  font-size: 16px;
   font-weight: 600;
+  line-height: 1.2;
 }
 
 .specs-hotspot__content p {
   margin: 0;
-  font-size: 13px;
-  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.75;
+}
+
+/* MOBILE SAFETY */
+@media screen and (max-width: 749px) {
+  .specs-hotspot__content {
+    max-width: 220px;
+  }
 }
 {% endstylesheet %}
+
+<div class="specs-hotspots color-{{ section.settings.color_scheme }}">
+  <div
+    class="specs-hotspots__inner"
+    style="
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    "
+  >
+    <div
+      class="specs-hotspots__image"
+      style="max-width: {{ section.settings.image_max_width }}px;"
+    >
+      {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag }}
+      {% endif %}
+
+      {% for block in section.blocks %}
+        <div
+          class="specs-hotspot"
+          style="
+            left: {{ block.settings.pos_x }}%;
+            top: {{ block.settings.pos_y }}%;
+            --angle: {{ block.settings.angle }}deg;
+            --line-length: {{ block.settings.line_length }}px;
+          "
+          {{ block.shopify_attributes }}
+        >
+          <span class="specs-hotspot__dot"></span>
+          <span class="specs-hotspot__line"></span>
+
+          <div class="specs-hotspot__content">
+            {% if block.settings.title != blank %}
+              <h4>{{ block.settings.title }}</h4>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p>{{ block.settings.text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
 {% schema %}
 {
@@ -141,11 +152,12 @@
     {
       "type": "range",
       "id": "image_max_width",
-      "label": "Image max width (px)",
-      "min": 600,
+      "label": "Image max width",
+      "min": 400,
       "max": 2000,
       "step": 50,
-      "default": 1400
+      "unit": "px",
+      "default": 1200
     },
     {
       "type": "color_scheme",
@@ -160,7 +172,8 @@
       "min": 0,
       "max": 200,
       "step": 10,
-      "default": 60
+      "unit": "px",
+      "default": 40
     },
     {
       "type": "range",
@@ -169,7 +182,8 @@
       "min": 0,
       "max": 200,
       "step": 10,
-      "default": 60
+      "unit": "px",
+      "default": 40
     }
   ],
   "blocks": [
@@ -178,60 +192,64 @@
       "name": "Hotspot",
       "settings": [
         {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Text"
-        },
-        {
-          "type": "range",
-          "id": "angle",
-          "label": "Line angle (degrees)",
-          "min": -180,
-          "max": 180,
-          "step": 5,
-          "default": 0
-        },
-        {
-          "type": "range",
-          "id": "line_length",
-          "label": "Line length (px)",
-          "min": 30,
-          "max": 400,
-          "step": 5,
-          "default": 140
-        },
-        {
           "type": "range",
           "id": "pos_x",
-          "label": "Position X (%)",
+          "label": "Position X",
           "min": 0,
           "max": 100,
           "step": 1,
+          "unit": "%",
           "default": 50
         },
         {
           "type": "range",
           "id": "pos_y",
-          "label": "Position Y (%)",
+          "label": "Position Y",
           "min": 0,
           "max": 100,
           "step": 1,
+          "unit": "%",
           "default": 50
+        },
+        {
+          "type": "range",
+          "id": "angle",
+          "label": "Line angle",
+          "min": -180,
+          "max": 180,
+          "step": 5,
+          "unit": "°",
+          "default": -45
+        },
+        {
+          "type": "range",
+          "id": "line_length",
+          "label": "Line length",
+          "min": 20,
+          "max": 800,
+          "step": 10,
+          "unit": "px",
+          "default": 140
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Diecasted moulds"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Specs Hotspots",
-      "category": "Image"
+      "name": "Specs Hotspots"
     }
   ]
 }
 {% endschema %}
-
