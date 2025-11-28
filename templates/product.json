@@ -1585,6 +1585,22 @@
     },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
+      "blocks": {
+        "hotspot_T8FnjJ": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "angle": 34,
+            "text_side": "right",
+            "title": "Hotspot title",
+            "text": "Hotspot description"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_T8FnjJ"
+      ],
       "name": "Specs Hotspots",
       "settings": {
         "image": "shopify://shop_images/Cover_Hotspot.png"
