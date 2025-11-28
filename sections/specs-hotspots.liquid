@@ -114,26 +114,22 @@
 
       {% for block in section.blocks %}
         <div
-          class="specs-hotspot"
-          style="
-            left: {{ block.settings.pos_x }}%;
-            top: {{ block.settings.pos_y }}%;
-            --angle: {{ block.settings.angle }}deg;
-            --line-length: {{ block.settings.line_length }}px;
-          "
-          {{ block.shopify_attributes }}
-        >
-          <span class="specs-hotspot__dot"></span>
-          <span class="specs-hotspot__line"></span>
+            class="spec-hotspot spec-hotspot--{{ block.settings.text_side }}"
+            style="
+                --x: {{ block.settings.x }}%;
+                --y: {{ block.settings.y }}%;
+                --angle: {{ block.settings.angle }}deg;
+                --line-length: {{ block.settings.line_length }}px;
+            "
+            {{ block.shopify_attributes }}
+            >
+            <span class="spec-hotspot__dot"></span>
+            <span class="spec-hotspot__line"></span>
 
-          <div class="specs-hotspot__content">
-            {% if block.settings.title != blank %}
-              <h4>{{ block.settings.title }}</h4>
-            {% endif %}
-            {% if block.settings.text != blank %}
-              <p>{{ block.settings.text }}</p>
-            {% endif %}
-          </div>
+            <div class="spec-hotspot__content">
+                <h4>{{ block.settings.title }}</h4>
+                <div class="rte">{{ block.settings.text }}</div>
+            </div>
         </div>
       {% endfor %}
     </div>
@@ -230,6 +226,16 @@
           "step": 10,
           "unit": "px",
           "default": 140
+        },
+        {
+            "type": "select",
+            "id": "text_side",
+            "label": "Text position",
+            "options": [
+                { "value": "right", "label": "Right of hotspot" },
+                { "value": "left", "label": "Left of hotspot" }
+            ],
+            "default": "right"
         },
         {
           "type": "text",
