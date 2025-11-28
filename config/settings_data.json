@@ -72,9 +72,9 @@
     "variant_swatch_width": 28,
     "variant_swatch_height": 28,
     "variant_swatch_radius": 99,
-    "variant_swatch_border_width": 1,
-    "variant_swatch_border_opacity": 100,
-    "variant_button_border_width": 1,
+    "variant_swatch_border_width": 0,
+    "variant_swatch_border_opacity": 0,
+    "variant_button_border_width": 0,
     "variant_button_radius": 6,
     "variant_button_width": "default-width-buttons",
     "sections": {
