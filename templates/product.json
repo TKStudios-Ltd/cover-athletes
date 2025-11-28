@@ -1585,6 +1585,34 @@
     },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
+      "blocks": {
+        "hotspot_rbJnW8": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "angle": 20,
+            "text_side": "right",
+            "title": "dvdgbfng",
+            "text": "fdngfnfnbgbfbgbgf"
+          }
+        },
+        "hotspot_XqW96V": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 50,
+            "pos_y": 50,
+            "angle": -30,
+            "text_side": "left",
+            "title": "dvdgbfng",
+            "text": "fdngfnfnbgbfbgbgf"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_rbJnW8",
+        "hotspot_XqW96V"
+      ],
       "name": "Specs Hotspots",
       "settings": {
         "image": "shopify://shop_images/Cover_Hotspot.png",
