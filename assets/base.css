@@ -4573,7 +4573,7 @@ footer .menu__item.paragraph {
 
 .counter_text {
   font-family: "Graphik", sans-serif;
-  font-weight: 300 !important;
+  font-weight: 300;
   font-size: 40px;
 }
 .counter_text .count-up {
@@ -4602,14 +4602,18 @@ footer .menu__item.paragraph {
 }
 
 .nz-live-clock__time {
-  font-size: 96px;
+  font-family: "Graphik", sans-serif;
   font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-size: 100px;
+  color: #fff;
 }
 
 .nz-live-clock__location {
-  margin-top: 12px;
-  font-size: 16px;
-  opacity: 0.85;
+  font-family: "Graphik", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+}
+.nz-live-clock__location strong {
+  font-weight: 500 !important;
 }
