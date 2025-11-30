@@ -4605,6 +4605,7 @@ footer .menu__item.paragraph {
   font-family: "Graphik", sans-serif;
   font-weight: 300;
   font-size: 100px;
+  letter-spacing: -0.5px;
   color: #fff;
 }
 
@@ -4612,6 +4613,7 @@ footer .menu__item.paragraph {
   font-family: "Graphik", sans-serif;
   font-weight: 400;
   font-size: 18px;
+  letter-spacing: -0.5px;
   color: #fff;
 }
 .nz-live-clock__location strong {
