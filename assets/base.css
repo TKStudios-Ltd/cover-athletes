@@ -4594,3 +4594,22 @@ footer .menu__item.paragraph {
   }
 }
 
+/* NZ Clock */
+
+.nz-live-clock {
+  font-family: inherit;
+  color: #fff;
+}
+
+.nz-live-clock__time {
+  font-size: 96px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.nz-live-clock__location {
+  margin-top: 12px;
+  font-size: 16px;
+  opacity: 0.85;
+}

@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-/* World Clock */
+/* NZ Clock */
 
 (function () {
   function startNZClock(el) {
