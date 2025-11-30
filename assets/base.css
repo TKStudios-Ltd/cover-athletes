@@ -4567,3 +4567,24 @@ footer .menu__item.paragraph {
 .link .arrow-wrapper svg path {
   stroke: var(--button-color);
 }
+
+
+/* Counter Text */
+
+.counter_text {
+  font-family: "Graphik", sans-serif;
+  font-weight: 300 !important;
+  font-size: 40px;
+}
+.counter_text .count-up {
+  font-size: 100px;
+}
+
+@media (max-width: 749px) {
+  .counter_text {
+    font-size: 24px !important;
+  }
+  .counter_text .count-up {
+    font-size: 60px !important;
+  }
+}
