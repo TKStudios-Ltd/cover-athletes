@@ -135,27 +135,33 @@ document.addEventListener('DOMContentLoaded', () => {
 /* NZ Clock */
 
 (function () {
-  function startNZClock(el) {
-    function update() {
+  function initNZClock(clock) {
+    const timeEl = clock.querySelector('[data-nz-clock-time]');
+    const ampmEl = clock.querySelector('[data-nz-clock-ampm]');
+
+    function updateClock() {
       const now = new Date();
 
-      const time = new Intl.DateTimeFormat('en-NZ', {
+      const parts = new Intl.DateTimeFormat('en-NZ', {
         timeZone: 'Pacific/Auckland',
         hour: '2-digit',
         minute: '2-digit',
         hour12: true
-      }).format(now);
+      }).formatToParts(now);
 
-      el.textContent = time;
+      const hour = parts.find(p => p.type === 'hour').value;
+      const minute = parts.find(p => p.type === 'minute').value;
+      const ampm = parts.find(p => p.type === 'dayPeriod').value.toUpperCase();
+
+      timeEl.textContent = `${hour}:${minute}`;
+      ampmEl.textContent = ampm;
     }
 
-    update();
-    setInterval(update, 1000);
+    updateClock();
+    setInterval(updateClock, 1000);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    document
-      .querySelectorAll('[data-nz-clock]')
-      .forEach(startNZClock);
+    document.querySelectorAll('.nz-live-clock').forEach(initNZClock);
   });
 })();
