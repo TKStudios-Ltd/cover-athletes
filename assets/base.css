@@ -4610,6 +4610,14 @@ footer .menu__item.paragraph {
   color: #fff;
 }
 
+.nz-live-clock__ampm {
+  font-family: "Graphik", sans-serif;
+  font-size: 24px;
+  margin-left: 8px;
+  vertical-align: top;
+  letter-spacing: -0.5px;
+}
+
 .nz-live-clock__location {
   font-family: "Graphik", sans-serif;
   font-weight: 400;
