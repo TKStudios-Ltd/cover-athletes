@@ -1351,6 +1351,14 @@
           },
           "blocks": {}
         },
+        "custom_liquid_BPTNXy": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"nz-live-clock\">\n  <div class=\"nz-live-clock__time\" data-nz-clock></div>\n  <div class=\"nz-live-clock__location\">\n    10W Street, ABC Complex<br>\n<strong>Auckland, New Zealand</strong>\n  </div>\n</div>"
+          },
+          "blocks": {}
+        },
         "text_KqnkPe": {
           "type": "text",
           "settings": {
@@ -1487,6 +1495,7 @@
       },
       "block_order": [
         "text_R7F3np",
+        "custom_liquid_BPTNXy",
         "text_KqnkPe",
         "group_Khp96z"
       ],
