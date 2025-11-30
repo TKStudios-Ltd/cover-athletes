@@ -929,7 +929,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<p><span\n  class=\"count-up\"\n  data-target=\"750\"\n  data-duration=\"3000\"\n>\n  0\n</span>m<sup>2</sup></p>"
+                "custom_liquid": "<p class=\"counter_text\"><span\n  class=\"count-up\"\n  data-target=\"750\"\n  data-duration=\"3000\"\n>\n  0\n</span>m<sup>2</sup></p>"
               },
               "blocks": {}
             }
@@ -1432,8 +1432,10 @@
       ],
       "custom_css": [
         ".custom-typography p {font-family: \"Graphik\", sans-serif; font-weight: 300 !important;}",
+        ".counter_text {font-family: \"Graphik\", sans-serif; font-weight: 300 !important; font-size: 48px;}",
+        ".counter_text .count-up {font-size: 120px;}",
         "@media (min-width: 750px) {.layout-panel-flex--row .group-block--height-fill {border-left: 1px solid #07de85; padding-left: 15px; }}",
-        "@media (max-width: 749px) {.layout-panel-flex--row .group-block--height-fill {border-bottom: 1px solid #07de85; padding-bottom: 15px; margin-bottom: 25px; }}"
+        "@media (max-width: 749px) {.layout-panel-flex--row .group-block--height-fill {border-bottom: 1px solid #07de85; padding-bottom: 15px; margin-bottom: 25px; } }"
       ],
       "name": "t:names.custom_section",
       "settings": {
