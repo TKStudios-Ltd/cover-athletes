@@ -4632,6 +4632,7 @@ footer .menu__item.paragraph {
 @media (max-width: 749px) {
   .nz-live-clock__ampm {
     font-size: 20px !important;
+    margin-left: -5px !important;
   }
   .nz-live-clock__time {
     font-size: 60px !important;
