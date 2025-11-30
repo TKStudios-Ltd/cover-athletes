@@ -4613,7 +4613,7 @@ footer .menu__item.paragraph {
 .nz-live-clock__ampm {
   font-family: "Graphik", sans-serif;
   font-size: 24px;
-  margin-left: -10px;
+  margin-left: -15px;
   vertical-align: baseline;
   letter-spacing: -0.5px;
 }
@@ -4632,7 +4632,7 @@ footer .menu__item.paragraph {
 @media (max-width: 749px) {
   .nz-live-clock__ampm {
     font-size: 20px !important;
-    margin-left: -5px !important;
+    margin-left: -10px !important;
   }
   .nz-live-clock__time {
     font-size: 60px !important;
