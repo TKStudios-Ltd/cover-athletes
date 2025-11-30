@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+/* Counter Text */
+
 (function () {
   function animateCount(el) {
     const target = parseInt(el.dataset.target, 10);
@@ -130,3 +132,30 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
+/* World Clock */
+
+(function () {
+  function startNZClock(el) {
+    function update() {
+      const now = new Date();
+
+      const time = new Intl.DateTimeFormat('en-NZ', {
+        timeZone: 'Pacific/Auckland',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).format(now);
+
+      el.textContent = time;
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document
+      .querySelectorAll('[data-nz-clock]')
+      .forEach(startNZClock);
+  });
+})();
