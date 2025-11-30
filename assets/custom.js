@@ -91,3 +91,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+(function () {
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const duration = parseInt(el.dataset.duration, 10) || 3000;
+
+    let start = null;
+
+    function update(timestamp) {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      el.textContent = Math.floor(progress * target);
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        animateCount(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.count-up').forEach(el => observer.observe(el));
+  });
+})();
+
+
