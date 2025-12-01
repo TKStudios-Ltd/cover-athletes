@@ -20,13 +20,12 @@
         <nav class="product-sticky-bar__center">
         {% for block in section.blocks %}
             {% if block.type == 'anchor' %}
-            <button
-                type="button"
-                class="product-sticky-bar__link"
-                data-scroll-to="{{ block.settings.anchor_id }}"
+            <a
+            href="#{{ block.settings.anchor_id }}"
+            class="product-sticky-bar__link"
             >
-                {{ block.settings.label }}
-            </button>
+            {{ block.settings.label }}
+            </a>
             {% endif %}
         {% endfor %}
         </nav>
