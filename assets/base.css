@@ -4639,4 +4639,14 @@ footer .menu__item.paragraph {
   }
 }
 
-.size-guide-link
+.size-guide-link-wrapper {
+  position: relative;
+}
+.size-guide-link {
+  position: absolute;
+  right: 20px;
+  bottom: 175px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-underline-offset: 3px;
+}
