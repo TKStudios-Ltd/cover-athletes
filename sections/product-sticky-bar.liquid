@@ -58,11 +58,14 @@
   transition: transform 0.3s ease;
   z-index: 9999;
 }
-
 .product-sticky-bar.is-visible {
   transform: translateY(0);
 }
 
+.product-sticky-bar .button-wrapper,
+.product-sticky-bar__inner {
+    max-width: 1000px;
+}
 .product-sticky-bar__inner {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
