@@ -421,6 +421,17 @@
         "padding-block-end": 60
       }
     },
+    "custom_liquid_zajX6h": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"specs\"></div>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "section_QeCUqq": {
       "type": "section",
       "blocks": {
@@ -1600,8 +1611,8 @@
         "anchor_pmiCpF": {
           "type": "anchor",
           "settings": {
-            "label": "Specs",
-            "anchor_id": "specs"
+            "label": "Gallery",
+            "anchor_id": "MainContent"
           }
         },
         "anchor_RdftKh": {
@@ -1614,15 +1625,23 @@
         "anchor_AW7NcG": {
           "type": "anchor",
           "settings": {
-            "label": "Specs",
-            "anchor_id": "specs"
+            "label": "Features",
+            "anchor_id": "features"
+          }
+        },
+        "anchor_RRhqiw": {
+          "type": "anchor",
+          "settings": {
+            "label": "FAQs",
+            "anchor_id": "faqs"
           }
         }
       },
       "block_order": [
         "anchor_pmiCpF",
         "anchor_RdftKh",
-        "anchor_AW7NcG"
+        "anchor_AW7NcG",
+        "anchor_RRhqiw"
       ],
       "name": "Product sticky bar",
       "settings": {
@@ -1686,6 +1705,17 @@
         "image_max_width": 800,
         "show_outline": false,
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5"
+      }
+    },
+    "custom_liquid_K9H8tQ": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"features\"></div>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_BGcdyU": {
@@ -2114,6 +2144,17 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "custom_liquid_c3QBzw": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"faqs\"></div>",
+        "color_scheme": "",
+        "section_width": "page-width",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -3033,12 +3074,15 @@
     "main",
     "custom_liquid_fXtKLd",
     "section_mU68Pb",
+    "custom_liquid_zajX6h",
     "section_QeCUqq",
     "product_sticky_bar_NtcGAb",
     "specs_hotspots_EpDANH",
+    "custom_liquid_K9H8tQ",
     "section_BGcdyU",
     "section_iDCnx6",
     "section_yBpTHy",
+    "custom_liquid_c3QBzw",
     "section_rDYzFQ",
     "divider_t4xwVi",
     "section_qPUEAp",
