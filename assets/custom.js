@@ -189,6 +189,27 @@ document.addEventListener("DOMContentLoaded", () => {
   updateBar(); // run once
 });
 
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-scroll-to]');
+  if (!btn) return;
+
+  const id = btn.dataset.scrollTo;
+  if (!id) return;
+
+  const target = document.getElementById(id);
+  if (!target) {
+    console.warn('[Sticky Bar] Anchor not found:', id);
+    return;
+  }
+
+  e.preventDefault();
+
+  target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+});
+
 
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('[data-scroll-to-top]');
