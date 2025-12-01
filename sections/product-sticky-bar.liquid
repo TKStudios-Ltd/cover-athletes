@@ -106,9 +106,18 @@
   padding: 0;
   color: rgba(0,0,0,0.5);
   cursor: pointer;
+  position: relative;
 }
 .product-sticky-bar__link:hover {
   color: rgba(0,0,0,1);
+}
+.product-sticky-bar__link:hover:before {
+    content: "";
+    background: #000;
+    position: absolute;
+    left: -5px;
+    width: 4px;
+    height: 4px;
 }
 .product-sticky-bar__cta {
   padding: 10px 18px;
