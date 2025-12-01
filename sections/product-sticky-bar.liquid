@@ -4,13 +4,13 @@
 
 <div
   id="ProductStickyBar-{{ section.id }}"
-  class="product-sticky-bar color-{{ section.settings.color_scheme }}"
+  class="product-sticky-bar"
   data-sticky-bar
   data-trigger-id="hotspots"
   data-scroll-top-id="MainContent"
 >
 <div class="button-wrapper button-wrapper--button-secondary">
-    <div class="product-sticky-bar__inner button button-secondary">
+    <div class="product-sticky-bar__inner button button-secondary color-{{ section.settings.color_scheme }}">
         <div class="product-sticky-bar__left">
         <span class="product-sticky-bar__title">
             {{ product_obj.title }}
