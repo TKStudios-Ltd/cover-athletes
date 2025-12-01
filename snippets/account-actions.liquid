@@ -1,6 +1,5 @@
 <div class="account-actions">
   <div class="account-actions__main-menu">
-    {% if customer %}
     <header class="account-actions__header">
       {% comment %} <h3
         id="account-drawer-heading"
@@ -12,6 +11,7 @@
           {{ 'content.account_title' | t }}
         {% endif %}
       </h3> {% endcomment %}
+      {% if customer %}
         <span class="account-actions__email">
           {% if customer.email %}
             {{ customer.email }}
@@ -19,8 +19,8 @@
             {{ customer.phone }}
           {% endif %}
         </span>
+      {% endif %}
     </header>
-    {% endif %}
 
     {% unless customer %}
       <div
