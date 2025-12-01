@@ -59,6 +59,7 @@
     "cart_type": "drawer",
     "cart_price_font": "body",
     "auto_open_cart_drawer": true,
+    "show_accelerated_checkout_buttons": false,
     "icon_stroke": "thin",
     "input_border_width": 1,
     "inputs_border_radius": 32,
