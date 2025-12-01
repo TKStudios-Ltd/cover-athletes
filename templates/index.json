@@ -730,7 +730,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<p>{{ closest.collection.title }}</p>",
+                "text": "<p>Best Sellers</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1080,7 +1080,7 @@
       ],
       "name": "t:names.products_carousel",
       "settings": {
-        "collection": "best-sellers",
+        "collection": "shop-all",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 6,
