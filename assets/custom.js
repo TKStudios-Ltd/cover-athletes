@@ -165,3 +165,37 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nz-live-clock').forEach(initNZClock);
   });
 })();
+
+/* Product Sticky Bar */
+
+(() => {
+  const bar = document.querySelector('[data-sticky-bar]');
+  if (!bar) return;
+
+  const triggerId = bar.dataset.triggerId;
+  const triggerEl = document.getElementById(triggerId);
+  if (!triggerEl) return;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      bar.classList.toggle('is-visible', !entry.isIntersecting);
+    },
+    { threshold: 0 }
+  );
+
+  observer.observe(triggerEl);
+
+  bar.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-scroll-to]');
+    if (target) {
+      const id = target.dataset.scrollTo;
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    if (e.target.matches('[data-scroll-to-top]')) {
+      const topEl = document.getElementById(bar.dataset.scrollTopId);
+      if (topEl) topEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+})();
