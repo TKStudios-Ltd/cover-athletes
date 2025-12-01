@@ -513,7 +513,7 @@
         "group_UQ6tHD"
       ],
       "custom_css": [
-        "p strong {font-weight: 500 !important;}"
+        ".custom-typography p strong {font-weight: 500 !important;}"
       ],
       "name": "t:names.custom_section",
       "settings": {
