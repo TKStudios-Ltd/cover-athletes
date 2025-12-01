@@ -45,16 +45,18 @@
       >
         {%- if cart.empty? -%}
           <div class="cart-drawer__header">
-            <button
-              ref="closeButton"
-              on:click="cart-drawer-component/close"
-              class="button close-button cart-drawer__close-button button-unstyled"
-              aria-label="{{ 'actions.close_dialog' | t }}"
-            >
-              <span class="svg-wrapper">
-                {{- 'icon-close.svg' | inline_asset_content -}}
-              </span>
-            </button>
+            <div class="button-wrapper button-wrapper--button-primary">
+              <button
+                ref="closeButton"
+                on:click="cart-drawer-component/close"
+                class="button close-button cart-drawer__close-button button-unstyled"
+                aria-label="{{ 'actions.close_dialog' | t }}"
+              >
+                <span class="svg-wrapper">
+                  {{- 'icon-close.svg' | inline_asset_content -}}
+                </span>
+              </button>
+            </div>
           </div>
 
           <div
