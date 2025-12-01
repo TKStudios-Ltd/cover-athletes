@@ -665,9 +665,13 @@
     height: clamp(25px, var(--height-buy-buttons), 55px);
     padding-inline: var(--padding-4xl);
     background: #000;
+    transition: background ease .5s;
     font-size: 16px !important;
     font-weight: 400 !important;
     text-transform: capitalize !important;
+  }
+  .cart__ctas .cart__checkout-button:hover {
+    background: linear-gradient(135deg, #44444480, #25252580);
   }
 
   shopify-accelerated-checkout-cart {
