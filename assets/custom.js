@@ -174,9 +174,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!bar || !trigger) return;
 
+  let hasPassedTrigger = false;
+
   const observer = new IntersectionObserver(
     ([entry]) => {
-      if (!entry.isIntersecting) {
+      // First time the trigger leaves viewport after being seen
+      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+        hasPassedTrigger = true;
+      }
+
+      if (hasPassedTrigger) {
         bar.classList.add('is-visible');
       } else {
         bar.classList.remove('is-visible');
