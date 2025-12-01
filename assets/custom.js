@@ -168,34 +168,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Product Sticky Bar */
 
-(() => {
-  const bar = document.querySelector('[data-sticky-bar]');
-  if (!bar) return;
+document.addEventListener('DOMContentLoaded', () => {
+  const stickyBar = document.querySelector('.product-sticky-bar');
+  const trigger = document.getElementById('hotspots');
 
-  const triggerId = bar.dataset.triggerId;
-  const triggerEl = document.getElementById(triggerId);
-  if (!triggerEl) return;
+  if (!stickyBar || !trigger) return;
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      bar.classList.toggle('is-visible', !entry.isIntersecting);
-    },
-    { threshold: 0 }
-  );
+  const triggerOffset = () =>
+    trigger.getBoundingClientRect().top + window.scrollY;
 
-  observer.observe(triggerEl);
+  const updateSticky = () => {
+    const scrollY = window.scrollY;
+    const triggerY = triggerOffset();
 
-  bar.addEventListener('click', (e) => {
-    const target = e.target.closest('[data-scroll-to]');
-    if (target) {
-      const id = target.dataset.scrollTo;
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (scrollY > triggerY) {
+      stickyBar.classList.add('is-visible');
+    } else {
+      stickyBar.classList.remove('is-visible');
     }
+  };
 
-    if (e.target.matches('[data-scroll-to-top]')) {
-      const topEl = document.getElementById(bar.dataset.scrollTopId);
-      if (topEl) topEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-})();
+  updateSticky();
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  window.addEventListener('resize', updateSticky);
+});
+
