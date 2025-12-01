@@ -349,7 +349,7 @@
                   "type": "text",
                   "name": "Heading",
                   "settings": {
-                    "text": "<h4>Evidence-driven</h4>",
+                    "text": "<p><strong>Evidence-driven</strong></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -358,7 +358,7 @@
                     "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
-                    "case": "uppercase",
+                    "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
@@ -447,7 +447,7 @@
                   "type": "text",
                   "name": "Heading",
                   "settings": {
-                    "text": "<h4>We simply love the game</h4>",
+                    "text": "<p><strong>We simply love the game</strong></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -456,7 +456,7 @@
                     "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
-                    "case": "uppercase",
+                    "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
@@ -512,7 +512,9 @@
         "image_t4pGqC",
         "group_UQ6tHD"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "p strong {font-weight: 500 !important;}"
+      ],
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "row",
