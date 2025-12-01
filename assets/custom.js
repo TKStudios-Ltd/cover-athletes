@@ -169,22 +169,25 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Product Sticky Bar */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const stickyBar = document.querySelector('.product-sticky-bar');
+  const bar = document.querySelector('.product-sticky-bar');
   const trigger = document.getElementById('hotspots');
 
-  if (!stickyBar || !trigger) return;
+  if (!bar || !trigger) return;
+
+  const OFFSET = 120; // px BEFORE hotspots enter view
 
   const observer = new IntersectionObserver(
     ([entry]) => {
-      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-        stickyBar.classList.add('is-visible');
+      if (!entry.isIntersecting && entry.boundingClientRect.top < OFFSET) {
+        bar.classList.add('is-visible');
       } else {
-        stickyBar.classList.remove('is-visible');
+        bar.classList.remove('is-visible');
       }
     },
     {
       root: null,
-      threshold: 0
+      threshold: 0,
+      rootMargin: `-${OFFSET}px 0px 0px 0px`
     }
   );
 
