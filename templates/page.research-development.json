@@ -2460,7 +2460,7 @@
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1080px;}",
         "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}",
-        ".user-select-text p {font-weight: 600;}",
+        ".user-select-text p {font-weight: 500;}",
         ".product-card__content .group-block,.product-card__content product-price {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
       ],
       "name": "t:names.products_grid",
