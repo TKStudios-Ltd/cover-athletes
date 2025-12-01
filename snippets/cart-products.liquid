@@ -267,7 +267,7 @@
                   %}
 
                   <button
-                    class="button button--tertiary cart-items__remove"
+                    class="button button--secondary cart-items__remove"
                     type="button"
                     aria-label="{{ 'accessibility.remove_item' | t: title: item.title | escape }}"
                     on:click="/onLineItemRemove/{{ item.index | plus: 1 }}"
