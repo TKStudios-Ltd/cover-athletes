@@ -4645,8 +4645,13 @@ footer .menu__item.paragraph {
 .size-guide-link {
   position: absolute;
   right: 20px;
-  bottom: 175px;
+  bottom: 82px;
   font-size: 12px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.25px;
+  text-decoration: underline;
   text-underline-offset: 3px;
+  color: rgba(255,255,255,0.5);
+}
+.size-guide-link:hover {
+  color: rgba(255,255,255,1);
 }
