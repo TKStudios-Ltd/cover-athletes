@@ -344,6 +344,17 @@
         "padding-block-end": 0
       }
     },
+    "custom_liquid_fXtKLd": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"sticky-bar-trigger\"></div>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "section_mU68Pb": {
       "type": "section",
       "blocks": {
@@ -408,17 +419,6 @@
         "gradient_direction": "to top",
         "padding-block-start": 50,
         "padding-block-end": 60
-      }
-    },
-    "custom_liquid_fXtKLd": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "<div id=\"sticky-bar-trigger\"></div>",
-        "color_scheme": "",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
       }
     },
     "section_QeCUqq": {
@@ -3031,8 +3031,8 @@
   },
   "order": [
     "main",
-    "section_mU68Pb",
     "custom_liquid_fXtKLd",
+    "section_mU68Pb",
     "section_QeCUqq",
     "product_sticky_bar_NtcGAb",
     "specs_hotspots_EpDANH",
