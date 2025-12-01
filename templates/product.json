@@ -1664,8 +1664,8 @@
         "hotspot_JmxJWP": {
           "type": "hotspot",
           "settings": {
-            "title": "DUAL LAYER MATERIAL SHELL FOAM",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "title": "High performance aluminium",
+            "text": "Our aluminium is specially formulated to resist denting, ensuring everything inside the box is kept safe! Our aluminium also has a high toughness (meaning it can take a real beating before it breaks). To our knowledge, no other box on the market uses an aluminium shell.",
             "pos_x": 45,
             "pos_y": 32,
             "placement": "top-left"
@@ -1674,8 +1674,8 @@
         "hotspot_kUHwqk": {
           "type": "hotspot",
           "settings": {
-            "title": "DIECASTED MOULDS",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "title": "Flattened edges",
+            "text": "Most boxes on the market have a relatively thin, sharp edge on the hard part. During an impact, this thin and sharp edge concentrates the impact into a smaller area, making it hurt more! We use a large, flanged edge on the rigid component of our box, spreading the load and making sure impacts hurt a lot less - keeping you in the zone.",
             "pos_x": 65,
             "pos_y": 32,
             "placement": "top-right"
@@ -1684,8 +1684,8 @@
         "hotspot_mqBApf": {
           "type": "hotspot",
           "settings": {
-            "title": "HIGH PRESSURE DIECASTING",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 150 km/hr varius enim in eros elementum tristique.",
+            "title": "Shock absorbing dual foam",
+            "text": "We use two separate layers of foam, one harder and one softer, which our R&D has shown improves player comfort (both in normal use, and during impacts). Both foams are an advanced polyurethane compound for improved shock absorption compared to typical foams used in sports gear.",
             "pos_x": 35,
             "pos_y": 70,
             "placement": "bottom-left"
