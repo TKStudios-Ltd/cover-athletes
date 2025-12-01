@@ -170,29 +170,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const bar = document.querySelector('.product-sticky-bar');
-  const trigger = document.getElementById('hotspots');
+  const trigger = document.getElementById('sticky-bar-trigger');
 
   if (!bar || !trigger) return;
 
-  const OFFSET = 120; // px BEFORE hotspots enter view
-
   const observer = new IntersectionObserver(
     ([entry]) => {
-      if (!entry.isIntersecting && entry.boundingClientRect.top < OFFSET) {
+      if (!entry.isIntersecting) {
         bar.classList.add('is-visible');
       } else {
         bar.classList.remove('is-visible');
       }
     },
     {
-      root: null,
-      threshold: 0,
-      rootMargin: `-${OFFSET}px 0px 0px 0px`
+      threshold: 0
     }
   );
 
   observer.observe(trigger);
 });
+
 
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('[data-scroll-to-top]');
