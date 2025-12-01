@@ -271,6 +271,14 @@
               },
               "blocks": {}
             },
+            "custom_liquid_7VX7rL": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<a class=\"size-guide-link\" href=\"#\">Size Guide</a>"
+              },
+              "blocks": {}
+            },
             "divider_hze6jf": {
               "type": "_divider",
               "name": "t:names.divider",
@@ -324,6 +332,7 @@
             "group",
             "divider",
             "variant_picker",
+            "custom_liquid_7VX7rL",
             "divider_hze6jf",
             "buy_buttons"
           ]
