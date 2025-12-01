@@ -9,38 +9,40 @@
   data-trigger-id="hotspots"
   data-scroll-top-id="MainContent"
 >
-  <div class="product-sticky-bar__inner page-width">
-    <div class="product-sticky-bar__left">
-      <span class="product-sticky-bar__title">
-        {{ product_obj.title }}
-      </span>
-    </div>
+<div class="button-wrapper button-wrapper--button-secondary">
+    <div class="product-sticky-bar__inner button button-secondary">
+        <div class="product-sticky-bar__left">
+        <span class="product-sticky-bar__title">
+            {{ product_obj.title }}
+        </span>
+        </div>
 
-    <nav class="product-sticky-bar__center">
-      {% for block in section.blocks %}
-        {% if block.type == 'anchor' %}
-          <button
-            type="button"
-            class="product-sticky-bar__link"
-            data-scroll-to="{{ block.settings.anchor_id }}"
-          >
-            {{ block.settings.label }}
-          </button>
-        {% endif %}
-      {% endfor %}
-    </nav>
+        <nav class="product-sticky-bar__center">
+        {% for block in section.blocks %}
+            {% if block.type == 'anchor' %}
+            <button
+                type="button"
+                class="product-sticky-bar__link"
+                data-scroll-to="{{ block.settings.anchor_id }}"
+            >
+                {{ block.settings.label }}
+            </button>
+            {% endif %}
+        {% endfor %}
+        </nav>
 
-    <div class="product-sticky-bar__right">
-      <span
-        class="product-sticky-bar__price"
-        data-sticky-price
-      >
-        {{ product_obj.selected_or_first_available_variant.price | money }}
-      </span>
+        <div class="product-sticky-bar__right">
+        <span
+            class="product-sticky-bar__price"
+            data-sticky-price
+        >
+            {{ product_obj.selected_or_first_available_variant.price | money }}
+        </span>
 
-        <button class="sticky-bar__cta" data-scroll-to-top>
-            Shop now
-        </button>
+            <button class="sticky-bar__cta" data-scroll-to-top>
+                Shop now
+            </button>
+        </div>
     </div>
   </div>
 </div>
