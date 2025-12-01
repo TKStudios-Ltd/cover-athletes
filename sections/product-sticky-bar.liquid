@@ -22,7 +22,7 @@
             {% if block.type == 'anchor' %}
             <button
                 type="button"
-                class="button product-sticky-bar__link"
+                class="product-sticky-bar__link"
                 data-scroll-to="{{ block.settings.anchor_id }}"
             >
                 {{ block.settings.label }}
@@ -39,7 +39,7 @@
             {{ product_obj.selected_or_first_available_variant.price | money }}
         </span>
 
-            <button class="sticky-bar__cta" data-scroll-to-top>
+            <button class="button sticky-bar__cta" data-scroll-to-top>
                 Shop now
             </button>
         </div>
@@ -101,9 +101,6 @@
   background: none;
   border: none;
   padding: 0;
-  font-size: 13px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
   opacity: .6;
   cursor: pointer;
 }
