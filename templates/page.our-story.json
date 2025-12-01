@@ -1289,7 +1289,7 @@
         "text_8G4D4j"
       ],
       "custom_css": [
-        "@media (max-width: 749px) {h3 {font-size: 24px; }}"
+        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
