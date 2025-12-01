@@ -194,4 +194,18 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(trigger);
 });
 
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-scroll-to-top]');
+  if (!btn) return;
+
+  e.preventDefault();
+
+  const target = document.getElementById('MainContent');
+  if (!target) return;
+
+  target.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+});
 
