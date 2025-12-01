@@ -1289,7 +1289,7 @@
         "text_8G4D4j"
       ],
       "custom_css": [
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {h3 {font-size: 24px; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -1553,6 +1553,9 @@
         "custom_liquid_BPTNXy",
         "text_KqnkPe",
         "group_Khp96z"
+      ],
+      "custom_css": [
+        "@media (max-width: 749px) {h1 {font-size: 36px; max-width: 300px; }}"
       ],
       "name": "t:names.hero",
       "settings": {
