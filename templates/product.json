@@ -1583,6 +1583,42 @@
         "padding-block-end": 100
       }
     },
+    "product_sticky_bar_NtcGAb": {
+      "type": "product-sticky-bar",
+      "blocks": {
+        "anchor_pmiCpF": {
+          "type": "anchor",
+          "settings": {
+            "label": "Specs",
+            "anchor_id": "specs"
+          }
+        },
+        "anchor_RdftKh": {
+          "type": "anchor",
+          "settings": {
+            "label": "Specs",
+            "anchor_id": "specs"
+          }
+        },
+        "anchor_AW7NcG": {
+          "type": "anchor",
+          "settings": {
+            "label": "Specs",
+            "anchor_id": "specs"
+          }
+        }
+      },
+      "block_order": [
+        "anchor_pmiCpF",
+        "anchor_RdftKh",
+        "anchor_AW7NcG"
+      ],
+      "name": "Product sticky bar",
+      "settings": {
+        "cta_label": "Shop now",
+        "color_scheme": ""
+      }
+    },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
       "blocks": {
@@ -2986,6 +3022,7 @@
     "main",
     "section_mU68Pb",
     "section_QeCUqq",
+    "product_sticky_bar_NtcGAb",
     "specs_hotspots_EpDANH",
     "section_BGcdyU",
     "section_iDCnx6",
