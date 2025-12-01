@@ -174,22 +174,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!stickyBar || !trigger) return;
 
-  const triggerOffset = () =>
-    trigger.getBoundingClientRect().top + window.scrollY;
-
-  const updateSticky = () => {
-    const scrollY = window.scrollY;
-    const triggerY = triggerOffset();
-
-    if (scrollY > triggerY) {
-      stickyBar.classList.add('is-visible');
-    } else {
-      stickyBar.classList.remove('is-visible');
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+        stickyBar.classList.add('is-visible');
+      } else {
+        stickyBar.classList.remove('is-visible');
+      }
+    },
+    {
+      root: null,
+      threshold: 0
     }
-  };
+  );
 
-  updateSticky();
-  window.addEventListener('scroll', updateSticky, { passive: true });
-  window.addEventListener('resize', updateSticky);
+  observer.observe(trigger);
 });
+
 
