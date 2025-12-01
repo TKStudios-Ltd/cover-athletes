@@ -168,33 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Product Sticky Bar */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const bar = document.querySelector('.product-sticky-bar');
-  const trigger = document.getElementById('sticky-bar-trigger');
+document.addEventListener("DOMContentLoaded", () => {
+  const bar = document.querySelector(".product-sticky-bar");
+  const trigger = document.getElementById("sticky-bar-trigger");
 
   if (!bar || !trigger) return;
 
-  let hasPassedTrigger = false;
+  function updateBar() {
+    const triggerTop = trigger.getBoundingClientRect().top;
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      // First time the trigger leaves viewport after being seen
-      if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-        hasPassedTrigger = true;
-      }
-
-      if (hasPassedTrigger) {
-        bar.classList.add('is-visible');
-      } else {
-        bar.classList.remove('is-visible');
-      }
-    },
-    {
-      threshold: 0
+    // Scrolled past trigger (trigger above viewport)
+    if (triggerTop <= 0) {
+      bar.classList.add("is-visible");
+    } else {
+      bar.classList.remove("is-visible");
     }
-  );
+  }
 
-  observer.observe(trigger);
+  window.addEventListener("scroll", updateBar, { passive: true });
+  updateBar(); // run once
 });
 
 
