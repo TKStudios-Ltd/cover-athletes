@@ -349,7 +349,7 @@
                   "type": "text",
                   "name": "Heading",
                   "settings": {
-                    "text": "<p><strong>Evidence-driven</strong></p>",
+                    "text": "<p><strong>Where it started</strong></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
