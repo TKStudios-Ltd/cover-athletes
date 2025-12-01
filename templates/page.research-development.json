@@ -2049,7 +2049,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "Explore All",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/shop-all",
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
