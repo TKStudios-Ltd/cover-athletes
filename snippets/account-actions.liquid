@@ -36,7 +36,7 @@
           {{ shop | login_button }}
         </account-login-actions>
 
-        <div class="button-wrapper">
+        <div class="button-wrapper button-wrapper--button">
         <a
           href="{% if request.design_mode %}{{ routes.account_url }}{% else %}{{ routes.storefront_login_url }}{% endif %}"
           class="account-actions__link button"
