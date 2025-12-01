@@ -45,7 +45,7 @@
       >
         {%- if cart.empty? -%}
           <div class="cart-drawer__header">
-            <div class="button-wrapper button-wrapper--button-primary">
+            <div class="button-wrapper button-wrapper--button">
               <button
                 ref="closeButton"
                 on:click="cart-drawer-component/close"
@@ -87,7 +87,7 @@
               {% render 'cart-bubble' %}
             </h3>
 
-            <div class="button-wrapper button-wrapper--button-primary">
+            <div class="button-wrapper button-wrapper--button">
               <button
                 ref="closeButton"
                 on:click="cart-drawer-component/close"
