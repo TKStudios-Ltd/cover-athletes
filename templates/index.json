@@ -392,7 +392,7 @@
               "type": "button",
               "settings": {
                 "label": "Learn More",
-                "link": "shopify://collections/all",
+                "link": "shopify://pages/research-development",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
                 "width": "fit-content",
@@ -561,7 +561,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Explore",
-            "link": "shopify://collections/all",
+            "link": "shopify://products/cover-guard-1-0",
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
