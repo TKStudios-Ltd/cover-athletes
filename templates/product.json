@@ -275,7 +275,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<a class=\"size-guide-link\" href=\"#\">Size Guide</a>"
+                "custom_liquid": "<div class=\"size-guide-link-wrapper\"><a class=\"size-guide-link\" href=\"#\">Size Guide</a></div>"
               },
               "blocks": {}
             },
