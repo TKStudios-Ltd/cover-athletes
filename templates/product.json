@@ -344,42 +344,6 @@
         "padding-block-end": 0
       }
     },
-    "product_sticky_bar_NtcGAb": {
-      "type": "product-sticky-bar",
-      "blocks": {
-        "anchor_pmiCpF": {
-          "type": "anchor",
-          "settings": {
-            "label": "Specs",
-            "anchor_id": "specs"
-          }
-        },
-        "anchor_RdftKh": {
-          "type": "anchor",
-          "settings": {
-            "label": "Specs",
-            "anchor_id": "specs"
-          }
-        },
-        "anchor_AW7NcG": {
-          "type": "anchor",
-          "settings": {
-            "label": "Specs",
-            "anchor_id": "specs"
-          }
-        }
-      },
-      "block_order": [
-        "anchor_pmiCpF",
-        "anchor_RdftKh",
-        "anchor_AW7NcG"
-      ],
-      "name": "Product sticky bar",
-      "settings": {
-        "cta_label": "Shop now",
-        "color_scheme": ""
-      }
-    },
     "section_mU68Pb": {
       "type": "section",
       "blocks": {
@@ -444,6 +408,17 @@
         "gradient_direction": "to top",
         "padding-block-start": 50,
         "padding-block-end": 60
+      }
+    },
+    "custom_liquid_fXtKLd": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"sticky-bar-trigger\"></div>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_QeCUqq": {
@@ -1619,15 +1594,40 @@
         "padding-block-end": 100
       }
     },
-    "custom_liquid_fXtKLd": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
+    "product_sticky_bar_NtcGAb": {
+      "type": "product-sticky-bar",
+      "blocks": {
+        "anchor_pmiCpF": {
+          "type": "anchor",
+          "settings": {
+            "label": "Specs",
+            "anchor_id": "specs"
+          }
+        },
+        "anchor_RdftKh": {
+          "type": "anchor",
+          "settings": {
+            "label": "Specs",
+            "anchor_id": "specs"
+          }
+        },
+        "anchor_AW7NcG": {
+          "type": "anchor",
+          "settings": {
+            "label": "Specs",
+            "anchor_id": "specs"
+          }
+        }
+      },
+      "block_order": [
+        "anchor_pmiCpF",
+        "anchor_RdftKh",
+        "anchor_AW7NcG"
+      ],
+      "name": "Product sticky bar",
       "settings": {
-        "custom_liquid": "<div id=\"sticky-bar-trigger\"></div>",
-        "color_scheme": "",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "cta_label": "Shop now",
+        "color_scheme": ""
       }
     },
     "specs_hotspots_EpDANH": {
@@ -3032,8 +3032,8 @@
   "order": [
     "main",
     "section_mU68Pb",
-    "section_QeCUqq",
     "custom_liquid_fXtKLd",
+    "section_QeCUqq",
     "product_sticky_bar_NtcGAb",
     "specs_hotspots_EpDANH",
     "section_BGcdyU",
