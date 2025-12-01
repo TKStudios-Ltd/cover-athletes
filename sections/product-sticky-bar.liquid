@@ -49,22 +49,16 @@
 {% stylesheet %}
 .product-sticky-bar {
   position: fixed;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   z-index: 50;
-
   transform: translateY(100%);
-  opacity: 0;
-  pointer-events: none;
-
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .product-sticky-bar.is-visible {
   transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .product-sticky-bar__inner {
