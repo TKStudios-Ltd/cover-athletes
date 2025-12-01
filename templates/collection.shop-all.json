@@ -702,7 +702,7 @@
         }
       },
       "custom_css": [
-        ".user-select-text p {font-weight: 600;}",
+        ".user-select-text p {font-weight: 500;}",
         ".product-card__content .group-block--width-fill,.product-card__content product-price {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
       ],
       "settings": {
