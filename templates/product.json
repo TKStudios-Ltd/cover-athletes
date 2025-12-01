@@ -1619,6 +1619,17 @@
         "padding-block-end": 100
       }
     },
+    "custom_liquid_fXtKLd": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"sticky-bar-trigger\"></div>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "specs_hotspots_EpDANH": {
       "type": "specs-hotspots",
       "blocks": {
@@ -3020,9 +3031,10 @@
   },
   "order": [
     "main",
-    "product_sticky_bar_NtcGAb",
     "section_mU68Pb",
     "section_QeCUqq",
+    "custom_liquid_fXtKLd",
+    "product_sticky_bar_NtcGAb",
     "specs_hotspots_EpDANH",
     "section_BGcdyU",
     "section_iDCnx6",
