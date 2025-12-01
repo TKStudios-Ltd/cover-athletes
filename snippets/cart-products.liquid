@@ -20,12 +20,14 @@
       </p>
     {%- endif -%}
 
-    <a
-      class="button cart-items__empty-button"
-      href="{{ settings.empty_cart_button_link | default: routes.all_products_collection_url }}"
-    >
-      {{ 'actions.continue_shopping' | t }}
-    </a>
+    <div class="button-wrapper button-wrapper--button-secondary">
+      <a
+        class="button button-secondary cart-items__empty-button"
+        href="{{ settings.empty_cart_button_link | default: routes.all_products_collection_url }}"
+      >
+        {{ 'actions.continue_shopping' | t }}
+      </a>
+    </div>
   {%- else -%}
     <span
       class="visually-hidden"
