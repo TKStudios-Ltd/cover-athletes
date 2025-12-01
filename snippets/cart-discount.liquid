@@ -54,12 +54,14 @@
             placeholder="{{ 'content.discount_code' | t }}"
             required
           >
-          <button
-            type="submit"
-            class="button button--primary cart-discount__button"
-          >
-            {{ 'actions.apply' | t }}
-          </button>
+          <div class="button-wrapper button-wrapper--button-secondary">
+            <button
+              type="submit"
+              class="button button-secondary cart-discount__button"
+            >
+              {{ 'actions.apply' | t }}
+            </button>
+          </div>
         </form>
       </div>
       <div
