@@ -566,7 +566,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Add dynamic source once confirmed</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.sku.value }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -664,7 +664,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Baseball, Cricket, Field Hockey, Ice Hockey, Lacrosse</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.sport.value }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -860,7 +860,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Die cast aluminium shell + dual-layer viscoelastic PU foam</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.material_composition.value }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -958,7 +958,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Architectural-grade powder coating for long term aesthetics and corrosion resistance</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.finish.value }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
