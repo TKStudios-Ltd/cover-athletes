@@ -993,7 +993,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<p class=\"counter_text\"><span\n  class=\"count-up\"\n  data-target=\"60\"\n  data-duration=\"3000\"\n>\n  0\n</span>+</p>"
+                "custom_liquid": "<p class=\"counter_text\"><span\n  class=\"count-up\"\n  data-target=\"25\"\n  data-duration=\"3000\"\n>\n  0\n</span>+</p>"
               },
               "blocks": {}
             }
@@ -1087,7 +1087,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Area of</p>",
+                    "text": "<p>Product</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1113,7 +1113,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>lab testing</p>",
+                    "text": "<p>survival speed</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1145,7 +1145,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<p class=\"counter_text\"><span\n  class=\"count-up\"\n  data-target=\"750\"\n  data-duration=\"3000\"\n>\n  0\n</span>m<sup>2</sup></p>"
+                "custom_liquid": "<p class=\"counter_text\"><span\n  class=\"count-up\"\n  data-target=\"300\"\n  data-duration=\"3000\"\n>\n  0\n</span>km/hr</p>"
               },
               "blocks": {}
             }
