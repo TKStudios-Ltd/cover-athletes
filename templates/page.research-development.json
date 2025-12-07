@@ -1858,7 +1858,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>Exploration of recyclable and sustainable alternatives</p>",
+                "text": "<p>Exploration of recyclable and sustainable alternatives.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1942,7 +1942,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>Exploration of recyclable and sustainable alternatives</p>",
+                "text": "<p>Exploration of recyclable and sustainable alternatives.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
