@@ -75,7 +75,7 @@
       </div>
 
       <!-- Role -->
-      <div class="field">
+      {% comment %} <div class="field">
         <label class="visually-hidden" for="{{ form_id }}-role">Role</label>
         <input
           type="text"
@@ -84,10 +84,10 @@
           name="contact[Role]"
           placeholder="Role"
         >
-      </div>
+      </div> {% endcomment %}
 
       <!-- Two-up row: Type of Player + Quantity -->
-      <div class="field field--two">
+      {% comment %} <div class="field field--two">
         <div class="field__half">
           <label class="visually-hidden" for="{{ form_id }}-player-type">Type of Player</label>
           <input
@@ -111,7 +111,7 @@
             placeholder="Quantity"
           >
         </div>
-      </div>
+      </div> {% endcomment %}
 
       <!-- Mobile Ph Number -->
       <div class="field">

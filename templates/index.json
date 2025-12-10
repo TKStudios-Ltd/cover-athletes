@@ -414,6 +414,7 @@
         "image_MkcYqE",
         "group_jidMrT"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 1200px) {.section-content-wrapper {max-width: 1200px; margin: auto; padding: 140px 25px; gap: 100px; }}",
         "h4 {font-family: \"Graphik\", sans-serif !important; font-weight: 400 !important;}",
