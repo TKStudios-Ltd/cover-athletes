@@ -9,10 +9,10 @@
  */
 {
   "sections": {
-    "section_Fh7TFQ": {
-      "type": "section",
+    "hero_kYGXkQ": {
+      "type": "hero",
       "blocks": {
-        "text_8dpxQ9": {
+        "text_Rp3PUp": {
           "type": "text",
           "name": "t:names.heading",
           "settings": {
@@ -38,7 +38,7 @@
           },
           "blocks": {}
         },
-        "image_gJEGzJ": {
+        "image_qaXLyX": {
           "type": "image",
           "name": "t:names.image",
           "settings": {
@@ -63,9 +63,47 @@
         }
       },
       "block_order": [
-        "text_8dpxQ9",
-        "image_gJEGzJ"
+        "text_Rp3PUp",
+        "image_qaXLyX"
       ],
+      "custom_css": [
+        ".layout-panel-flex {min-height: calc(100vh - 80px); justify-content: flex-end; padding-left: 25px !important; padding-right: 25px !important;}",
+        "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important; max-width: 1440px;}",
+        "h1 strong {font-weight: 300 !important; color: #3a3a3a;}",
+        "@media (max-width: 749px) {h1 {font-size: 36px; }}"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "video",
+        "video_1": "shopify://files/videos/Cover_Box_3D_Animation_MASTER.mp4",
+        "media_type_2": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-5",
+        "toggle_overlay": true,
+        "overlay_color": "#00000062",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 100,
+        "padding-block-end": 20
+      }
+    },
+    "section_Fh7TFQ": {
+      "type": "section",
+      "disabled": true,
       "custom_css": [
         ".layout-panel-flex {min-height: calc(100vh - 80px); justify-content: flex-end; padding-left: 25px !important; padding-right: 25px !important;}",
         "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important; max-width: 1440px;}",
@@ -1418,6 +1456,7 @@
     }
   },
   "order": [
+    "hero_kYGXkQ",
     "section_Fh7TFQ",
     "divider_WzRxcE",
     "image_tabs_FnFLrf",
