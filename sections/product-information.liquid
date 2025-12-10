@@ -279,36 +279,26 @@
 }
 
 @media (max-width: 749px) {
-  body.template-product {
-    overflow: hidden;
-  }
-  .product-information {
-    height: 100vh;
-    overflow: hidden;
-  }
-  .product-information__media.has-custom-horizontal-gallery {
-    height: 100vh !important;
-    max-height: 100vh;
-    overflow: hidden;
-  }
   .custom-horizontal-gallery {
     flex-direction: column;
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: auto;
     height: 100vh;
     -webkit-overflow-scrolling: touch;
   }
+
   .gallery-item {
     width: 100%;
-    flex: 0 0 auto;
+    height: auto;
   }
+
   .gallery-item img {
     width: 100%;
     height: auto;
     max-height: none;
-    display: block;
   }
 }
+
 
 /* ======================================
    RITUAL GRID BEHAVIOUR (UNCHANGED)
