@@ -25,6 +25,7 @@ body {
 
 html {
   /* Firefox */
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40)) var(--color-background);
   scroll-behavior: smooth;
@@ -4645,7 +4646,7 @@ footer .menu__item.paragraph {
 .size-guide-link {
   position: absolute;
   right: 20px;
-  bottom: 84px;
+  bottom: 85px;
   font-size: 12px;
   letter-spacing: 0.25px;
   text-decoration: underline;
