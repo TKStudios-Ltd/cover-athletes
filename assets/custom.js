@@ -226,3 +226,29 @@ document.addEventListener('click', (e) => {
   });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth > 749) return;
+  const gallery = document.querySelector('.custom-horizontal-gallery');
+  if (!gallery) return;
+  function lockScroll() {
+    document.body.style.overflow = 'hidden';
+  }
+  function unlockScroll() {
+    document.body.style.overflow = '';
+  }
+  function onScroll() {
+    const rect = gallery.getBoundingClientRect();
+
+    const galleryTopVisible = rect.top <= 0;
+    const galleryBottomVisible = rect.bottom > window.innerHeight;
+
+    if (galleryTopVisible && galleryBottomVisible) {
+      lockScroll();
+    } else {
+      unlockScroll();
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+});
