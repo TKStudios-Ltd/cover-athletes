@@ -552,7 +552,7 @@
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h4>Lorem ipsum dolor</h4>",
+                "text": "<h4>PROVEN-PERFORMANCE</h4>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -578,7 +578,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>We're always on your side: keeping our loyal customers happy is our top priority and number one goal.</p>",
+                "text": "<p>We obsess over the details and strive to deliver the best products at the best prices, every time.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
