@@ -153,24 +153,20 @@
   max-height: 100vh;
   overflow: visible;
 }
-
 @media (max-width: 749px) {
   .product-information__media.has-custom-horizontal-gallery {
-    height: auto !important;
+    height: 100vh !important;
   }
-
   .product-details {
     width: 100vw !important;
     padding: 0px 35px 25px 25px !important;
   }
 }
-
 @media (min-width: 1200px) {
   .product-information__media.has-custom-horizontal-gallery {
     height: calc(100vw - 480px);
   }
 }
-
 .custom-horizontal-gallery-wrapper {
   position: absolute;
   top: 0;
@@ -181,6 +177,7 @@
   pointer-events: auto;
 }
 
+/* Hide ALL native Ritual media output */
 .product-information__media.has-custom-horizontal-gallery
   > :not(.custom-horizontal-gallery-wrapper) {
   position: absolute !important;
@@ -190,7 +187,7 @@
 }
 
 /* ======================================
-   HORIZONTAL / VERTICAL SCROLL CONTAINER
+   HORIZONTAL SCROLL CONTAINER
    ====================================== */
 
 .custom-horizontal-gallery {
@@ -204,22 +201,16 @@
   scroll-snap-type: none;
   scrollbar-width: none;
 }
+@media (max-width: 749px) {
+  .custom-horizontal-gallery {
+    flex-direction: column;
+  }
+}
 
 .custom-horizontal-gallery::-webkit-scrollbar {
   width: 0;
   height: 0;
   display: none;
-}
-
-/* MOBILE = VERTICAL SWIPE */
-@media (max-width: 749px) {
-  .custom-horizontal-gallery {
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: auto;
-    max-height: none;
-  }
 }
 
 /* ======================================
@@ -240,16 +231,12 @@
   display: block;
   pointer-events: none;
 }
-
 @media (max-width: 749px) {
   .gallery-item,
   .gallery-item img {
-    width: 100%;
-    height: auto !important;
-    max-height: none;
+    height: 100vw !important;
   }
 }
-
 @media (min-width: 1200px) {
   .gallery-item img {
     height: calc(100vw - 480px);
@@ -257,7 +244,7 @@
 }
 
 /* ======================================
-   CURSOR
+   CURSOR (MATCH WORKING SECTION)
    ====================================== */
 
 .custom-horizontal-gallery,
@@ -274,10 +261,12 @@
    ALLOW CURSOR TO PASS THROUGH DETAILS
    ====================================== */
 
+/* Let pointer events reach gallery underneath */
 .product-details {
   pointer-events: none;
 }
 
+/* Re-enable interaction inside details */
 .product-details * {
   pointer-events: auto;
 }
@@ -291,8 +280,6 @@
     padding-bottom: 0;
   }
 }
-
-
 
 /* ======================================
    RITUAL GRID BEHAVIOUR (UNCHANGED)
