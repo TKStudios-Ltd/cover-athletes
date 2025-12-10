@@ -2018,7 +2018,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/glenn-phillips-KKKWRPWZBFBKNJT6EJ5TVFYXLA_1.jpg",
-            "quote": "<p>\"My experience with getting hit has resulted in a fair bit of pain over the years ... It can truly effect what it is that you are supposed to be doing\"</p>",
+            "quote": "\"My experience with getting hit has resulted in a fair bit of pain over the years ... It can truly effect what it is that you are supposed to be doing\"",
             "person_name": "Kane Williamson",
             "person_title": "NZ International Cricketer"
           }
@@ -2169,7 +2169,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>Discover our range of award winning sports gears and protective equipments.</h3>",
+                "text": "<h3>Discover our range of sports gears and protective equipments.</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -2518,7 +2518,7 @@
         "group_7PFBw9"
       ],
       "custom_css": [
-        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1080px;}",
+        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 850px;}",
         "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}",
         ".user-select-text p {font-weight: 500;}",
         ".product-card__content .group-block,.product-card__content product-price {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
