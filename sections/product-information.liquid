@@ -279,25 +279,41 @@
 }
 
 @media (max-width: 749px) {
+
+  .product-information__media.has-custom-horizontal-gallery {
+    height: auto !important;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .custom-horizontal-gallery-wrapper {
+    position: relative;
+    height: auto;
+  }
+
   .custom-horizontal-gallery {
     flex-direction: column;
-    overflow-x: hidden;
     overflow-y: auto;
-    height: 100vh;
+    overflow-x: hidden;
+    height: auto;
+    max-height: 100vh;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: auto;
   }
 
   .gallery-item {
     width: 100%;
-    height: auto;
+    flex: 0 0 auto;
   }
 
   .gallery-item img {
     width: 100%;
-    height: auto;
+    height: auto !important;
     max-height: none;
   }
+
 }
+
 
 
 /* ======================================
