@@ -390,18 +390,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "icon_MPMx66": {
-              "type": "icon",
-              "name": "t:names.icon",
-              "settings": {
-                "icon": "price_tag",
-                "image_upload": "shopify://shop_images/CBC.png",
-                "width": 50,
-                "link": "",
-                "open_in_new_tab": false
-              },
-              "blocks": {}
-            },
             "group_bztzL7": {
               "type": "group",
               "name": "t:names.group",
@@ -556,7 +544,6 @@
             }
           },
           "block_order": [
-            "icon_MPMx66",
             "group_bztzL7"
           ]
         }
