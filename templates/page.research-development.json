@@ -284,7 +284,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>We're always on your side: keeping our loyal customers happy is our top priority and number one goal.</p>",
+                "text": "<p>We take a data-led approach to all our decision making to ensure our products perform at the highest level.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -480,7 +480,7 @@
               "type": "text",
               "name": "Description",
               "settings": {
-                "text": "<p>We're always on your side: keeping our loyal customers happy is our top priority and number one goal.</p>",
+                "text": "<p>We create with intention. Our products solve real problems with clean design and honest materials.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
