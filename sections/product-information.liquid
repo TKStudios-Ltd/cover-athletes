@@ -201,6 +201,11 @@
   scroll-snap-type: none;
   scrollbar-width: none;
 }
+@media (max-width: 749px) {
+  .custom-horizontal-gallery {
+    flex-direction: column;
+  }
+}
 
 .custom-horizontal-gallery::-webkit-scrollbar {
   width: 0;
@@ -226,9 +231,10 @@
   display: block;
   pointer-events: none;
 }
-@media (max-width: 759px) {
+@media (max-width: 749px) {
+  .gallery-item {
   .gallery-item img {
-    height: 70vw !important;
+    height: 100vw !important;
   }
 }
 @media (min-width: 1200px) {
