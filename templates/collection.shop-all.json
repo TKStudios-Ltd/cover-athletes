@@ -124,7 +124,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>Meet our multi-award winning Coverbox 1.0. With unique, market leading functionality and a <strong>design that protects your from high speed deliveries with comfort.</strong></h3>",
+            "text": "<h3>Meet our Coverbox 1.0. With unique, market leading functionality and a <strong>design that protects your from high speed deliveries with comfort.</strong></h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
