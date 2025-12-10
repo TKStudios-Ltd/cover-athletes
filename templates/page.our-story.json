@@ -1731,7 +1731,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h4>Simon Stanley HARRIS</h4>",
+                "text": "<h4>Kane Williamson</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1863,7 +1863,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Cheif Executive Officer</p>",
+                        "text": "<p>Founder</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1961,7 +1961,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Design & Engineering</p>",
+                        "text": "<p>Management</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -2167,7 +2167,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h4>Simon Stanley HARRIS</h4>",
+                "text": "<h4>Ben MacLaren</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -2299,7 +2299,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Cheif Executive Officer</p>",
+                        "text": "<p>Product Lead</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -2603,7 +2603,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h4>Simon Stanley HARRIS</h4>",
+                "text": "<h4>Grant Elliott</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -2735,7 +2735,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Cheif Executive Officer</p>",
+                        "text": "<p>Commercial Lead</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -2833,7 +2833,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Design & Engineering</p>",
+                        "text": "<p>Marketing</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -3009,7 +3009,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 25,
-        "padding-block-end": 0
+        "padding-block-end": 50
       }
     },
     "section_nUHif3": {
@@ -4329,6 +4329,7 @@
         "group_q7HtKW",
         "group_f6643y"
       ],
+      "disabled": true,
       "custom_css": [
         ".layout-panel-flex--column .layout-panel-flex--column {border-top: rgba(0, 0, 0, 0.4) 1px solid;}",
         ".layout-panel-flex--row {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
