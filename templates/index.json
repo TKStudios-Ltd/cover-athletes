@@ -238,7 +238,7 @@
           "type": "tab",
           "settings": {
             "title": "The Problem",
-            "video": "shopify://files/videos/2539558-hd_1920_1080_24fps.mp4",
+            "video": "shopify://files/videos/Cover_Problem.mp4",
             "caption_title": "The Problem",
             "caption": "<p>Cricket protective equipment has remained virtually unchanged for decades. Professionals and amateurs still regularly sustain career-threatening and career-ending injuries. Poorly designed equipment diminishes performance, compromises safety, and enjoyment. When athletes feel unsafe or unprotected, they can’t play with freedom to perform at their peak.</p>",
             "default_active": false
@@ -258,7 +258,7 @@
           "type": "tab",
           "settings": {
             "title": "The Solution",
-            "image": "shopify://shop_images/5af6aaddef8632d08733c14df78ecf4af8afdac5.png",
+            "video": "shopify://files/videos/Cover_Solution.mp4",
             "caption_title": "The Solution",
             "caption": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
             "default_active": false
