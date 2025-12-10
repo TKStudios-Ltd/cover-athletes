@@ -67,7 +67,9 @@
         "image_qaXLyX"
       ],
       "custom_css": [
-        ".layout-panel-flex {min-height: calc(100vh - 80px); justify-content: flex-end; padding-left: 25px !important; padding-right: 25px !important;}",
+        ".layout-panel-flex {min-height: 100vh; justify-content: flex-end; padding-left: 25px !important; padding-right: 25px !important; padding-bottom: 25px;}",
+        ".hero {overflow: hidden;}",
+        ".spacing-style {--section-top-offset: 0;}",
         "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important; max-width: 1440px;}",
         "h1 strong {font-weight: 300 !important; color: #3a3a3a;}",
         "@media (max-width: 749px) {h1 {font-size: 36px; }}"
