@@ -168,7 +168,7 @@
           "settings": {
             "green_text": "6",
             "black_text": "Years",
-            "image": "shopify://shop_images/Cover_FRow_1.png",
+            "image": "shopify://shop_images/Cover_RD_Line-1.jpg",
             "direction": "rtl"
           }
         },
@@ -177,7 +177,7 @@
           "settings": {
             "green_text": "4500",
             "black_text": "Hours",
-            "image": "shopify://shop_images/Cover_FRow_2.png",
+            "image": "shopify://shop_images/Cover_RD_Line-2.jpg",
             "direction": "ltr"
           }
         },
@@ -186,7 +186,7 @@
           "settings": {
             "green_text": "50",
             "black_text": "Prototypes",
-            "image": "shopify://shop_images/Cover_FRow_3.png",
+            "image": "shopify://shop_images/Cover_RD_Line-3.jpg",
             "direction": "rtl"
           }
         },
@@ -195,7 +195,7 @@
           "settings": {
             "green_text": "300km",
             "black_text": "Fast Balls",
-            "image": "shopify://shop_images/Cover_FRow_4.png",
+            "image": "shopify://shop_images/Cover_RD_Line-4.jpg",
             "direction": "ltr"
           }
         }
