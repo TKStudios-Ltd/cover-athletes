@@ -231,12 +231,7 @@
   display: block;
   pointer-events: none;
 }
-@media (max-width: 749px) {
-  .gallery-item,
-  .gallery-item img {
-    height: 100vw !important;
-  }
-}
+
 @media (min-width: 1200px) {
   .gallery-item img {
     height: calc(100vw - 480px);
@@ -294,11 +289,12 @@
 
   .gallery-item {
     width: 100%;
+    height: auto;
   }
 
   .gallery-item img {
     width: 100%;
-    height: auto !important;
+    height: auto;
     max-height: none;
   }
 }
