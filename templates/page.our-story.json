@@ -993,7 +993,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<p class=\"counter_text\"><span\n  class=\"count-up\"\n  data-target=\"25\"\n  data-duration=\"3000\"\n>\n  0\n</span>+</p>"
+                "custom_liquid": "<p class=\"counter_text\"><span\n  class=\"count-up\"\n  data-target=\"50\"\n  data-duration=\"3000\"\n>\n  0\n</span>+</p>"
               },
               "blocks": {}
             }
