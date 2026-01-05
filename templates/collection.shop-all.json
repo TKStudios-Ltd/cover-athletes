@@ -302,7 +302,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>Discover our range of equipment.</h3>",
+            "text": "<h3>Discover our range.</h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
