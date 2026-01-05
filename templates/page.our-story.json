@@ -783,7 +783,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Times stronger</p>",
+                    "text": "<p>Material stiffness</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -809,7 +809,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>than plastic</p>",
+                    "text": "<p>compared to typical plastic</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
