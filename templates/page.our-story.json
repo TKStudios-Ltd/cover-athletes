@@ -2770,7 +2770,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h3>Exlpore what awaits with <strong>every Cover product.</strong></h3>",
+                "text": "<h3>Explore what awaits with <strong>every Cover product.</strong></h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
