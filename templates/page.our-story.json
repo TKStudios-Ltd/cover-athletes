@@ -1087,7 +1087,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Max survival</p>",
+                    "text": "<p>Max speed</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1113,7 +1113,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>speed</p>",
+                    "text": "<p>survived in testing</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
