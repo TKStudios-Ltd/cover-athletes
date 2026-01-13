@@ -602,7 +602,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "Explore",
-            "link": "shopify://products/cover-guard-1-0",
+            "link": "shopify://products/core-cover",
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
