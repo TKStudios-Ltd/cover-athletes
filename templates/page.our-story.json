@@ -1410,7 +1410,7 @@
           "type": "custom-liquid",
           "name": "t:names.custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"nz-live-clock\">\n  <div class=\"nz-live-clock__time\">\n    <span data-nz-clock-time></span>\n    <span class=\"nz-live-clock__ampm\" data-nz-clock-ampm></span>\n  </div>\n\n  <div class=\"nz-live-clock__location\">\n    10W Street, ABC Complex<br>\n    <strong>Auckland, New Zealand</strong>\n  </div>\n</div>"
+            "custom_liquid": "<div class=\"nz-live-clock\">\n  <div class=\"nz-live-clock__time\">\n    <span data-nz-clock-time></span>\n    <span class=\"nz-live-clock__ampm\" data-nz-clock-ampm></span>\n  </div>\n\n  <div class=\"nz-live-clock__location\">\n    <strong>Auckland, New Zealand</strong>\n  </div>\n</div>"
           },
           "blocks": {}
         },
