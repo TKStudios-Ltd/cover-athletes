@@ -3068,37 +3068,11 @@
                   },
                   "blocks": {}
                 },
-                "text_TJkVCP": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<p>Your performance, optimised.</p>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "custom",
-                    "font": "var(--font-body--family)",
-                    "font_size": "2.5rem",
-                    "line_height": "tight",
-                    "letter_spacing": "tight",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
                 "text_4YAjQe": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>The future of sports is here </p>",
+                    "text": "<p>Get in touch, so we can help.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -3123,7 +3097,6 @@
               },
               "block_order": [
                 "text_wyD4K9",
-                "text_TJkVCP",
                 "text_4YAjQe"
               ]
             },
