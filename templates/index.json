@@ -238,7 +238,7 @@
           "type": "tab",
           "settings": {
             "title": "The Problem",
-            "video": "shopify://files/videos/Cover_Problem.mp4",
+            "video": "shopify://files/videos/Chapter 1 The Problem.mp4",
             "caption_title": "The Problem",
             "caption": "<p>Cricket protective equipment has remained virtually unchanged for decades. Professionals and amateurs still regularly sustain career-threatening and career-ending injuries. Poorly designed equipment diminishes performance, compromises safety, and enjoyment. When athletes feel unsafe or unprotected, they can’t play with freedom to perform at their peak.</p>",
             "default_active": false
@@ -248,7 +248,7 @@
           "type": "tab",
           "settings": {
             "title": "The Science",
-            "video": "shopify://files/videos/2558470-hd_1920_1080_25fps.mp4",
+            "video": "shopify://files/videos/Chapter 2.mp4",
             "caption_title": "The Science",
             "caption": "<p>We have taken a heavy research and development approach to product development, focusing on material science and technological improvements, to create better protective equipment for athletes. Our products are rigorously tested, scientifically validated, and professionally endorsed.</p>",
             "default_active": false
@@ -258,7 +258,7 @@
           "type": "tab",
           "settings": {
             "title": "The Solution",
-            "video": "shopify://files/videos/Cover_Solution.mp4",
+            "video": "shopify://files/videos/Chapter 3 The Solution.mp4",
             "caption_title": "The Solution",
             "caption": "<p>Products that are engineered with uncompromised design, materials, and testing to give athletes uncompromising confidence and peak performance.</p>",
             "default_active": false
