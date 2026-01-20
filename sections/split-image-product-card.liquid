@@ -80,6 +80,16 @@
   align-items: center;
 }
 
+/* Price styling (kept minimal, inherits your theme typography) */
+.split-image-product__content .split-image-product__price {
+  white-space: nowrap;
+}
+.split-image-product__content .split-image-product__price .price-compare {
+  opacity: 0.6;
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
 @media screen and (max-width: 749px) {
   .split-image-product__inner {
     flex-direction: column;
@@ -120,6 +130,14 @@
     <div class="split-image-product__content" style="flex:1;">
 
       {% if product_obj %}
+        {%- assign v = product_obj.selected_or_first_available_variant -%}
+        {%- assign price = v.price -%}
+        {%- assign compare_at = v.compare_at_price -%}
+        {%- assign on_sale = false -%}
+        {%- if compare_at and compare_at > price -%}
+          {%- assign on_sale = true -%}
+        {%- endif -%}
+
         <a href="{{ product_obj.url }}" class="product-card__wrapper-link" style="text-decoration:none; color:inherit;">
           <div
             class="
@@ -160,13 +178,17 @@
                 <p class="product-tagline"></p>
               {% endif %}
 
-              <!-- PRICE -->
-              <div class="price--p">
-                {% render 'price',
-                  product: product_obj,
-                  use_variant: true,
-                  price_class: 'price'
-                %}
+              <!-- PRICE (manual, correct variant price) -->
+              <div class="split-image-product__price">
+                <span class="price-current">
+                  {{ price | money }}
+                </span>
+
+                {% if on_sale %}
+                  <span class="price-compare">
+                    {{ compare_at | money }}
+                  </span>
+                {% endif %}
               </div>
             </div>
 
@@ -197,7 +219,7 @@
 
             <!-- SHOP NOW BUTTON -->
             <div class="button-wrapper button-wrapper--button-secondary" data-reveal>
-              <a href="{{ product_obj.url }}" class="size-style button-secondary">Shop Now</a>
+              <span class="size-style button-secondary">Shop Now</span>
             </div>
 
           </div>
