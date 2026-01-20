@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>We exist to revolutionise protective sports equipment <strong>& keep you playing the sport you love. Longer.</strong></h1>",
+            "text": "<h1>We exist to revolutionise protective sports equipment, <strong>so athletes have the freedom to perform at their peak.</strong></h1>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
