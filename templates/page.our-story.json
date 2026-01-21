@@ -1484,8 +1484,8 @@
               "name": "t:names.button",
               "settings": {
                 "label": "Instagram",
-                "link": "#",
-                "open_in_new_tab": false,
+                "link": "https://www.instagram.com/coverathletes/",
+                "open_in_new_tab": true,
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
@@ -1499,8 +1499,8 @@
               "name": "t:names.button",
               "settings": {
                 "label": "Facebook",
-                "link": "#",
-                "open_in_new_tab": false,
+                "link": "https://www.facebook.com/people/Cover-Athletes/61584728706388/",
+                "open_in_new_tab": true,
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
@@ -1514,8 +1514,8 @@
               "name": "t:names.button",
               "settings": {
                 "label": "LinkedIn",
-                "link": "#",
-                "open_in_new_tab": false,
+                "link": "http://linkedin.com/company/coverathletes/",
+                "open_in_new_tab": true,
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
@@ -1529,8 +1529,8 @@
               "name": "t:names.button",
               "settings": {
                 "label": "YouTube",
-                "link": "#",
-                "open_in_new_tab": false,
+                "link": "https://www.youtube.com/@coverathletes",
+                "open_in_new_tab": true,
                 "style_class": "button",
                 "width": "fit-content",
                 "custom_width": 100,
