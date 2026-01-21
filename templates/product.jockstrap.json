@@ -1316,7 +1316,7 @@
                     "text_afxXnL": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
+                        "text": "<p>{{ closest.product.metafields.custom.whats_inside.value }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
