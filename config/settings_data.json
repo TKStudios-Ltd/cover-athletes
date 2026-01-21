@@ -44,7 +44,7 @@
     "page_width": "wide",
     "card_hover_effect": "subtle-zoom",
     "badge_position": "top-right",
-    "badge_corner_radius": 2,
+    "badge_corner_radius": 8,
     "badge_sale_color_scheme": "scheme-f08a0a01-bb0e-4422-bf97-ef8f0b5fa4d5",
     "badge_sold_out_color_scheme": "scheme-4",
     "badge_font_family": "body",
