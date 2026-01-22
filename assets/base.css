@@ -4663,4 +4663,6 @@ footer .menu__item.paragraph {
 .default-template-content h3 {
   font-family: 'Graphik', sans-serif;
   font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
 }
