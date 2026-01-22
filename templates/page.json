@@ -29,6 +29,7 @@
         "h1 strong {font-weight: 300 !important; color: #939393;}",
         ".icon-text-inline {display: flex;}",
         ".icon-text-inline img {height: 14px;}",
+        ".section-content-wrapper {max-width: 960px; margin: auto;}",
         "@media (max-width: 749px) {h1 {font-size: 36px; padding: 0; }}"
       ],
       "name": "t:names.custom_section",
