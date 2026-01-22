@@ -4658,7 +4658,7 @@ footer .menu__item.paragraph {
 }
 
 .default-template-content {
-  max-width: 600px;
+  max-width: 800px;
 }
 .default-template-content h3 {
   font-family: "Graphik", sans-serif !important;
@@ -4667,4 +4667,11 @@ footer .menu__item.paragraph {
   letter-spacing: -2px;
   font-weight: 400 !important;
   text-transform: inherit;
+}
+@media (max-width: 749px) {
+  .default-template-content h3 {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -1.75px;
+  }
 }
