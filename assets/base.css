@@ -4656,3 +4656,11 @@ footer .menu__item.paragraph {
 .size-guide-link:hover {
   color: rgba(255,255,255,1);
 }
+
+.default-template-content {
+  max-width: 600px;
+}
+.default-template-content h3 {
+  font-family: 'Graphik', sans-serif;
+  font-size: 2.5rem;
+}
