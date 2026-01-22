@@ -74,10 +74,10 @@
       ],
       "settings": {
         "content_direction": "column",
-        "gap": 32,
+        "gap": 40,
         "color_scheme": "",
-        "padding-block-start": 60,
-        "padding-block-end": 60
+        "padding-block-start": 0,
+        "padding-block-end": 80
       }
     },
     "section_dVccD7": {
