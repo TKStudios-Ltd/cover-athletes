@@ -4658,7 +4658,8 @@ footer .menu__item.paragraph {
 }
 
 .default-template-content {
-  max-width: 800px;
+  max-width: 960px;
+  margin: auto;
 }
 .default-template-content h3 {
   font-family: "Graphik", sans-serif !important;
