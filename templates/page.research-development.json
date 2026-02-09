@@ -2352,7 +2352,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Impact Resistance</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.feature_text_name.value }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -2378,7 +2378,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>{{ closest.product.metafields.custom.impact_resistance.value }}</p>",
+                    "text": "<p>{{ closest.product.metafields.custom.feature_text.value }}</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
