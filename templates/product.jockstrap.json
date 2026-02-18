@@ -1316,7 +1316,7 @@
                     "text_afxXnL": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.whats_inside.value }}</p>",
+                        "text": "<p>{{ closest.product.metafields.custom.what_s_inside | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
