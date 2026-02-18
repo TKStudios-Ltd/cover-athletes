@@ -1559,7 +1559,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>View Here ↗</p>",
+                    "text": "<p>View Here</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "right",
