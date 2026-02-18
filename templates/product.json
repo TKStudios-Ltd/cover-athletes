@@ -1483,6 +1483,7 @@
                 },
                 "accordion_row_XCtMpy": {
                   "type": "_accordion-row",
+                  "disabled": true,
                   "settings": {
                     "heading": "Care Instructions",
                     "open_by_default": false,
