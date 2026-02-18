@@ -1420,53 +1420,13 @@
                   "block_order": [
                     "text_kyXek6"
                   ]
-                },
-                "accordion_row_peMEEe": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Warranty & Support",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_9HFfee": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-body--family)",
-                        "font_size": "0.75rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_9HFfee"
-                  ]
                 }
               },
               "block_order": [
                 "accordion_row_NRExmi",
                 "accordion_row_ABUAcK",
                 "accordion_row_dDFdQJ",
-                "accordion_row_XCtMpy",
-                "accordion_row_peMEEe"
+                "accordion_row_XCtMpy"
               ]
             }
           },
