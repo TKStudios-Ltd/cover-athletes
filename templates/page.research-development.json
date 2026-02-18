@@ -653,8 +653,8 @@
         "hotspot_JmxJWP": {
           "type": "hotspot",
           "settings": {
-            "title": "High performance aluminium",
-            "text": "Our aluminium is specially formulated to resist denting, ensuring everything inside the box is kept safe! Our aluminium also has a high toughness (meaning it can take a real beating before it breaks). To our knowledge, no other box on the market uses an aluminium shell.",
+            "title": "High performance alloy",
+            "text": "Our aluminium shell is specifically formulated to be strong and resilient against hard ball impacts. Our shell consistently withstands multiple impacts at top end bowling speeds.",
             "pos_x": 45,
             "pos_y": 32,
             "placement": "top-left"
