@@ -270,6 +270,7 @@
         "tab_WVFnk7",
         "tab_czGTTj"
       ],
+      "disabled": true,
       "name": "R+D Tabs",
       "settings": {
         "eyebrow": "",
@@ -543,7 +544,7 @@
             "text_c4przm": {
               "type": "text",
               "settings": {
-                "text": "<h3>COVERGUARD 1.0</h3>",
+                "text": "<h3>Core Cover</h3>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
