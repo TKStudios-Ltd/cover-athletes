@@ -64,7 +64,7 @@
           "type": "custom-liquid",
           "name": "t:names.custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\">Contact Us</div></div>"
+            "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><h4 class=\"eyebrow\">Contact Us</h4></div>"
           },
           "blocks": {}
         },
@@ -405,6 +405,7 @@
       ],
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1200px;}",
+        "h4.eyebrow {font-size: 14px;}",
         "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; } .layout-panel-flex--row > .group-block--width-custom {height: 100%; min-height: fit-content; }}"
       ],
       "name": "t:names.rich_text_section",
