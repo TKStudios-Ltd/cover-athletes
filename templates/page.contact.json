@@ -478,6 +478,7 @@
         "custom_liquid_pizddM",
         "text_4yTbPr"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit; max-width: 1080px;}",
         "h3 strong {font-weight: 400 !important; color: #959595;}",
@@ -1870,6 +1871,7 @@
         "group_P9GD9m",
         "group_4XFjyx"
       ],
+      "disabled": true,
       "custom_css": [
         ".layout-panel-flex--column .layout-panel-flex--column {border-top: rgba(0, 0, 0, 0.4) 1px solid;}",
         ".layout-panel-flex--row .layout-panel-flex--row {border-bottom: rgba(0, 0, 0, 0.4) 1px solid;}"
