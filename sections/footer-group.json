@@ -161,16 +161,39 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "menu_4GGgya": {
+                  "type": "menu",
+                  "name": "t:names.menu",
+                  "settings": {
+                    "menu": "footer-follow-us",
+                    "heading": "Follow Us",
+                    "menu_spacing": 2,
+                    "show_as_accordion": true,
+                    "accordion_icon": "plus",
+                    "accordion_dividers": true,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "heading_preset": "paragraph",
+                    "link_preset": "paragraph",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "menu_gyGRWB",
-                "menu_n7H8Xp"
+                "menu_n7H8Xp",
+                "menu_4GGgya"
               ]
             },
             "group_nPycKm": {
               "type": "group",
               "name": "t:names.group",
+              "disabled": true,
               "settings": {
                 "content_direction": "row",
                 "vertical_on_mobile": true,
@@ -208,7 +231,7 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "menu_iageCY": {
+                "menu_eaMMRy": {
                   "type": "menu",
                   "name": "t:names.menu",
                   "settings": {
@@ -232,6 +255,7 @@
                 "menu_nU3yfb": {
                   "type": "menu",
                   "name": "t:names.menu",
+                  "disabled": true,
                   "settings": {
                     "menu": "footer-trade-contacts",
                     "heading": "Trade Contacts",
@@ -252,7 +276,7 @@
                 }
               },
               "block_order": [
-                "menu_iageCY",
+                "menu_eaMMRy",
                 "menu_nU3yfb"
               ]
             }
@@ -276,7 +300,7 @@
         "gap": 24,
         "color_scheme": "scheme-7",
         "padding-block-start": 50,
-        "padding-block-end": 25
+        "padding-block-end": 50
       }
     },
     "section_C9ccVx": {
