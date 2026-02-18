@@ -2631,6 +2631,7 @@
         "group_7EcHLB",
         "group_eWTYiy"
       ],
+      "disabled": true,
       "custom_css": [
         ".custom-typography p {font-weight: 300;}",
         "h3 strong {color: #07de85; font-weight: 400 !important;}",
