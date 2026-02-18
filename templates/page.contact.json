@@ -152,7 +152,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h3>",
+                    "text": "<h3>Your protection is important to us. Get in touch, so we can help.</h3>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
