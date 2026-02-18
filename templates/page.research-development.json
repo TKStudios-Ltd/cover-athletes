@@ -664,7 +664,7 @@
           "type": "hotspot",
           "settings": {
             "title": "Flattened edges",
-            "text": "Most boxes on the market have a relatively thin, sharp edge on the hard part. During an impact, this thin and sharp edge concentrates the impact into a smaller area, making it hurt more! We use a large, flanged edge on the rigid component of our box, spreading the load and making sure impacts hurt a lot less - keeping you in the zone.",
+            "text": "Protection shouldn't leave gaps. Our flattened-edge design increases surface coverage and stabilises impact zones, helping redirect force - resulting in broader protection without reducing movement.",
             "pos_x": 65,
             "pos_y": 32,
             "placement": "top-right"
@@ -684,7 +684,7 @@
           "type": "hotspot",
           "settings": {
             "title": "UNIQUE SHAPE",
-            "text": "We took an ergonomic focus to shape design. Comfort is equally as important as protection which is why we created a shape that minimises obstruction for movement and chafe risk.",
+            "text": "Our aluminium shell is specifically formulated to be strong and resilient against hard ball impacts. Our shell consistently withstands multiple impacts at top end bowling speeds.",
             "pos_x": 48,
             "pos_y": 54,
             "placement": "bottom-right"
