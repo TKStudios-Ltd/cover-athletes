@@ -2994,7 +2994,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "See Coverbox 2.0",
+            "label": "See Products",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
@@ -3017,7 +3017,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Rectangle_6838_1.jpg",
+        "image_1": "shopify://shop_images/Mask_group_2.jpg",
         "media_type_2": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -3034,7 +3034,7 @@
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
-        "overlay_color": "#0000001c",
+        "overlay_color": "#00000030",
         "overlay_style": "gradient",
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
