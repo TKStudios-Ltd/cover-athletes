@@ -275,7 +275,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<div class=\"size-guide-link-wrapper\"><a class=\"size-guide-link\" href=\"#size-guide\">Size Guide</a></div>"
+                "custom_liquid": "<div class=\"size-guide-link-wrapper\"><a class=\"size-guide-link\" href=\"#specs\">Size Guide</a></div>"
               },
               "blocks": {}
             },
@@ -358,17 +358,6 @@
       "name": "t:names.custom_liquid",
       "settings": {
         "custom_liquid": "<div id=\"sticky-bar-trigger\"></div>",
-        "color_scheme": "",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
-    "custom_liquid_FbYjnA": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "<div id=\"size-guide\"></div>",
         "color_scheme": "",
         "section_width": "page-width",
         "padding-block-start": 0,
@@ -2915,7 +2904,6 @@
   "order": [
     "main",
     "custom_liquid_fXtKLd",
-    "custom_liquid_FbYjnA",
     "section_mU68Pb",
     "custom_liquid_zajX6h",
     "section_QeCUqq",
