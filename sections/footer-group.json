@@ -420,7 +420,7 @@
               "settings": {
                 "content_direction": "row",
                 "vertical_on_mobile": true,
-                "horizontal_alignment": "flex-end",
+                "horizontal_alignment": "flex-start",
                 "vertical_alignment": "center",
                 "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
@@ -539,7 +539,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>© 2025 Cover</p>",
+                    "text": "<p>© 2026 Cover</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
