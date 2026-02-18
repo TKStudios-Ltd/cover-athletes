@@ -515,6 +515,8 @@
 
   .variant-option__button-label:has([data-option-available='false']) {
     color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
+    pointer-events: none !important;
+    opacity: 0.5;
   }
 
   .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:hover .swatch {
