@@ -1327,8 +1327,8 @@
         "hotspot_JmxJWP": {
           "type": "hotspot",
           "settings": {
-            "title": "High performance aluminium",
-            "text": "Our aluminium is specially formulated to resist denting, ensuring everything inside the box is kept safe! Our aluminium also has a high toughness (meaning it can take a real beating before it breaks). To our knowledge, no other box on the market uses an aluminium shell.",
+            "title": "High performance alloy",
+            "text": "Our aluminium shell is specifically formulated to be strong and resilient against hard ball impacts. Our shell consistently withstands multiple impacts at top end bowling speeds.",
             "pos_x": 45,
             "pos_y": 32,
             "placement": "top-left"
@@ -1338,7 +1338,7 @@
           "type": "hotspot",
           "settings": {
             "title": "Flattened edges",
-            "text": "Most boxes on the market have a relatively thin, sharp edge on the hard part. During an impact, this thin and sharp edge concentrates the impact into a smaller area, making it hurt more! We use a large, flanged edge on the rigid component of our box, spreading the load and making sure impacts hurt a lot less - keeping you in the zone.",
+            "text": "Protection shouldn't leave gaps. Our flattened-edge design increases surface coverage and stabilises impact zones, helping redirect force - resulting in broader protection without reducing movement.",
             "pos_x": 65,
             "pos_y": 32,
             "placement": "top-right"
@@ -1358,7 +1358,7 @@
           "type": "hotspot",
           "settings": {
             "title": "UNIQUE SHAPE",
-            "text": "We took an ergonomic focus to shape design. Comfort is equally as important as protection which is why we created a shape that minimises obstruction for movement and chafe risk.",
+            "text": "Our unique silhouette is shaped for performance: reducing bulk, eliminating pinch points, and improving fit under pressure. It sits naturally, moves freely, and feels like it belongs there.",
             "pos_x": 48,
             "pos_y": 54,
             "placement": "bottom-right"
