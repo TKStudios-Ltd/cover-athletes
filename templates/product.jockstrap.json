@@ -1529,6 +1529,7 @@
         "hotspot_mqBApf",
         "hotspot_g8fpFt"
       ],
+      "disabled": true,
       "name": "Specs Hotspots",
       "settings": {
         "background_image": "shopify://shop_images/Cover_Hotspot.png",
