@@ -275,7 +275,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<div class=\"size-guide-link-wrapper\"><a class=\"size-guide-link\" href=\"/pages/size-guide\" target=\"_blank\">Size Guide</a></div>"
+                "custom_liquid": "<div class=\"size-guide-link-wrapper\"><a class=\"size-guide-link\" href=\"#specs\">Size Guide</a></div>"
               },
               "blocks": {}
             },
@@ -430,7 +430,7 @@
         "padding-block-end": 60
       }
     },
-    "custom_liquid_zajX6h": {
+    "custom_liquid_tcWUXT": {
       "type": "custom-liquid",
       "name": "t:names.custom_liquid",
       "settings": {
@@ -3044,7 +3044,7 @@
     "main",
     "custom_liquid_fXtKLd",
     "section_mU68Pb",
-    "custom_liquid_zajX6h",
+    "custom_liquid_tcWUXT",
     "section_QeCUqq",
     "product_sticky_bar_NtcGAb",
     "specs_hotspots_EpDANH",
