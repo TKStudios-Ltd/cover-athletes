@@ -1579,6 +1579,7 @@
       "blocks": {
         "anchor_pmiCpF": {
           "type": "anchor",
+          "disabled": true,
           "settings": {
             "label": "Gallery",
             "anchor_id": "MainContent"
@@ -1586,6 +1587,7 @@
         },
         "anchor_RdftKh": {
           "type": "anchor",
+          "disabled": true,
           "settings": {
             "label": "Specs",
             "anchor_id": "specs"
@@ -1593,6 +1595,7 @@
         },
         "anchor_AW7NcG": {
           "type": "anchor",
+          "disabled": true,
           "settings": {
             "label": "Features",
             "anchor_id": "features"
@@ -1600,6 +1603,7 @@
         },
         "anchor_RRhqiw": {
           "type": "anchor",
+          "disabled": true,
           "settings": {
             "label": "FAQs",
             "anchor_id": "faqs"
