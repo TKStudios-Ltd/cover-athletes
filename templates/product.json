@@ -1533,7 +1533,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><strong>Frequently Asked Questions</strong></p>",
+                    "text": "<p><strong>FAQs</strong></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1559,7 +1559,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>↗</p>",
+                    "text": "<p>View Here ↗</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "right",
@@ -1570,7 +1570,7 @@
                     "letter_spacing": "loose",
                     "case": "uppercase",
                     "wrap": "pretty",
-                    "color": "var(--color-foreground)",
+                    "color": "var(--color-primary)",
                     "background": false,
                     "background_color": "#00000026",
                     "corner_radius": 0,
