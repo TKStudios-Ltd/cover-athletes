@@ -1746,6 +1746,7 @@
         "image_7hYWwN",
         "group_qLNUQt"
       ],
+      "disabled": true,
       "custom_css": [
         "h4 {font-family: \"Graphik\", sans-serif !important; font-size: 42px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit;}",
         "@media (max-width: 749px) {h4 {font-size: 24px; line-height: 1.2; letter-spacing: -1.75px; }}",
@@ -1885,6 +1886,7 @@
       "block_order": [
         "group_Kr3tCK"
       ],
+      "disabled": true,
       "custom_css": [
         "h4 {font-family: \"Graphik\", sans-serif !important; font-size: 42px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit;}",
         "@media (max-width: 749px) {h4 {font-size: 24px; line-height: 1.2; letter-spacing: -1.75px; }}",
@@ -1949,6 +1951,7 @@
       "block_order": [
         "image_76Ljyc"
       ],
+      "disabled": true,
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "column",
@@ -2525,6 +2528,7 @@
         "group_7EcHLB",
         "group_eWTYiy"
       ],
+      "disabled": true,
       "custom_css": [
         ".custom-typography p {font-weight: 300;}",
         "h3 strong {color: #07de85; font-weight: 400 !important;}",
@@ -2874,7 +2878,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Rectangle_6838_1.jpg",
+        "image_1": "shopify://shop_images/Mask_group_2.jpg",
         "media_type_2": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -2891,7 +2895,7 @@
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
-        "overlay_color": "#0000001c",
+        "overlay_color": "#00000047",
         "overlay_style": "gradient",
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
