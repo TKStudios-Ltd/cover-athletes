@@ -229,7 +229,7 @@
                 "accordion_row_qPhnkT": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Are Cover products tested with professional athletes?",
+                    "heading": "How has Core Cover been tested?",
                     "open_by_default": true,
                     "icon": "none",
                     "width": 20
@@ -238,7 +238,7 @@
                     "text_mkw4eC": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
+                        "text": "<p>Cover has undergone a structured programme of real-world and controlled impact testing, designed to reflect the conditions cricketers actually face.</p><p>Testing has included:</p><ul><li>High-velocity impact testing using cricket balls at representative match speeds</li><li>Repeated strike testing to assess structural integrity over time</li><li>Extended wear testing during training sessions and competitive match play</li><li>On-field validation across batting, wicket-keeping, bowling and close-in fielding positions</li></ul><p>This programme allowed us to refine the shell construction, internal energy-absorbing layers, shape and stability — delivering consistent protection without unnecessary bulk.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
