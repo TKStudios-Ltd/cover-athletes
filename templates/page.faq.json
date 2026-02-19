@@ -323,10 +323,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -679,10 +678,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -955,10 +953,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -1351,10 +1348,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -1627,10 +1623,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -1903,10 +1898,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -2259,10 +2253,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -2495,10 +2488,9 @@
       ],
       "custom_css": [
         ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
-        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
-        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+        "@media (max-width: 749px) {.h4, h4 {font-size: 18px !important; } .layout-panel-flex {gap: 0.5rem; }}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
