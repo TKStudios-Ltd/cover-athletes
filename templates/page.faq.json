@@ -84,6 +84,158 @@
     "section_rDYzFQ": {
       "type": "section",
       "blocks": {
+        "group_7EcHLB": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 2,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_Xrghm6": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h3><strong>30 Day</strong> Trial</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_WxFCAU": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h3><strong>3 Year</strong> Warranty</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_h7mXJN": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h3><strong>Free, Easy</strong> Returns</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_3fybkx": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h3><strong>Local</strong> Support</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_Xrghm6",
+            "text_WxFCAU",
+            "text_h7mXJN",
+            "text_3fybkx"
+          ]
+        },
         "group_eWTYiy": {
           "type": "group",
           "name": "t:names.group",
@@ -132,33 +284,7 @@
                 "corner_radius": "square",
                 "width_percent": 100,
                 "padding-block-start": 0,
-                "padding-block-end": 15
-              },
-              "blocks": {}
-            },
-            "text_NfR96p": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h2>Testing & Validation</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-subheading--family)",
-                "font_size": "2.5rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-block-end": 5
               },
               "blocks": {}
             },
@@ -184,7 +310,7 @@
                 "accordion_row_qPhnkT": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "How has Core Cover been tested?",
+                    "heading": "Are Cover products tested with professional athletes?",
                     "open_by_default": true,
                     "icon": "none",
                     "width": 20
@@ -193,7 +319,7 @@
                     "text_mkw4eC": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Cover has undergone a structured programme of real-world and controlled impact testing, designed to reflect the conditions cricketers actually face.</p><p>Testing has included:</p><ul><li>High-velocity impact testing using cricket balls at representative match speeds</li><li>Repeated strike testing to assess structural integrity over time</li><li>Extended wear testing during training sessions and competitive match play</li><li>On-field validation across batting, wicket-keeping, bowling and close-in fielding positions</li></ul><p>This programme allowed us to refine the shell construction, internal energy-absorbing layers, shape and stability — delivering consistent protection without unnecessary bulk.</p>",
+                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -464,55 +590,8 @@
                 "accordion_row_QX7C7N",
                 "accordion_row_PnNtzG"
               ]
-            }
-          },
-          "block_order": [
-            "divider_knBbQ3",
-            "text_NfR96p",
-            "accordion_T99fPJ"
-          ]
-        },
-        "group_7EcHLB": {
-          "type": "group",
-          "name": "t:names.group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-end",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 2,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "spacer_NwGRTR": {
+            },
+            "spacer_wQynYn": {
               "type": "spacer",
               "name": "t:names.spacer",
               "settings": {
@@ -525,125 +604,20 @@
                 "pixel_size_mobile": 120
               },
               "blocks": {}
-            },
-            "text_Xrghm6": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3><strong>30 Day</strong> Trial</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_WxFCAU": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3><strong>3 Year</strong> Warranty</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_h7mXJN": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3><strong>Free, Easy</strong> Returns</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_3fybkx": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3><strong>Local</strong> Support</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "spacer_NwGRTR",
-            "text_Xrghm6",
-            "text_WxFCAU",
-            "text_h7mXJN",
-            "text_3fybkx"
+            "divider_knBbQ3",
+            "accordion_T99fPJ",
+            "spacer_wQynYn"
           ]
         }
       },
       "block_order": [
-        "group_eWTYiy",
-        "group_7EcHLB"
+        "group_7EcHLB",
+        "group_eWTYiy"
       ],
+      "disabled": true,
       "custom_css": [
         ".custom-typography p {font-weight: 300;}",
         "h3 strong {color: #07de85; font-weight: 400 !important;}",
@@ -655,7 +629,7 @@
         "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-end",
+        "vertical_alignment": "flex-start",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
@@ -663,7 +637,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -675,7 +649,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 50,
         "padding-block-end": 100
       }
     },
