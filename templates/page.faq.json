@@ -132,7 +132,33 @@
                 "corner_radius": "square",
                 "width_percent": 100,
                 "padding-block-start": 0,
-                "padding-block-end": 5
+                "padding-block-end": 15
+              },
+              "blocks": {}
+            },
+            "text_NfR96p": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Testing & Validation</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-subheading--family)",
+                "font_size": "2.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             },
@@ -442,6 +468,7 @@
           },
           "block_order": [
             "divider_knBbQ3",
+            "text_NfR96p",
             "accordion_T99fPJ"
           ]
         },
