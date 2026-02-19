@@ -1984,7 +1984,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h4>Shipping</h4>",
+                "text": "<h4>Shipping & Returns</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -2198,12 +2198,52 @@
                   "block_order": [
                     "text_ByL4y6"
                   ]
+                },
+                "accordion_row_txc7xn": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "I’m having an issue with my Cover product. What should I do?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_8cJwjH": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Please email <a href=\"mailto:issues@coverathletes.com\" title=\"mailto:issues@coverathletes.com\">issues@coverathletes.com</a> with:</p><ul><li>A clear photo of the issue</li><li>A brief description of what occurred</li><li>Your order number</li></ul><p>Our team will review the information and respond as quickly as possible.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_8cJwjH"
+                  ]
                 }
               },
               "block_order": [
                 "accordion_row_8EYxUd",
                 "accordion_row_iywtdR",
-                "accordion_row_ythmbN"
+                "accordion_row_ythmbN",
+                "accordion_row_txc7xn"
               ]
             }
           },
@@ -2251,6 +2291,242 @@
         "gradient_direction": "to top",
         "padding-block-start": 50,
         "padding-block-end": 25
+      }
+    },
+    "section_7janBN": {
+      "type": "section",
+      "blocks": {
+        "group_nzzLXG": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 2,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_yYeYwh": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h4>Sizing Guide</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_yYeYwh"
+          ]
+        },
+        "group_rqjXkP": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "divider_Nh8eRJ": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 5
+              },
+              "blocks": {}
+            },
+            "accordion_9DQjFd": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "type_preset": "",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_tpKj8g": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "What is the sizing of the Jockstrap?",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_BjD4Uf": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Measure around your waist at the height of your underwear waistband. <br/>Then pick your size from the options below:</p><p>Small<br/>Waist (cm) 66 - 78<br/>Waist (in) 26 - 30.5</p><p>Medium<br/>Waist (cm) 79 - 88<br/>Waist (in) 31 - 34.5</p><p>Large<br/>Waist (cm) 89-101<br/>Waist (in) 35 - 40</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_BjD4Uf"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_tpKj8g"
+              ]
+            }
+          },
+          "block_order": [
+            "divider_Nh8eRJ",
+            "accordion_9DQjFd"
+          ]
+        }
+      },
+      "block_order": [
+        "group_nzzLXG",
+        "group_rqjXkP"
+      ],
+      "custom_css": [
+        ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
+        "h3 {font-weight: 300 !important;}",
+        ".accordion .details__header {letter-spacing: 0;}",
+        "ul {padding-left: 1rem;}",
+        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 50,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 50,
+        "padding-block-end": 100
       }
     },
     "section_dVccD7": {
@@ -2553,6 +2829,7 @@
     "section_Ew7Pjz",
     "section_x3GFPg",
     "section_xqDfhV",
+    "section_7janBN",
     "section_dVccD7"
   ]
 }
