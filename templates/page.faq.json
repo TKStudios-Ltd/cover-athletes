@@ -309,26 +309,11 @@
                 "accordion_row_qPhnkT",
                 "accordion_row_BRVRWb"
               ]
-            },
-            "spacer_wQynYn": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 52,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
             }
           },
           "block_order": [
             "divider_knBbQ3",
-            "accordion_T99fPJ",
-            "spacer_wQynYn"
+            "accordion_T99fPJ"
           ]
         }
       },
@@ -337,7 +322,7 @@
         "group_eWTYiy"
       ],
       "custom_css": [
-        ".custom-typography p,.custom-typography li {font-weight: 300;}",
+        ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
         "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
         "ul {padding-left: 1rem;}",
@@ -369,13 +354,13 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 50,
-        "padding-block-end": 100
+        "padding-block-end": 25
       }
     },
-    "section_JjMm48": {
+    "section_X4mykD": {
       "type": "section",
       "blocks": {
-        "group_kriE4k": {
+        "group_jLCbWF": {
           "type": "group",
           "name": "t:names.group",
           "settings": {
@@ -415,89 +400,11 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_kinqgV": {
+            "text_URKPwf": {
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h3><strong>30 Day</strong> Trial</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_NbMpqb": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3><strong>3 Year</strong> Warranty</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_C3KhRW": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3><strong>Free, Easy</strong> Returns</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_WbrWCz": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<h3><strong>Local</strong> Support</h3>",
+                "text": "<h4>Safety & Risk Management</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -521,13 +428,10 @@
             }
           },
           "block_order": [
-            "text_kinqgV",
-            "text_NbMpqb",
-            "text_C3KhRW",
-            "text_WbrWCz"
+            "text_URKPwf"
           ]
         },
-        "group_FpJagb": {
+        "group_nPCiec": {
           "type": "group",
           "name": "t:names.group",
           "settings": {
@@ -567,7 +471,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "divider_YqMtQQ": {
+            "divider_GHTR76": {
               "type": "_divider",
               "name": "t:names.divider",
               "settings": {
@@ -579,7 +483,7 @@
               },
               "blocks": {}
             },
-            "accordion_QQ7qB4": {
+            "accordion_3yETjC": {
               "type": "accordion",
               "name": "t:names.accordion",
               "settings": {
@@ -598,58 +502,19 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "accordion_row_eeRFyi": {
+                "accordion_row_Ne4RYG": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Are Cover products tested with professional athletes?",
-                    "open_by_default": true,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_RjbtHd": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-body--family)",
-                        "font_size": "0.75rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_RjbtHd"
-                  ]
-                },
-                "accordion_row_xqcU4h": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Does the product come with a warranty?",
+                    "heading": "What type of impacts is Core Cover designed to protect against?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_bQcbYd": {
+                    "text_CXEYex": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
+                        "text": "<p>Cover is engineered to protect against high-velocity hard-ball impacts commonly experienced while batting, wicket-keeping, close-in fielding and bowling.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -673,22 +538,22 @@
                     }
                   },
                   "block_order": [
-                    "text_bQcbYd"
+                    "text_CXEYex"
                   ]
                 },
-                "accordion_row_JQRwf8": {
+                "accordion_row_qTGGpp": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Where are Cover products made?",
+                    "heading": "Can Cover prevent all injuries?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_GWim6U": {
+                    "text_JpHdpz": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
+                        "text": "<p>No protective equipment can eliminate all risk. Cover is designed to significantly reduce the likelihood and severity of injury when worn correctly, but cannot guarantee complete injury prevention.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -712,22 +577,22 @@
                     }
                   },
                   "block_order": [
-                    "text_GWim6U"
+                    "text_JpHdpz"
                   ]
                 },
-                "accordion_row_bhjHhF": {
+                "accordion_row_VGi4VL": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Can I wash or clean the gear?",
+                    "heading": "Is Cover suitable for junior players?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_8kqDmA": {
+                    "text_GhVCgn": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
+                        "text": "<p>Cover may be used by junior players where sizing and fit are appropriate. Adult supervision is recommended to ensure correct positioning and use.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -751,22 +616,22 @@
                     }
                   },
                   "block_order": [
-                    "text_8kqDmA"
+                    "text_GhVCgn"
                   ]
                 },
-                "accordion_row_xN8GQV": {
+                "accordion_row_7JeCiQ": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Will there be more products coming soon?",
+                    "heading": "When should Cover not be used?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_EwXLzf": {
+                    "text_GGGb8U": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
+                        "text": "<p>Do not use Cover if it is cracked, dented, deformed or otherwise damaged. Continued use of a compromised product may reduce protection.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -790,128 +655,33 @@
                     }
                   },
                   "block_order": [
-                    "text_EwXLzf"
-                  ]
-                },
-                "accordion_row_YC3YJU": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "How can I return or exchange a product?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_QaG8db": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-body--family)",
-                        "font_size": "0.75rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_QaG8db"
-                  ]
-                },
-                "accordion_row_tjT4ah": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "How do I choose the right size?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_D9xGCd": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Lorem ipsum dolor sit amet. In autem eligendi hic nihil magni sed quasi architecto sit esse natus. Aut velit error 33 consequatur voluptatibus quo magnam aspernatur. Designed using 3D body mapping to ensure anatomical precision.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-body--family)",
-                        "font_size": "0.75rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_D9xGCd"
+                    "text_GGGb8U"
                   ]
                 }
               },
               "block_order": [
-                "accordion_row_eeRFyi",
-                "accordion_row_xqcU4h",
-                "accordion_row_JQRwf8",
-                "accordion_row_bhjHhF",
-                "accordion_row_xN8GQV",
-                "accordion_row_YC3YJU",
-                "accordion_row_tjT4ah"
+                "accordion_row_Ne4RYG",
+                "accordion_row_qTGGpp",
+                "accordion_row_VGi4VL",
+                "accordion_row_7JeCiQ"
               ]
-            },
-            "spacer_WcfU4t": {
-              "type": "spacer",
-              "name": "t:names.spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 52,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "divider_YqMtQQ",
-            "accordion_QQ7qB4",
-            "spacer_WcfU4t"
+            "divider_GHTR76",
+            "accordion_3yETjC"
           ]
         }
       },
       "block_order": [
-        "group_kriE4k",
-        "group_FpJagb"
+        "group_jLCbWF",
+        "group_nPCiec"
       ],
       "custom_css": [
-        ".custom-typography p {font-weight: 300;}",
-        "h3 strong {color: #07de85; font-weight: 400 !important;}",
+        ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
+        "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
+        "ul {padding-left: 1rem;}",
         "@media (max-width: 749px) {h3 {font-size: 26px; }}"
       ],
       "name": "t:names.rich_text_section",
@@ -927,7 +697,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -940,7 +710,955 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 50,
-        "padding-block-end": 100
+        "padding-block-end": 25
+      }
+    },
+    "section_7VPLC7": {
+      "type": "section",
+      "blocks": {
+        "group_QPBCBe": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 2,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_dTNTYJ": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h4>Correct Use & Fit</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_dTNTYJ"
+          ]
+        },
+        "group_LYbnBC": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "divider_TP3UWn": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 5
+              },
+              "blocks": {}
+            },
+            "accordion_prwRUr": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "type_preset": "",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_z7xU33": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How should Core Cover be worn?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_CM4qiU": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Core Cover must be worn inside a jock strap or compression shorts with a dedicated pouch. It should sit snugly, centred and securely positioned before play begins. We recommend purchasing the bundle so that your Core Cover works with our Jockstrap as they are designed to work together as a system.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_CM4qiU"
+                  ]
+                },
+                "accordion_row_hNMrtM": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Does positioning matter?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_gKL4wy": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Yes. Proper fit and positioning are critical to effective protection. Incorrect placement may reduce impact performance. The Cover jockstrap should help maintain a stable position placed properly.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_gKL4wy"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_z7xU33",
+                "accordion_row_hNMrtM"
+              ]
+            }
+          },
+          "block_order": [
+            "divider_TP3UWn",
+            "accordion_prwRUr"
+          ]
+        }
+      },
+      "block_order": [
+        "group_QPBCBe",
+        "group_LYbnBC"
+      ],
+      "custom_css": [
+        ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
+        "h3 {font-weight: 300 !important;}",
+        ".accordion .details__header {letter-spacing: 0;}",
+        "ul {padding-left: 1rem;}",
+        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 50,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 50,
+        "padding-block-end": 25
+      }
+    },
+    "section_gRQMJJ": {
+      "type": "section",
+      "blocks": {
+        "group_UJU6nh": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 2,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_rCa6Mt": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h4>Care, Maintenance & Hygiene</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_rCa6Mt"
+          ]
+        },
+        "group_NzAEGT": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "divider_LUHMWh": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 5
+              },
+              "blocks": {}
+            },
+            "accordion_EFqLAP": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "type_preset": "",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_rqxaxA": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How should Core Cover be cleaned after use?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_JEPmwN": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>After each use, towel dry thoroughly to remove moisture. For hygiene purposes, it may occasionally be wiped down with isopropyl alcohol.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_JEPmwN"
+                  ]
+                },
+                "accordion_row_wTGJJ7": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Can Core Cover be machine washed or submerged?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_NM4bw8": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>No. Cover should not be machine washed, submerged in water or exposed to high heat, as this may compromise material integrity.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_NM4bw8"
+                  ]
+                },
+                "accordion_row_xXFRw3": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How should Cover be stored?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_WfcF43": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Store in a dry, ventilated environment away from direct sunlight or excessive heat. Do not store while damp.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_WfcF43"
+                  ]
+                },
+                "accordion_row_JjLiMg": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "How long does Cover last?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_gQMADk": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>With correct use and care, Cover is designed to last multiple seasons. Lifespan will vary depending on frequency of use, impact exposure and maintenance.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_gQMADk"
+                  ]
+                },
+                "accordion_row_3KrnqY": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "When should I replace Cover?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_iEKpUR": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Replace immediately if:</p><ul><li>It has sustained a significant impact</li><li>There are visible cracks, dents or deformation</li><li>It no longer fits securely or comfortably</li></ul><p>When in doubt, replace it.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_iEKpUR"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_rqxaxA",
+                "accordion_row_wTGJJ7",
+                "accordion_row_xXFRw3",
+                "accordion_row_JjLiMg",
+                "accordion_row_3KrnqY"
+              ]
+            }
+          },
+          "block_order": [
+            "divider_LUHMWh",
+            "accordion_EFqLAP"
+          ]
+        }
+      },
+      "block_order": [
+        "group_UJU6nh",
+        "group_NzAEGT"
+      ],
+      "custom_css": [
+        ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
+        "h3 {font-weight: 300 !important;}",
+        ".accordion .details__header {letter-spacing: 0;}",
+        "ul {padding-left: 1rem;}",
+        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 50,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 50,
+        "padding-block-end": 25
+      }
+    },
+    "section_Ew7Pjz": {
+      "type": "section",
+      "blocks": {
+        "group_7T38fb": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 2,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_XgmQVM": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h4>Materials & Build</h4>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_XgmQVM"
+          ]
+        },
+        "group_L7dqct": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "divider_MAV4wM": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 5
+              },
+              "blocks": {}
+            },
+            "accordion_Cz7qCe": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "type_preset": "",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_QFqyAN": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "What materials is Core Cover made from?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_KXWBFF": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Cover combines a high-strength alloy outer shell with layered energy-absorbing internal materials, selected for impact dispersion, durability and long-term performance.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_KXWBFF"
+                  ]
+                },
+                "accordion_row_W6pjDH": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Do the materials degrade over time?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_L6BJWY": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>All protective equipment degrades with repeated impact and wear. Regular inspection is essential to ensure ongoing protection.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_L6BJWY"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_QFqyAN",
+                "accordion_row_W6pjDH"
+              ]
+            }
+          },
+          "block_order": [
+            "divider_MAV4wM",
+            "accordion_Cz7qCe"
+          ]
+        }
+      },
+      "block_order": [
+        "group_7T38fb",
+        "group_L7dqct"
+      ],
+      "custom_css": [
+        ".custom-typography p,.custom-typography li {font-weight: 300; max-width: 420px !important;}",
+        "h3 {font-weight: 300 !important;}",
+        ".accordion .details__header {letter-spacing: 0;}",
+        "ul {padding-left: 1rem;}",
+        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 50,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 50,
+        "padding-block-end": 25
       }
     },
     "section_dVccD7": {
@@ -1237,7 +1955,10 @@
     "section_ECAJfX",
     "main",
     "section_rDYzFQ",
-    "section_JjMm48",
+    "section_X4mykD",
+    "section_7VPLC7",
+    "section_gRQMJJ",
+    "section_Ew7Pjz",
     "section_dVccD7"
   ]
 }
