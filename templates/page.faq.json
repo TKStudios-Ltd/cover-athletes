@@ -540,6 +540,7 @@
         ".custom-typography p,.custom-typography li {font-weight: 300;}",
         "h3 {font-weight: 300 !important;}",
         ".accordion .details__header {letter-spacing: 0;}",
+        "ul {padding-left: 1rem;}",
         "@media (max-width: 749px) {h3 {font-size: 26px; }}"
       ],
       "name": "t:names.rich_text_section",
