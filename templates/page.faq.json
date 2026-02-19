@@ -240,7 +240,7 @@
                       "settings": {
                         "text": "<p>Cover has undergone a structured programme of real-world and controlled impact testing, designed to reflect the conditions cricketers actually face.</p><p>Testing has included:</p><ul><li>High-velocity impact testing using cricket balls at representative match speeds</li><li>Repeated strike testing to assess structural integrity over time</li><li>Extended wear testing during training sessions and competitive match play</li><li>On-field validation across batting, wicket-keeping, bowling and close-in fielding positions</li></ul><p>This programme allowed us to refine the shell construction, internal energy-absorbing layers, shape and stability — delivering consistent protection without unnecessary bulk.</p>",
                         "width": "100%",
-                        "max_width": "normal",
+                        "max_width": "none",
                         "alignment": "left",
                         "type_preset": "custom",
                         "font": "var(--font-body--family)",
