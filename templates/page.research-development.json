@@ -2017,7 +2017,7 @@
         "slide_VNm9pM": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/glenn-phillips-KKKWRPWZBFBKNJT6EJ5TVFYXLA_1.jpg",
+            "image": "shopify://shop_images/MGL9976.jpg",
             "quote": "\"My experience with getting hit has resulted in a fair bit of pain over the years ... It can truly effect what it is that you are supposed to be doing\"",
             "person_name": "Kane Williamson",
             "person_title": "NZ International Cricketer"
@@ -2025,8 +2025,9 @@
         },
         "slide_AYAbPk": {
           "type": "slide",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/9Tzi8ywRz924XE3uHaD6DZ3Ef_IdbOiYlvIROR5vlqUeRrexTocZGobKRJ9od_gnerP9rzYXeOX2mDBDhomaNBsIuwh61odKv6Lhx9ecp78UDSjrfnL2wEt8DBRey_kbRTFvJOPFTKMwdv00ovFfwGkQ1uavpx_oAdzXa_pHHrEjOhhwSJMxMmQ.jpg",
+            "image": "shopify://shop_images/Banner_Image.png",
             "quote": "\"I love having the confidence of having an athlete led and science backed product.\"",
             "person_name": "Rachin Ravindra",
             "person_title": "NZ International Cricketer"
@@ -2035,7 +2036,7 @@
         "slide_Fnjj8g": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Cover_ContactInnerBG-60.png",
+            "image": "shopify://shop_images/MGL0021_1.jpg",
             "quote": "\"Finally, there is some science behind the protection that a player can have! We have spent hours on prototypes with comfort and protection as our priority.\"",
             "person_name": "Grant Elliott",
             "person_title": "NZ International Cricketer"
