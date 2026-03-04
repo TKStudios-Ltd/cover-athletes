@@ -2205,7 +2205,7 @@
                     "text_8cJwjH": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Please email <a href=\"mailto:issues@coverathletes.com\" title=\"mailto:issues@coverathletes.com\">issues@coverathletes.com</a> with:</p><ul><li>A clear photo of the issue</li><li>A brief description of what occurred</li><li>Your order number</li></ul><p>Our team will review the information and respond as quickly as possible.</p>",
+                        "text": "<p>Please email <a href=\"mailto:contact@coverathletes.com\" title=\"mailto:contact@coverathletes.com\">contact@coverathletes.com</a> with:</p><ul><li>A clear photo of the issue</li><li>A brief description of what occurred</li><li>Your order number</li></ul><p>Our team will review the information and respond as quickly as possible.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
