@@ -4687,6 +4687,6 @@ footer .menu__item.paragraph {
   margin-bottom: 10px;
 }
 .cart-delay-notice p.small {
-  font-size: smaller;
+  font-size: var(--cart-font-size--xs);
   margin: 0 !important;
 }
