@@ -4684,7 +4684,9 @@ footer .menu__item.paragraph {
 .cart-delay-notice p {
   font-family: 'Graphik', sans-serif;
   font-size: var(--cart-font-size--sm);
+  margin-bottom: 10px;
 }
 .cart-delay-notice p.small {
   font-size: smaller;
+  margin-bottom: 0 !important;
 }
