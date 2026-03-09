@@ -36,13 +36,13 @@
     {%- endif -%}
   </div>
 
+  {% if settings.cart_delay_notice != blank %}
+    <div class="cart-delay-notice">
+      <p>{{ settings.cart_delay_notice }}</p>
+    </div>
+  {% endif %}
   {% if settings.show_cart_note or settings.show_add_discount_code %}
     <div class="cart-actions">
-      {% if settings.cart_delay_notice != blank %}
-        <div class="cart-delay-notice">
-          <p>{{ settings.cart_delay_notice }}</p>
-        </div>
-      {% endif %}
       {% if settings.show_cart_note %}
         {% render 'cart-note' %}
       {% endif %}
