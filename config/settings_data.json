@@ -61,7 +61,7 @@
     "auto_open_cart_drawer": true,
     "show_cart_note": false,
     "cart_note_open_by_default": true,
-    "show_add_discount_code": false,
+    "show_add_discount_code": true,
     "show_accelerated_checkout_buttons": false,
     "icon_stroke": "thin",
     "input_border_width": 1,
