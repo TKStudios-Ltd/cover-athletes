@@ -4678,7 +4678,7 @@ footer .menu__item.paragraph {
 }
 
 .cart-delay-notice {
-  padding-bottom: var(--padding-sm);
+  padding: var(--padding-md);
   background: linear-gradient(108.74deg, #e4e4e4, #f8f8f8);
 }
 .cart-delay-notice p {
