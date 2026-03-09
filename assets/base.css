@@ -4679,5 +4679,9 @@ footer .menu__item.paragraph {
 
 .cart-delay-notice {
   border-bottom: 1px solid var(--color-border);
-  padding-block: var(--padding-sm);
+  padding-bottom: var(--padding-sm);
+}
+.cart-delay-notice p {
+  font-family: 'Graphik', sans-serif;
+  font-size: var(--cart-font-size--sm);
 }
