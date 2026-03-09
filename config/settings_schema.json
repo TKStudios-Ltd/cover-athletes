@@ -1720,6 +1720,12 @@
         "default": "subheading"
       },
       {
+        "type": "textarea",
+        "id": "cart_delay_notice",
+        "label": "Cart delay notice",
+        "default": "Thanks for your support of COVER. Due to high demand, some orders may take a little longer than usual to ship. Our team is working hard to get every order out as quickly as possible. Thank you for your patience and support."
+      },
+      {
         "type": "checkbox",
         "id": "auto_open_cart_drawer",
         "label": "t:settings.auto_open_cart_drawer",
