@@ -1813,7 +1813,7 @@
                     "text_dyeNW9": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>The Core Cover retails at NZD $110. The Cover jockstrap retails at NZD $50. </p><p>Pricing reflects the complex engineering, materials and independent testing behind the product.</p><p>For international customers, pricing may vary by region and local taxes.</p>",
+                        "text": "<p>The Core Cover retails at NZD $120. The Cover jockstrap retails at NZD $60. However we strongly advise purchasing the bundle (Core Cover + Jockstrap) for NZD $150 as the system is designed to work together to enhance protection.</p><p>Pricing reflects the complex engineering, materials and independent testing behind the product.</p><p>For international customers, pricing may vary by region and local taxes.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -2088,7 +2088,7 @@
                     "text_tiTkU9": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We currently ship throughout New Zealand and will be rolling out deliveries in Australia in April. We will be expanding to other international shipping destinations in the near future.</p>",
+                        "text": "<p>We currently ship throughout New Zealand. We will be expanding to Australia and other international shipping destinations in the near future.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -2127,7 +2127,7 @@
                     "text_RerTbX": {
                       "type": "text",
                       "settings": {
-                        "text": "<ul><li>New Zealand: 2–4 business days</li><li>Australia: 4–8 business days</li></ul><p>Delivery times may vary during peak periods.</p>",
+                        "text": "<ul><li>New Zealand: 4–8 business days</li></ul><p>Delivery times may vary during peak periods.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
