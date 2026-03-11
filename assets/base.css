@@ -341,7 +341,7 @@ p:empty {
 .content-for-layout {
   flex: 1;
 }
-#MainContent .content-for-layout {
+#MainContent.content-for-layout {
   overflow-x: hidden;
 }
 
