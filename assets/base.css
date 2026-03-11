@@ -341,6 +341,9 @@ p:empty {
 .content-for-layout {
   flex: 1;
 }
+#MainContent .content-for-layout {
+  overflow-x: hidden;
+}
 
 /* Set up page widths & margins */
 .page-width-wide,
