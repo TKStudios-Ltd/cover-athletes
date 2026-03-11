@@ -1555,6 +1555,7 @@
         "text_KqnkPe",
         "group_Khp96z"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (max-width: 749px) {h1 {font-size: 36px; max-width: 300px; }}"
       ],
