@@ -265,9 +265,8 @@
                     "text_mkw4eC"
                   ]
                 },
-                "accordion_row_FLaHkz": {
+                "accordion_row_BRVRWb": {
                   "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
                   "settings": {
                     "heading": "The Post",
                     "open_by_default": false,
@@ -275,16 +274,16 @@
                     "width": 20
                   },
                   "blocks": {
-                    "text_Qxzaim": {
+                    "text_QLndcQ": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>https://www.thepost.co.nz/sport/360965616/black-caps-great-kane-williamson-launches-new-sports-protection-brand</p>",
+                        "text": "<p><a href=\"https://www.thepost.co.nz/sport/360965616/black-caps-great-kane-williamson-launches-new-sports-protection-brand\" target=\"_blank\" title=\"https://www.thepost.co.nz/sport/360965616/black-caps-great-kane-williamson-launches-new-sports-protection-brand\">https://www.thepost.co.nz/sport/360965616/black-caps-great-kane-williamson-launches-new-sports-protection-brand</a></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
-                        "type_preset": "rte",
+                        "type_preset": "custom",
                         "font": "var(--font-body--family)",
-                        "font_size": "1rem",
+                        "font_size": "0.75rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
@@ -302,29 +301,28 @@
                     }
                   },
                   "block_order": [
-                    "text_Qxzaim"
+                    "text_QLndcQ"
                   ]
                 },
-                "accordion_row_39pAMw": {
+                "accordion_row_MRDyDD": {
                   "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
                   "settings": {
-                    "heading": "When will I get my order?",
+                    "heading": "The Tribune",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "text_w3JLPc": {
+                    "text_nn9FGF": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p><a href=\"https://www.tribuneindia.com/news/cricket/new-zealands-williamson-launches-line-of-boxes-after-low-blow-from-steyn\" target=\"_blank\" title=\"https://www.tribuneindia.com/news/cricket/new-zealands-williamson-launches-line-of-boxes-after-low-blow-from-steyn\">https://www.tribuneindia.com/news/cricket/new-zealands-williamson-launches-line-of-boxes-after-low-blow-from-steyn</a></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
-                        "type_preset": "rte",
+                        "type_preset": "custom",
                         "font": "var(--font-body--family)",
-                        "font_size": "1rem",
+                        "font_size": "0.75rem",
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
@@ -342,90 +340,10 @@
                     }
                   },
                   "block_order": [
-                    "text_w3JLPc"
+                    "text_nn9FGF"
                   ]
                 },
-                "accordion_row_M3DBVR": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "When will I get my order?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_bnVKBb": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_bnVKBb"
-                  ]
-                },
-                "accordion_row_iU9AEC": {
-                  "type": "_accordion-row",
-                  "name": "t:names.accordion_row",
-                  "settings": {
-                    "heading": "When will I get my order?",
-                    "open_by_default": false,
-                    "icon": "none",
-                    "width": 20
-                  },
-                  "blocks": {
-                    "text_zFgGiK": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "rte",
-                        "font": "var(--font-body--family)",
-                        "font_size": "1rem",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "var(--color-foreground)",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 0,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_zFgGiK"
-                  ]
-                },
-                "accordion_row_BRVRWb": {
+                "accordion_row_6PWear": {
                   "type": "_accordion-row",
                   "settings": {
                     "heading": "Caffeine Daily",
@@ -434,7 +352,7 @@
                     "width": 20
                   },
                   "blocks": {
-                    "text_QLndcQ": {
+                    "text_3FQbdn": {
                       "type": "text",
                       "settings": {
                         "text": "<p><a href=\"https://caffeinedaily.co/article/cd838441-f761-4c34-b9ce-f230e552b9ed\" target=\"_blank\" title=\"https://caffeinedaily.co/article/cd838441-f761-4c34-b9ce-f230e552b9ed\">https://caffeinedaily.co/article/cd838441-f761-4c34-b9ce-f230e552b9ed</a></p>",
@@ -461,17 +379,135 @@
                     }
                   },
                   "block_order": [
-                    "text_QLndcQ"
+                    "text_3FQbdn"
+                  ]
+                },
+                "accordion_row_9JRcYd": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Sports Nation",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_LQrYyT": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><a href=\"https://sportnation.nz/video/kane-williamson-launches-cover-sport-nation\" target=\"_blank\" title=\"https://sportnation.nz/video/kane-williamson-launches-cover-sport-nation\">https://sportnation.nz/video/kane-williamson-launches-cover-sport-nation</a></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_LQrYyT"
+                  ]
+                },
+                "accordion_row_EeckHB": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Crowd Goes Wild",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_nfkNpz": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><a href=\"https://www.facebook.com/reel/1254588823471788\" target=\"_blank\" title=\"https://www.facebook.com/reel/1254588823471788\">https://www.facebook.com/reel/1254588823471788</a></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_nfkNpz"
+                  ]
+                },
+                "accordion_row_qJeCPe": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Newstalk ZB",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_UbyjYa": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><a href=\"https://www.newstalkzb.co.nz/on-air/weekend-sport-with-jason-pine/audio/kane-williamson-black-cap-unveils-new-business-venture/\" target=\"_blank\" title=\"https://www.newstalkzb.co.nz/on-air/weekend-sport-with-jason-pine/audio/kane-williamson-black-cap-unveils-new-business-venture/\">https://www.newstalkzb.co.nz/on-air/weekend-sport-with-jason-pine/audio/kane-williamson-black-cap-unveils-new-business-venture/</a></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_UbyjYa"
                   ]
                 }
               },
               "block_order": [
                 "accordion_row_qPhnkT",
-                "accordion_row_FLaHkz",
-                "accordion_row_39pAMw",
-                "accordion_row_M3DBVR",
-                "accordion_row_iU9AEC",
-                "accordion_row_BRVRWb"
+                "accordion_row_BRVRWb",
+                "accordion_row_MRDyDD",
+                "accordion_row_6PWear",
+                "accordion_row_9JRcYd",
+                "accordion_row_EeckHB",
+                "accordion_row_qJeCPe"
               ]
             }
           },
