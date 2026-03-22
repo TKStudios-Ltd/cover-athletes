@@ -277,7 +277,7 @@
                     "text_QLndcQ": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>https://caffeinedaily.co/article/cd838441-f761-4c34-b9ce-f230e552b9ed</p>",
+                        "text": "<p><a href=\"https://caffeinedaily.co/article/cd838441-f761-4c34-b9ce-f230e552b9ed\" target=\"_blank\" title=\"https://caffeinedaily.co/article/cd838441-f761-4c34-b9ce-f230e552b9ed\">https://caffeinedaily.co/article/cd838441-f761-4c34-b9ce-f230e552b9ed</a></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
