@@ -576,6 +576,84 @@
                   "block_order": [
                     "text_6VBKEa"
                   ]
+                },
+                "accordion_row_taDwAx": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "RNZ",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_BTXQDU": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><a href=\"https://www.rnz.co.nz/news/sport/589413/kane-williamson-modernises-protective-gear-after-painful-blow\" target=\"_blank\" title=\"https://www.rnz.co.nz/news/sport/589413/kane-williamson-modernises-protective-gear-after-painful-blow\">https://www.rnz.co.nz/news/sport/589413/kane-williamson-modernises-protective-gear-after-painful-blow</a></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_BTXQDU"
+                  ]
+                },
+                "accordion_row_nDDgFL": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "NZHerald",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_WEHWek": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p><a href=\"https://www.nzherald.co.nz/sport/cricket/black-caps/kane-williamson-unveils-cover-alloy-box-designed-to-withstand-200kmh-deliveries/DSOHHME5JJGZ5MCMZZ27XQXRSQ/\" target=\"_blank\" title=\"https://www.nzherald.co.nz/sport/cricket/black-caps/kane-williamson-unveils-cover-alloy-box-designed-to-withstand-200kmh-deliveries/DSOHHME5JJGZ5MCMZZ27XQXRSQ/\">https://www.nzherald.co.nz/sport/cricket/black-caps/kane-williamson-unveils-cover-alloy-box-designed-to-withstand-200kmh-deliveries/DSOHHME5JJGZ5MCMZZ27XQXRSQ/</a></p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_WEHWek"
+                  ]
                 }
               },
               "block_order": [
@@ -587,7 +665,9 @@
                 "accordion_row_EeckHB",
                 "accordion_row_qJeCPe",
                 "accordion_row_DKjkTR",
-                "accordion_row_Jz3pgm"
+                "accordion_row_Jz3pgm",
+                "accordion_row_taDwAx",
+                "accordion_row_nDDgFL"
               ]
             }
           },
