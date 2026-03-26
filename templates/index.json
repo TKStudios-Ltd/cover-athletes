@@ -545,7 +545,7 @@
             "text_c4przm": {
               "type": "text",
               "settings": {
-                "text": "<h3>Core Cover</h3>",
+                "text": "<h3>Core Cover + JOckstrap</h3>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -570,7 +570,7 @@
             "text_tBh6Jw": {
               "type": "text",
               "settings": {
-                "text": "<p>Protective gear for cricket which features advanced materials, ergonomic design, and verified protection to deliver uncompromising performance.</p>",
+                "text": "<p>Our most popular product the Core Cover and Jockstrap bundle. Designed to work as one protective system for the best performance and comfort.</p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
@@ -603,8 +603,8 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Explore",
-            "link": "shopify://products/core-cover",
+            "label": "Shop Now",
+            "link": "shopify://products/core-cover-jockstrap",
             "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
