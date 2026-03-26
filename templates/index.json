@@ -599,7 +599,7 @@
             "text_tBh6Jw"
           ]
         },
-        "button_Jr78Yy": {
+        "button_B3Ay9G": {
           "type": "button",
           "name": "t:names.button",
           "settings": {
@@ -617,7 +617,7 @@
       },
       "block_order": [
         "group_Bftj48",
-        "button_Jr78Yy"
+        "button_B3Ay9G"
       ],
       "custom_css": [
         "@media (min-width: 1200px) {.hero {margin: 100px 60px auto !important; } .section-content-wrapper {padding: 20px !important; }}",
@@ -795,7 +795,7 @@
               },
               "blocks": {}
             },
-            "product_list_button_3tmjfi": {
+            "product_list_button_ff6Gpt": {
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
               "settings": {
@@ -812,7 +812,7 @@
           },
           "block_order": [
             "product_list_text_Pn3zXj",
-            "product_list_button_3tmjfi"
+            "product_list_button_ff6Gpt"
           ]
         },
         "static-product-card": {
