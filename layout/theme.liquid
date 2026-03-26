@@ -3,7 +3,10 @@
   class="no-js{% if request.design_mode %} shopify-design-mode{% endif %}"
   lang="{{ request.locale.iso_code }}"
 >
-<script type="application/ld+json">
+
+  <head>
+
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SportsOrganization",
@@ -19,9 +22,6 @@
   ]
 }
 </script>
-
-
-  <head>
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
