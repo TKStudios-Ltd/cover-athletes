@@ -29,6 +29,15 @@
     <!-- End Google Tag Manager -->
 
 
+    {% if request.path == '/products' %}
+      <script>
+        window.location.replace('/collections/shop-all');
+      </script>
+      <noscript>
+        <meta http-equiv="refresh" content="0; url=/collections/shop-all">
+      </noscript>
+    {% endif %}
+    
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
