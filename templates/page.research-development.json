@@ -2632,7 +2632,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Your protection is important to us.</p>",
+                    "text": "<p>Get early access</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -2658,7 +2658,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<p>Get in touch, so we can help.</p>",
+                    "text": "<p>New releases, product updates, and the thinking behind Cover.</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
