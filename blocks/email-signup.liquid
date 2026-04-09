@@ -451,10 +451,16 @@
   footer .email-signup__button.button-unstyled {
     background: transparent !important;
   }
+  footer .email-signup__button {
+    position: relative;
+    z-index: 4;
+    pointer-events: auto;
+  }
   footer .email-signup__actions {
     position: absolute;
     right: -12px;
     top: -2px;
+    z-index: 3;
     @media (max-width: 749px) {
       top: -6px;
     }
