@@ -125,8 +125,8 @@
         "video_maeKNF"
       ],
       "custom_css": [
-        "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 300 !important; padding: 20px 0; max-width: 1440px;}",
-        "h1 strong {font-weight: 300 !important; color: #939393;}",
+        "h1 {font-family: \"Graphik\", sans-serif !important; font-weight: 400 !important; padding: 20px 0; max-width: 1440px;}",
+        "h1 strong {font-weight: 400 !important; color: #939393;}",
         ".icon-text-inline {display: flex;}",
         ".icon-text-inline img {height: 14px;}",
         "@media (max-width: 749px) {h1 {font-size: 36px; padding: 0; } deferred-media {border-radius: 10px; }}"
@@ -684,7 +684,7 @@
           "type": "hotspot",
           "settings": {
             "title": "UNIQUE SHAPE",
-            "text": "Our aluminium shell is specifically formulated to be strong and resilient against hard ball impacts. Our shell consistently withstands multiple impacts at top end bowling speeds.",
+            "text": "The ergonomic design contours naturally to the body, reducing bulk and eliminating the rigid, awkward feel that usually comes with protection. It moves with you - so you’re not thinking about the gear, just the game.",
             "pos_x": 48,
             "pos_y": 54,
             "placement": "bottom-right"
