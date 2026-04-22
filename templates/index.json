@@ -656,6 +656,389 @@
         "padding-block-end": 50
       }
     },
+    "custom_liquid_TTrPJe": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 50,
+        "padding-block-end": 0
+      }
+    },
+    "section_aGNhqB": {
+      "type": "section",
+      "blocks": {
+        "group_4nPTX9": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 2,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_z83H8D": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<h3>Everything you need to know before you step out</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_z83H8D"
+          ]
+        },
+        "group_tcmJER": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "divider_WiWr8H": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 5
+              },
+              "blocks": {}
+            },
+            "accordion_mLhYYU": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "plus",
+                "dividers": true,
+                "type_preset": "",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_cMd6hd": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Why is Cover priced higher than other guards?",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_VHthAD": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Impacts to this region aren’t minor, they can lead to serious injury, hospitalisation, and long-term damage. Most standard guards are built for basic protection, not high-speed impact. Cover has been engineered to handle real pace, with a metal composite core and dual-density foam system designed to reduce force where it matters most. </p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_VHthAD"
+                  ]
+                },
+                "accordion_row_nEpNXC": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Why should I buy the Cover bundle?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_8maCwx": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our Cover Box and Jockstrap are designed to work together as one protective system, ensuring a better fit, greater comfort, and improved mobility.</p><p>Buy once. Set yourself up properly.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_8maCwx"
+                  ]
+                },
+                "accordion_row_Pp3RLK": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "What makes Cover the best option?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_3Etmne": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Cover is the result of extensive R&D, real-world testing, and direct athlete input.Developed through hours of prototyping, material testing, and high-speed impact trials, every detail is built around how the game is actually played.</p><ul><li>Metal composite core refined through repeated impact testing</li><li>Dual-density foam system engineered to absorb and disperse shock</li><li>Ergonomic fit shaped by athlete feedback for comfort and movement</li><li>Tested under real pace by elite players, not just in a lab</li></ul><p>Most gear forces a trade-off between comfort and protection.Cover is built to deliver both because it’s been designed, tested, and proven where it counts.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_3Etmne"
+                  ]
+                },
+                "accordion_row_YAB4mA": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "What's next from Cover?",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_TVy64U": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We’ve got a number of exciting new products curerntly in development. All built the same way as: athlete-led, rigorously tested, and only released when they genuinely improve performance and protection. Nothing rushed. Nothing unnecessary. To stay in the loop: sign up to our newsletter and follow us on social for early access and product drops.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "0.75rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_TVy64U"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_cMd6hd",
+                "accordion_row_nEpNXC",
+                "accordion_row_Pp3RLK",
+                "accordion_row_YAB4mA"
+              ]
+            },
+            "spacer_HEXe3N": {
+              "type": "spacer",
+              "name": "t:names.spacer",
+              "settings": {
+                "size": "pixel",
+                "percent_size": 100,
+                "pixel_size": 52,
+                "custom_mobile_size": false,
+                "size_mobile": "percent",
+                "percent_size_mobile": 100,
+                "pixel_size_mobile": 120
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "divider_WiWr8H",
+            "accordion_mLhYYU",
+            "spacer_HEXe3N"
+          ]
+        }
+      },
+      "block_order": [
+        "group_4nPTX9",
+        "group_tcmJER"
+      ],
+      "custom_css": [
+        ".custom-typography p {font-weight: 300;}",
+        ".accordion .details__header {letter-spacing: 0;}",
+        "h3 {max-width: 500px;}",
+        "ul {padding-left: 1rem;}",
+        "ul li {font-weight: 300;}",
+        "@media (max-width: 749px) {h3 {font-size: 26px; }}"
+      ],
+      "name": "Accordion",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 50,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 50,
+        "padding-block-end": 100
+      }
+    },
     "section_XUyErf": {
       "type": "section",
       "blocks": {
@@ -699,7 +1082,7 @@
         "text_zihKh6"
       ],
       "custom_css": [
-        "@media (min-width: 1200px) {.section-content-wrapper {padding: 100px 35px 50px; }}",
+        "@media (min-width: 1200px) {.section-content-wrapper {padding: 50px 35px; }}",
         "h3 {max-width: 300px; line-height: 1.2;}",
         "@media (max-width: 749px) {h3 {font-size: 20px; }}"
       ],
@@ -728,7 +1111,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 100,
+        "padding-block-start": 50,
         "padding-block-end": 0
       }
     },
@@ -1441,6 +1824,8 @@
     "athlete_slider_heEMhB",
     "section_hThtAw",
     "hero_N3QzY6",
+    "custom_liquid_TTrPJe",
+    "section_aGNhqB",
     "section_XUyErf",
     "product_list_pXTn7y",
     "section_dVccD7"
