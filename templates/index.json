@@ -1002,6 +1002,7 @@
         "group_4nPTX9",
         "group_tcmJER"
       ],
+      "disabled": true,
       "custom_css": [
         ".custom-typography p {font-weight: 300;}",
         ".accordion .details__header {letter-spacing: 0;}",
