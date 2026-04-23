@@ -56,6 +56,29 @@
       rgba(255, 255, 255, 0.1) 100%
     );
   }
+  .header-announcements__bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(105, 120, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.95) 45%,
+      rgba(13, 220, 170, 0.9) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+
+    mix-blend-mode: screen;
+    opacity: 0.45;
+  }
+  .header-announcements__track-wrap,
+  .header-announcements__track,
+  .header-announcements__group,
+  .header-announcements .announcement-bar__slide {
+    position: relative;
+    z-index: 2;
+  }
 
   .header-announcements__bar::after {
     content: "";
@@ -127,22 +150,8 @@
   .header-announcements .announcement-bar__text span,
   .header-announcements .announcement-bar__text strong,
   .header-announcements .announcement-bar__text em {
-    {% if section.settings.use_solid_text_color %}
-      color: var(--announcement-text-solid);
-      background: none;
-      -webkit-text-fill-color: initial;
-    {% else %}
-      background: linear-gradient(
-        90deg,
-        rgba(105, 120, 255, 0.95) 0%,
-        rgba(255, 255, 255, 0.92) 45%,
-        rgba(13, 220, 170, 0.95) 100%
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    {% endif %}
+    color: var(--announcement-text-solid);
+    -webkit-text-fill-color: currentColor;
   }
 
   .header-announcements .announcement-bar__link {
