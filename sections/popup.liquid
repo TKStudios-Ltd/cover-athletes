@@ -227,12 +227,6 @@
         -webkit-backdrop-filter: blur(20px);
         box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
     }
-    {% comment %} #PopupCover-{{ section.id }} .popup-cover__glow {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: rgba(0, 0, 0, 0.30);
-    } {% endcomment %}
     #PopupCover-{{ section.id }} .popup-cover__card::after {
       content: "";
       position: absolute;
@@ -242,9 +236,9 @@
       padding: 1.5px;
       background: linear-gradient(
         135deg,
-        rgba(126, 145, 255, 0.55),
-        rgba(255, 255, 255, 0.12) 45%,
-        rgba(13, 220, 170, 0.55)
+        rgba(126, 145, 255, 0.25),
+        rgba(255, 255, 255, 0.1) 45%,
+        rgba(13, 220, 170, 0.25)
       );
       -webkit-mask:
         linear-gradient(#000 0 0) content-box,
