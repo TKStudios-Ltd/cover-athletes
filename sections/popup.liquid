@@ -7,6 +7,9 @@
 
 {%- liquid
   assign should_render = true
+  if request.path == '/pages/privacy-policy'
+    assign should_render = true
+  endif
 
   if section.settings.hide_on_mobile and request.design_mode == false
     if request.user_agent contains 'Mobile' or request.user_agent contains 'Android'
@@ -100,7 +103,8 @@
             {% endif %}
 
             {% if section.settings.popup_type == 'newsletter' %}
-              {% form 'contact', id: 'PopupCoverForm-' | append: section.id, class: 'popup-cover__form' %}
+              {%- assign popup_form_id = 'PopupCoverForm-' | append: section.id -%}
+              {% form 'contact', id: popup_form_id, class: 'popup-cover__form' %}
                 {% if form.posted_successfully? %}
                   <div class="popup-cover__success">
                     {{ section.settings.success_message }}
@@ -507,6 +511,7 @@
       }
 
       function canShow() {
+        if (window.location.pathname === '/pages/privacy-policy') return true;
         if (Shopify.designMode) return true;
         if (ONCE_PER_SESSION && isSessionHidden()) return false;
         return now() > hiddenUntil();
@@ -556,8 +561,13 @@
           }, { passive: true });
         }
 
+        if (window.location.pathname === '/pages/privacy-policy') {
+            show();
+            return;
+        }
+
         if (!USE_EXIT && TRIGGER_SCROLL <= 0) {
-          setTimeout(show, DELAY_MS);
+            setTimeout(show, DELAY_MS);
         }
       }
 
