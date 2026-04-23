@@ -194,8 +194,8 @@
         position: absolute;
         inset: 0;
         background: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
-        backdrop-filter: blur(40px);
-        -webkit-backdrop-filter: blur(40px);
+        backdrop-filter: blur(80px);
+        -webkit-backdrop-filter: blur(80px);
     }
     #PopupCover-{{ section.id }} .popup-cover__wrap {
         position: absolute;
@@ -210,7 +210,7 @@
         width: min(100%, 900px);
         border-radius: 16px;
         overflow: hidden;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
