@@ -33,10 +33,10 @@
         "privacy_text": "<p>Cover needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our <a href=\"/pages/privacy-policy\" target=\"_blank\" title=\"/pages/privacy-policy\">Privacy Policy</a>.</p>",
         "success_message": "Thanks for signing up.",
         "overlay_opacity": 70,
-        "show_delay_ms": 1000,
+        "show_delay_ms": 5000,
         "trigger_scroll_percent": 0,
         "enable_exit_intent": false,
-        "once_per_session": false,
+        "once_per_session": true,
         "hide_days": 14,
         "hide_on_mobile": false,
         "exclude_paths": "/cart\n/checkout\n/account"
