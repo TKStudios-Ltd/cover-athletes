@@ -6,6 +6,13 @@
 {% endcomment %}
 
 {%- liquid
+  assign should_render = false
+
+  if request.path == '/pages/privacy-policy'
+    assign should_render = true
+  endif
+-%}
+{% comment %} {%- liquid
   assign is_test_page = false
   if request.path == '/pages/privacy-policy'
     assign is_test_page = true
@@ -31,7 +38,7 @@
       endfor
     endif
   endunless
--%}
+-%} {% endcomment %}
 
 {%- if should_render -%}
   <div
