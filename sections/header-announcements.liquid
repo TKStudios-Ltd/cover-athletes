@@ -19,11 +19,12 @@
 <aside
   class="header-announcements spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
   style="
+    {% render 'spacing-padding', settings: section.settings %}
     --announcement-text-solid: {{ section.settings.text_color }};
     --marquee-speed: {{ section.settings.speed }}s;
   "
 >
-  <div class="header-announcements__bar" style="{% render 'spacing-padding', settings: section.settings %}">
+  <div class="header-announcements__bar">
     <div class="header-announcements__track-wrap">
       <div class="header-announcements__track">
         {% for i in (1..repeat_count) %}
@@ -43,18 +44,11 @@
   .header-announcements {
     position: relative;
     z-index: 20;
-  }
-
-  .header-announcements__bar {
-    position: relative;
-    overflow: hidden;
     background: rgba(20, 20, 24, 0.75);
     backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
   }
 
-  .header-announcements__bar::before {
+  .header-announcements::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -68,7 +62,7 @@
     z-index: 1;
   }
 
-  .header-announcements__bar::after {
+  .header-announcements::after {
     content: "";
     position: absolute;
     left: 0;
@@ -84,6 +78,13 @@
     );
     pointer-events: none;
     z-index: 3;
+  }
+
+  .header-announcements__bar {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
   }
 
   .header-announcements__track-wrap,
