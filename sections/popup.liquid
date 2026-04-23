@@ -85,9 +85,13 @@
 
             {% if section.settings.popup_type == 'promotional' %}
               {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-                <a href="{{ section.settings.button_link }}" class="popup-cover__button">
-                  {{ section.settings.button_label }}
-                </a>
+                <div class="button-wrapper button-wrapper--button">
+                    <a
+                        href="{{ section.settings.button_link }}"
+                        class="popup-cover__button button">
+                        {{ section.settings.button_label }}
+                    </a>
+                </div>
               {% endif %}
 
               {% if section.settings.fine_print != blank %}
@@ -321,21 +325,23 @@
       max-width: 420px;
     }
 
-    #PopupCover-{{ section.id }} .popup-cover__button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 190px;
-      min-height: 54px;
-      margin-top: 44px;
-      padding: 0 28px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #45f0a8 0%, #49e6b7 100%);
-      color: #111;
-      font-size: 24px;
-      line-height: 1;
-      text-decoration: none;
-      font-weight: 500;
+    #PopupCover-{{ section.id }} .popup-cover__button.button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: fit-content;
+        min-height: auto;
+        padding: 15px 48px 14px;
+        border-radius: 999px;
+        background: rgba(56, 248, 168, 1);
+        color: #000;
+        text-decoration: none;
+        text-transform: capitalize !important;
+        font-size: 16px !important;
+        letter-spacing: 0;
+        font-weight: 500;
+        line-height: 1;
     }
 
     #PopupCover-{{ section.id }} .popup-cover__fine-print {
