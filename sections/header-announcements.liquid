@@ -1,130 +1,176 @@
-
-
-{% if section.blocks.size > 1 %}
-  <script
-    src="{{ 'announcement-bar.js' | asset_url }}"
-    type="module"
-    fetchpriority="low"
-  ></script>
-{% endif %}
-
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+{%- liquid
+  assign announcement_count = 0
+
+  for block in section.blocks
+    assign plain_text = block.settings.text | strip_newlines | strip_html | strip
+    unless plain_text == ''
+      assign announcement_count = announcement_count | plus: 1
+    endunless
+  endfor
+
+  assign repeat_count = section.settings.repeat_count
+  if announcement_count == 1
+    assign repeat_count = repeat_count | plus: 4
+  endif
+-%}
+
 <aside
-  class="announcement-bar spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
-  style="{% render 'spacing-padding', settings: section.settings %}; --border-bottom-width: {{ section.settings.divider_width }}px;"
+  class="header-announcements section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section.settings %};"
 >
-  {% liquid
-    assign autoplay = false
-    assign show_arrows = false
-    if section.blocks.size > 1
-      assign autoplay = true
-      assign show_arrows = true
-    endif
-  %}
-
-  <announcement-bar-component
-    class="announcement-bar__slider"
-    {% if autoplay == true %}
-      autoplay="{{ section.settings.speed }}" aria-live="polite"
-    {% endif %}
-  >
-    {% if show_arrows %}
-      {% render 'slideshow-arrows', icon_style: 'chevron' %}
-    {% endif %}
-
-    <div class="announcement-bar__slides">
-      {% content_for 'blocks' %}
+  <div class="header-announcements__bar">
+    <div
+      class="header-announcements__track-wrap"
+      style="
+        --marquee-speed: {{ section.settings.speed }}s;
+        --announcement-text-solid: {{ section.settings.text_color }};
+      "
+    >
+      <div class="header-announcements__track">
+        {% for i in (1..repeat_count) %}
+          <div class="header-announcements__group" aria-hidden="{% if i > 1 %}true{% else %}false{% endif %}">
+            {% content_for 'blocks' %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
-  </announcement-bar-component>
+  </div>
 </aside>
 
 {% stylesheet %}
-  .announcement-bar {
-    border-block-end: var(--border-bottom-width) solid var(--color-border);
-  }
-
-  .announcement-bar__slider {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  .header-announcements {
     position: relative;
-
-    @media screen and (max-width: 749px) {
-      grid-column: 1 / -1;
-    }
+    z-index: 2;
   }
 
-  .announcement-bar__slides {
-    display: grid;
-    grid: [stack] auto / [stack] auto;
-    width: calc(100% - var(--button-size) * 2);
-    max-width: 680px;
-    margin-inline: auto;
+  .header-announcements__bar {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
   }
 
-  .announcement-bar__slides > * {
-    grid-area: stack;
+  .header-announcements__bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+      108.74deg,
+      #6978ff48,
+      #0000002e 36.46%,
+      rgba(0, 0, 0, 0.08) 73.96%,
+      #0ddcaa3f
+    );
+    pointer-events: none;
   }
 
-  .announcement-bar__slide {
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-
-    &[aria-hidden='true'] {
-      opacity: 0;
-      visibility: hidden;
-    }
+  .header-announcements__track-wrap {
+    overflow: hidden;
+    width: 100%;
   }
 
-  .announcement-bar__slider slideshow-arrows {
-    padding: 0;
-    mix-blend-mode: normal;
-  }
-
-  .announcement-bar__slider slideshow-arrows .slideshow-control {
-    color: var(--color-foreground);
-  }
-
-  .announcement-bar__slider .slideshow-control {
+  .header-announcements__track {
     display: flex;
-    padding: 0;
-    width: var(--button-size);
-    height: var(--button-size);
+    align-items: center;
+    width: max-content;
+    animation: headerAnnouncementMarquee var(--marquee-speed) linear infinite;
+    will-change: transform;
+  }
+
+  .header-announcements__track-wrap:hover .header-announcements__track {
+    animation-play-state: paused;
+  }
+
+  .header-announcements__group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  @keyframes headerAnnouncementMarquee {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .header-announcements .announcement-bar__slide {
+    display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
-    animation: none;
+    position: relative;
+    flex: 0 0 auto;
+    padding: 0 22px;
+    white-space: nowrap;
+  }
 
-    @media screen and (min-width: 750px) {
-      --slideshow-control-offset: calc((var(--button-size) - var(--icon-size-xs)) / 2);
+  .header-announcements .announcement-bar__text {
+    margin: 0;
+    line-height: 1;
+    font-size: 10px;
+  }
 
-      .section--page-width &.slideshow-control--previous {
-        transform: translateX(var(--slideshow-control-offset));
-      }
+  .header-announcements .announcement-bar__text,
+  .header-announcements .announcement-bar__text a,
+  .header-announcements .announcement-bar__text span,
+  .header-announcements .announcement-bar__text strong,
+  .header-announcements .announcement-bar__text em {
+    {% if section.settings.use_solid_text_color %}
+      color: var(--announcement-text-solid);
+      background: none;
+      -webkit-text-fill-color: initial;
+    {% else %}
+      background: linear-gradient(
+        90deg,
+        rgba(105, 120, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.92) 45%,
+        rgba(13, 220, 170, 0.95) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    {% endif %}
+  }
+
+  .header-announcements .announcement-bar__link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 749px) {
+    .header-announcements .announcement-bar__slide {
+      padding: 0 16px;
+    }
+
+    .header-announcements .announcement-bar__text {
+      font-size: 9px;
     }
   }
 
-  .announcement-bar__slider .slideshow-control .svg-wrapper {
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
-  }
-
-  .announcement-bar__slide {
-    place-content: center;
-  }
-
-  .announcement-bar__text:first-child {
-    margin: 0;
-  }
-
-  .announcement-bar__link {
-    position: absolute;
-    inset: 0;
+  @media (prefers-reduced-motion: reduce) {
+    .header-announcements__track {
+      animation: none;
+    }
   }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "t:names.announcement_bar",
+  "name": "Header announcements",
   "blocks": [
     {
       "type": "_announcement"
@@ -137,76 +183,88 @@
     {
       "type": "range",
       "id": "speed",
-      "label": "t:settings.scroll_speed",
-      "min": 2,
-      "max": 10,
-      "default": 5,
+      "label": "Marquee speed",
+      "min": 8,
+      "max": 60,
+      "step": 1,
+      "default": 28,
       "unit": "sec"
     },
     {
+      "type": "range",
+      "id": "repeat_count",
+      "label": "Repeat count",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
       "type": "header",
-      "content": "t:content.appearance"
+      "content": "Appearance"
     },
     {
       "type": "select",
       "id": "section_width",
-      "label": "t:settings.section_width",
+      "label": "Section width",
       "options": [
         {
           "value": "page-width",
-          "label": "t:options.page"
+          "label": "Page width"
         },
         {
           "value": "full-width",
-          "label": "t:options.full"
+          "label": "Full width"
         }
       ],
-      "default": "page-width"
+      "default": "full-width"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "default": "scheme-4",
-      "label": "t:settings.color_scheme"
+      "label": "Color scheme"
     },
     {
-      "type": "range",
-      "id": "divider_width",
-      "label": "t:settings.divider_thickness",
-      "min": 0,
-      "max": 5,
-      "step": 0.5,
-      "unit": "px",
-      "default": 0
+      "type": "checkbox",
+      "id": "use_solid_text_color",
+      "label": "Override gradient text with solid color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Solid text color",
+      "default": "#FFFFFF"
     },
     {
       "type": "header",
-      "content": "t:content.padding"
+      "content": "Padding"
     },
     {
       "type": "range",
       "id": "padding-block-start",
-      "label": "t:settings.top",
+      "label": "Top",
       "min": 0,
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 15
+      "default": 6
     },
     {
       "type": "range",
       "id": "padding-block-end",
-      "label": "t:settings.bottom",
+      "label": "Bottom",
       "min": 0,
       "max": 100,
       "step": 1,
       "unit": "px",
-      "default": 15
+      "default": 6
     }
   ],
   "presets": [
     {
-      "name": "t:names.announcement_bar",
+      "name": "Header announcements",
       "blocks": {
         "announcement_1": {
           "type": "_announcement"
