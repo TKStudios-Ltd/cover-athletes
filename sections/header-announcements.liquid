@@ -50,7 +50,8 @@
     overflow: hidden;
     background: rgba(20, 20, 24, 0.72);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
   }
 
   .header-announcements__bar::before {
@@ -101,6 +102,7 @@
   .header-announcements__track {
     display: flex;
     align-items: center;
+    min-height: 100%;
     width: max-content;
     animation: headerAnnouncementMarquee var(--marquee-speed) linear infinite;
     will-change: transform;
