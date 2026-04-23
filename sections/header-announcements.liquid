@@ -17,7 +17,7 @@
 -%}
 
 <aside
-  class="header-announcements section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  class="header-announcements spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
 >
   <div
     class="header-announcements__bar"
@@ -32,7 +32,10 @@
     >
       <div class="header-announcements__track">
         {% for i in (1..repeat_count) %}
-          <div class="header-announcements__group" aria-hidden="{% if i > 1 %}true{% else %}false{% endif %}">
+          <div
+            class="header-announcements__group"
+            aria-hidden="{% if i > 1 %}true{% else %}false{% endif %}"
+          >
             {% content_for 'blocks' %}
           </div>
         {% endfor %}
