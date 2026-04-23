@@ -13,6 +13,7 @@
   "sections": {
     "popup_9kP9Pq": {
       "type": "popup",
+      "disabled": true,
       "name": "Popup",
       "settings": {
         "popup_type": "newsletter",
