@@ -2869,6 +2869,7 @@
         "custom_liquid_C8VJby",
         "group_e9B3XB"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit;}",
         "h3 strong {font-weight: 400 !important; color: #959595;}",
@@ -2942,6 +2943,7 @@
         "testimonial_zapfKb",
         "testimonial_WHqfNJ"
       ],
+      "disabled": true,
       "name": "Testimonial Column Slider",
       "settings": {
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
