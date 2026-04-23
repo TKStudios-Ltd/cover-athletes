@@ -38,8 +38,8 @@
         "repeat_count": 10,
         "section_width": "full-width",
         "color_scheme": "scheme-bbaa84de-bde0-484d-9a30-d1934e578232",
-        "use_solid_text_color": true,
-        "text_color": "#000000",
+        "use_solid_text_color": false,
+        "text_color": "#ffffff",
         "padding-block-start": 10,
         "padding-block-end": 10
       }
