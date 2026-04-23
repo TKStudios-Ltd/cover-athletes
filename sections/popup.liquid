@@ -6,39 +6,25 @@
 {% endcomment %}
 
 {%- liquid
-  assign should_render = false
-
-  if request.path == '/pages/privacy-policy'
-    assign should_render = true
-  endif
--%}
-{% comment %} {%- liquid
-  assign is_test_page = false
-  if request.path == '/pages/privacy-policy'
-    assign is_test_page = true
-  endif
-
   assign should_render = true
 
-  unless is_test_page
-    if section.settings.hide_on_mobile and request.design_mode == false
-      if request.user_agent contains 'Mobile' or request.user_agent contains 'Android'
+  if section.settings.hide_on_mobile and request.design_mode == false
+    if request.user_agent contains 'Mobile' or request.user_agent contains 'Android'
+      assign should_render = false
+    endif
+  endif
+
+  if section.settings.exclude_paths != blank and request.design_mode == false
+    assign current_path = request.path | downcase
+    assign lines = section.settings.exclude_paths | newline_to_br | split: '<br />'
+    for l in lines
+      assign p = l | strip | downcase
+      if p != blank and current_path contains p
         assign should_render = false
       endif
-    endif
-
-    if section.settings.exclude_paths != blank and request.design_mode == false
-      assign current_path = request.path | downcase
-      assign lines = section.settings.exclude_paths | newline_to_br | split: '<br />'
-      for l in lines
-        assign p = l | strip | downcase
-        if p != blank and current_path contains p
-          assign should_render = false
-        endif
-      endfor
-    endif
-  endunless
--%} {% endcomment %}
+    endfor
+  endif
+-%}
 
 {%- if should_render -%}
   <div
@@ -452,125 +438,119 @@
 
   <script>
     (function() {
-      var root = document.getElementById('PopupCover-{{ section.id }}');
-      if (!root) return;
+        var root = document.getElementById('PopupCover-{{ section.id }}');
+        if (!root) return;
 
-      var DELAY_MS = {{ section.settings.show_delay_ms | default: 1200 }};
-      var HIDE_DAYS = {{ section.settings.hide_days | default: 14 }};
-      var TRIGGER_SCROLL = {{ section.settings.trigger_scroll_percent | default: 0 }};
-      var USE_EXIT = {{ section.settings.enable_exit_intent | json }};
-      var ONCE_PER_SESSION = {{ section.settings.once_per_session | json }};
-      var KEY = root.dataset.key;
+        var DELAY_MS = {{ section.settings.show_delay_ms | default: 1200 }};
+        var HIDE_DAYS = {{ section.settings.hide_days | default: 14 }};
+        var TRIGGER_SCROLL = {{ section.settings.trigger_scroll_percent | default: 0 }};
+        var USE_EXIT = {{ section.settings.enable_exit_intent | json }};
+        var ONCE_PER_SESSION = {{ section.settings.once_per_session | json }};
+        var KEY = root.dataset.key;
 
-      function now() { return Date.now(); }
-      function ms(days) { return days * 24 * 60 * 60 * 1000; }
+        function now() { return Date.now(); }
+        function ms(days) { return days * 24 * 60 * 60 * 1000; }
 
-      function getStore() {
+        function getStore() {
         try { return window.localStorage; } catch(e) { return null; }
-      }
+        }
 
-      var store = getStore();
+        var store = getStore();
 
-      function hiddenUntil() {
+        function hiddenUntil() {
         if (!store) return 0;
         var v = store.getItem(KEY);
         return v ? parseInt(v, 10) : 0;
-      }
+        }
 
-      function hideForDays(days) {
+        function hideForDays(days) {
         if (!store) return;
         store.setItem(KEY, String(now() + ms(days)));
-      }
+        }
 
-      function hideForSession() {
+        function hideForSession() {
         try { sessionStorage.setItem(KEY + '_s', '1'); } catch(e) {}
-      }
+        }
 
-      function isSessionHidden() {
+        function isSessionHidden() {
         try { return sessionStorage.getItem(KEY + '_s') === '1'; } catch(e) { return false; }
-      }
+        }
 
-      function markHidden() {
+        function markHidden() {
         if (ONCE_PER_SESSION) hideForSession();
         else if (HIDE_DAYS > 0) hideForDays(HIDE_DAYS);
-      }
+        }
 
-      function canShow() {
-        if (window.location.pathname === '/pages/privacy-policy') return true;
+        function canShow() {
         if (window.Shopify && Shopify.designMode) return true;
         if (ONCE_PER_SESSION && isSessionHidden()) return false;
         return now() > hiddenUntil();
-      }
+        }
 
-      function show() {
+        function show() {
         if (root.classList.contains('is-visible')) return;
         root.style.display = 'block';
         root.classList.add('is-visible');
-      }
+        }
 
-      function hide() {
+        function hide() {
         root.classList.remove('is-visible');
         root.style.display = 'none';
         markHidden();
-      }
+        }
 
-      function scheduleShow() {
+        function scheduleShow() {
         if (!canShow()) return;
 
         var scheduled = false;
 
         function schedule() {
-          if (scheduled) return;
-          scheduled = true;
-          setTimeout(show, DELAY_MS);
+            if (scheduled) return;
+            scheduled = true;
+            setTimeout(show, DELAY_MS);
         }
 
         if (USE_EXIT && window.innerWidth > 989) {
-          document.addEventListener('mouseout', function onExit(e) {
+            document.addEventListener('mouseout', function onExit(e) {
             if (e.clientY <= 0) {
-              schedule();
-              document.removeEventListener('mouseout', onExit);
+                schedule();
+                document.removeEventListener('mouseout', onExit);
             }
-          });
+            });
         }
 
         if (TRIGGER_SCROLL > 0) {
-          window.addEventListener('scroll', function onScroll() {
+            window.addEventListener('scroll', function onScroll() {
             var doc = document.documentElement;
             var denom = (doc.scrollHeight - window.innerHeight) || 1;
             var scrolled = ((window.scrollY || doc.scrollTop) / denom) * 100;
             if (scrolled >= TRIGGER_SCROLL) {
-              schedule();
-              window.removeEventListener('scroll', onScroll);
+                schedule();
+                window.removeEventListener('scroll', onScroll);
             }
-          }, { passive: true });
-        }
-
-        if (window.location.pathname === '/pages/privacy-policy') {
-            show();
-            return;
+            }, { passive: true });
         }
 
         if (!USE_EXIT && TRIGGER_SCROLL <= 0) {
             setTimeout(show, DELAY_MS);
         }
-      }
-
-      var closeBtn = root.querySelector('.popup-cover__close');
-      if (closeBtn) closeBtn.addEventListener('click', hide);
-
-      var scrim = root.querySelector('.popup-cover__scrim');
-      if (scrim) scrim.addEventListener('click', hide);
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && root.classList.contains('is-visible')) {
-          hide();
         }
-      });
 
-      setTimeout(scheduleShow, 0);
+        var closeBtn = root.querySelector('.popup-cover__close');
+        if (closeBtn) closeBtn.addEventListener('click', hide);
+
+        var scrim = root.querySelector('.popup-cover__scrim');
+        if (scrim) scrim.addEventListener('click', hide);
+
+        document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && root.classList.contains('is-visible')) {
+            hide();
+        }
+        });
+
+        setTimeout(scheduleShow, 0);
     })();
-  </script>
+    </script>
 {%- endif -%}
 
 {% schema %}
