@@ -17,6 +17,7 @@
       "settings": {
         "popup_type": "promotional",
         "color_scheme": "scheme-6",
+        "image": "shopify://shop_images/3.png",
         "heading": "30 day trial. Free returns.",
         "subheading": "<p>No risk, just better protection. If it doesn’t perform, send it back.</p>",
         "button_label": "Shop Now",
