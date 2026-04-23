@@ -271,7 +271,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 40px;
-        padding: 30px;
+        padding: 40px;
         min-height: 440px;
     }
     #PopupCover-{{ section.id }} .popup-cover__left {
@@ -414,27 +414,24 @@
     }
 
     @media screen and (max-width: 989px) {
-      #PopupCover-{{ section.id }} .popup-cover__inner {
-        grid-template-columns: 1fr;
-        gap: 28px;
-        min-height: auto;
-      }
-
-      #PopupCover-{{ section.id }} .popup-cover__left,
-      #PopupCover-{{ section.id }} .popup-cover__right {
-        padding-right: 0;
-      }
-
-      #PopupCover-{{ section.id }} .popup-cover__image-wrap {
-        max-width: 100%;
-        margin-left: 0;
-      }
-
-      #PopupCover-{{ section.id }} .popup-cover__fine-print,
-      #PopupCover-{{ section.id }} .popup-cover__privacy {
-        margin-top: 20px;
-        padding-top: 0;
-      }
+        #PopupCover-{{ section.id }} .popup-cover__inner {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            min-height: auto;
+        }
+        #PopupCover-{{ section.id }} .popup-cover__left,
+        #PopupCover-{{ section.id }} .popup-cover__right {
+            padding-right: 0;
+        }
+        #PopupCover-{{ section.id }} .popup-cover__image-wrap {
+            max-width: 100%;
+            margin-left: 0;
+        }
+        #PopupCover-{{ section.id }} .popup-cover__fine-print,
+        #PopupCover-{{ section.id }} .popup-cover__privacy {
+            margin-top: 20px;
+            padding-top: 0;
+        }
     }
 
     @media screen and (max-width: 749px) {
