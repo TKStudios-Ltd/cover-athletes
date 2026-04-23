@@ -48,28 +48,15 @@
   .header-announcements__bar {
     position: relative;
     overflow: hidden;
-    padding: 5px 0;
+    padding: 4px 0;
+    background: linear-gradient(
+      90deg,
+      rgba(179, 184, 255, 0.9) 0%,
+      rgba(214, 232, 233, 0.9) 45%,
+      rgba(120, 216, 194, 0.9) 100%
+    );
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0.08) 100%
-    );
-  }
-
-  .header-announcements__bar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(105, 120, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0.1) 45%,
-      rgba(13, 220, 170, 0.18) 100%
-    );
-    pointer-events: none;
-    z-index: 1;
   }
 
   .header-announcements__bar::after {
@@ -135,16 +122,18 @@
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    padding: 0 22px;
+    padding: 0 26px;
     white-space: nowrap;
   }
 
   .header-announcements .announcement-bar__text {
     margin: 0;
+    font-size: 11px;
     line-height: 1;
-    font-size: 10px;
     font-weight: 400;
     letter-spacing: 0;
+    color: {% if section.settings.use_solid_text_color %}{{ section.settings.text_color }}{% else %}rgba(255, 255, 255, 0.92){% endif %};
+    -webkit-text-fill-color: currentColor;
   }
 
   .header-announcements .announcement-bar__text,
@@ -152,7 +141,7 @@
   .header-announcements .announcement-bar__text span,
   .header-announcements .announcement-bar__text strong,
   .header-announcements .announcement-bar__text em {
-    color: var(--announcement-text-solid);
+    color: inherit;
     -webkit-text-fill-color: currentColor;
   }
 
@@ -164,11 +153,11 @@
 
   @media screen and (max-width: 749px) {
     .header-announcements__bar {
-      padding: 4px 0;
+      padding: 3px 0;
     }
 
     .header-announcements .announcement-bar__slide {
-      padding: 0 16px;
+      padding: 0 18px;
     }
 
     .header-announcements .announcement-bar__text {
