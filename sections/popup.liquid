@@ -6,27 +6,31 @@
 {% endcomment %}
 
 {%- liquid
-  assign should_render = true
+  assign is_test_page = false
   if request.path == '/pages/privacy-policy'
-    assign should_render = true
+    assign is_test_page = true
   endif
 
-  if section.settings.hide_on_mobile and request.design_mode == false
-    if request.user_agent contains 'Mobile' or request.user_agent contains 'Android'
-      assign should_render = false
-    endif
-  endif
+  assign should_render = true
 
-  if section.settings.exclude_paths != blank and request.design_mode == false
-    assign current_path = request.path | downcase
-    assign lines = section.settings.exclude_paths | newline_to_br | split: '<br />'
-    for l in lines
-      assign p = l | strip | downcase
-      if p != blank and current_path contains p
+  unless is_test_page
+    if section.settings.hide_on_mobile and request.design_mode == false
+      if request.user_agent contains 'Mobile' or request.user_agent contains 'Android'
         assign should_render = false
       endif
-    endfor
-  endif
+    endif
+
+    if section.settings.exclude_paths != blank and request.design_mode == false
+      assign current_path = request.path | downcase
+      assign lines = section.settings.exclude_paths | newline_to_br | split: '<br />'
+      for l in lines
+        assign p = l | strip | downcase
+        if p != blank and current_path contains p
+          assign should_render = false
+        endif
+      endfor
+    endif
+  endunless
 -%}
 
 {%- if should_render -%}
