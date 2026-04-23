@@ -48,37 +48,28 @@
   .header-announcements__bar {
     position: relative;
     overflow: hidden;
-    padding: 8px 0;
+    padding: 5px 0;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0.1) 100%
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.08) 100%
     );
   }
+
   .header-announcements__bar::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
       90deg,
-      rgba(105, 120, 255, 0.9) 0%,
-      rgba(255, 255, 255, 0.95) 45%,
-      rgba(13, 220, 170, 0.9) 100%
+      rgba(105, 120, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.1) 45%,
+      rgba(13, 220, 170, 0.18) 100%
     );
     pointer-events: none;
     z-index: 1;
-
-    mix-blend-mode: screen;
-    opacity: 0.45;
-  }
-  .header-announcements__track-wrap,
-  .header-announcements__track,
-  .header-announcements__group,
-  .header-announcements .announcement-bar__slide {
-    position: relative;
-    z-index: 2;
   }
 
   .header-announcements__bar::after {
@@ -96,6 +87,15 @@
       #0ddcaa3f
     );
     pointer-events: none;
+    z-index: 3;
+  }
+
+  .header-announcements__track-wrap,
+  .header-announcements__track,
+  .header-announcements__group,
+  .header-announcements .announcement-bar__slide {
+    position: relative;
+    z-index: 2;
   }
 
   .header-announcements__track-wrap {
@@ -134,7 +134,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     flex: 0 0 auto;
     padding: 0 22px;
     white-space: nowrap;
@@ -143,7 +142,9 @@
   .header-announcements .announcement-bar__text {
     margin: 0;
     line-height: 1;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0;
   }
 
   .header-announcements .announcement-bar__text,
@@ -158,10 +159,14 @@
   .header-announcements .announcement-bar__link {
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 4;
   }
 
   @media screen and (max-width: 749px) {
+    .header-announcements__bar {
+      padding: 4px 0;
+    }
+
     .header-announcements .announcement-bar__slide {
       padding: 0 16px;
     }
