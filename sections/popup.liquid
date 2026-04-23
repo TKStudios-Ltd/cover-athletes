@@ -516,7 +516,7 @@
 
       function canShow() {
         if (window.location.pathname === '/pages/privacy-policy') return true;
-        if (Shopify.designMode) return true;
+        if (window.Shopify && Shopify.designMode) return true;
         if (ONCE_PER_SESSION && isSessionHidden()) return false;
         return now() > hiddenUntil();
       }
