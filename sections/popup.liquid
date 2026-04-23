@@ -174,9 +174,11 @@
                     >
                   </div>
 
-                  <button class="popup-cover__submit" type="submit">
-                    {{ section.settings.submit_label }}
-                  </button>
+                  <div class="button-wrapper button-wrapper--button-secondary">
+                    <button class="popup-cover__submit button submit-button button-secondary" type="submit">
+                        {{ section.settings.submit_label }}
+                    </button>
+                    </div>
                 {% endif %}
               {% endform %}
 
@@ -349,35 +351,29 @@
         object-fit: cover;
         display: block;
     }
-
     #PopupCover-{{ section.id }} .popup-cover__form {
-      width: 100%;
-      margin-top: 6px;
+        width: 100%;
     }
-
     #PopupCover-{{ section.id }} .popup-cover__fields {
-      display: grid;
-      gap: 12px;
+        display: grid;
+        gap: 12px;
     }
-
     #PopupCover-{{ section.id }} .popup-cover__input {
-      width: 100%;
-      min-height: 54px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.85);
-      background: transparent;
-      color: #fff;
-      font-size: 16px;
-      outline: none;
-      box-shadow: none;
+        width: 100%;
+        min-height: 40px;
+        padding: 6px 20px 5px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 1);
+        background: transparent;
+        color: #FFFFFF;
+        font-size: 16px;
+        outline: none;
+        box-shadow: none;
     }
-
     #PopupCover-{{ section.id }} .popup-cover__input::placeholder {
-      color: rgba(255,255,255,0.92);
-      opacity: 1;
+        color: rgba(255,255,255, 1);
+        opacity: 1;
     }
-
     #PopupCover-{{ section.id }} .popup-cover__submit {
       width: 100%;
       min-height: 54px;
