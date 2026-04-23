@@ -34,10 +34,12 @@
       "disabled": true,
       "name": "t:names.announcement_bar",
       "settings": {
-        "speed": 5,
-        "section_width": "page-width",
+        "speed": 20,
+        "repeat_count": 10,
+        "section_width": "full-width",
         "color_scheme": "scheme-bbaa84de-bde0-484d-9a30-d1934e578232",
-        "divider_width": 0,
+        "use_solid_text_color": false,
+        "text_color": "#ffffff",
         "padding-block-start": 10,
         "padding-block-end": 10
       }
