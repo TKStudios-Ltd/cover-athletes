@@ -36,8 +36,8 @@ Testimonial Column Slider
                   </div>
                 {% endif %}
 
-                <div class="testimonial-card__avatar">
-                  {% if block.settings.headshot != blank %}
+                {% if block.settings.headshot != blank %}
+                  <div class="testimonial-card__avatar">
                     {{
                       block.settings.headshot
                       | image_url: width: 120
@@ -46,42 +46,21 @@ Testimonial Column Slider
                         widths: '60, 90, 120',
                         class: 'testimonial-card__avatar-image'
                     }}
-                  {% else %}
-                    <span class="testimonial-card__quote-icon" aria-hidden="true">
-                      {{- 'icon-quote.svg' | inline_asset_content -}}
-                    </span>
-                  {% endif %}
-                </div>
+                  </div>
+                {% else %}
+                  <img
+                    src="https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_Quote-Icon.svg"
+                    alt=""
+                    loading="lazy"
+                    class="testimonial-card__quote-icon"
+                  >
+                {% endif %}
               </div>
             </div>
           </div>
         {% endfor %}
       </div>
     </div>
-
-    {% if section.settings.show_arrows %}
-      <div class="testimonial-column-slider__nav">
-        <button
-          type="button"
-          class="testimonial-column-slider__arrow testimonial-column-slider__arrow--prev"
-          aria-label="Previous slide"
-        >
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M14.5 6.5L9 12L14.5 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <button
-          type="button"
-          class="testimonial-column-slider__arrow testimonial-column-slider__arrow--next"
-          aria-label="Next slide"
-        >
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9.5 6.5L15 12L9.5 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-    {% endif %}
   </div>
 </section>
 
@@ -114,10 +93,12 @@ Testimonial Column Slider
 
   .testimonial-swiper .swiper-wrapper {
     display: flex;
+    align-items: flex-start;
   }
 
   .testimonial-swiper .swiper-slide {
     flex-shrink: 0;
+    height: auto;
   }
 
   .testimonial-slide {
@@ -146,18 +127,13 @@ Testimonial Column Slider
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 250px;
-    height: 100%;
+    justify-content: flex-start;
+    height: auto;
     padding: 26px 20px 20px;
     border-radius: 8px;
     background: linear-gradient(135deg, #5b5b5b 0%, #3f3f3f 100%);
     color: #ffffff;
     overflow: hidden;
-  }
-
-  .testimonial-card__text {
-    margin-bottom: 28px;
   }
 
   .testimonial-card__text,
@@ -178,7 +154,7 @@ Testimonial Column Slider
     align-items: flex-end;
     justify-content: space-between;
     gap: 16px;
-    margin-top: auto;
+    margin-top: 24px;
   }
 
   .testimonial-card__name {
@@ -191,12 +167,9 @@ Testimonial Column Slider
     width: 42px;
     height: 42px;
     min-width: 42px;
-    border-radius: 50%;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    flex-shrink: 0;
   }
 
   .testimonial-card__avatar-image {
@@ -204,56 +177,14 @@ Testimonial Column Slider
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 50%;
   }
 
   .testimonial-card__quote-icon {
     width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #00e68a;
-  }
-
-  .testimonial-card__quote-icon svg {
-    width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
-  }
-
-  .testimonial-column-slider__nav {
-    display: flex;
-    gap: 8px;
-    margin-top: 22px;
-    padding-left: 20px;
-  }
-
-  .testimonial-column-slider__arrow {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1px solid rgba(var(--color-foreground), 0.15);
-    background: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  .testimonial-column-slider__arrow:hover {
-    opacity: 0.8;
-  }
-
-  .testimonial-column-slider__arrow:active {
-    transform: scale(0.97);
-  }
-
-  .testimonial-column-slider__arrow svg {
-    width: 18px;
-    height: 18px;
+    flex-shrink: 0;
   }
 </style>
 
@@ -266,19 +197,14 @@ Testimonial Column Slider
 
       const autoplay = section.dataset.autoplay === "true";
       const delay = parseInt(section.dataset.delay || 5) * 1000;
-      const prevBtn = section.querySelector('.testimonial-column-slider__arrow--prev');
-      const nextBtn = section.querySelector('.testimonial-column-slider__arrow--next');
 
       new Swiper(sliderEl, {
         slidesPerView: "auto",
         spaceBetween: 20,
         speed: 600,
         grabCursor: true,
-        autoplay: autoplay ? { delay, pauseOnMouseEnter: true } : false,
-        navigation: prevBtn && nextBtn ? {
-          prevEl: prevBtn,
-          nextEl: nextBtn
-        } : false
+        autoHeight: false,
+        autoplay: autoplay ? { delay, pauseOnMouseEnter: true } : false
       });
     });
   });
@@ -326,12 +252,6 @@ Testimonial Column Slider
       "step": 1,
       "label": "Autoplay delay (sec)",
       "default": 5
-    },
-    {
-      "type": "checkbox",
-      "id": "show_arrows",
-      "label": "Show arrows",
-      "default": true
     }
   ],
   "blocks": [
