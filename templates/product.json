@@ -2782,6 +2782,127 @@
         "padding-block-end": 20
       }
     },
+    "section_3m4THh": {
+      "type": "section",
+      "blocks": {
+        "custom_liquid_C8VJby": {
+          "type": "custom-liquid",
+          "name": "t:names.custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"icon-text-inline\"><img src=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" alt=\"\" srcset=\"https://cdn.shopify.com/s/files/1/0770/7341/6435/files/Cover_sm-black-logo.svg?v=1762955178\" width=\"120\" height=\"25\" loading=\"lazy\"><div class=\"eyebrow\" data-reveal>Testimonials</div></div>"
+          },
+          "blocks": {}
+        },
+        "group_e9B3XB": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_G6apcm": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h3>Trusted at the crease <strong>when it matters most.</strong></h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_G6apcm"
+          ]
+        }
+      },
+      "block_order": [
+        "custom_liquid_C8VJby",
+        "group_e9B3XB"
+      ],
+      "custom_css": [
+        "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit;}",
+        "h3 strong {font-weight: 400 !important; color: #959595;}",
+        "@media (max-width: 749px) {h3 {font-size: 30px; line-height: 1.2; letter-spacing: -1.75px; }}"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 100,
+        "padding-block-end": 80
+      }
+    },
     "testimonial_column_slider_jHKx44": {
       "type": "testimonial-column-slider",
       "blocks": {
@@ -2803,7 +2924,8 @@
           "type": "testimonial",
           "settings": {
             "testimonial": "<p>\"You spend so much time working on your technique, but something as simple as uncomfortable protection can throw you off. I used to hesitate against quicker bowlers without even realising it. This has taken that hesitation away. It’s one less thing to think about when you’re out there.\"</p>",
-            "name": "Alex T, Premier Grade"
+            "name": "Nick Kelly, Wellington",
+            "headshot": "shopify://shop_images/b08b1988-1ebf-46bc-a35d-ea21b22b4980_wo.jpg"
           }
         },
         "testimonial_WHqfNJ": {
@@ -2820,12 +2942,11 @@
         "testimonial_zapfKb",
         "testimonial_WHqfNJ"
       ],
-      "disabled": true,
       "name": "Testimonial Column Slider",
       "settings": {
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
-        "padding_top": 60,
-        "padding_bottom": 60,
+        "padding_top": 20,
+        "padding_bottom": 120,
         "autoplay": false,
         "delay": 5
       }
@@ -3171,6 +3292,7 @@
     "custom_liquid_c3QBzw",
     "section_rDYzFQ",
     "divider_t4xwVi",
+    "section_3m4THh",
     "testimonial_column_slider_jHKx44",
     "section_qPUEAp",
     "rd_slider_qdgFcB",
