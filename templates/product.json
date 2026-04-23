@@ -2782,6 +2782,55 @@
         "padding-block-end": 20
       }
     },
+    "testimonial_column_slider_jHKx44": {
+      "type": "testimonial-column-slider",
+      "blocks": {
+        "testimonial_eGgJ9m": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"I’ve had a few nasty hits over the years and it definitely sticks with you mentally. You start second guessing yourself, especially in training. Since using this, I haven’t had that same worry. It feels properly built to handle impact without sacrificing comfort.\"</p>",
+            "name": "Ben H, Academy Player"
+          }
+        },
+        "testimonial_F9q6Fn": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"The fit is unreal. Doesn’t move around, doesn’t pinch, and doesn’t feel bulky either. Easily the best I’ve used.\"</p>",
+            "name": "Ryan K, Wicketkeeper"
+          }
+        },
+        "testimonial_zapfKb": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"You spend so much time working on your technique, but something as simple as uncomfortable protection can throw you off. I used to hesitate against quicker bowlers without even realising it. This has taken that hesitation away. It’s one less thing to think about when you’re out there.\"</p>",
+            "name": "Alex T, Premier Grade"
+          }
+        },
+        "testimonial_WHqfNJ": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"I didn’t realise how much I was adjusting my old gear until I stopped needing to. This just stays in place, feels secure, and lets you move properly. Big difference in long sessions.\"</p>",
+            "name": "Matt S, Opening Batsman"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_eGgJ9m",
+        "testimonial_F9q6Fn",
+        "testimonial_zapfKb",
+        "testimonial_WHqfNJ"
+      ],
+      "disabled": true,
+      "name": "Testimonial Column Slider",
+      "settings": {
+        "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "autoplay": false,
+        "delay": 5,
+        "show_arrows": true
+      }
+    },
     "section_qPUEAp": {
       "type": "section",
       "blocks": {
@@ -3123,6 +3172,7 @@
     "custom_liquid_c3QBzw",
     "section_rDYzFQ",
     "divider_t4xwVi",
+    "testimonial_column_slider_jHKx44",
     "section_qPUEAp",
     "rd_slider_qdgFcB",
     "hero_KJUQdV"
