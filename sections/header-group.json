@@ -115,7 +115,6 @@
     },
     "popup_YTmDFb": {
       "type": "popup",
-      "disabled": true,
       "name": "Popup",
       "settings": {
         "popup_type": "promotional",
