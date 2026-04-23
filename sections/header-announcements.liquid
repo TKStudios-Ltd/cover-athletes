@@ -19,12 +19,11 @@
 <aside
   class="header-announcements spacing-style section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
   style="
-    {% render 'spacing-padding', settings: section.settings %};
     --announcement-text-solid: {{ section.settings.text_color }};
     --marquee-speed: {{ section.settings.speed }}s;
   "
 >
-  <div class="header-announcements__bar">
+  <div class="header-announcements__bar" style="{% render 'spacing-padding', settings: section.settings %}">
     <div class="header-announcements__track-wrap">
       <div class="header-announcements__track">
         {% for i in (1..repeat_count) %}
