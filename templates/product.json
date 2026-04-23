@@ -2820,6 +2820,7 @@
         "testimonial_zapfKb",
         "testimonial_WHqfNJ"
       ],
+      "disabled": true,
       "name": "Testimonial Column Slider",
       "settings": {
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
