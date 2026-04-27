@@ -2910,8 +2910,9 @@
         "testimonial_k4eyfm": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "",
-            "name": ""
+            "testimonial": "<p>\"Cover is genuinely a superior product to anything I’ve ever used. After years of playing cricket, I know exactly what that kind of hit usually feels like and this was completely different. I didn’t feel a thing.<br/><br/>Beyond the protection, it’s incredibly comfortable. The jock strap is more dynamic from a training perspective, making it easier to put on, take off, and use day-to-day.\"</p>",
+            "name": "Henry Blackwell, Club Player",
+            "headshot": "shopify://shop_images/Henry-Blackwell-Headshot.jpg"
           }
         },
         "testimonial_eGgJ9m": {
@@ -2949,8 +2950,9 @@
         "testimonial_WHqfNJ": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "<p>\"I didn’t realise how much I was adjusting my old gear until I stopped needing to. This just stays in place, feels secure, and lets you move properly. Big difference in long sessions.\"</p>",
-            "name": "Matt S, Opening Batsman"
+            "testimonial": "<p>\"This box is fantastic. Super lightweight I barely even felt it was there. It’s so comfy and easy to use. The jock strap keeps things secure and the adjustable straps caters for all sizes. Couldn’t recommend this more highly.\"</p>",
+            "name": "Lachlan Best, Club Player",
+            "headshot": "shopify://shop_images/12b569d8-bb96-4a26-af2e-0ec01dab13d1_IMG_3927.webp"
           }
         }
       },
@@ -2962,7 +2964,6 @@
         "testimonial_zapfKb",
         "testimonial_WHqfNJ"
       ],
-      "disabled": true,
       "name": "Testimonial Column Slider",
       "settings": {
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
