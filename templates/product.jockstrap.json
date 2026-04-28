@@ -2812,30 +2812,33 @@
         "testimonial_PjF3JP": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "<p>\"I’ve had a few nasty hits over the years and it definitely sticks with you mentally. You start second guessing yourself, especially in training. Since using this, I haven’t had that same worry. It feels properly built to handle impact without sacrificing comfort.\"</p>",
-            "name": "Ben H, Academy Player"
+            "testimonial": "<p>\"Cover is genuinely a superior product to anything I’ve ever used. Beyond the protection, it’s incredibly comfortable. The jock strap is more dynamic from a training perspective, making it easier to put on, take off, and use day-to-day.\"</p>",
+            "name": "Henry Blackwell, Club Player",
+            "headshot": "shopify://shop_images/Henry-Blackwell-Headshot.jpg"
           }
         },
         "testimonial_TDJYLr": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "<p>\"The fit is unreal. Doesn’t move around, doesn’t pinch, and doesn’t feel bulky either. Easily the best I’ve used.\"</p>",
-            "name": "Ryan K, Wicketkeeper"
+            "testimonial": "<p>\"Couldn't recommend more, the fit and comfort of the jock strap plus the box is unreal. Truly feels like Cover are redefining what protection should feel like!!\"</p>",
+            "name": "Adithya Ashok, International Player",
+            "headshot": "shopify://shop_images/4LDWOMI_MicrosoftTeams_image_1_png.webp"
           }
         },
         "testimonial_QW8QcC": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "<p>\"You spend so much time working on your technique, but something as simple as uncomfortable protection can throw you off. I used to hesitate against quicker bowlers without even realising it. This has taken that hesitation away. It’s one less thing to think about when you’re out there.\"</p>",
-            "name": "Nick Kelly, Wellington",
-            "headshot": "shopify://shop_images/b08b1988-1ebf-46bc-a35d-ea21b22b4980_wo.jpg"
+            "testimonial": "<p>\"Comfort plus protection. Great design. Highly recommend.\"</p>",
+            "name": "Katene Clarke, International Player",
+            "headshot": "shopify://shop_images/images-1.jpg"
           }
         },
         "testimonial_GBNiWi": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "<p>\"I didn’t realise how much I was adjusting my old gear until I stopped needing to. This just stays in place, feels secure, and lets you move properly. Big difference in long sessions.\"</p>",
-            "name": "Matt S, Opening Batsman"
+            "testimonial": "<p>\"Next level protection and the best jock strap. Been hit a couple times already and you naturally expect pain but it never comes\"</p>",
+            "name": "Peter Younghusband, International Player",
+            "headshot": "shopify://shop_images/images.jpg"
           }
         }
       },
@@ -2845,7 +2848,6 @@
         "testimonial_QW8QcC",
         "testimonial_GBNiWi"
       ],
-      "disabled": true,
       "name": "Testimonial Column Slider",
       "settings": {
         "color_scheme": "scheme-53dfe23e-3905-4ebe-b7ff-626ea31d29c5",
