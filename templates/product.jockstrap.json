@@ -2840,13 +2840,22 @@
             "name": "Peter Younghusband, International Player",
             "headshot": "shopify://shop_images/images.jpg"
           }
+        },
+        "testimonial_znLAkp": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"This box is fantastic. Super lightweight I barely even felt it was there. It’s so comfy and easy to use. The jock strap keeps things secure and the adjustable straps caters for all sizes. Couldn’t recommend this more highly.\"</p>",
+            "name": "Lachlan Best, Club Player",
+            "headshot": "shopify://shop_images/12b569d8-bb96-4a26-af2e-0ec01dab13d1_IMG_3927.webp"
+          }
         }
       },
       "block_order": [
         "testimonial_PjF3JP",
         "testimonial_TDJYLr",
         "testimonial_QW8QcC",
-        "testimonial_GBNiWi"
+        "testimonial_GBNiWi",
+        "testimonial_znLAkp"
       ],
       "name": "Testimonial Column Slider",
       "settings": {
