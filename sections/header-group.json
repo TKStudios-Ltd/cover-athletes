@@ -17,7 +17,7 @@
         "announcement_gPzpeE": {
           "type": "_announcement",
           "settings": {
-            "text": "We are now shipping to Australia and the United Kingdom",
+            "text": "We are now shipping to Australia",
             "link": "shopify://products/core-cover-jockstrap",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
