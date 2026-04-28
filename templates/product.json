@@ -2869,7 +2869,6 @@
         "custom_liquid_C8VJby",
         "group_e9B3XB"
       ],
-      "disabled": true,
       "custom_css": [
         "h3 {font-family: \"Graphik\", sans-serif !important; font-size: 48px; line-height: 1.1; letter-spacing: -2px; font-weight: 400 !important; text-transform: inherit;}",
         "h3 strong {font-weight: 400 !important; color: #959595;}",
@@ -2935,7 +2934,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial": "<p>\"Next level protection and the best jock strap. Been hit a couple times already and you naturally expect pain but it never comes\"</p>",
-            "name": "Peter Younghusband, International",
+            "name": "Peter Younghusband, International Player",
             "headshot": "shopify://shop_images/images.jpg"
           }
         },
