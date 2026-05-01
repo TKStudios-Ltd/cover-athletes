@@ -110,6 +110,18 @@
           placeholder="How did you hear about us?"
         >
       </div> {% endcomment %}
+
+      <!-- Message -->
+       <div class="field">
+        <label class="visually-hidden" for="{{ form_id }}-referrer">How did you hear about us</label>
+        <input
+          type="textarea"
+          id="{{ form_id }}-referrer"
+          class="contact-form__input"
+          name="contact[Message]"
+          placeholder="Message (Optional)"
+        >
+      </div> 
     </div>
 
     {{ submit_button }}
