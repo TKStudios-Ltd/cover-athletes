@@ -120,44 +120,54 @@
                   <input type="hidden" name="contact[tags]" value="popup-newsletter">
 
                   <div class="popup-cover__fields">
-                    <input
-                      class="popup-cover__input"
-                      type="text"
-                      name="contact[name]"
-                      placeholder="{{ section.settings.name_placeholder }}"
-                      autocomplete="name"
-                    >
+                    {% if section.settings.name_placeholder != blank %}
+                      <input
+                        class="popup-cover__input"
+                        type="text"
+                        name="contact[name]"
+                        placeholder="{{ section.settings.name_placeholder }}"
+                        autocomplete="name"
+                      >
+                    {% endif %}
 
-                    <input
-                      class="popup-cover__input"
-                      type="email"
-                      name="contact[email]"
-                      placeholder="{{ section.settings.email_placeholder }}"
-                      autocomplete="email"
-                      required
-                    >
+                    {% if section.settings.email_placeholder != blank %}
+                      <input
+                        class="popup-cover__input"
+                        type="email"
+                        name="contact[email]"
+                        placeholder="{{ section.settings.email_placeholder }}"
+                        autocomplete="email"
+                        required
+                      >
+                    {% endif %}
 
-                    <input
-                      class="popup-cover__input"
-                      type="tel"
-                      name="contact[phone]"
-                      placeholder="{{ section.settings.phone_placeholder }}"
-                      autocomplete="tel"
-                    >
+                    {% if section.settings.phone_placeholder != blank %}
+                      <input
+                        class="popup-cover__input"
+                        type="tel"
+                        name="contact[phone]"
+                        placeholder="{{ section.settings.phone_placeholder }}"
+                        autocomplete="tel"
+                      >
+                    {% endif %}
 
-                    <input
-                      class="popup-cover__input"
-                      type="text"
-                      name="contact[company]"
-                      placeholder="{{ section.settings.country_placeholder }}"
-                    >
+                    {% if section.settings.country_placeholder != blank %}
+                      <input
+                        class="popup-cover__input"
+                        type="text"
+                        name="contact[company]"
+                        placeholder="{{ section.settings.country_placeholder }}"
+                      >
+                    {% endif %}
 
-                    <input
-                      class="popup-cover__input"
-                      type="text"
-                      name="contact[body]"
-                      placeholder="{{ section.settings.hear_placeholder }}"
-                    >
+                    {% if section.settings.hear_placeholder != blank %}
+                      <input
+                        class="popup-cover__input"
+                        type="text"
+                        name="contact[body]"
+                        placeholder="{{ section.settings.hear_placeholder }}"
+                      >
+                    {% endif %}
                   </div>
 
                   <div class="button-wrapper button-wrapper--button-secondary">
