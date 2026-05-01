@@ -113,14 +113,14 @@
 
       <!-- Message -->
        <div class="field">
-        <label class="visually-hidden" for="{{ form_id }}-referrer">How did you hear about us</label>
-        <input
-          type="textarea"
-          id="{{ form_id }}-referrer"
+        <label class="visually-hidden" for="{{ form_id }}-referrer">Message (Optional)</label>
+        <textarea
+          id="{{ form_id }}-message"
           class="contact-form__input"
-          name="contact[Message]"
+          name="contact[body]"
           placeholder="Message (Optional)"
-        >
+          rows="2"
+        ></textarea>
       </div> 
     </div>
 
