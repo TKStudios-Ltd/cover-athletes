@@ -75,7 +75,7 @@
       </div>
 
       <!-- Mobile Ph Number -->
-      <div class="field">
+      {% comment %} <div class="field">
         <label class="visually-hidden" for="{{ form_id }}-mobile">Mobile Ph Number</label>
         <input
           type="tel"
@@ -85,10 +85,10 @@
           autocomplete="tel"
           placeholder="Mobile Phone Number"
         >
-      </div>
+      </div> {% endcomment %}
 
       <!-- Country -->
-      <div class="field">
+      {% comment %} <div class="field">
         <label class="visually-hidden" for="{{ form_id }}-country">Country</label>
         <input
           type="text"
@@ -97,10 +97,10 @@
           name="contact[Country]"
           placeholder="Country"
         >
-      </div>
+      </div> {% endcomment %}
 
       <!-- How did you hear about us -->
-      <div class="field">
+      {% comment %} <div class="field">
         <label class="visually-hidden" for="{{ form_id }}-referrer">How did you hear about us</label>
         <input
           type="text"
@@ -109,7 +109,7 @@
           name="contact[How did you hear about us?]"
           placeholder="How did you hear about us?"
         >
-      </div>
+      </div> {% endcomment %}
     </div>
 
     {{ submit_button }}
