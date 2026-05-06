@@ -762,6 +762,48 @@
         "delay": 5
       }
     },
+    "testimonial_column_slider_AKJhzR": {
+      "type": "testimonial-column-slider",
+      "blocks": {
+        "testimonial_gU9AHd": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"Cover is genuinely a superior product to anything I’ve ever used. After years of playing cricket, I know exactly what that kind of hit usually feels like and this was completely different. I didn’t feel a thing.\"</p>",
+            "name": "Henry Blackwell, Club Player",
+            "headshot": "shopify://shop_images/Henry-Blackwell-Headshot.jpg"
+          }
+        },
+        "testimonial_4JERyk": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"Couldn't recommend more, the fit and comfort of the jock strap plus the box is unreal. Truly feels like Cover are redefining what protection should feel like!!\"</p>",
+            "name": "Adithya Ashok, International Player",
+            "headshot": "shopify://shop_images/4LDWOMI_MicrosoftTeams_image_1_png.webp"
+          }
+        },
+        "testimonial_6mBz3X": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"Comfort plus protection. Great design. Highly recommend.\"</p>",
+            "name": "Katene Clarke, International Player",
+            "headshot": "shopify://shop_images/images-1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_gU9AHd",
+        "testimonial_4JERyk",
+        "testimonial_6mBz3X"
+      ],
+      "name": "Testimonial Column Slider",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "autoplay": false,
+        "delay": 5
+      }
+    },
     "section_qPUEAp": {
       "type": "section",
       "blocks": {
@@ -1304,6 +1346,7 @@
     "section_48CgTF",
     "main",
     "testimonial_column_slider_HCU3ME",
+    "testimonial_column_slider_AKJhzR",
     "section_qPUEAp",
     "rd_slider_qdgFcB",
     "section_dVccD7"
