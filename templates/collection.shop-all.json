@@ -765,20 +765,20 @@
     "testimonial_column_slider_AKJhzR": {
       "type": "testimonial-column-slider",
       "blocks": {
-        "testimonial_gU9AHd": {
-          "type": "testimonial",
-          "settings": {
-            "testimonial": "<p>\"Cover is genuinely a superior product to anything I’ve ever used. After years of playing cricket, I know exactly what that kind of hit usually feels like and this was completely different. I didn’t feel a thing.\"</p>",
-            "name": "Henry Blackwell, Club Player",
-            "headshot": "shopify://shop_images/Henry-Blackwell-Headshot.jpg"
-          }
-        },
         "testimonial_4JERyk": {
           "type": "testimonial",
           "settings": {
             "testimonial": "<p>\"Couldn't recommend more, the fit and comfort of the jock strap plus the box is unreal. Truly feels like Cover are redefining what protection should feel like!!\"</p>",
             "name": "Adithya Ashok, International Player",
             "headshot": "shopify://shop_images/4LDWOMI_MicrosoftTeams_image_1_png.webp"
+          }
+        },
+        "testimonial_kmea7W": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"Next level protection and the best jock strap. Been hit a couple times already and you naturally expect pain but it never comes\"</p>",
+            "name": "Peter Younghusband, International Player",
+            "headshot": "shopify://shop_images/images.jpg"
           }
         },
         "testimonial_6mBz3X": {
@@ -789,20 +789,29 @@
             "headshot": "shopify://shop_images/images-1.jpg"
           }
         },
-        "testimonial_kmea7W": {
+        "testimonial_Kw38iK": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "<p>\"Next level protection and the best jock strap. Been hit a couple times already and you naturally expect pain but it never comes\"</p>",
-            "name": "Peter Younghusband, International Player",
-            "headshot": "shopify://shop_images/images.jpg"
+            "testimonial": "<p>\"Fantastic box and thoughtful design! Highly recommend.\"</p>",
+            "name": "Dane Cleaver, International Player",
+            "headshot": "shopify://shop_images/98488_wo.jpg"
+          }
+        },
+        "testimonial_gU9AHd": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"Cover is genuinely a superior product to anything I’ve ever used. After years of playing cricket, I know exactly what that kind of hit usually feels like and this was completely different. I didn’t feel a thing.\"</p>",
+            "name": "Henry Blackwell, Club Player",
+            "headshot": "shopify://shop_images/Henry-Blackwell-Headshot.jpg"
           }
         }
       },
       "block_order": [
-        "testimonial_gU9AHd",
         "testimonial_4JERyk",
+        "testimonial_kmea7W",
         "testimonial_6mBz3X",
-        "testimonial_kmea7W"
+        "testimonial_Kw38iK",
+        "testimonial_gU9AHd"
       ],
       "name": "Testimonial Column Slider",
       "settings": {
