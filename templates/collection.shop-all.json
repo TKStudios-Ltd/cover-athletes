@@ -788,12 +788,21 @@
             "name": "Katene Clarke, International Player",
             "headshot": "shopify://shop_images/images-1.jpg"
           }
+        },
+        "testimonial_kmea7W": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>\"Next level protection and the best jock strap. Been hit a couple times already and you naturally expect pain but it never comes\"</p>",
+            "name": "Peter Younghusband, International Player",
+            "headshot": "shopify://shop_images/images.jpg"
+          }
         }
       },
       "block_order": [
         "testimonial_gU9AHd",
         "testimonial_4JERyk",
-        "testimonial_6mBz3X"
+        "testimonial_6mBz3X",
+        "testimonial_kmea7W"
       ],
       "name": "Testimonial Column Slider",
       "settings": {
