@@ -193,7 +193,7 @@
         "row_jGwAwL": {
           "type": "row",
           "settings": {
-            "green_text": "300km",
+            "green_text": "200km",
             "black_text": "Fast Balls",
             "image": "shopify://shop_images/Cover_RD_Line-4.jpg",
             "direction": "ltr"
