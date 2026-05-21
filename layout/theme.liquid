@@ -121,9 +121,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% endif %}
 
     <script>
-    //Data Layer event for begin_checkout for GTM tracking
+    // Data Layer event for begin_checkout for GTM tracking
     document.addEventListener('click', function(e) {
-      if (e.target && e.target.id === 'checkout') {
+      // Catch either the checkout button ID or generic cart checkout submit attributes
+      if (e.target && (e.target.id === 'checkout' || e.target.name === 'checkout')) {
         // Fetch the freshest cart data from Shopify's API
         fetch('/cart.js')
           .then(response => response.json())
@@ -136,16 +137,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 'value': cart.total_price / 100,
                 'items': cart.items.map(function(item) {
                   return {
-                    'item_id': 'shopify_NZ_' + item.product_id + '_' + item.variant_id,
+                    'item_id': item.variant_id.toString(), // Cleaned: Now matches raw Variant ID format perfectly
                     'item_name': item.product_title,
                     'item_variant': item.variant_title,
+                    'item_brand': item.vendor,             // Added for full schema matching
+                    'item_category': item.product_type,     // Added for full schema matching
                     'price': item.price / 100,
                     'quantity': item.quantity
                   };
                 })
               }
             });
-          });
+          }).catch(err => console.error('GTM Begin Checkout Fetch Error:', err));
       }
     });
     </script>
