@@ -544,3 +544,25 @@
   "presets": []
 }
 {% endschema %}
+
+<script>
+//Include view_item dataLayer event
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: 'view_item',
+  ecommerce: {
+    currency: '{{ shop.currency }}',
+    value: {{ product.price | money_without_currency | remove: ',' }},
+    items: [
+      {
+        item_id: '{{ product.selected_or_first_available_variant.id }}', // Matches checkout item_id variant format
+        item_name: '{{ product.title | escape }}',
+        price: {{ product.price | money_without_currency | remove: ',' }},
+        item_brand: '{{ product.vendor | escape }}',
+        item_category: '{{ product.type | escape }}',
+        item_variant: '{{ product.selected_or_first_available_variant.title | escape }}'
+      }
+    ]
+  }
+});
+</script>
