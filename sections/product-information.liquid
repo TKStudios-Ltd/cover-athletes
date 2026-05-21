@@ -566,3 +566,49 @@ window.dataLayer.push({
   }
 });
 </script>
+
+<script>
+//Include add_to_cart dataLayer event
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Listen for standard form submissions heading to the Shopify cart API
+  document.addEventListener('submit', function(e) {
+    var target = e.target;
+    if (target && target.action && target.action.indexOf('/cart/add') !== -1) {
+      triggerAddToCart(target);
+    }
+  }, true);
+
+  // 2. Function to extract product data and push to the dataLayer
+  function triggerAddToCart(formElement) {
+    try {
+      var formData = new FormData(formElement);
+      var variantId = formData.get('id');
+      var quantity = formData.get('quantity') || 1;
+      
+      // Pull metadata if embedded in the form by the theme
+      var productName = formElement.querySelector('[name="product-title"]') 
+                        || document.querySelector('h1') 
+                        || { textContent: 'Product' };
+                        
+      var productPrice = formElement.querySelector('[name="product-price"]') 
+                         || { value: null };
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'add_to_cart',
+        ecommerce: {
+          currency: '{{ shop.currency }}',
+          value: productPrice.value ? parseFloat(productPrice.value) * parseInt(quantity, 10) : null,
+          items: [{
+            item_id: variantId ? variantId.toString() : '',
+            item_name: productName.textContent.trim(),
+            quantity: parseInt(quantity, 10)
+          }]
+        }
+      });
+    } catch (err) {
+      console.error('GTM Add to Cart Listener Error:', err);
+    }
+  }
+});
+</script>
