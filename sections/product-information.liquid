@@ -568,7 +568,7 @@ window.dataLayer.push({
 </script>
 
 <script>
-//Include add_to_cart dataLayer event
+// Include add_to_cart dataLayer event
 document.addEventListener('DOMContentLoaded', function() {
   // 1. Listen for standard form submissions heading to the Shopify cart API
   document.addEventListener('submit', function(e) {
@@ -585,23 +585,24 @@ document.addEventListener('DOMContentLoaded', function() {
       var variantId = formData.get('id');
       var quantity = formData.get('quantity') || 1;
       
-      // Pull metadata if embedded in the form by the theme
+      // Pull metadata using theme fallback or fallback h1
       var productName = formElement.querySelector('[name="product-title"]') 
                         || document.querySelector('h1') 
                         || { textContent: 'Product' };
                         
-      var productPrice = formElement.querySelector('[name="product-price"]') 
-                         || { value: null };
+      // Safely inject the raw product price via Shopify Liquid
+      var rawProductPrice = {{ product.price | money_without_currency | remove: ',' }};
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'add_to_cart',
         ecommerce: {
           currency: '{{ shop.currency }}',
-          value: productPrice.value ? parseFloat(productPrice.value) * parseInt(quantity, 10) : null,
+          value: parseFloat(rawProductPrice) * parseInt(quantity, 10),
           items: [{
             item_id: variantId ? variantId.toString() : '',
             item_name: productName.textContent.trim(),
+            price: parseFloat(rawProductPrice),
             quantity: parseInt(quantity, 10)
           }]
         }
