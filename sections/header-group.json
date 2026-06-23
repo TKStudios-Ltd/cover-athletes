@@ -17,7 +17,7 @@
         "announcement_gPzpeE": {
           "type": "_announcement",
           "settings": {
-            "text": "",
+            "text": "We're currently sold out. We're working hard on our next production run and expect new stock to be available soon 🏏",
             "link": "shopify://products/core-cover-jockstrap",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
