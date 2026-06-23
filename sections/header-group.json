@@ -33,7 +33,7 @@
       ],
       "name": "t:names.announcement_bar",
       "settings": {
-        "speed": 30,
+        "speed": 60,
         "repeat_count": 10,
         "section_width": "full-width",
         "color_scheme": "scheme-bbaa84de-bde0-484d-9a30-d1934e578232",
