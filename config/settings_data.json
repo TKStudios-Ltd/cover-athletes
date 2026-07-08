@@ -58,7 +58,7 @@
     "button_text_case_secondary": "uppercase",
     "cart_type": "drawer",
     "cart_price_font": "body",
-    "cart_delay_notice": "We're finishing up our next production run, orders may experience a slight delay. Rest assured, we're working hard to get your Cover to you as quickly as possible.\n\nSign up below to stay up to date on new market launches, product releases and availability.",
+    "cart_delay_notice": "Preorder your Cover from our next production run.\n\nDue to high demand we're currently sold out. By pre-ordering, you'll reserve your Cover from our next production run, with dispatch beginning 30 July.\n\nThank you for your patience and support. We're working hard to get every order out as quickly as possible while maintaining the quality and performance standards Cover is built on.",
     "auto_open_cart_drawer": true,
     "show_cart_note": false,
     "cart_note_open_by_default": true,
