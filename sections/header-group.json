@@ -17,7 +17,7 @@
         "announcement_gPzpeE": {
           "type": "_announcement",
           "settings": {
-            "text": "We're currently sold out. Pre-order to secure your Cover from our next production run, shipping from 30th July.",
+            "text": "We're currently sold out. Pre-order to secure your Cover from our next production run, shipping from 30th July 📦",
             "link": "shopify://products/core-cover-jockstrap",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
