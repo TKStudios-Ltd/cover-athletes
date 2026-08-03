@@ -17,7 +17,7 @@
         "announcement_gPzpeE": {
           "type": "_announcement",
           "settings": {
-            "text": "",
+            "text": "Our most popular bundle is back. Secure yours now before this production run sells out 🏏",
             "link": "shopify://products/core-cover-jockstrap",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
