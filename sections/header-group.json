@@ -17,7 +17,7 @@
         "announcement_gPzpeE": {
           "type": "_announcement",
           "settings": {
-            "text": "",
+            "text": "We're now shipping across the United Kingdom & Europe 🇬🇧 🇪🇺",
             "link": "shopify://products/core-cover-jockstrap",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
