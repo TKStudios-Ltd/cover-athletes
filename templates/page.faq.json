@@ -2048,7 +2048,7 @@
                     "text_jK97LA": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We currently ship throughout New Zealand and Australia. We will be expanding to other international shipping destinations in the near future.</p>",
+                        "text": "<p>We currently ship throughout New Zealand, Australia, Singapore, Europe, Hong Kong and the United Kingdom. We will be expanding to other international shipping destinations in the near future.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -2087,7 +2087,7 @@
                     "text_xHWAEE": {
                       "type": "text",
                       "settings": {
-                        "text": "<ul><li>New Zealand: 2–4 business days</li><li>Australia: 4–8 business days</li></ul><p>Delivery times may vary during peak periods.</p>",
+                        "text": "<ul><li>New Zealand: 2–4 business days</li><li>Australia: 4–8 business days</li><li>Europe & UK: 8-10 business days</li><li>Asia: 8-10 business days</li></ul><p>Delivery times may vary during peak periods.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
