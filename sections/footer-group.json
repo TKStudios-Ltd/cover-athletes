@@ -25,7 +25,7 @@
         "fine_print": "<p>30 day trial valid on first purchase. Items must be returned within 30 days in good condition. Click here for full terms.</p>",
         "name_placeholder": "Full Name",
         "email_placeholder": "Email",
-        "phone_placeholder": "Mobile Phone Number",
+        "phone_placeholder": "",
         "country_placeholder": "Country",
         "hear_placeholder": "",
         "submit_label": "Join Clubroom Now",
