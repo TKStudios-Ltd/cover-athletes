@@ -27,7 +27,7 @@
         "email_placeholder": "Email",
         "phone_placeholder": "Mobile Phone Number",
         "country_placeholder": "Country",
-        "hear_placeholder": "How did you hear about us?",
+        "hear_placeholder": "",
         "submit_label": "Join Clubroom Now",
         "privacy_text": "<p>For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, please review our <a href=\"/pages/privacy-policy\" target=\"_blank\" title=\"/pages/privacy-policy\">Privacy Policy</a>.</p>",
         "success_message": "Thanks for signing up.",
